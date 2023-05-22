@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "R_CrossPlatformSecurity/1.0.0": {
+        "dependencies": {
+          "Microsoft.JSInterop": "6.0.13",
+          "R_APICommonDTO": "1.0.0"
+        },
+        "runtime": {
+          "R_CrossPlatformSecurity.dll": {}
+        }
+      },
+      "Microsoft.JSInterop/6.0.13": {
+        "runtime": {
+          "lib/net6.0/Microsoft.JSInterop.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1322.58013"
+          }
+        }
+      },
+      "R_APICommonDTO/1.0.0": {
+        "runtime": {
+          "R_APICommonDTO.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "R_CrossPlatformSecurity/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.JSInterop/6.0.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HJtcxT6IPVqwwcZHCQeXVn4A2FEs0CWwRYEsyiTBiEu02joZc/soAKiuvQ3EUQf41rS6Km7cil11yLwSbFVK7w==",
+      "path": "microsoft.jsinterop/6.0.13",
+      "hashPath": "microsoft.jsinterop.6.0.13.nupkg.sha512"
+    },
+    "R_APICommonDTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

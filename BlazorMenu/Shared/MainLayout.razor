@@ -1,0 +1,59 @@
+﻿@layout TelerikLayout
+@inherits LayoutComponentBase
+
+<TelerikRootComponent>
+    <AuthorizeView>
+        <NotAuthorized>
+            <Login />
+        </NotAuthorized>
+        <Authorized>
+            <div class="page">
+                @*<div class="nav-container">
+            <div class="menu-button">
+                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>*@
+                <R_MessageBoxContainer />
+                <NavMenu />
+
+                @*<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">BLazor Menu</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="sidebar pb-3">
+                        <NavMenu />
+                    </div>
+                    <div class="offcanvas-footer p-3 fs-6">
+                        &copy; 2023 PT. Realta Chakradarma
+                    </div>
+                </div>*@
+
+                <main>
+                    <div class="top-row px-4 py-2">
+                        <div class="dropdown">
+                            @*<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a href="https://docs.microsoft.com/aspnet/" class="dropdown-item" target="_blank">About</a></li>
+                                <li><a class="dropdown-item" href="#">Change Password</a></li>
+                                <li><a @onclick="@Logout" class="dropdown-item ms-0 "><i class="fas fa-sign-out-alt me-2"></i>Log Out</a></li>
+                            </ul>*@
+                            <a @onclick="@Logout" class="dropdown-item ms-0 "><i class="fas fa-sign-out-alt me-2"></i>Log Out</a>
+                        </div>
+                    </div>
+
+                    <article class="content px-4">
+                        <R_ErrorHandler>
+                            <BlazorMenu.Shared.Tabs.MenuTabSet />
+                        </R_ErrorHandler>
+                    </article>
+                </main>
+            </div>
+        </Authorized>
+    </AuthorizeView>
+</TelerikRootComponent>
+

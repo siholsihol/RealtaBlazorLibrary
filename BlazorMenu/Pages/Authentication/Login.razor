@@ -1,0 +1,32 @@
+﻿@page "/login"
+@layout MainLayout
+@attribute [AllowAnonymous]
+
+<R_MessageBoxContainer />
+@*<EditForm Model="@_loginModel" OnValidSubmit="@ValidateUser" OnInvalidSubmit="@OnInvalidSubmit">
+    <div class="wrapper">
+        <div class="form-signin">
+            <h2 class="form-signin-heading">Login</h2>
+            <input type="text" class="form-control" @bind="_loginModel.CompanyId" placeholder="company id" />
+            <input type="text" class="form-control" @bind="_loginModel.UserId" placeholder="user id" />
+            <input type="password" class="form-control" @bind="_loginModel.Password" placeholder="password" />
+            <label class="checkbox">
+                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+            </label>
+            <input class="btn btn-lg btn-primary btn-block form-control" type="submit" value="Login" @onclick="@ValidateUser" />
+        </div>
+    </div>
+</EditForm>*@
+
+<div class="wrapper">
+    <div class="form-signin">
+        <h2 class="form-signin-heading">Login</h2>
+        <input type="text" class="form-control" @bind="_loginModel.CompanyId" placeholder="company id" />
+        <input type="text" class="form-control" @bind="_loginModel.UserId" placeholder="user id" />
+        <input type="password" class="form-control" @bind="_loginModel.Password" placeholder="password" />
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+        </label>
+        <input class="btn btn-lg btn-primary btn-block form-control" type="submit" value="Login" @onclick="@ValidateUser" />
+    </div>
+</div>

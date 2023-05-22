@@ -1,0 +1,48 @@
+﻿
+<div class="@NavMenuCssClass" @onclick="() => ToggleNavMenu()" >
+    @if (_menuList == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <ul class="nav flex-column">
+            @foreach (var menu in _menuIds)
+            {
+                <li class="nav-item px-2">
+                    <NavLink class="nav-link" href="" @onclick="() => GetClicked(menu.Value)">
+                        <span class="fa fa-plus me-2" aria-hidden="true"></span> @menu.Value.CMENU_NAME
+                    </NavLink>
+
+                    <ul class="nav flex-column">
+                        @if (expandedSubNav && menu.Key == _clickedMenu)
+                        {
+                            @foreach (var subMenu in _menuGroupList)
+	                        {
+                                 <li class="nav-item ps-3">
+                                     <NavLink class="nav-link" href="" @onclick="() => GetClickedGroup(subMenu)">
+                                        <span class="fa fa-plus me-2" aria-hidden="true"></span> @subMenu.CSUB_MENU_NAME
+                                     </NavLink>
+
+                                     <ul class="nav flex-column">
+                                         @if (expandedSubMenu && subMenu.CSUB_MENU_ID == _clickedGroup)
+                                         {
+                                             @foreach (var program in _menuProgramList)
+                                             {
+                                                 <li class="nav-item">
+                                                     <NavLink class="nav-link" @onclick="@(() => GoTo(program))">
+                                                         <span class="fa fa-file me-2" aria-hidden="true"></span> @program.CSUB_MENU_NAME
+                                                     </NavLink>
+                                                 </li>
+                                             }
+                                         }
+                                     </ul>
+                                 </li>
+	                        }
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    }
+</div>

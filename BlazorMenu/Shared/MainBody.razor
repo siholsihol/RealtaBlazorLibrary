@@ -1,0 +1,57 @@
+﻿@inherits ComponentBase
+
+<CascadingValue Value="this" Name="currentMainBody">
+    @*<TelerikTabStrip @bind-ActiveTabIndex="@ActiveTabIndex"
+                         PersistTabContent>
+            @foreach (var loTab in Tabs)
+            {
+                @if (loTab.Body != null)
+                {
+                    <TabStripTab Title="@loTab.Title"
+                                 Id="@loTab.Id.ToString()"
+                                 Disabled="@loTab.Disabled"
+                                 Visible="@loTab.Visible"
+                                 @key="@loTab.Id">
+                        <HeaderTemplate>
+                            <strong>@loTab.Title</strong>
+                            @if (loTab.Closeable)
+                            {
+                                <i class="oi oi-x" @onclick="@(() => OnTabClose(loTab))"></i>
+                            }
+                        </HeaderTemplate>
+                        <Content>
+                            <CascadingValue Value="@loTab" Name="currentTab" TValue="R_TabProgram">
+                                <R_PopupContainer />
+                                @if (loTab.Body != null)
+                                {
+                                    @loTab.Body
+                                }
+                            </CascadingValue>
+                        </Content>
+                    </TabStripTab>
+                }
+            }
+        </TelerikTabStrip>*@
+
+    <R_Tabs @ref="@_tabRef" 
+            OnTabRemoved="@OnTabRemoved"
+            OnTabRemoving="@OnTabRemoving" 
+            OnActiveTabChanged="@OnActiveTabChanged">
+        @foreach (var loTab in Tabs)
+        {
+            @if (loTab.Body != null)
+            {
+                <R_Tab Title="@loTab.Title" Id="@loTab.Id.ToString()" IsCloseable="@loTab.Closeable" IsActive="@loTab.IsActive">
+                    <CascadingValue Value="@loTab" Name="currentTab" TValue="R_TabProgram" IsFixed>
+                        <R_PopupContainer />
+
+                        @if (loTab.Body != null)
+                        {
+                            @loTab.Body
+                        }
+                    </CascadingValue>
+                </R_Tab>
+            }
+        }
+    </R_Tabs>
+</CascadingValue>

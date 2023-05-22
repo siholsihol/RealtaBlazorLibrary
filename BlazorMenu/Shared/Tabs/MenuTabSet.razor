@@ -1,0 +1,117 @@
+﻿@inherits ComponentBase
+
+@if (Tabs.Count == 0)
+{
+    @*<div>Home</div>*@
+}
+else
+{
+<TelerikTabStrip ActiveTabIndex="@ActiveTabIndex" 
+                 ActiveTabIndexChanged="@OnActiveTabIndexChanged" 
+                 PersistTabContent="true">
+    @foreach (var loTab in Tabs)
+    {
+        <TabStripTab Title="@loTab.Title" 
+                     Disabled="@loTab.Disabled" 
+                     Visible="@loTab.Visible"
+                     Id="@loTab.Id.ToString()"
+                     @key="@loTab.Id">
+            <HeaderTemplate>
+                <strong>@loTab.Title</strong>
+                <i class="oi oi-x" @onclick="@(() => OnTabClose(loTab))"></i>
+            </HeaderTemplate>
+            <Content>
+                @if (loTab.Body != null)
+                {
+                    <CascadingValue Value="@loTab" Name="currentTabMenu" TValue="MenuTab">
+                        <MainBody>
+                            @loTab.Body
+                        </MainBody>
+                    </CascadingValue>
+                }
+            </Content>
+        </TabStripTab>
+    }
+</TelerikTabStrip>
+}
+
+@code {
+    private int ActiveTabIndex = 0;
+
+    [Inject]
+    public MenuTabSetTool TabSetTool { get; set; }
+
+    [CascadingParameter(Name = "RouteView")]
+    public MenuTabsRouteView RouteView { get; set; }
+
+    public List<MenuTab> Tabs => TabSetTool.Tabs;
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (Tabs.Count == 0)
+            return Task.CompletedTask;
+
+        for (int i = 0; i < Tabs.Count; i++)
+        {
+            var item = Tabs[i];
+            if (item.IsActive)
+            {
+                ScrollToTab(item);
+            }
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private Task OnTabClose(MenuTab poTab)
+    {
+        var liTabIndex = Tabs.IndexOf(poTab);
+        Tabs.Remove(poTab);
+
+        if (poTab.IsActive)
+        {
+            MenuTab activeTab = null;
+            if (liTabIndex > 0)
+                activeTab = Tabs[liTabIndex - 1];
+            else if (Tabs.Count > 0)
+                activeTab = Tabs[0];
+
+            if (activeTab != null)
+                ActivateTab(activeTab);
+            else
+                NavigationManager.NavigateTo("/");
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private Task ActivateTab(MenuTab poTab)
+    {
+        TabSetTool.AddTab(poTab.Title, poTab.Url);
+
+        return Task.CompletedTask;
+    }
+
+    private Task OnActiveTabIndexChanged(int piTabIndex)
+    {
+        var loCurrentTab = Tabs[piTabIndex];
+
+        TabSetTool.AddTab(loCurrentTab.Title, loCurrentTab.Url);
+
+        return Task.CompletedTask;
+    }
+
+    private Task ScrollToTab(MenuTab poTab)
+    {
+        if (ActiveTabIndex != Tabs.IndexOf(poTab))
+        {
+            ActiveTabIndex = Tabs.IndexOf(poTab);
+            StateHasChanged();
+        }
+
+        return Task.CompletedTask;
+    }
+}

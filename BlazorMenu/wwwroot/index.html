@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Blazor Web Test</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="BlazorMenu.styles.css" rel="stylesheet" />
+
+    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+
+    <link rel="stylesheet" href="css/test-default.css" />
+
+    <script src="js/aes-js-3.1.2.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/theme.js"></script>
+
+    <script src="js/fontawesome.all.min.js"></script>
+
+    <link rel="stylesheet" href="css/R_BlazorControlStyle.css" />
+</head>
+
+<body>
+    <div id="app">
+        <div class="row d-flex align-items-center" style="min-height:100vh;">
+            <div class="col text-center">
+                Loading...
+            </div>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <script type="text/javascript">
+        function encryptText(inputSrt, keyStr, ivStr) {
+
+            var keyBytes = aesjs.utils.utf8.toBytes(keyStr);
+            var ivBytes = aesjs.utils.utf8.toBytes(ivStr);
+            var textBytes = aesjs.utils.utf8.toBytes(inputSrt);
+
+            var aesCbc = new aesjs.ModeOfOperation.cbc(keyBytes, ivBytes);
+
+            var encryptedBytes = aesCbc.encrypt(aesjs.padding.pkcs7.pad(textBytes));
+            return aesjs.utils.hex.fromBytes(encryptedBytes);
+        }
+
+        function decryptText(inputStr, keyStr, ivStr) {
+            var keyBytes = aesjs.utils.utf8.toBytes(keyStr);
+            var ivBytes = aesjs.utils.utf8.toBytes(ivStr);
+            var encryptedBytes = aesjs.utils.hex.toBytes(inputStr);
+
+            var aesCbc = new aesjs.ModeOfOperation.cbc(keyBytes, ivBytes);
+
+            var decryptedBytes = aesCbc.decrypt(encryptedBytes);
+            return aesjs.utils.utf8.fromBytes(decryptedBytes);
+        }
+    </script>
+</body>
+
+</html>

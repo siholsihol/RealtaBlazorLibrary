@@ -1,0 +1,23 @@
+﻿@page "/home"
+@page "/"
+
+@if (!_isHasTab)
+{
+
+}
+else
+{
+    <h1>HOME with TAB</h1>
+}
+
+
+@code {
+    private bool _isHasTab = false;
+
+    //[Inject] public NavigationManager _navigationManager { get; set; }
+
+    protected override void OnInitialized()
+    {
+        
+    }
+}

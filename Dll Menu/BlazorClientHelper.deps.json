@@ -1,0 +1,92 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "BlazorClientHelper/1.0.0": {
+        "dependencies": {
+          "R_BlazorFrontEnd": "1.0.0.0",
+          "R_ContextFrontEnd": "1.0.0.0"
+        },
+        "runtime": {
+          "BlazorClientHelper.dll": {}
+        }
+      },
+      "R_BlazorFrontEnd/1.0.0.0": {
+        "runtime": {
+          "R_BlazorFrontEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_ContextFrontEnd/1.0.0.0": {
+        "runtime": {
+          "R_ContextFrontEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_CommonFrontBackAPI/1.0.0.0": {
+        "runtime": {
+          "R_CommonFrontBackAPI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_APICommonDTO/1.0.0.0": {
+        "runtime": {
+          "R_APICommonDTO.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_ContextEnumAndInterface/1.0.0.0": {
+        "runtime": {
+          "R_ContextEnumAndInterface.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BlazorClientHelper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_BlazorFrontEnd/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_ContextFrontEnd/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_CommonFrontBackAPI/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_APICommonDTO/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_ContextEnumAndInterface/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
