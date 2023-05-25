@@ -30,37 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\js\vendors\anchorjs\anchor.min.js" />
-    <None Include="wwwroot\js\vendors\bootstrap\bootstrap.min.js" />
-    <None Include="wwwroot\js\vendors\chart\chart.min.js" />
-    <None Include="wwwroot\js\vendors\choices\choices.min.js" />
-    <None Include="wwwroot\js\vendors\countup\countUp.umd.js" />
-    <None Include="wwwroot\js\vendors\dayjs\dayjs.min.js" />
-    <None Include="wwwroot\js\vendors\draggable\draggable.bundle.legacy.js" />
-    <None Include="wwwroot\js\vendors\dropzone\dropzone.min.js" />
-    <None Include="wwwroot\js\vendors\echarts\echarts.min.js" />
-    <None Include="wwwroot\js\vendors\fontawesome\all.min.js" />
-    <None Include="wwwroot\js\vendors\fullcalendar\main.min.js" />
-    <None Include="wwwroot\js\vendors\glightbox\glightbox.min.js" />
-    <None Include="wwwroot\js\vendors\is\is.min.js" />
-    <None Include="wwwroot\js\vendors\leaflet.markercluster\leaflet.markercluster.js" />
-    <None Include="wwwroot\js\vendors\leaflet.tilelayer.colorfilter\leaflet-tilelayer-colorfilter.min.js" />
-    <None Include="wwwroot\js\vendors\leaflet\leaflet.js" />
-    <None Include="wwwroot\js\vendors\list.js\list.min.js" />
-    <None Include="wwwroot\js\vendors\lodash\lodash.min.js" />
-    <None Include="wwwroot\js\vendors\lottie\lottie.min.js" />
-    <None Include="wwwroot\js\vendors\overlayscrollbars\OverlayScrollbars.min.js" />
-    <None Include="wwwroot\js\vendors\plyr\plyr.polyfilled.min.js" />
-    <None Include="wwwroot\js\vendors\popper\popper.min.js" />
-    <None Include="wwwroot\js\vendors\prism\prism.js" />
-    <None Include="wwwroot\js\vendors\rater-js\index.js" />
-    <None Include="wwwroot\js\vendors\swiper\swiper-bundle.min.js" />
-    <None Include="wwwroot\js\vendors\tinymce\tinymce.min.js" />
-    <None Include="wwwroot\js\vendors\typed.js\typed.js" />
-    <None Include="wwwroot\js\vendors\validator\validator.min.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.14" />

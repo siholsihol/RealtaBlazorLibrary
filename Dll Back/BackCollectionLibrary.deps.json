@@ -15,6 +15,7 @@
           "R_ContextAPIMiddleware": "1.0.0",
           "R_ContextBackEnd": "1.0.0",
           "R_ControllerPlugins": "1.0.0",
+          "R_CrossPlatformSecurity": "1.0.0",
           "R_ExceptionAPIMiddleware": "1.0.0",
           "R_HelperController": "1.0.0",
           "R_LogHeaderMiddleware": "1.0.0",
@@ -289,6 +290,14 @@
           "lib/net6.0/Microsoft.IdentityModel.Tokens.dll": {
             "assemblyVersion": "6.23.1.0",
             "fileVersion": "6.23.1.30908"
+          }
+        }
+      },
+      "Microsoft.JSInterop/6.0.13": {
+        "runtime": {
+          "lib/net6.0/Microsoft.JSInterop.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1322.58013"
           }
         }
       },
@@ -1470,6 +1479,15 @@
           "R_ControllerPlugins.dll": {}
         }
       },
+      "R_CrossPlatformSecurity/1.0.0": {
+        "dependencies": {
+          "Microsoft.JSInterop": "6.0.13",
+          "R_APICommonDTO": "1.0.0"
+        },
+        "runtime": {
+          "R_CrossPlatformSecurity.dll": {}
+        }
+      },
       "R_ExceptionAPIMiddleware/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -1764,6 +1782,13 @@
       "sha512": "sha512-hPPOGGIZRFl8QxZfc4Saa56Q4RrpBoT7E+VgW9qdHoiRm/ieh1aSaeXhp3uNh8EBkO92skiav2I4AUxwtBDHgA==",
       "path": "microsoft.identitymodel.tokens/6.23.1",
       "hashPath": "microsoft.identitymodel.tokens.6.23.1.nupkg.sha512"
+    },
+    "Microsoft.JSInterop/6.0.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HJtcxT6IPVqwwcZHCQeXVn4A2FEs0CWwRYEsyiTBiEu02joZc/soAKiuvQ3EUQf41rS6Km7cil11yLwSbFVK7w==",
+      "path": "microsoft.jsinterop/6.0.13",
+      "hashPath": "microsoft.jsinterop.6.0.13.nupkg.sha512"
     },
     "Microsoft.Net.Http.Headers/2.2.0": {
       "type": "package",
@@ -2607,6 +2632,11 @@
       "sha512": ""
     },
     "R_ControllerPlugins/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_CrossPlatformSecurity/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
