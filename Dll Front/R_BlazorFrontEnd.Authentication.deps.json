@@ -495,14 +495,14 @@
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "sha512-x6cMzSzfJIcwqY9pXI+7bjhTb/+Ko+oJ0cRSC7UUt1NaZhcbuHUGKhvF7Rb4e3ZVQ2p9ZaVwpxtS7ZyeZyhUZQ==",
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Targets/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
+      "sha512": "sha512-TH6/0HJwof2yGcTjUv7eIMWDcgqX0FZOBbjG1DaJllBoHjdTRZoU8HvSDZNXfQbxAp9/dP0swLCBxrpB0d5Nmw==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
@@ -565,7 +565,7 @@
     "System.Text.Encoding/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
+      "sha512": "sha512-Ci6Lf8dFM1Gb6qKfmpcw9NYolJq+8vlmvr6B4hJxTBPGAu29SMZcneuitJrME/rhZHbAUWbEA1U0jUCeM22QDw==",
       "path": "system.text.encoding/4.3.0",
       "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
     },

@@ -11,10 +11,10 @@
           "Blazored.LocalStorage": "4.2.0",
           "Microsoft.AspNetCore.Components.WebAssembly": "6.0.14",
           "Microsoft.Extensions.Http": "7.0.0",
-          "R_APIClient": "1.0.0",
           "R_BlazorFrontEnd": "1.0.0",
           "R_BlazorFrontEnd.Authentication": "1.0.0",
           "R_BlazorFrontEnd.Excel": "1.0.0",
+          "R_APIClient": "1.0.0.0",
           "R_AuthenticationEnumAndInterface": "1.0.0.0",
           "R_CommonFrontBackAPI": "1.0.0.0",
           "R_ContextEnumAndInterface": "1.0.0.0",
@@ -412,14 +412,6 @@
           }
         }
       },
-      "MimeMapping/1.0.1.37": {
-        "runtime": {
-          "lib/netstandard2.1/MimeMapping.dll": {
-            "assemblyVersion": "1.0.1.37",
-            "fileVersion": "1.0.1.37"
-          }
-        }
-      },
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -524,16 +516,6 @@
           "System.Text.Encodings.Web": "6.0.0"
         }
       },
-      "R_APIClient/1.0.0": {
-        "dependencies": {
-          "MimeMapping": "1.0.1.37",
-          "Newtonsoft.Json": "13.0.1",
-          "System.Text.Json": "6.0.0"
-        },
-        "runtime": {
-          "R_APIClient.dll": {}
-        }
-      },
       "R_BlazorFrontEnd/1.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.1"
@@ -558,6 +540,14 @@
         },
         "runtime": {
           "R_BlazorFrontEnd.Excel.dll": {}
+        }
+      },
+      "R_APIClient/1.0.0.0": {
+        "runtime": {
+          "R_APIClient.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_AuthenticationEnumAndInterface/1.0.0.0": {
@@ -857,14 +847,14 @@
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "sha512-x6cMzSzfJIcwqY9pXI+7bjhTb/+Ko+oJ0cRSC7UUt1NaZhcbuHUGKhvF7Rb4e3ZVQ2p9ZaVwpxtS7ZyeZyhUZQ==",
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Targets/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
+      "sha512": "sha512-TH6/0HJwof2yGcTjUv7eIMWDcgqX0FZOBbjG1DaJllBoHjdTRZoU8HvSDZNXfQbxAp9/dP0swLCBxrpB0d5Nmw==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
@@ -874,13 +864,6 @@
       "sha512": "sha512-hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
-    },
-    "MimeMapping/1.0.1.37": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KyvZaEsIOlrbs3+uyqylnDy3QepY0iyVHEsYpefs7OGCBCfWnW7XuQ55hATazdkcav50GbX26TmhBO4lC05pjQ==",
-      "path": "mimemapping/1.0.1.37",
-      "hashPath": "mimemapping.1.0.1.37.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
@@ -948,7 +931,7 @@
     "System.Text.Encoding/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
+      "sha512": "sha512-Ci6Lf8dFM1Gb6qKfmpcw9NYolJq+8vlmvr6B4hJxTBPGAu29SMZcneuitJrME/rhZHbAUWbEA1U0jUCeM22QDw==",
       "path": "system.text.encoding/4.3.0",
       "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
     },
@@ -973,11 +956,6 @@
       "path": "system.text.json/6.0.0",
       "hashPath": "system.text.json.6.0.0.nupkg.sha512"
     },
-    "R_APIClient/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "R_BlazorFrontEnd/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -990,6 +968,11 @@
     },
     "R_BlazorFrontEnd.Excel/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_APIClient/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
