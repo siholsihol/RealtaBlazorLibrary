@@ -22,7 +22,8 @@
 @code {
     private List<Assembly> lazyLoadedAssemblies = new()
     {
-        //typeof(GSM00100Front.GSM00100).Assembly,
+        typeof(GSM00100Front.GSM00100).Assembly,
+        typeof(SAB02400Front.SAB02400).Assembly,
     };
 
     private async Task OnNavigateAsync(NavigationContext args)

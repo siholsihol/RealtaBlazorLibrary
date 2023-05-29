@@ -16,9 +16,10 @@
 
     <script src="js/aes-js-3.1.2.js"></script>
 
-    <!--<link rel="stylesheet" href="css/R_BlazorControlStyle.css" />-->
-    <link href="_content/R_BlazorFrontEnd.Controls/css/R_BlazorControlStyle.css" rel="stylesheet" />
-    <script src="_content/R_BlazorFrontEnd.Controls/exampleJsInterop.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/R_BlazorControlStyle.css" />
+    <!--<script src="js/R_BlazorFrontEnd.Controls.js" type="text/javascript"></script>-->
+    <!--<link href="_content/R_BlazorFrontEnd.Controls/css/R_BlazorControlStyle.css" rel="stylesheet" />-->
+    <script src="_content/R_BlazorFrontEnd.Controls/R_BlazorFrontEnd.Controls.js" defer></script>
 </head>
 
 <body>
@@ -59,6 +60,18 @@
 
             var decryptedBytes = aesCbc.decrypt(encryptedBytes);
             return aesjs.utils.utf8.fromBytes(decryptedBytes);
+        }
+
+        window.downloadFileFromStream = async (fileName, contentStreamReference) => {
+            const arrayBuffer = await contentStreamReference.arrayBuffer();
+            const blob = new Blob([arrayBuffer]);
+            const url = URL.createObjectURL(blob);
+            const anchorElement = document.createElement('a');
+            anchorElement.href = url;
+            anchorElement.download = fileName ?? '';
+            anchorElement.click();
+            anchorElement.remove();
+            URL.revokeObjectURL(URL);
         }
     </script>
 </body>

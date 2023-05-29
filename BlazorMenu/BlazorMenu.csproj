@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
+    <PackageReference Include="EPPlus" Version="6.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.14" />
 	<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.14" PrivateAssets="all" />
@@ -50,6 +51,18 @@
     </Reference>
     <Reference Include="BlazorMenuModel">
       <HintPath>..\Dll Menu\BlazorMenuModel.dll</HintPath>
+    </Reference>
+    <Reference Include="GSM00100Common">
+      <HintPath>..\..\Realta NetCore Library\Release\GSM00100\GSM00100Common.dll</HintPath>
+    </Reference>
+    <Reference Include="GSM00100Front">
+      <HintPath>..\..\Realta NetCore Library\Release\GSM00100\GSM00100Front.dll</HintPath>
+    </Reference>
+    <Reference Include="GSM00100FrontResources">
+      <HintPath>..\..\Realta NetCore Library\Release\GSM00100\GSM00100FrontResources.dll</HintPath>
+    </Reference>
+    <Reference Include="GSM00100Model">
+      <HintPath>..\..\Realta NetCore Library\Release\GSM00100\GSM00100Model.dll</HintPath>
     </Reference>
     <Reference Include="R_APIClient">
       <HintPath>..\Dll Front\R_APIClient.dll</HintPath>
@@ -101,6 +114,15 @@
     </Reference>
     <Reference Include="R_SecurityPolicyFront">
       <HintPath>..\Dll Menu\R_SecurityPolicyFront.dll</HintPath>
+    </Reference>
+    <Reference Include="SAB02400Common">
+      <HintPath>..\..\Realta NetCore Library\Release\SAB02400\SAB02400Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SAB02400Front">
+      <HintPath>..\..\Realta NetCore Library\Release\SAB02400\SAB02400Front.dll</HintPath>
+    </Reference>
+    <Reference Include="SAB02400Model">
+      <HintPath>..\..\Realta NetCore Library\Release\SAB02400\SAB02400Model.dll</HintPath>
     </Reference>
   </ItemGroup>
 
