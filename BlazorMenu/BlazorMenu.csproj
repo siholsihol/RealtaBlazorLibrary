@@ -8,28 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="JSInterop\**" />
-    <Compile Remove="Shared\NewTabs\**" />
-    <Content Remove="JSInterop\**" />
-    <Content Remove="Shared\NewTabs\**" />
-    <EmbeddedResource Remove="JSInterop\**" />
-    <EmbeddedResource Remove="Shared\NewTabs\**" />
-    <None Remove="JSInterop\**" />
-    <None Remove="Shared\NewTabs\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Authentication\BlazorMenuTokenRepository.cs" />
-    <Compile Remove="Services\R_ILoginService.cs" />
-    <Compile Remove="Services\R_LoginService.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Shared\Tabs\_Tab.razor" />
-    <Content Remove="wwwroot\js\R_BlazorMenuJsInterop.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
     <PackageReference Include="EPPlus" Version="6.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.14" />
@@ -39,7 +17,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.23.1" />
     <PackageReference Include="Telerik.UI.for.Blazor" Version="3.7.0" />
-    <!--<PackageReference Include="Toolbelt.Blazor.HttpClientInterceptor" Version="10.1.0" />-->
   </ItemGroup>
 
   <ItemGroup>
@@ -124,14 +101,6 @@
     <Reference Include="SAB02400Model">
       <HintPath>..\..\Realta NetCore Library\Release\SAB02400\SAB02400Model.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Shared\Tabs\_Tab.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Shared\Tabs\_Tab.razor" />
   </ItemGroup>
 
     <!--<ItemGroup>
