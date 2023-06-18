@@ -65,14 +65,7 @@ namespace BlazorMenu.Authentication
                     _clientHelper.Set_CultureUI(leLoginCulture);
                 }
                 else
-                {
                     _clientHelper.Set_CultureUI(eCulture.English);
-                }
-
-                //if (!_navigationManager.Uri.Equals(_navigationManager.BaseUri, StringComparison.InvariantCultureIgnoreCase))
-                //{
-                //    _navigationManager.NavigateTo(_navigationManager.BaseUri);
-                //}
 
                 if (_menuService.MenuAccess == null)
                     await _menuService.SetMenuAccessAsync();
@@ -120,19 +113,30 @@ namespace BlazorMenu.Authentication
 
         private async Task UserLockingFlushAsync()
         {
-            var lcSavedToken = _tokenRepository.R_GetToken();
-            var loUserClaim = GetClaimsFromToken(lcSavedToken);
+            var loEx = new R_Exception();
 
-            var loParam = new LoginDTO
+            try
             {
-                CCOMPANY_ID = loUserClaim.Where(x => x.Type == "COMPANY_ID").FirstOrDefault().Value,
-                CUSER_ID = loUserClaim.Where(x => x.Type == "USER_ID").FirstOrDefault().Value
-            };
+                var lcSavedToken = _tokenRepository.R_GetToken();
+                var loUserClaim = GetClaimsFromToken(lcSavedToken);
 
-            R_LoginViewModel _loginViewModel = new R_LoginViewModel();
-            await _loginViewModel.UserLockingFlushAsync(loParam);
+                var loParam = new LoginDTO
+                {
+                    CCOMPANY_ID = loUserClaim.Where(x => x.Type == "COMPANY_ID").FirstOrDefault().Value,
+                    CUSER_ID = loUserClaim.Where(x => x.Type == "USER_ID").FirstOrDefault().Value
+                };
 
-            ClearLocalStorage();
+                R_LoginViewModel _loginViewModel = new R_LoginViewModel();
+                await _loginViewModel.UserLockingFlushAsync(loParam);
+
+                ClearLocalStorage();
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
         }
 
         private void ClearLocalStorage()

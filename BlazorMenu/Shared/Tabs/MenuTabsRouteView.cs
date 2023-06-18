@@ -16,7 +16,8 @@ namespace BlazorMenu.Shared.Tabs
 
         protected override void Render(RenderTreeBuilder builder)
         {
-            var body = CreateBody(RouteData, NavigationManager.Uri);
+            //var body = CreateBody(RouteData, NavigationManager.Uri);
+            var body = CreatePage(RouteData);
 
             RenderContentInDefaultLayout(builder, body, true);
         }
@@ -83,6 +84,29 @@ namespace BlazorMenu.Shared.Tabs
                 }
                 builder.CloseComponent();
             };
+        }
+
+        private RenderFragment CreatePage(RouteData routeData)
+        {
+            RenderFragment page = builder =>
+            {
+                builder.OpenComponent(0, routeData.PageType);
+                foreach (var routeValue in routeData.RouteValues)
+                {
+                    builder.AddAttribute(1, routeValue.Key, routeValue.Value);
+                }
+
+                if (routeData.PageType.IsSubclassOf(typeof(R_Page)))
+                {
+                    var loAccess = GetFullFormAccess();
+                    builder.AddAttribute(1, "FormAccess", loAccess);
+                    builder.AddAttribute(2, "FormModel", R_eFormModel.MainForm);
+                }
+
+                builder.CloseComponent();
+            };
+
+            return page;
         }
 
         private R_eFormAccess[] GetFullFormAccess()

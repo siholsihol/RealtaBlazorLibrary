@@ -27,8 +27,8 @@ namespace BlazorMenu.Shared
                     true,
                     false,
                     null,
-                    R_eFormModel.MainForm,
-                    CurrentTab.Access,
+                    R_eFormModel.None,
+                    "",
                     null,
                     null);
         }
@@ -45,7 +45,8 @@ namespace BlazorMenu.Shared
             R_Detail poDetailButton)
         {
             R_TabProgram loNewTab = null;
-            var selTab = Tabs.FirstOrDefault(m => m.Title == pcTitle || string.IsNullOrEmpty(m.Title));
+
+            var selTab = Tabs.FirstOrDefault(m => m.DetailButton != null && m.DetailButton.Id == poDetailButton.Id);
             if (selTab == null)
             {
                 loNewTab = new R_TabProgram
@@ -68,17 +69,13 @@ namespace BlazorMenu.Shared
                 loNewTab = selTab;
             }
 
-            if (loNewTab.FormModel == R_eFormModel.Detail ||
-                loNewTab.FormModel == R_eFormModel.Predefine)
+            if (selTab != null)
             {
-                if (selTab != null)
-                {
-                    var loTab = _tabRef.GetTabById(selTab.Id.ToString());
-                    await _tabRef.SetActiveTabAsync(loTab);
-                }
-                else
-                    _tabRef.NotifyStateHasChanged();
+                var loTab = _tabRef.GetTabById(selTab.Id.ToString());
+                await _tabRef.SetActiveTabAsync(loTab);
             }
+            else
+                _tabRef?.NotifyStateHasChanged();
         }
 
         private async Task OnTabRemoving(R_TabRemovingEventArgs eventArgs)

@@ -9,7 +9,6 @@ namespace BlazorMenu.Services
     public class R_MenuService : R_IMenuService
     {
         private readonly IClientHelper _clientHelper;
-        //private readonly R_AccessStateContainer _stateContainer;
         private R_MenuModel _menuModel = null;
         public Dictionary<string, string[]> MenuAccess { get; private set; }
 
@@ -40,8 +39,6 @@ namespace BlazorMenu.Services
                 loResult = loMenuAccess.Data;
 
                 MenuAccess = loResult.ToDictionary(x => x.CPROGRAM_ID, x => x.CACCESS_ID.Split(','));
-
-                //_stateContainer.SetValue(MenuAccess);
             }
             catch (Exception ex)
             {
