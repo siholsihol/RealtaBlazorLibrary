@@ -25,7 +25,7 @@
                                      </NavLink>
 
                                      <ul class="nav flex-column">
-                                         @if (expandedSubMenu && subMenu.CSUB_MENU_ID == _clickedGroup)
+                                         @if (expandedSubMenu && subMenu.CMENU_ID + subMenu.CSUB_MENU_ID == _clickedGroup)
                                          {
                                              @foreach (var program in _menuProgramList)
                                              {

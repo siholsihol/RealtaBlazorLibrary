@@ -49,6 +49,8 @@ namespace BlazorMenu.Shared
         public List<MenuListDTO> _menuGroupList { get; set; }
         public void GetClicked(MenuListDTO poMenu)
         {
+            expandedSubMenu = false;
+
             _clickedMenu = poMenu.CMENU_ID;
             if (_prevClickedMenu != _clickedMenu)
             {
@@ -66,7 +68,7 @@ namespace BlazorMenu.Shared
         public List<MenuListDTO> _menuProgramList { get; set; }
         public void GetClickedGroup(MenuListDTO poMenu)
         {
-            _clickedGroup = poMenu.CSUB_MENU_ID;
+            _clickedGroup = poMenu.CMENU_ID + poMenu.CSUB_MENU_ID;
 
             if (_prevClickedGroup != _clickedGroup)
             {
