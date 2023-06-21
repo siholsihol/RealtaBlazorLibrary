@@ -11,7 +11,7 @@
           "Microsoft.AspNetCore.Components.Web": "6.0.12",
           "Newtonsoft.Json": "13.0.1",
           "R_BlazorFrontEnd": "1.0.0",
-          "Telerik.UI.for.Blazor": "4.0.0",
+          "Telerik.UI.for.Blazor": "4.0.1",
           "R_APICommonDTO": "1.0.0.0"
         },
         "runtime": {
@@ -914,7 +914,7 @@
           }
         }
       },
-      "Telerik.UI.for.Blazor/4.0.0": {
+      "Telerik.UI.for.Blazor/4.0.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "6.0.12",
           "System.Data.Common": "4.3.0",
@@ -927,8 +927,8 @@
         },
         "runtime": {
           "lib/netstandard2.1/Telerik.Blazor.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.0.0"
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
           }
         }
       },
@@ -1674,12 +1674,12 @@
       "path": "telerik.svgicons/1.0.2",
       "hashPath": "telerik.svgicons.1.0.2.nupkg.sha512"
     },
-    "Telerik.UI.for.Blazor/4.0.0": {
+    "Telerik.UI.for.Blazor/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Lr2iNOnJ8w9tRa0VOL3kflJVK/h3/ss+FxeyV2/lqYL7Z3XAy6tfQv946ue4LsB0yYEoZbSpTiRdQqY4wQXQdA==",
-      "path": "telerik.ui.for.blazor/4.0.0",
-      "hashPath": "telerik.ui.for.blazor.4.0.0.nupkg.sha512"
+      "sha512": "sha512-W4s2JPlgXDoMOY6ZKUAe0eDPQVOe52OuQWXxDRmEaEtHKix/A5hdOEqpLIs3bwwySw6XmQ8P22CTIFH+/vjAoQ==",
+      "path": "telerik.ui.for.blazor/4.0.1",
+      "hashPath": "telerik.ui.for.blazor.4.0.1.nupkg.sha512"
     },
     "Telerik.Zip/2023.1.104": {
       "type": "package",
