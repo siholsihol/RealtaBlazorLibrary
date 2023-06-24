@@ -8,15 +8,25 @@ namespace BlazorMenu.Shared
 {
     public partial class NavMenu
     {
+        private bool IconMenuActive { get; set; } = false;
+
         private bool collapseNavMenu = true;
         private bool expandedSubMenu = false;
         private bool expandedSubNav = false;
 
         private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
+        [Parameter] public EventCallback<bool> ShowIconMenu { get; set; }
+
         private void ToggleNavMenu()
         {
             collapseNavMenu = !collapseNavMenu;
+        }
+
+        private async Task ToggleIconMenu()
+        {
+            IconMenuActive = !IconMenuActive;
+            await ShowIconMenu.InvokeAsync(IconMenuActive);
         }
 
         [Inject] public R_IMenuService _menuService { get; set; }

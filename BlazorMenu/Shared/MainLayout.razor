@@ -10,7 +10,11 @@
             <div class="page">
                 <R_PopupContainer />
                 <R_MessageBoxContainer />
-                <NavMenu />
+
+                <div class="sidebar" style="@IconMenuCssClass">
+                    <NavMenu ShowIconMenu="@ToggleIconMenu" />
+                </div>
+
                 <main>
                     <div class="top-row px-4 py-2">
                         <div class="dropdown">
