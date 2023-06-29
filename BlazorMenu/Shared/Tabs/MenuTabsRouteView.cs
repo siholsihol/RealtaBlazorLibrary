@@ -1,22 +1,20 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using R_BlazorFrontEnd.Controls;
+using R_BlazorFrontEnd.Controls.Attributes;
 using R_BlazorFrontEnd.Controls.Enums;
+using R_BlazorFrontEnd.Exceptions;
 using System.Reflection;
 
 namespace BlazorMenu.Shared.Tabs
 {
     public class MenuTabsRouteView : RouteView
     {
-        [Inject]
-        public MenuTabSetTool TabSetTool { get; set; }
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
+        [Inject] public MenuTabSetTool TabSetTool { get; set; }
+        [Inject] public NavigationManager NavigationManager { get; set; }
 
         protected override void Render(RenderTreeBuilder builder)
         {
-            //var body = CreateBody(RouteData, NavigationManager.Uri);
             var body = CreatePage(RouteData);
 
             RenderContentInDefaultLayout(builder, body, true);
@@ -60,30 +58,14 @@ namespace BlazorMenu.Shared.Tabs
                 {
                     selTab.Body = body;
                     selTab.IsActive = true;
+                    selTab.PageTitle = GetTitleFromPageAttribute(RouteData.PageType);
+
                     if (isLoad)
                     {
                         selTab.IsInited = true;
                     }
                 }
             }
-        }
-
-        private RenderFragment CreateBody(RouteData routeData, string uri)
-        {
-            return builder =>
-            {
-                builder.OpenComponent(0, routeData.PageType);
-                foreach (var routeValue in routeData.RouteValues)
-                {
-                    builder.AddAttribute(1, routeValue.Key, routeValue.Value);
-                    if (routeData.PageType.IsSubclassOf(typeof(R_Page)))
-                    {
-                        var loAccess = GetFullFormAccess();
-                        builder.AddAttribute(2, "R_FormAccess", loAccess);
-                    }
-                }
-                builder.CloseComponent();
-            };
         }
 
         private RenderFragment CreatePage(RouteData routeData)
@@ -107,6 +89,31 @@ namespace BlazorMenu.Shared.Tabs
             };
 
             return page;
+        }
+
+        private string GetTitleFromPageAttribute(Type poPageType)
+        {
+            var loEx = new R_Exception();
+            var lcRtn = "";
+
+            try
+            {
+                if (!poPageType.IsSubclassOf(typeof(R_Page)))
+                    throw new Exception("Type parameter is not inherited from R_Page.");
+
+                var loAttributes = poPageType.GetCustomAttributes(true);
+
+                if (loAttributes.FirstOrDefault(x => x is R_PageAttribute) is R_PageAttribute loPageAttribute && loPageAttribute != null)
+                    lcRtn = loPageAttribute.Title;
+            }
+            catch (Exception ex)
+            {
+                loEx.Add(ex);
+            }
+
+            loEx.ThrowExceptionIfErrors();
+
+            return lcRtn;
         }
 
         private R_eFormAccess[] GetFullFormAccess()

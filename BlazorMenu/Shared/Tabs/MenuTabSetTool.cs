@@ -29,7 +29,6 @@ namespace BlazorMenu.Shared.Tabs
 
                 loNewTab = new MenuTab
                 {
-
                     Url = url,
                     Title = title,
                     IsActive = true,

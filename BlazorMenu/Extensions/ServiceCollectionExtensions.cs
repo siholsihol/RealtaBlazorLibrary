@@ -1,7 +1,5 @@
 ﻿using BlazorClientHelper;
-using Blazored.LocalStorage;
 using BlazorMenu.Authentication;
-using BlazorMenu.Constants.Storage;
 using BlazorMenu.Services;
 using BlazorMenu.Shared;
 using BlazorMenu.Shared.Tabs;
@@ -37,8 +35,8 @@ namespace BlazorMenu.Extensions
 
         internal static async Task R_UseBlazorFrontEnd(this WebAssemblyHost host)
         {
-            var loLocalStorage = host.Services.GetRequiredService<ILocalStorageService>();
-            var lcCulture = await loLocalStorage.GetItemAsStringAsync(StorageConstants.Culture);
+            var loLocalStorage = host.Services.GetRequiredService<LocalStorageService>();
+            var lcCulture = await loLocalStorage.GetCulture();
 
             CultureInfo loCulture = new CultureInfo("en");
             if (!string.IsNullOrWhiteSpace(lcCulture))

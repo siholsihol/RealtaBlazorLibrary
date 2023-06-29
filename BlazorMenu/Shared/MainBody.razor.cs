@@ -19,7 +19,7 @@ namespace BlazorMenu.Shared
         {
             if (CurrentTab != null)
                 await R_AddTab(
-                    CurrentTab.Title,
+                    string.IsNullOrWhiteSpace(CurrentTab.PageTitle) ? CurrentTab.Title : CurrentTab.PageTitle,
                     CurrentTab.Body,
                     true,
                     null,

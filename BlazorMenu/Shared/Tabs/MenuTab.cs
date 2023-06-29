@@ -14,5 +14,6 @@ namespace BlazorMenu.Shared.Tabs
         public bool Visible { get; set; } = true;
         public bool Closeable { get; set; } = true;
         public string Access { get; set; }
+        public string PageTitle { get; set; }
     }
 }
