@@ -1,7 +1,5 @@
 ﻿using BlazorClientHelper;
-using Blazored.LocalStorage;
 using BlazorMenu.Authentication;
-using BlazorMenu.Constants.Storage;
 using BlazorMenu.Services;
 using BlazorMenu.Shared.Tabs;
 using BlazorMenuModel;
@@ -9,9 +7,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using R_AuthenticationEnumAndInterface;
 using R_BlazorFrontEnd.Controls.MessageBox;
-using R_BlazorFrontEnd.Enums;
 using R_BlazorFrontEnd.Exceptions;
-using R_BlazorFrontEnd.Extensions;
 using R_CommonFrontBackAPI;
 using R_CrossPlatformSecurity;
 using R_SecurityPolicyCommon;
@@ -23,17 +19,16 @@ namespace BlazorMenu.Pages.Authentication
     {
         [Inject] private AuthenticationStateProvider _stateProvider { get; set; }
         [Inject] private R_ITokenRepository _tokenRepository { get; set; }
-        [Inject] private ILocalStorageService _localStorageService { get; set; }
+        //[Inject] private ILocalStorageService _localStorageService { get; set; }
+        [Inject] private LocalStorageService _localStorageService { get; set; }
         [Inject] private R_IMenuService _menuService { get; set; }
-        //[Inject] private R_ILoginService _loginService { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
         [Inject] public R_MessageBoxService R_MessageBox { get; set; }
-
-        private LoginModel _loginModel = new LoginModel();
-
-        R_SecurityPolicyClient loClientWrapper = new R_SecurityPolicyClient();
         [Inject] private R_ISymmetricJSProvider _encryptProvider { get; set; }
         [Inject] private MenuTabSetTool MenuTabSetTool { get; set; }
+
+        private LoginModel _loginModel = new LoginModel();
+        private R_SecurityPolicyClient loClientWrapper = new R_SecurityPolicyClient();
 
         protected override async Task OnParametersSetAsync()
         {
@@ -89,7 +84,7 @@ namespace BlazorMenu.Pages.Authentication
                 {
                     _tokenRepository.R_SetToken(loPolicyLogin.Data.CTOKEN);
 
-                    await _localStorageService.SetItemAsStringAsync(StorageConstants.TokenId, loPolicyLogin.Data.CTOKEN_ID);
+                    //await _localStorageService.SetItemAsStringAsync(StorageConstants.TokenId, loPolicyLogin.Data.CTOKEN_ID);
 
                     R_LoginViewModel _loginViewModel = new R_LoginViewModel();
                     var loLogin = await _loginViewModel.LoginAsync(_loginModel);
@@ -106,42 +101,30 @@ namespace BlazorMenu.Pages.Authentication
                         _clientHelper.Set_CultureUI(leLoginCulture);
                     }
                     else
-                    {
                         _clientHelper.Set_CultureUI(eCulture.English);
-                    }
 
-                    var loNumberInfo = Thread.CurrentThread.CurrentUICulture.NumberFormat;
-                    if (!string.IsNullOrWhiteSpace(loLogin.CNUMBER_FORMAT))
+                    var loCultureInfoBuilder = new CultureInfoBuilder();
+                    loCultureInfoBuilder.WithNumberFormatInfo(loLogin.CNUMBER_FORMAT, loLogin.IDECIMAL_PLACES)
+                                        .WithDatePattern(loLogin.CDATE_LONG_FORMAT, loLogin.CDATE_SHORT_FORMAT)
+                                        .WithTimePattern(loLogin.CTIME_LONG_FORMAT, loLogin.CTIME_SHORT_FORMAT);
+
+                    var loCultureInfo = loCultureInfoBuilder.BuildCultureInfo();
+
+                    _clientHelper.Set_Culture(loCultureInfo.NumberFormat, loCultureInfo.DateTimeFormat);
+
+                    await _localStorageService.SetCulture(loLogin.CCULTURE_ID);
+
+                    var loDictCulture = new Dictionary<string, string>
                     {
-                        loNumberInfo.NumberDecimalSeparator = loLogin.CNUMBER_FORMAT;
-                        loNumberInfo.NumberGroupSeparator = loLogin.CNUMBER_FORMAT == "," ? "." : ",";
-                        loNumberInfo.CurrencyDecimalSeparator = loLogin.CNUMBER_FORMAT;
-                        loNumberInfo.CurrencyGroupSeparator = loLogin.CNUMBER_FORMAT == "," ? "." : ",";
-                        loNumberInfo.PercentDecimalSeparator = loLogin.CNUMBER_FORMAT;
-                        loNumberInfo.PercentGroupSeparator = loLogin.CNUMBER_FORMAT == "," ? "." : ",";
-                    }
-                    else
-                    {
-                        loNumberInfo = new System.Globalization.NumberFormatInfo
-                        {
-                            NumberDecimalSeparator = ",",
-                            NumberGroupSeparator = "."
-                        };
-                    }
+                        { "CNUMBER_FORMAT", loLogin.CNUMBER_FORMAT },
+                        { "IDECIMAL_PLACES", loLogin.IDECIMAL_PLACES.ToString() },
+                        { "CDATE_LONG_FORMAT", loLogin.CDATE_LONG_FORMAT },
+                        { "CDATE_SHORT_FORMAT", loLogin.CDATE_SHORT_FORMAT },
+                        { "CTIME_LONG_FORMAT", loLogin.CTIME_LONG_FORMAT },
+                        { "CTIME_SHORT_FORMAT", loLogin.CTIME_SHORT_FORMAT }
+                    };
+                    await _localStorageService.SetCultureInfo(loDictCulture);
 
-                    loNumberInfo.NumberDecimalDigits = loLogin.IDECIMAL_PLACES;
-
-                    R_eRoundingMethod leRounding = R_EnumExtensions.ToEnum<R_eRoundingMethod>(loLogin.CROUNDING_METHOD);
-
-                    var loDateInfo = Thread.CurrentThread.CurrentUICulture.DateTimeFormat;
-                    loDateInfo.LongDatePattern = !string.IsNullOrWhiteSpace(loLogin.CDATE_LONG_FORMAT) ? loLogin.CDATE_LONG_FORMAT : "MMMM d, yyyy";
-                    loDateInfo.ShortDatePattern = !string.IsNullOrWhiteSpace(loLogin.CDATE_SHORT_FORMAT) ? loLogin.CDATE_SHORT_FORMAT : "M/d/yy";
-                    loDateInfo.LongTimePattern = !string.IsNullOrWhiteSpace(loLogin.CTIME_LONG_FORMAT) ? loLogin.CTIME_LONG_FORMAT : "hh:mm:ss tt";
-                    loDateInfo.ShortTimePattern = !string.IsNullOrWhiteSpace(loLogin.CTIME_SHORT_FORMAT) ? loLogin.CTIME_SHORT_FORMAT : "hh:mm tt";
-
-                    _clientHelper.Set_Culture(loNumberInfo, loDateInfo);
-
-                    await _localStorageService.SetItemAsStringAsync(StorageConstants.Culture, loLogin.CCULTURE_ID);
                     if (!loLogin.CCULTURE_ID.Equals("en", StringComparison.InvariantCultureIgnoreCase))
                         _navigationManager.NavigateTo(_navigationManager.Uri, true);
 

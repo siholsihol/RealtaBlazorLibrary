@@ -4,17 +4,20 @@
     <R_Tabs @ref="@_tabRef" 
             OnTabRemoved="@OnTabRemoved"
             OnTabRemoving="@OnTabRemoving" 
-            OnActiveTabChanged="@OnActiveTabChanged">
+            OnActiveTabChanged="@OnActiveTabChanged" 
+            OnActiveTabChanging="@OnActiveTabChanging">
         @foreach (var loTab in Tabs)
         {
             @if (loTab.Body != null)
             {
-                <R_Tab Title="@loTab.Title" Id="@loTab.Id.ToString()" IsCloseable="@loTab.Closeable" IsActive="@loTab.IsActive">
+                <R_Tab Title="@loTab.Title"
+                       Id="@loTab.Id.ToString()"
+                       IsActive="@loTab.IsActive">
                     <CascadingValue Value="@loTab" Name="currentTab" TValue="R_TabProgram" IsFixed>
                         @if (loTab.Body != null)
-                        {
-                            @loTab.Body
-                        }
+                            {
+                                @loTab.Body
+                            }
                     </CascadingValue>
                 </R_Tab>
             }

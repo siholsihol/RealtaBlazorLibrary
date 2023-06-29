@@ -30,6 +30,8 @@ namespace BlazorMenu.Extensions
 
             services.AddSingleton<IClientHelper, U_GlobalVar>();
 
+            services.AddScoped<LocalStorageService>();
+
             return services;
         }
 

@@ -1,7 +1,6 @@
 ﻿using BlazorMenu.Shared.Tabs;
 using Microsoft.AspNetCore.Components;
 using R_BlazorFrontEnd.Controls;
-using R_BlazorFrontEnd.Controls.Enums;
 using R_BlazorFrontEnd.Controls.Menu;
 using R_BlazorFrontEnd.Controls.Menu.Tab;
 
@@ -9,12 +8,10 @@ namespace BlazorMenu.Shared
 {
     public partial class MainBody : ComponentBase, R_IMainBody
     {
+        [CascadingParameter(Name = "currentTabMenu")] public MenuTab CurrentTab { get; set; }
         [Parameter] public RenderFragment ChildContent { get; set; }
 
         public List<R_TabProgram> Tabs { get; set; } = new();
-
-        [CascadingParameter(Name = "currentTabMenu")]
-        public MenuTab CurrentTab { get; set; }
 
         private R_Tabs _tabRef;
 
@@ -25,10 +22,6 @@ namespace BlazorMenu.Shared
                     CurrentTab.Title,
                     CurrentTab.Body,
                     true,
-                    false,
-                    null,
-                    R_eFormModel.None,
-                    "",
                     null,
                     null);
         }
@@ -37,10 +30,6 @@ namespace BlazorMenu.Shared
             string pcTitle,
             RenderFragment poBody,
             bool plSetActive,
-            bool plCloseable,
-            object poParameter,
-            R_eFormModel peFormModel,
-            string pcFormAccess,
             R_Page poParentPage,
             R_Detail poDetailButton)
         {
@@ -54,10 +43,6 @@ namespace BlazorMenu.Shared
                     Title = pcTitle,
                     IsActive = plSetActive,
                     Body = poBody,
-                    Closeable = plCloseable,
-                    Parameter = poParameter,
-                    FormModel = peFormModel,
-                    Access = pcFormAccess,
                     ParentPage = poParentPage,
                     DetailButton = poDetailButton
                 };
@@ -80,7 +65,7 @@ namespace BlazorMenu.Shared
 
         private async Task OnTabRemoving(R_TabRemovingEventArgs eventArgs)
         {
-            var poRemovedTab = Tabs.FirstOrDefault(x => x.Id == Guid.Parse(eventArgs.Tab.Id));
+            var poRemovedTab = GetTabById(Guid.Parse(eventArgs.Tab.Id));
 
             if (poRemovedTab.Close != null)
             {
@@ -92,11 +77,11 @@ namespace BlazorMenu.Shared
 
         private void OnTabRemoved(R_Tab tab)
         {
-            var poRemovedTab = Tabs.FirstOrDefault(x => x.Id == Guid.Parse(tab.Id));
+            var poRemovedTab = GetTabById(Guid.Parse(tab.Id));
 
             Tabs.Remove(poRemovedTab);
 
-            if (poRemovedTab.FormModel == R_eFormModel.Detail && poRemovedTab.DetailButton != null)
+            if (poRemovedTab.DetailButton != null)
             {
                 if (poRemovedTab.DetailButton.R_After_Open_Detail.HasDelegate)
                     poRemovedTab.DetailButton.R_After_Open_Detail.InvokeAsync();
@@ -107,9 +92,19 @@ namespace BlazorMenu.Shared
         {
             Tabs.ForEach(x => { x.IsActive = false; });
 
-            var poActiveTab = Tabs.FirstOrDefault(x => x.Id == Guid.Parse(tab.Id));
+            var poActiveTab = GetTabById(Guid.Parse(tab.Id));
 
             poActiveTab.IsActive = true;
+        }
+
+        private void OnActiveTabChanging(R_ActiveTabChangingEventArgs eventArgs)
+        {
+
+        }
+
+        public R_TabProgram GetTabById(Guid tabId)
+        {
+            return Tabs.FirstOrDefault(x => x.Id == tabId);
         }
     }
 }
