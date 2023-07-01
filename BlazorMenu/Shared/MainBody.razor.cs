@@ -17,6 +17,8 @@ namespace BlazorMenu.Shared
 
         private R_Tabs _tabRef;
 
+        public event EventHandler<R_TabProgram> OnInternalTabChanging;
+
         protected override async Task OnInitializedAsync()
         {
             if (CurrentTab != null)
@@ -110,9 +112,12 @@ namespace BlazorMenu.Shared
             var poOldTab = GetTabById(Guid.Parse(eventArgs.OldTab.Id));
             var poNewTab = GetTabById(Guid.Parse(eventArgs.NewTab.Id));
 
-            if (poOldTab is null) return;
+            if (poNewTab is not null)
+            {
+                OnInternalTabChanging?.Invoke(this, poNewTab);
+            }
 
-            if (poOldTab.PredefinedDock is not null)
+            if (poOldTab is not null && poOldTab.PredefinedDock is not null)
             {
                 object loDetailResult = null;
                 if (poOldTab.Close != null)
