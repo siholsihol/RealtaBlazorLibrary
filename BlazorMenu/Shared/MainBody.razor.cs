@@ -1,6 +1,7 @@
 ﻿using BlazorMenu.Shared.Tabs;
 using Microsoft.AspNetCore.Components;
 using R_BlazorFrontEnd.Controls;
+using R_BlazorFrontEnd.Controls.Events;
 using R_BlazorFrontEnd.Controls.Interfaces;
 using R_BlazorFrontEnd.Controls.Menu;
 using R_BlazorFrontEnd.Controls.Menu.Tab;
@@ -24,6 +25,7 @@ namespace BlazorMenu.Shared
                     CurrentTab.Body,
                     true,
                     null,
+                    null,
                     null);
         }
 
@@ -32,7 +34,8 @@ namespace BlazorMenu.Shared
             RenderFragment poBody,
             bool plSetActive,
             R_Page poParentPage,
-            R_IDetail poDetailButton)
+            R_IDetail poDetailButton,
+            R_PredefinedDock poPredefinedDock)
         {
             R_TabProgram loNewTab = null;
 
@@ -45,7 +48,8 @@ namespace BlazorMenu.Shared
                     IsActive = plSetActive,
                     Body = poBody,
                     ParentPage = poParentPage,
-                    DetailButton = poDetailButton
+                    DetailButton = poDetailButton,
+                    PredefinedDock = poPredefinedDock
                 };
 
                 Tabs.Add(loNewTab);
@@ -68,24 +72,27 @@ namespace BlazorMenu.Shared
         {
             var poRemovedTab = GetTabById(Guid.Parse(eventArgs.Tab.Id));
 
-            if (poRemovedTab.Close != null)
-            {
-                var llResult = await poRemovedTab.Close(true, null);
-
-                eventArgs.Cancel = !llResult;
-            }
+            if (poRemovedTab.Closing != null)
+                eventArgs.Cancel = await poRemovedTab.Closing();
         }
 
-        private void OnTabRemoved(R_Tab tab)
+        private async Task OnTabRemoved(R_Tab tab)
         {
             var poRemovedTab = GetTabById(Guid.Parse(tab.Id));
+
+            object loDetailResult = null;
+            if (poRemovedTab.Close != null)
+                loDetailResult = await poRemovedTab.Close();
 
             Tabs.Remove(poRemovedTab);
 
             if (poRemovedTab.DetailButton != null)
             {
                 if (poRemovedTab.DetailButton.R_After_Open_Detail.HasDelegate)
-                    poRemovedTab.DetailButton.R_After_Open_Detail.InvokeAsync();
+                {
+                    var loEventArgs = new R_AfterOpenDetailEventArgs(loDetailResult);
+                    await poRemovedTab.DetailButton.R_After_Open_Detail.InvokeAsync(loEventArgs);
+                }
             }
         }
 
@@ -98,9 +105,25 @@ namespace BlazorMenu.Shared
             poActiveTab.IsActive = true;
         }
 
-        private void OnActiveTabChanging(R_ActiveTabChangingEventArgs eventArgs)
+        private async Task OnActiveTabChanging(R_ActiveTabChangingEventArgs eventArgs)
         {
+            var poOldTab = GetTabById(Guid.Parse(eventArgs.OldTab.Id));
+            var poNewTab = GetTabById(Guid.Parse(eventArgs.NewTab.Id));
 
+            if (poOldTab is null) return;
+
+            if (poOldTab.PredefinedDock is not null)
+            {
+                object loDetailResult = null;
+                if (poOldTab.Close != null)
+                    loDetailResult = await poOldTab.Close();
+
+                if (poOldTab.PredefinedDock.R_AfterOpenPredefinedDock.HasDelegate)
+                {
+                    var loEventArgs = new R_AfterOpenPredefinedDockEventArgs(loDetailResult);
+                    await poOldTab.PredefinedDock.R_AfterOpenPredefinedDock.InvokeAsync(loEventArgs);
+                }
+            }
         }
 
         public R_TabProgram GetTabById(Guid tabId)
