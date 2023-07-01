@@ -1,6 +1,7 @@
 ﻿using BlazorMenu.Shared.Tabs;
 using Microsoft.AspNetCore.Components;
 using R_BlazorFrontEnd.Controls;
+using R_BlazorFrontEnd.Controls.Interfaces;
 using R_BlazorFrontEnd.Controls.Menu;
 using R_BlazorFrontEnd.Controls.Menu.Tab;
 
@@ -31,7 +32,7 @@ namespace BlazorMenu.Shared
             RenderFragment poBody,
             bool plSetActive,
             R_Page poParentPage,
-            R_Detail poDetailButton)
+            R_IDetail poDetailButton)
         {
             R_TabProgram loNewTab = null;
 
