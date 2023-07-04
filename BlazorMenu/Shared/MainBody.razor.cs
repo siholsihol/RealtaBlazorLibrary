@@ -14,10 +14,9 @@ namespace BlazorMenu.Shared
         [Parameter] public RenderFragment ChildContent { get; set; }
 
         public List<R_TabProgram> Tabs { get; set; } = new();
+        public event AsyncEventHandler<R_TabProgram> OnInternalTabChangingAsync;
 
         private R_Tabs _tabRef;
-
-        public event EventHandler<R_TabProgram> OnInternalTabChanging;
 
         protected override async Task OnInitializedAsync()
         {
@@ -114,7 +113,8 @@ namespace BlazorMenu.Shared
 
             if (poNewTab is not null)
             {
-                OnInternalTabChanging?.Invoke(this, poNewTab);
+                if (OnInternalTabChangingAsync is not null)
+                    await OnInternalTabChangingAsync(this, poNewTab);
             }
 
             if (poOldTab is not null && poOldTab.PredefinedDock is not null)
