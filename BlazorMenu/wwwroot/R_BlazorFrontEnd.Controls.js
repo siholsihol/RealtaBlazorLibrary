@@ -20,7 +20,7 @@ export function setValueById(id, value) {
 export function scrollToSelectedRow(gridSelector) {
     var gridWrapper = document.querySelector(gridSelector);
     if (gridWrapper) {
-        var selectedRow = gridWrapper.querySelector("tr.k-state-selected");
+        var selectedRow = gridWrapper.querySelector("tr.k-selected");
         if (selectedRow) {
             selectedRow.scrollIntoView();
         }
