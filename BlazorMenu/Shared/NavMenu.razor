@@ -12,7 +12,6 @@
     </div>
 </div>
 
-
 <div class="@NavMenuCssClass" @onclick="() => ToggleNavMenu()" >
     <nav class="flex-column">
         @if (_menuList == null)
@@ -53,10 +52,12 @@
                                             {
                                                 <div class="nav-item">
                                                     <NavLink class="nav-link" @onclick="@(() => GoTo(program))">
-                                                        <span class="oi oi-file me-2" aria-hidden="true"></span>
+                                                        <span class="oi oi-file me-2" aria-hidden="true" title="@program.CSUB_MENU_NAME"></span>
                                                         @if (!IconMenuActive)
                                                         {
-                                                            @program.CSUB_MENU_NAME
+                                                            <span title="@(program.CSUB_MENU_ID + " - " + program.CSUB_MENU_NAME)">
+                                                                @program.CSUB_MENU_NAME
+                                                            </span>
                                                         }
                                                     </NavLink>
                                                 </div>

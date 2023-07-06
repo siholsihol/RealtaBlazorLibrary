@@ -74,7 +74,7 @@ namespace BlazorMenu.Authentication
             }
             catch (Exception)
             {
-                await UserLockingFlushAsync();
+                await _localStorageService.ClearLocalStorage();
                 return loState;
             }
 
