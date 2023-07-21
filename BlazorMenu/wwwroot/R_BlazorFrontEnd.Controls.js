@@ -38,3 +38,38 @@ export async function downloadFileFromStream(fileName, contentStreamReference) {
     anchorElement.remove();
     URL.revokeObjectURL(URL);
 }
+
+let result;
+let dotNetInstance;
+
+let observer = new MutationObserver(function () {
+    return dotNetInstance.invokeMethodAsync('AutoFitAllColumns');
+});
+
+let options = {
+    childList: true,
+    subtree: true,
+};
+
+export function observeTarget(dotNetObj, gridClass) {
+    result = document.querySelector(`.${gridClass} .k-grid-table:first-of-type`);
+    dotNetInstance = dotNetObj;
+
+    if (!result || !window.DotNet) {
+        window.setTimeout(observeTarget, 500);
+        return;
+    }
+    observer.observe(result, options);
+
+    if (window.DotNet) {
+        dotNetInstance.invokeMethodAsync('AutoFitAllColumns');
+        observer.disconnect();
+    }
+}
+
+export function hasWhiteSpace() {
+    const grid = document.querySelector(".k-grid");
+    const gridTable = document.querySelector(".k-grid-table");
+
+    return grid.offsetWidth > gridTable.offsetWidth;
+}

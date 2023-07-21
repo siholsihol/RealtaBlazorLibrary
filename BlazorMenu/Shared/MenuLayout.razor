@@ -1,0 +1,176 @@
+﻿@inherits ComponentBase
+
+<main class="main" id="top">
+    <div class="container" data-layout="container">
+        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl" style="display: none;">
+            <div class="d-flex align-items-center">
+                <div class="toggle-icon-wrapper">
+                    <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation" onclick="@(() => OnClick())">
+                        <span class="navbar-toggle-icon">
+                            <span class="toggle-line"></span>
+                        </span>
+                    </button>
+                </div>
+                <a class="navbar-brand" href="/">
+                    <div class="d-flex align-items-center py-3"><span class="font-sans-serif">bimasakti</span></div>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+                <div class="navbar-vertical-content scrollbar">
+                    <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+                        @foreach (var item in _data)
+                        {
+                            var lcLevel0Tag = $"#{item.Id}";
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-indicator" href="@lcLevel0Tag" data-bs-toggle="collapse" aria-expanded="false" aria-controls="@item.Text">
+                                    <div class="d-flex align-items-center">
+                                        <span class="nav-link-icon">
+                                            <span class="fas fa-chart-pie"></span>
+                                        </span>
+                                        <span class="nav-link-text ps-1">@item.Text</span>
+                                    </div>
+                                </a>
+                                <ul class="nav collapse" id="@item.Id">
+                                    @{
+                                        foreach (var item1 in item.Children)
+                                        {
+                                            var lcLevel1Tag = $"#{item1.Id}";
+                                            <li class="nav-item">
+                                                <a class="nav-link dropdown-indicator" href="@lcLevel1Tag" data-bs-toggle="collapse" aria-expanded="false" aria-controls="@item1.Text">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="nav-link-text ps-1">@item1.Text</span>
+                                                    </div>
+                                                </a>
+                                                <ul class="nav collapse" id="@item1.Id">
+                                                    @foreach (var item2 in item1.Children)
+                                                    {
+                                                        <li class="nav-item" @onclick="@(() => OnClickProgram(item2))">
+                                                            <a class="nav-link" data-bs-toggle="" aria-expanded="false">
+                                                                <div class="d-flex align-items-center">
+                                                                    <span class="nav-link-text ps-1">@item2.Text</span>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand-xl" style="display: none;">
+            <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStandard" aria-controls="navbarStandard" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
+            <a class="navbar-brand me-1 me-sm-3" href="../index-2.html">
+                <div class="d-flex align-items-center"><span class="font-sans-serif">bimasakti</span></div>
+            </a>
+        </nav>
+
+        <div class="content">
+            <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand" style="display: none;">
+                <!-- muncul ketika navbar nya di atas karena screen kecil -->
+                <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
+                    <span class="navbar-toggle-icon">
+                        <span class="toggle-line"></span>
+                    </span>
+                </button>
+                <a class="navbar-brand me-1 me-sm-3" href="../index-2.html">
+                    <div class="d-flex align-items-center"><span class="font-sans-serif">bimasakti</span></div>
+                </a>
+
+                <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
+                    <li class="nav-item">
+                        <!-- theme switcher -->
+                        <div class="theme-control-toggle fa-icon-wait px-2">
+                            <input class="form-check-input ms-0 theme-control-toggle-input" id="themeControlToggle" type="checkbox" data-theme-control="theme" value="dark" />
+                            <label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch to light theme">
+                                <span class="fas fa-sun fs-0"></span>
+                            </label>
+                            <label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch to dark theme">
+                                <span class="fas fa-moon fs-0"></span>
+                            </label>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <!-- user menu -->
+                        <a class="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="avatar avatar-xl">
+                                <img class="rounded-circle" src="assets/img/avatar.png" alt="" />
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
+                            <div class="bg-white dark__bg-1000 rounded-2 py-2">
+                                @*<a class="dropdown-item" @onclick="@OnClickProfile">Profile &amp; account</a>*@
+                                <a class="dropdown-item" href="#authentication-modal" data-bs-toggle="modal">Profile &amp; account</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" @onclick="@Logout">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="card">
+                <R_ErrorHandler>
+                    <BlazorMenu.Shared.Tabs.MenuTabSet />
+                </R_ErrorHandler>
+            </div>
+
+            <footer class="footer">
+                <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
+                    <div class="col-12 col-sm-auto text-center">
+                        <p class="mb-0 text-600">Realta Chakradarma <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2023 </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog" aria-labelledby="authentication-modal-label" aria-hidden="true">
+            <div class="modal-dialog mt-6" role="document">
+                <div class="modal-content border-0">
+                    <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
+                        <div class="position-relative z-index-1 light">
+                            <h4 class="mb-0 text-white" id="authentication-modal-label">Profile</h4>
+                        </div>
+                        <button class="btn-close btn-close-white position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body py-4 px-5">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center mb-3">
+                                <div class="avatar avatar-5xl">
+                                    <div class="h-100 w-100 rounded-circle overflow-hidden">
+                                        <img class="rounded-circle" src="assets/img/avatar.png" alt="" data-dz-thumbnail="data-dz-thumbnail" />
+                                        <input class="d-none" id="profile-image" type="file" />
+                                        <label class="mb-0 overlay-icon d-flex flex-center" for="profile-image">
+                                            <span class="bg-holder overlay overlay-0"></span>
+                                            <span class="z-index-1 text-white dark__text-white text-center fs--1">
+                                                <span class="fas fa-camera"></span>
+                                                <span class="d-block">Update</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row gx-2">
+                            <div class="mb-3 col-sm-6"><label class="form-label" for="first-name">First Name</label><input class="form-control" id="first-name" type="text" value="Anthony" /></div>
+                            <div class="mb-3 col-sm-6"><label class="form-label" for="last-name">Last Name</label><input class="form-control" id="last-name" type="text" value="Hopkins" /></div>
+                        </div>
+                        <div class="col-lg-12"> <label class="form-label" for="email1">Email</label><input class="form-control" id="email1" type="text" value="anthony@gmail.com" /></div>
+                        <div class="col-lg-6"> <label class="form-label" for="email2">Phone</label><input class="form-control" id="email2" type="text" value="+44098098304" /></div>
+                        <div class="col-lg-12"><label class="form-label" for="email3">Heading</label><input class="form-control" id="email3" type="text" value="Software Engineer" /></div>
+                        <div class="col-12 d-flex justify-content-end mt-3"><button class="btn btn-primary" type="submit">Update </button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

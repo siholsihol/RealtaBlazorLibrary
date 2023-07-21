@@ -1,39 +1,137 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('theme.min.css');
+
+:root {
+    --r-default-font-size: 12px;
+}
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #eee !important;
-    font-size:11px;
+    font-family: var(--falcon-font-sans-serif);
+    /*font-size: var(--r-default-font-size);*/
 }
 
-h1:focus {
-    outline: none;
+.k-button,
+.k-input,
+.k-input .k-input-inner,
+.k-picker,
+.k-picker .k-input-inner {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
 }
 
-a, .btn-link {
-    color: #0071c1;
+.k-datetimepicker-popup .k-button-group .k-button-text {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+.k-datetimepicker-popup .k-calendar-header .k-button, 
+.k-datepicker-popup .k-calendar-header .k-button {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
 }
 
-.content {
-    padding-top: 0.5rem;
+.k-datetimepicker-popup .k-actions .k-button {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
 }
 
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
+.k-datetimepicker-popup .k-calendar .k-link, 
+.k-datepicker-popup .k-calendar .k-link {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
 }
 
-.invalid {
-    outline: 1px solid red;
+.k-datetimepicker-popup .k-calendar .k-calendar-th, 
+.k-datepicker-popup .k-calendar .k-calendar-th {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
 }
 
-.validation-message {
-    color: red;
+.k-timepicker-popup .k-time-header .k-title, 
+.k-timepicker-popup .k-time-header .k-button, 
+.k-timepicker-popup .k-actions .k-button {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-time-list-container .k-time-list-wrapper .k-title  {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-time-list-container .k-time-list-wrapper .k-time-container {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-combobox-popup .k-list-item {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-dropdownlist-popup .k-list-item {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-colorpicker-popup .k-actions .k-button {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-radio-list .k-radio-label {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-button .k-button-text {
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-button-group .k-button-text {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-menu-popup .k-menu-group .k-menu-item {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+/*GRID*/
+.k-grid .k-grid-toolbar .k-button {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-grid-header .k-grid-header-table {
+    font-size: 14px;
+}
+
+.k-table-row {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-grid-pager .k-pager-numbers-wrap,
+.k-grid-pager .k-pager-sizes,
+.k-grid-pager .k-pager-info {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+/*MODAL*/
+.k-dialog-wrapper .k-window {
+    background-color: var(--falcon-modal-content-bg);
+}
+
+.k-button-md.k-icon-button .k-button-icon {
+    color: var(--falcon-headings-color);
+}
+
+.k-window-title {
+    color: var(--falcon-headings-color);
+    font-family: var(--falcon-font-sans-serif);
 }
 
 #blazor-error-ui {
@@ -69,48 +167,3 @@ a, .btn-link {
     margin-top: 80px;
     margin-bottom: 80px;
 }
-
-
-/* LOGIN */
-.form-signin {
-    max-width: 380px;
-    padding: 15px 35px 45px;
-    margin: 0 auto;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-    .form-signin .form-signin-heading,
-    .form-signin .checkbox {
-        margin-bottom: 30px;
-    }
-
-    .form-signin .checkbox {
-        font-weight: normal;
-    }
-
-    .form-signin .form-control {
-        position: relative;
-        font-size: 16px;
-        height: auto;
-        padding: 10px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-
-        .form-signin .form-control:focus {
-            z-index: 2;
-        }
-
-    .form-signin input[type="text"] {
-        margin-bottom: -1px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-
-    .form-signin input[type="password"] {
-        margin-bottom: 20px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }

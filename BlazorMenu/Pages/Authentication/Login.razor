@@ -3,30 +3,46 @@
 @attribute [AllowAnonymous]
 
 <R_MessageBoxContainer />
-@*<EditForm Model="@_loginModel" OnValidSubmit="@ValidateUser" OnInvalidSubmit="@OnInvalidSubmit">
-    <div class="wrapper">
-        <div class="form-signin">
-            <h2 class="form-signin-heading">Login</h2>
-            <input type="text" class="form-control" @bind="_loginModel.CompanyId" placeholder="company id" />
-            <input type="text" class="form-control" @bind="_loginModel.UserId" placeholder="user id" />
-            <input type="password" class="form-control" @bind="_loginModel.Password" placeholder="password" />
-            <label class="checkbox">
-                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-            </label>
-            <input class="btn btn-lg btn-primary btn-block form-control" type="submit" value="Login" @onclick="@ValidateUser" />
+
+<main class="main" id="top">
+    <div class="container-fluid">
+        <div class="row min-vh-100 bg-100">
+            <div class="col-6 d-none d-lg-block position-relative">
+                <div class="bg-holder" style="background-image:url(assets/img/building.jpg);background-position: 50% 20%;"></div>
+            </div>
+            <div class="col-sm-10 col-md-6 px-sm-0 align-self-center mx-auto py-5">
+                <div class="row justify-content-center g-0">
+                    <div class="col-lg-9 col-xl-8 col-xxl-6">
+                        <div class="card">
+                            <div class="card-header bg-circle-shape bg-shape text-center p-2"><label class="font-sans-serif fw-bolder fs-4 z-index-1 position-relative link-light light">bimasakti</label></div>
+                            <div class="card-body p-4">
+                                <div class="row flex-between-center">
+                                    <div class="col-auto">
+                                        <h3>Login</h3>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="split-login-companyid">Company Id</label>
+                                    <input class="form-control" id="split-login-companyid" type="text" @bind="_loginModel.CompanyId" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="split-login-username">Username</label>
+                                    <input class="form-control" id="split-login-username" type="text" @bind="_loginModel.UserId" />
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between">
+                                        <label class="form-label" for="split-login-password">Password</label>
+                                    </div>
+                                    <input class="form-control" id="split-login-password" type="password" @bind="_loginModel.Password" />
+                                </div>
+                                <div class="mb-3">
+                                    <input class="btn btn-primary d-block w-100 mt-3" type="submit" value="Login" @onclick="@ValidateUser" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</EditForm>*@
-
-<div class="wrapper">
-    <div class="form-signin">
-        <h2 class="form-signin-heading">Login</h2>
-        <input type="text" class="form-control" @bind="_loginModel.CompanyId" placeholder="company id" />
-        <input type="text" class="form-control" @bind="_loginModel.UserId" placeholder="user id" />
-        <input type="password" class="form-control" @bind="_loginModel.Password" placeholder="password" />
-        <label class="checkbox">
-            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-        </label>
-        <input class="btn btn-lg btn-primary btn-block form-control" type="submit" value="Login" @onclick="@ValidateUser" />
-    </div>
-</div>
+</main>

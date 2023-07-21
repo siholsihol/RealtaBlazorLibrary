@@ -24,7 +24,7 @@ namespace BlazorMenu.Extensions
 
             services.AddSingleton<MenuTabSetTool>();
 
-            services.AddSingleton<R_IMenuService, R_MenuService>();
+            services.AddTransient<R_IMenuService, R_MenuService>();
 
             services.AddSingleton<IClientHelper, U_GlobalVar>();
 
@@ -36,7 +36,7 @@ namespace BlazorMenu.Extensions
         internal static async Task R_UseBlazorFrontEnd(this WebAssemblyHost host)
         {
             var loLocalStorage = host.Services.GetRequiredService<LocalStorageService>();
-            var lcCulture = await loLocalStorage.GetCulture();
+            var lcCulture = await loLocalStorage.GetCultureAsync();
 
             CultureInfo loCulture = new CultureInfo("en");
             if (!string.IsNullOrWhiteSpace(lcCulture))

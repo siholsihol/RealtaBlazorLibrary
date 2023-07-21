@@ -21,7 +21,7 @@ namespace BlazorMenu.Pages.Authentication
         [Inject] private R_ITokenRepository _tokenRepository { get; set; }
         //[Inject] private ILocalStorageService _localStorageService { get; set; }
         [Inject] private LocalStorageService _localStorageService { get; set; }
-        [Inject] private R_IMenuService _menuService { get; set; }
+        //[Inject] private R_IMenuService _menuService { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
         [Inject] public R_MessageBoxService R_MessageBox { get; set; }
         [Inject] private R_ISymmetricJSProvider _encryptProvider { get; set; }
@@ -92,7 +92,7 @@ namespace BlazorMenu.Pages.Authentication
                     _clientHelper.Set_UserId(loLogin.CUSER_ID);
                     _clientHelper.Set_UserName(loLogin.CUSER_NAME);
 
-                    await _menuService.SetMenuAccessAsync();
+                    //await _menuService.SetMenuAccessAsync();
 
                     if (!string.IsNullOrWhiteSpace(loLogin.CCULTURE_ID))
                     {
@@ -112,7 +112,7 @@ namespace BlazorMenu.Pages.Authentication
 
                     _clientHelper.Set_Culture(loCultureInfo.NumberFormat, loCultureInfo.DateTimeFormat);
 
-                    await _localStorageService.SetCulture(loLogin.CCULTURE_ID);
+                    await _localStorageService.SetCultureAsync(loLogin.CCULTURE_ID);
 
                     var loDictCulture = new Dictionary<string, string>
                     {
@@ -123,7 +123,7 @@ namespace BlazorMenu.Pages.Authentication
                         { "CTIME_LONG_FORMAT", loLogin.CTIME_LONG_FORMAT },
                         { "CTIME_SHORT_FORMAT", loLogin.CTIME_SHORT_FORMAT }
                     };
-                    await _localStorageService.SetCultureInfo(loDictCulture);
+                    await _localStorageService.SetCultureInfoAsync(loDictCulture);
 
                     if (!loLogin.CCULTURE_ID.Equals("en", StringComparison.InvariantCultureIgnoreCase))
                         _navigationManager.NavigateTo(_navigationManager.Uri, true);

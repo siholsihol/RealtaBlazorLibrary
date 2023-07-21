@@ -37,6 +37,9 @@ namespace BlazorMenu.Authentication
 
             try
             {
+                if (_tokenRepository.R_IsTokenExpired())
+                    return loState;
+
                 var lcSavedToken = _tokenRepository.R_GetToken();
 
                 if (string.IsNullOrWhiteSpace(lcSavedToken))
@@ -47,7 +50,7 @@ namespace BlazorMenu.Authentication
                 _clientHelper.Set_CompanyId(loUserClaim.Where(x => x.Type == "COMPANY_ID").FirstOrDefault().Value);
                 _clientHelper.Set_UserId(loUserClaim.Where(x => x.Type == "USER_ID").FirstOrDefault().Value);
 
-                var lcCultureId = await _localStorageService.GetCulture();
+                var lcCultureId = _localStorageService.GetCulture();
                 if (!string.IsNullOrWhiteSpace(lcCultureId))
                 {
                     var leLoginCulture = R_Culture.R_GetCultureEnum(lcCultureId);
@@ -57,7 +60,7 @@ namespace BlazorMenu.Authentication
                 else
                     _clientHelper.Set_CultureUI(eCulture.English);
 
-                var loStorageCultureInfo = await _localStorageService.GetCultureInfo();
+                var loStorageCultureInfo = _localStorageService.GetCultureInfo();
 
                 var loCultureInfoBuilder = new CultureInfoBuilder();
                 loCultureInfoBuilder.WithNumberFormatInfo(loStorageCultureInfo["CNUMBER_FORMAT"], Convert.ToInt32(loStorageCultureInfo["IDECIMAL_PLACES"]))
@@ -67,14 +70,11 @@ namespace BlazorMenu.Authentication
                 var loCultureInfo = loCultureInfoBuilder.BuildCultureInfo();
                 _clientHelper.Set_Culture(loCultureInfo.NumberFormat, loCultureInfo.DateTimeFormat);
 
-                if (_menuService.MenuAccess == null)
-                    await _menuService.SetMenuAccessAsync();
-
                 loState = new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(loUserClaim, "jwt")));
             }
             catch (Exception)
             {
-                await _localStorageService.ClearLocalStorage();
+                await _localStorageService.ClearLocalStorageAsync();
                 return loState;
             }
 
@@ -129,7 +129,7 @@ namespace BlazorMenu.Authentication
                 R_LoginViewModel _loginViewModel = new R_LoginViewModel();
                 await _loginViewModel.UserLockingFlushAsync(loParam);
 
-                await _localStorageService.ClearLocalStorage();
+                await _localStorageService.ClearLocalStorageAsync();
             }
             catch (Exception ex)
             {

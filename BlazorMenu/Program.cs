@@ -15,6 +15,7 @@ builder.Services.R_AddBlazorFrontEndControls();
 builder.R_RegisterBlazorServices();
 
 builder.Services.R_AddBlazorFrontEnd();
+
 builder.Services.AddTransient<R_IFileConverter, R_FileConverter>();
 
 var host = builder.Build();

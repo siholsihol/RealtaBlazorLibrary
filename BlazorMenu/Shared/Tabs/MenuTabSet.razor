@@ -6,34 +6,47 @@
 }
 else
 {
-<TelerikTabStrip ActiveTabIndex="@ActiveTabIndex" 
-                 ActiveTabIndexChanged="@OnActiveTabIndexChanged" 
-                 PersistTabContent="true">
-    @foreach (var loTab in Tabs)
-    {
-        <TabStripTab Title="@loTab.Title" 
-                     Disabled="@loTab.Disabled" 
-                     Visible="@loTab.Visible"
-                     Id="@loTab.Id.ToString()"
-                     @key="@loTab.Id">
-            <HeaderTemplate>
-                <strong>@loTab.Title</strong>
-                <i class="oi oi-x" @onclick="@(() => OnTabClose(loTab))"></i>
-            </HeaderTemplate>
-            <Content>
-                @if (loTab.Body != null)
-                {
-                    <CascadingValue Value="@loTab" Name="currentTabMenu" TValue="MenuTab">
-                        <MainBody>
-                            @loTab.Body
-                        </MainBody>
-                    </CascadingValue>
-                }
-            </Content>
-        </TabStripTab>
-    }
-</TelerikTabStrip>
+    <div class="card-body overflow-hidden" style="padding: 5px;">
+        <TelerikTabStrip ActiveTabIndex="@ActiveTabIndex"
+                         ActiveTabIndexChanged="@OnActiveTabIndexChanged" 
+                         PersistTabContent>
+            @foreach (var loTab in Tabs)
+            {
+                <TabStripTab Title="@loTab.Title"
+                             Disabled="@loTab.Disabled"
+                             Visible="@loTab.Visible"
+                             Id="@loTab.Id.ToString()"
+                            @key="@loTab.Id">
+                    <HeaderTemplate>
+                        <strong>@loTab.Title</strong>
+                        <i class="oi oi-x" @onclick="@(() => OnTabClose(loTab))"></i>
+                    </HeaderTemplate>
+                    <Content>
+                        @if (loTab.Body != null)
+                        {
+                            <CascadingValue Value="@loTab" Name="currentTabMenu" TValue="MenuTab">
+                                <MainBody>
+                                    @loTab.Body
+                                </MainBody>
+                            </CascadingValue>
+                        }
+                    </Content>
+                </TabStripTab>
+            }
+        </TelerikTabStrip>
+    </div>
 }
+
+<style>
+    .k-tabstrip-content.k-active {
+        padding: .5rem;
+    }
+
+    .k-tabstrip-content,
+    .k-tabstrip > .k-content {
+        color: inherit;
+    }
+</style>
 
 @code {
     private int ActiveTabIndex = 0;

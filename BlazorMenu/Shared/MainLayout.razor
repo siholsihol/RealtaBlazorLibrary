@@ -7,29 +7,10 @@
             <Login />
         </NotAuthorized>
         <Authorized>
-            <div class="page">
-                <R_PopupContainer />
-                <R_MessageBoxContainer />
+            <R_PopupContainer />
+            <R_MessageBoxContainer />
 
-                <div class="sidebar" style="@IconMenuCssClass">
-                    <NavMenu ShowIconMenu="@ToggleIconMenu" />
-                </div>
-
-                <main>
-                    <div class="top-row px-4 py-2">
-                        <div class="dropdown">
-                            <a @onclick="@Logout" class="dropdown-item ms-0 "><i class="fas fa-sign-out-alt me-2"></i>Log Out</a>
-                        </div>
-                    </div>
-
-                    <article class="content px-4">
-                        <R_ErrorHandler>
-                            <BlazorMenu.Shared.Tabs.MenuTabSet />
-                        </R_ErrorHandler>
-                    </article>
-                </main>
-            </div>
+            <MenuLayout />
         </Authorized>
     </AuthorizeView>
 </TelerikRootComponent>
-
