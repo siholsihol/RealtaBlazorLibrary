@@ -12,6 +12,7 @@
           "R_APICommon": "1.0.0",
           "R_CommonFrontBackAPI": "1.0.0",
           "R_ContextBackEnd": "1.0.0",
+          "R_StorageCommon": "1.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
         "runtime": {
@@ -1114,6 +1115,11 @@
         "runtime": {
           "R_Security.dll": {}
         }
+      },
+      "R_StorageCommon/1.0.0": {
+        "runtime": {
+          "R_StorageCommon.dll": {}
+        }
       }
     }
   },
@@ -1891,6 +1897,11 @@
       "sha512": ""
     },
     "R_Security/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_StorageCommon/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
