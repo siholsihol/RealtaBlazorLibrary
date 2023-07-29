@@ -72,7 +72,8 @@ namespace BlazorMenu.Services
             {
                 StorageConstants.AuthToken,
                 StorageConstants.Culture,
-                StorageConstants.CultureInfo
+                StorageConstants.CultureInfo,
+                StorageConstants.RefreshToken
             });
         }
 
@@ -82,7 +83,8 @@ namespace BlazorMenu.Services
             {
                 StorageConstants.AuthToken,
                 StorageConstants.Culture,
-                StorageConstants.CultureInfo
+                StorageConstants.CultureInfo,
+                StorageConstants.RefreshToken
             });
         }
     }

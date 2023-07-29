@@ -7,15 +7,36 @@
 <main class="main" id="top">
     <div class="container-fluid">
         <div class="row min-vh-100 bg-100">
-            <div class="col-6 d-none d-lg-block position-relative">
-                <div class="bg-holder" style="background-image:url(assets/img/building.jpg);background-position: 50% 20%;"></div>
+            <div class="col-6 d-lg-block position-relative">
+                <div class="bg-holder" style="background-image:url(assets/img/bg-illustration.png); background-size:contain; background-position:left;"></div>
             </div>
             <div class="col-sm-10 col-md-6 px-sm-0 align-self-center mx-auto py-5">
                 <div class="row justify-content-center g-0">
                     <div class="col-lg-9 col-xl-8 col-xxl-6">
+
+                        <!-- BEGIN::Company Logo -->
+                        <span class="d-flex flex-center text-primary mb-3">
+                            <img class="me-2 w-50" style="max-height:80px;max-width:280px;" src="assets/img/logo-bimasakti.png" alt="" />
+                        </span>
+                        <!-- END::Company Logo -->
+
                         <div class="card">
-                            <div class="card-header bg-circle-shape bg-shape text-center p-2"><label class="font-sans-serif fw-bolder fs-4 z-index-1 position-relative link-light light">bimasakti</label></div>
+
+                            <!-- BEGIN::Company Name -->
+                            <div class="card-header bg-circle-shape bg-shape text-center p-2 pt-3">
+                                <label class="font-sans-serif fw-bolder fs-4 z-index-1 position-relative link-light light">Bimasakti Portal</label>
+                            </div>
+                            <!-- END::Company Name -->
+
                             <div class="card-body p-4">
+
+                                <!-- BEGIN::Alert! -->
+                                @*<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>Invalid Credential!</strong> Please check again.
+                                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>*@
+                                <!-- END::Alert! -->
+
                                 <div class="row flex-between-center">
                                     <div class="col-auto">
                                         <h3>Login</h3>
@@ -35,6 +56,15 @@
                                     </div>
                                     <input class="form-control" id="split-login-password" type="password" @bind="_loginModel.Password" />
                                 </div>
+
+                                <!-- BEGIN::Remember Me -->
+                                @*<div class="row flex-between-center">
+                                    <div class="col-auto">
+                                        <div class="form-check form-switch"><input class="form-check-input" id="flexSwitchCheckChecked" type="checkbox" checked="" /><label class="form-check-label mb-0" for="flexSwitchCheckChecked">Remember me</label></div>
+                                    </div>
+                                </div>*@
+                                <!-- END::Remember Me -->
+
                                 <div class="mb-3">
                                     <input class="btn btn-primary d-block w-100 mt-3" type="submit" value="Login" @onclick="@ValidateUser" />
                                 </div>
@@ -42,7 +72,11 @@
                         </div>
                     </div>
                 </div>
+
+                <p class="mb-0 mt-3 text-600 text-center">2023 &copy; <a href="http://www.realta.co.id" target="_blank">PT. Realta Chakradarma</a>. All rights reserved.</p>
+
             </div>
+
         </div>
     </div>
 </main>

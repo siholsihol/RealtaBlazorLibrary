@@ -170,6 +170,7 @@
           "Newtonsoft.Json": "13.0.1",
           "R_APICommonDTO": "1.0.0",
           "R_AuthenticationEnumAndInterface": "1.0.0",
+          "R_CommonFrontBackAPI": "1.0.0",
           "R_ContextEnumAndInterface": "1.0.0",
           "System.Text.Json": "6.0.0"
         },

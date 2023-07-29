@@ -73,3 +73,11 @@ export function hasWhiteSpace() {
 
     return grid.offsetWidth > gridTable.offsetWidth;
 }
+
+export function showBootstrapToast() {
+    var toastLiveExample = document.getElementById('liveToast')
+    if (toastLiveExample != null) {
+        var toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
+    }
+}

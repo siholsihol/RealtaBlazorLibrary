@@ -2,7 +2,7 @@
 
 <main class="main" id="top">
     <div class="container" data-layout="container">
-        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl" style="display: none;">
+        <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
             <div class="d-flex align-items-center">
                 <div class="toggle-icon-wrapper">
                     <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation" onclick="@(() => OnClick())">
@@ -11,8 +11,12 @@
                         </span>
                     </button>
                 </div>
-                <a class="navbar-brand" href="/">
-                    <div class="d-flex align-items-center py-3"><span class="font-sans-serif">bimasakti</span></div>
+                <a class="navbar-brand" href="index.html">
+                    <div class="d-flex align-items-center py-2">
+                        <img class="" src="assets/img/logo-bimasakti.png" alt="" style="max-width:125px; max-height:35px;" />
+                        <!-- <span class="font-sans-serif">Bimasakti</span> -->
+                    </div>
+                    <!-- <div class="d-flex align-items-center py-3"><span class="font-sans-serif">bimasakti</span></div> -->
                 </a>
             </div>
 
@@ -48,7 +52,7 @@
                                                         <li class="nav-item" @onclick="@(() => OnClickProgram(item2))">
                                                             <a class="nav-link" data-bs-toggle="" aria-expanded="false">
                                                                 <div class="d-flex align-items-center">
-                                                                    <span class="nav-link-text ps-1">@item2.Text</span>
+                                                                    <span class="fa fa-arrow-right me-1"></span><span class="nav-link-text ps-1">@item2.Text</span>
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -68,7 +72,7 @@
         <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand-xl" style="display: none;">
             <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStandard" aria-controls="navbarStandard" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
             <a class="navbar-brand me-1 me-sm-3" href="../index-2.html">
-                <div class="d-flex align-items-center"><span class="font-sans-serif">bimasakti</span></div>
+                <div class="d-flex align-items-center"><img class="me-2" src="../assets/img/icons/spot-illustrations/falcon.png" alt="" width="40" /><span class="font-sans-serif">falcon</span></div>
             </a>
         </nav>
 
@@ -80,22 +84,14 @@
                         <span class="toggle-line"></span>
                     </span>
                 </button>
-                <a class="navbar-brand me-1 me-sm-3" href="../index-2.html">
+                <a class="navbar-brand me-1 me-sm-3" href="index.html">
                     <div class="d-flex align-items-center"><span class="font-sans-serif">bimasakti</span></div>
                 </a>
 
                 <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
                     <li class="nav-item">
                         <!-- theme switcher -->
-                        <div class="theme-control-toggle fa-icon-wait px-2">
-                            <input class="form-check-input ms-0 theme-control-toggle-input" id="themeControlToggle" type="checkbox" data-theme-control="theme" value="dark" />
-                            <label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch to light theme">
-                                <span class="fas fa-sun fs-0"></span>
-                            </label>
-                            <label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch to dark theme">
-                                <span class="fas fa-moon fs-0"></span>
-                            </label>
-                        </div>
+                        <div class="theme-control-toggle fa-icon-wait px-2"><input class="form-check-input ms-0 theme-control-toggle-input" id="themeControlToggle" type="checkbox" data-theme-control="theme" value="dark" /><label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch to light theme"><span class="fas fa-sun fs-0"></span></label><label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch to dark theme"><span class="fas fa-moon fs-0"></span></label></div>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -107,10 +103,9 @@
                         </a>
                         <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
                             <div class="bg-white dark__bg-1000 rounded-2 py-2">
-                                @*<a class="dropdown-item" @onclick="@OnClickProfile">Profile &amp; account</a>*@
                                 <a class="dropdown-item" href="#authentication-modal" data-bs-toggle="modal">Profile &amp; account</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" @onclick="@Logout">Logout</a>
+                                <a class="dropdown-item" href="#" @onclick="@Logout">Logout</a>
                             </div>
                         </div>
                     </li>
@@ -126,14 +121,17 @@
             <footer class="footer">
                 <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
                     <div class="col-12 col-sm-auto text-center">
-                        <p class="mb-0 text-600">Realta Chakradarma <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2023 </p>
+                        <p class="mb-0 text-600">2023 &copy; <a href="http://www.realta.co.id" target="_blank">PT. Realta Chakradarma</a>. All rights reserved.</p>
                     </div>
+                    @*<div class="col-12 col-sm-auto text-center">
+                            <p class="mb-0 text-600">v3.9.0</p>
+                        </div>*@
                 </div>
             </footer>
         </div>
 
         <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog" aria-labelledby="authentication-modal-label" aria-hidden="true">
-            <div class="modal-dialog mt-6" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content border-0">
                     <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
                         <div class="position-relative z-index-1 light">
@@ -141,7 +139,7 @@
                         </div>
                         <button class="btn-close btn-close-white position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body py-4 px-5">
+                    <div class="modal-body p-3">
                         <div class="row">
                             <div class="col-12 d-flex justify-content-center mb-3">
                                 <div class="avatar avatar-5xl">
@@ -152,7 +150,7 @@
                                             <span class="bg-holder overlay overlay-0"></span>
                                             <span class="z-index-1 text-white dark__text-white text-center fs--1">
                                                 <span class="fas fa-camera"></span>
-                                                <span class="d-block">Update</span>
+                                                <span class="d-block">Edit Photo</span>
                                             </span>
                                         </label>
                                     </div>
@@ -160,14 +158,32 @@
                             </div>
                         </div>
 
-                        <div class="row gx-2">
-                            <div class="mb-3 col-sm-6"><label class="form-label" for="first-name">First Name</label><input class="form-control" id="first-name" type="text" value="Anthony" /></div>
-                            <div class="mb-3 col-sm-6"><label class="form-label" for="last-name">Last Name</label><input class="form-control" id="last-name" type="text" value="Hopkins" /></div>
+                        <div class="row g-2">
+                            <div class="col">
+                                <div class="form-floating"><input class="form-control" id="first-name" type="text" value="Anthony" /><label class="form-label" for="first-name">First Name</label></div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating"><input class="form-control" id="last-name" type="text" value="Hopkins" /><label class="form-label" for="last-name">Last Name</label></div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating"><input class="form-control" id="email1" type="text" value="anthony@gmail.com" /><label class="form-label" for="email1">Email</label></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="email2" type="text" value="+44098098304" /><label class="form-label" for="email2">Phone</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input class="form-control" id="email3" type="text" value="Software Engineer" /><label class="form-label" for="email3">Heading</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-lg-12"> <label class="form-label" for="email1">Email</label><input class="form-control" id="email1" type="text" value="anthony@gmail.com" /></div>
-                        <div class="col-lg-6"> <label class="form-label" for="email2">Phone</label><input class="form-control" id="email2" type="text" value="+44098098304" /></div>
-                        <div class="col-lg-12"><label class="form-label" for="email3">Heading</label><input class="form-control" id="email3" type="text" value="Software Engineer" /></div>
-                        <div class="col-12 d-flex justify-content-end mt-3"><button class="btn btn-primary" type="submit">Update </button></div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button class="btn btn-outline-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary" type="submit">Update </button>
                     </div>
                 </div>
             </div>
