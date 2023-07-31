@@ -28,14 +28,15 @@ namespace BlazorMenu.Extensions
 
             services.AddSingleton<IClientHelper, U_GlobalVar>();
 
-            services.AddScoped<LocalStorageService>();
+            services.AddScoped<R_ILocalStorage, R_LocalStorage>();
+            services.AddScoped<BlazorMenuLocalStorageService>();
 
             return services;
         }
 
         internal static async Task R_UseBlazorFrontEnd(this WebAssemblyHost host)
         {
-            var loLocalStorage = host.Services.GetRequiredService<LocalStorageService>();
+            var loLocalStorage = host.Services.GetRequiredService<BlazorMenuLocalStorageService>();
             var lcCulture = await loLocalStorage.GetCultureAsync();
 
             CultureInfo loCulture = new CultureInfo("en");

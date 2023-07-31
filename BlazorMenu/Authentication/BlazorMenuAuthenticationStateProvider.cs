@@ -14,13 +14,13 @@ namespace BlazorMenu.Authentication
     public class BlazorMenuAuthenticationStateProvider : AuthenticationStateProvider
     {
         private readonly R_ITokenRepository _tokenRepository;
-        private readonly LocalStorageService _localStorageService;
+        private readonly BlazorMenuLocalStorageService _localStorageService;
         private readonly R_IMenuService _menuService;
         private readonly IClientHelper _clientHelper;
 
         public BlazorMenuAuthenticationStateProvider(
             R_ITokenRepository tokenRepository,
-            LocalStorageService localStorageService,
+            BlazorMenuLocalStorageService localStorageService,
             IClientHelper clientHelper,
             R_IMenuService menuService)
         {

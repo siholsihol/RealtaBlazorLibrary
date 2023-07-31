@@ -21,7 +21,7 @@ namespace BlazorMenu.Pages.Authentication
         [Inject] private AuthenticationStateProvider _stateProvider { get; set; }
         [Inject] private R_ITokenRepository _tokenRepository { get; set; }
         //[Inject] private ILocalStorageService _localStorageService { get; set; }
-        [Inject] private LocalStorageService _localStorageService { get; set; }
+        [Inject] private BlazorMenuLocalStorageService _localStorageService { get; set; }
         //[Inject] private R_IMenuService _menuService { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
         [Inject] public R_MessageBoxService R_MessageBox { get; set; }
@@ -84,18 +84,14 @@ namespace BlazorMenu.Pages.Authentication
 
                 if (loPolicyLogin.Data != null)
                 {
-                    _tokenRepository.R_SetToken(loPolicyLogin.Data.CTOKEN);
-                    _tokenRepository.R_SetRefreshToken(loPolicyLogin.Data.CREFRESH_TOKEN);
-
-                    //await _localStorageService.SetItemAsStringAsync(StorageConstants.TokenId, loPolicyLogin.Data.CTOKEN_ID);
-
                     R_LoginViewModel _loginViewModel = new R_LoginViewModel();
                     var loLogin = await _loginViewModel.LoginAsync(_loginModel);
 
+                    _tokenRepository.R_SetToken(loPolicyLogin.Data.CTOKEN);
+                    _tokenRepository.R_SetRefreshToken(loPolicyLogin.Data.CREFRESH_TOKEN);
+
                     _clientHelper.Set_UserId(loLogin.CUSER_ID);
                     _clientHelper.Set_UserName(loLogin.CUSER_NAME);
-
-                    //await _menuService.SetMenuAccessAsync();
 
                     if (!string.IsNullOrWhiteSpace(loLogin.CCULTURE_ID))
                     {
@@ -153,7 +149,6 @@ namespace BlazorMenu.Pages.Authentication
             {
                 _notificationService.Error(loEx.ErrorList[0].ErrDescp);
 
-                //await R_MessageBox.Show("Error", loEx.ErrorList[0].ErrDescp, R_eMessageBoxButtonType.OK);
                 _tokenRepository.R_SetToken("");
             }
         }
