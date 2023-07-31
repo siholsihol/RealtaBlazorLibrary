@@ -12,7 +12,8 @@
             {
                 <R_Tab Title="@loTab.Title"
                        Id="@loTab.Id.ToString()"
-                       IsActive="@loTab.IsActive">
+                       IsActive="@loTab.IsActive" 
+                       HeaderEnabled="@loTab.HeaderEnabled">
                     <CascadingValue Value="@loTab" Name="currentTab" TValue="R_TabProgram" IsFixed>
                         @if (loTab.Body != null)
                             {

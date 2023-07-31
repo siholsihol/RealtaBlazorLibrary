@@ -50,8 +50,14 @@ namespace BlazorMenu.Shared
                     Body = poBody,
                     ParentPage = poParentPage,
                     DetailButton = poDetailButton,
-                    PredefinedDock = poPredefinedDock
+                    PredefinedDock = poPredefinedDock,
+                    HeaderEnabled = poPredefinedDock != null && !poPredefinedDock.Enabled ? false : true
                 };
+
+                if (poPredefinedDock is not null)
+                {
+                    poPredefinedDock.EnabledChanged = () => _tabRef.SetEnableTab(loNewTab.Id.ToString());
+                }
 
                 Tabs.Add(loNewTab);
             }
