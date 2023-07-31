@@ -1,4 +1,5 @@
 ﻿@inherits ComponentBase
+@implements R_IMenuTabSet
 
 @if (Tabs.Count == 0)
 {
@@ -37,9 +38,10 @@
 }
 else
 {
+<CascadingValue Value="this" Name="MenuTabSet">
     <div class="card-body overflow-hidden p-1">
         <TelerikTabStrip ActiveTabIndex="@ActiveTabIndex"
-                         ActiveTabIndexChanged="@OnActiveTabIndexChanged" 
+                         ActiveTabIndexChanged="@OnActiveTabIndexChanged"
                          PersistTabContent>
             @foreach (var loTab in Tabs)
             {
@@ -47,7 +49,7 @@ else
                              Disabled="@loTab.Disabled"
                              Visible="@loTab.Visible"
                              Id="@loTab.Id.ToString()"
-                            @key="@loTab.Id">
+                             @key="@loTab.Id">
                     <HeaderTemplate>
                         <a>@loTab.Title</a>
                         <span class="ms-2 close" @onclick="@(() => OnTabClose(loTab))"><span class="tab btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></span></span>
@@ -55,7 +57,7 @@ else
                     <Content>
                         @if (loTab.Body != null)
                         {
-                            <CascadingValue Value="@loTab" Name="currentTabMenu" TValue="MenuTab">
+                            <CascadingValue Value="@loTab" Name="currentTabMenu">
                                 <MainBody>
                                     @loTab.Body
                                 </MainBody>
@@ -66,6 +68,7 @@ else
             }
         </TelerikTabStrip>
     </div>
+</CascadingValue>
 }
 
 <style>
@@ -110,9 +113,16 @@ else
         return Task.CompletedTask;
     }
 
-    private Task OnTabClose(MenuTab poTab)
+    private async Task OnTabClose(MenuTab poTab)
     {
         var liTabIndex = Tabs.IndexOf(poTab);
+        if (poTab.OnCloseMenuTab is not null)
+        {
+            var llPageClose = await poTab.OnCloseMenuTab.Invoke();
+            if (!llPageClose)
+                return;
+        }
+
         Tabs.Remove(poTab);
 
         if (poTab.IsActive)
@@ -124,12 +134,10 @@ else
                 activeTab = Tabs[0];
 
             if (activeTab != null)
-                ActivateTab(activeTab);
+                await ActivateTab(activeTab);
             else
                 NavigationManager.NavigateTo("/");
         }
-
-        return Task.CompletedTask;
     }
 
     private Task ActivateTab(MenuTab poTab)
@@ -157,5 +165,11 @@ else
         }
 
         return Task.CompletedTask;
+    }
+
+    public async Task CloseTabFromProgram(R_IMenuTab poTab)
+    {
+        var loTab = (MenuTab)poTab;
+        await OnTabClose(loTab);
     }
 }

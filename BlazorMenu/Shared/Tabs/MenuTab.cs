@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
+using R_BlazorFrontEnd.Controls.Menu;
 
 namespace BlazorMenu.Shared.Tabs
 {
-    public class MenuTab
+    public class MenuTab : R_IMenuTab
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public bool IsActive { get; set; }
@@ -15,5 +16,7 @@ namespace BlazorMenu.Shared.Tabs
         public bool Closeable { get; set; } = true;
         public string Access { get; set; }
         public string PageTitle { get; set; }
+
+        public Func<Task<bool>> OnCloseMenuTab { get; set; }
     }
 }
