@@ -526,7 +526,7 @@
       },
       "R_BlazorFrontEnd.Authentication/1.0.0": {
         "dependencies": {
-          "Blazored.LocalStorage": "4.2.0",
+          "R_BlazorFrontEnd": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "6.23.1"
         },
         "runtime": {

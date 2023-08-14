@@ -6,7 +6,7 @@
 
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(Program).Assembly"
-            AdditionalAssemblies="@lazyLoadedAssemblies" 
+            AdditionalAssemblies="@lazyLoadedAssemblies"
             OnNavigateAsync="@OnNavigateAsync">
         <Found Context="routeData">
             <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />

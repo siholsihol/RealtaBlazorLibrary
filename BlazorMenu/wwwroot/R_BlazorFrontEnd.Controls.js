@@ -81,3 +81,31 @@ export function showBootstrapToast() {
         toast.show()
     }
 }
+
+export function addClassToElement(elementId, addClass) {
+    var element = document.getElementById(elementId);
+    if (element != null) {
+        element.classList.add(addClass);
+    }
+}
+
+export function removeClassToElement(elementId, removeClass) {
+    var element = document.getElementById(elementId);
+    if (element != null) {
+        element.classList.remove(removeClass);
+    }
+}
+
+export function addClassToQuerySelector(querySelector, addClass) {
+    var container = document.querySelector(querySelector);
+    if (container != null) {
+        container.classList.add(addClass);
+    }
+}
+
+export function removeClassToQuerySelector(querySelector, removeClass) {
+    var container = document.querySelector(querySelector);
+    if (container != null) {
+        container.classList.remove(removeClass);
+    }
+}
