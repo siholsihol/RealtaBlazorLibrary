@@ -30,11 +30,31 @@ html, body {
 .toggle-icon-wrapper {
     font-size: var(--falcon-body-font-size) !important;
 }
-
-/* Menu Sidebar*/
-.navbar-vertical .navbar-nav .nav .nav .nav-item .nav-link {
-    padding-left: 1.7rem !important;
+.content .navbar {
+    padding:.3rem 1rem !important;
 }
+
+.content .navbar-top {
+    min-height:1rem !important;
+}
+
+.theme-control-toggle .theme-control-toggle-label, .nav-link .avatar.avatar-xl {
+    height: 20px !important;
+    width: 20px !important;
+}
+
+html.navbar-vertical-collapsed footer, html.navbar-vertical-collapsed .navbar-brand img, html.navbar-vertical-collapsed #navbarVerticalCollapse {
+    display: none !important;
+}
+
+    /* Menu Sidebar*/
+.navbar-vertical-collapsed .navbar-vertical.navbar-expand-xl + .content {
+    margin-left: 2.125rem;
+}
+
+    .navbar-vertical .navbar-nav .nav .nav .nav-item .nav-link {
+        padding-left: 1.7rem !important;
+    }
 .navbar-vertical .navbar-nav {
     font-size: var(--r-default-font-size) !important;
 }
@@ -43,8 +63,13 @@ html, body {
 }
 
 /* Tabbing */
+.k-tabstrip-items .k-link, ul.nav-tabs .nav-link {
+    padding: 0rem .5rem .1em !important;
+}
+.k-tabstrip-content, .k-tabstrip > .k-content {
+    border-width:0px !important;
+}
 span.close {
-    background: fff;
     border-radius: 50px;
     padding: 1px 5px;
 }
@@ -102,8 +127,8 @@ ul ul li.nav-item a.nav-link span {
 }
 
 /* Button */
-.k-button {
-    padding: 0.25rem 1.5rem !important;
+    .k-button {
+    padding: 0.25rem .7rem !important;
     font-size: var(--r-default-font-size) !important;
     line-height: 1.4285714286 !important;
     font-family: var(--falcon-font-sans-serif) !important;
@@ -142,12 +167,16 @@ ul ul li.nav-item a.nav-link span {
 
 /* Input */
 .k-input-md .k-input-inner, .k-picker-md .k-input-inner {
-    padding: 0.3125rem 1rem !important;
+    padding: 0.1rem 1rem !important;
 }
 
 .k-input-solid {
     border-color: var(--falcon-input-border-color) !important;
     background-color: var(--falcon-input-bg) !important;
+    color: var(--falcon-input-color) !important;
+}
+.k-input .k-button {
+    padding: 0.25rem !important;
 }
 
 .k-disabled [disabled],
@@ -187,6 +216,12 @@ ul ul li.nav-item a.nav-link span {
 .k-picker .k-input-button {
     border: none !important;
 }
+.k-checkbox:disabled, .k-checkbox.k-disabled, .k-radio:disabled, .k-radio.k-disabled {
+    background-color: #aaaaaa !important;
+    border-color: #999999 !important;
+    cursor: not-allowed !important;
+}
+
 
 /* Table */
 .dark .table {
@@ -255,6 +290,10 @@ ul ul li.nav-item a.nav-link span {
     color: var(--falcon-input-color) !important;
     background-color: transparent !important;
 }
+.k-grid-md td, .k-grid-md .k-table-td {
+    padding: 0.2rem 0.5rem !important;
+    font-size:10px !important;
+}
 
 /* Paging */
 .k-pager-md .k-pager-sizes .k-dropdown-list, .k-pager-md .k-pager-sizes .k-dropdown, .k-pager-md .k-pager-sizes .k-dropdownlist, .k-pager-md .k-pager-sizes > select {
@@ -276,6 +315,10 @@ ul ul li.nav-item a.nav-link span {
 
 .k-window-titlebar {
     border-color: var(--falcon-input-border-color) !important;
+}
+.k-window-title {
+    font-size:1.45rem !important;
+    font-weight:700;
 }
 
 .k-button,
