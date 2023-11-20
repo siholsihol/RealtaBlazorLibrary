@@ -156,7 +156,7 @@
           }
         }
       },
-      "System.Configuration.ConfigurationManager/6.0.0": {
+      "System.Configuration.ConfigurationManager/6.0.1": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "6.0.0",
           "System.Security.Permissions": "6.0.0"
@@ -164,7 +164,7 @@
         "runtime": {
           "lib/net6.0/System.Configuration.ConfigurationManager.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
+            "fileVersion": "6.0.922.41905"
           }
         }
       },
@@ -172,7 +172,7 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
           "Microsoft.Win32.Registry": "5.0.0",
-          "System.Configuration.ConfigurationManager": "6.0.0",
+          "System.Configuration.ConfigurationManager": "6.0.1",
           "System.Security.Principal.Windows": "5.0.0"
         },
         "runtime": {
@@ -285,7 +285,7 @@
           "R_CommonFrontBackAPI": "1.0.0",
           "R_ContextBackEnd": "1.0.0",
           "R_Security": "1.0.0",
-          "System.Configuration.ConfigurationManager": "6.0.0",
+          "System.Configuration.ConfigurationManager": "6.0.1",
           "System.Text.Encoding.CodePages": "6.0.0"
         },
         "runtime": {
@@ -439,12 +439,12 @@
       "path": "stackexchange.redis/2.2.4",
       "hashPath": "stackexchange.redis.2.2.4.nupkg.sha512"
     },
-    "System.Configuration.ConfigurationManager/6.0.0": {
+    "System.Configuration.ConfigurationManager/6.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7T+m0kDSlIPTHIkPMIu6m6tV6qsMqJpvQWW2jIc2qi7sn40qxFo0q+7mEQAhMPXZHMKnWrnv47ntGlM/ejvw3g==",
-      "path": "system.configuration.configurationmanager/6.0.0",
-      "hashPath": "system.configuration.configurationmanager.6.0.0.nupkg.sha512"
+      "sha512": "sha512-jXw9MlUu/kRfEU0WyTptAVueupqIeE3/rl0EZDMlf8pcvJnitQ8HeVEp69rZdaStXwTV72boi/Bhw8lOeO+U2w==",
+      "path": "system.configuration.configurationmanager/6.0.1",
+      "hashPath": "system.configuration.configurationmanager.6.0.1.nupkg.sha512"
     },
     "System.Diagnostics.PerformanceCounter/5.0.0": {
       "type": "package",
