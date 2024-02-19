@@ -67,9 +67,9 @@
           }
         }
       },
-      "R_StorageCommon/1.0.0.0": {
+      "R_AuthorizationBack.Abstract/1.0.0.0": {
         "runtime": {
-          "R_StorageCommon.dll": {
+          "R_AuthorizationBack.Abstract.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -137,7 +137,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_StorageCommon/1.0.0.0": {
+    "R_AuthorizationBack.Abstract/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

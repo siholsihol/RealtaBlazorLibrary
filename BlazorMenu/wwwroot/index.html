@@ -54,7 +54,18 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <!--<script src="_framework/blazor.webassembly.js"></script>-->
+
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+    <script>
+        if (window.location.hostname.includes("localhost")) {
+            Blazor.start({
+                environment: "Development"
+            });
+        } else {
+            Blazor.start();
+        }
+    </script>
 
     <script type="text/javascript">
         function encryptText(inputSrt, keyStr, ivStr) {

@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "R_BlazorFrontEnd.Report/1.0.0": {
         "dependencies": {
-          "Microsoft.JSInterop": "6.0.12",
+          "Microsoft.JSInterop": "6.0.14",
           "R_BlazorFrontEnd": "1.0.0",
           "R_APIClient": "1.0.0.0",
           "R_APICommonDTO": "1.0.0.0",
@@ -18,11 +18,11 @@
           "R_BlazorFrontEnd.Report.dll": {}
         }
       },
-      "Microsoft.JSInterop/6.0.12": {
+      "Microsoft.JSInterop/6.0.14": {
         "runtime": {
           "lib/net6.0/Microsoft.JSInterop.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.1222.57109"
+            "fileVersion": "6.0.1423.7403"
           }
         }
       },
@@ -98,12 +98,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.JSInterop/6.0.12": {
+    "Microsoft.JSInterop/6.0.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kD1GGmLBiKbqxl/4kRm7BporIJY+JibtoaOeR1r+QmkixNmr9qr6pEWx1xDc4BGsMRrL+ruDzplmeWsfE4S4IA==",
-      "path": "microsoft.jsinterop/6.0.12",
-      "hashPath": "microsoft.jsinterop.6.0.12.nupkg.sha512"
+      "sha512": "sha512-k1DAQqTVYaQGzh4uBJo318oSWa3OLdgJN+ZrKBzRn3Y+iG1VNxIBCBKNW9OgyEVv55fw81+yfHkv1f0e5RXOBg==",
+      "path": "microsoft.jsinterop/6.0.14",
+      "hashPath": "microsoft.jsinterop.6.0.14.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
