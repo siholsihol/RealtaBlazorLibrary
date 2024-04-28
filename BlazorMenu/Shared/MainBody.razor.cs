@@ -121,6 +121,8 @@ namespace BlazorMenu.Shared
             {
                 if (OnInternalTabChangingAsync is not null)
                     await OnInternalTabChangingAsync(this, poNewTab);
+
+                eventArgs.Cancel = poNewTab.Cancel;
             }
 
             if (poOldTab is not null && poOldTab.PredefinedDock is not null)
