@@ -1,46 +1,169 @@
-﻿@inherits R_Page
-@attribute [R_Page(Title = "Profile")]
+﻿@using R_CommonFrontBackAPI
 
-@*<div class="row">
-    <div class="col-12">
-        <div class="card mb-3 btn-reveal-trigger">
-            <div class="card-header position-relative min-vh-25 mb-8">
-                <div class="cover-image">
-                    <div class="bg-holder rounded-3 rounded-bottom-0" style="background-image:url(assets/img/building.jpg);"></div>
-                    <input class="d-none" id="upload-cover-image" type="file" /><label class="cover-image-file-input" for="upload-cover-image"><span class="fas fa-camera me-2"></span><span>Change cover photo</span></label>
+<div class="modal modalprofile fade @_modalClass" tabindex="-1" role="dialog" style="display:@_modalDisplay">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content border-0">
+            <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
+                <div class="position-relative z-index-1 light">
+                    <h4 class="mb-0 text-white" id="authentication-modal-label">Profile</h4>
                 </div>
-                <div class="avatar avatar-5xl avatar-profile shadow-sm img-thumbnail rounded-circle">
-                    <div class="h-100 w-100 rounded-circle overflow-hidden position-relative"> <img src="assets/img/avatar.png" width="200" alt="" data-dz-thumbnail="data-dz-thumbnail" /><input class="d-none" id="profile-image" type="file" /><label class="mb-0 overlay-icon d-flex flex-center" for="profile-image"><span class="bg-holder overlay overlay-0"></span><span class="z-index-1 text-white dark__text-white text-center fs--1"><span class="fas fa-camera"></span><span class="d-block">Update</span></span></label></div>
-                </div>
+                <button class="btn-close btn-close-white position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close" @onclick="@CloseProfile"></button>
             </div>
-        </div>
-    </div>
-</div>*@
 
-<div class="row g-0">
-    <div class="col-lg-8 pe-lg-2">
-        <div class="card mb-3">
-            <div class="card-header">
-                <h5 class="mb-0">Profile Settings</h5>
-            </div>
-            <div class="card-body bg-light">
-                <form class="row g-3">
-                    <div class="col-lg-6"> <label class="form-label" for="first-name">First Name</label><input class="form-control" id="first-name" type="text" value="Anthony" /></div>
-                    <div class="col-lg-6"> <label class="form-label" for="last-name">Last Name</label><input class="form-control" id="last-name" type="text" value="Hopkins" /></div>
-                    <div class="col-lg-6"> <label class="form-label" for="email1">Email</label><input class="form-control" id="email1" type="text" value="anthony@gmail.com" /></div>
-                    <div class="col-lg-6"> <label class="form-label" for="email2">Phone</label><input class="form-control" id="email2" type="text" value="+44098098304" /></div>
-                    <div class="col-lg-12"><label class="form-label" for="email3">Heading</label><input class="form-control" id="email3" type="text" value="Software Engineer" /></div>
-                    <div class="col-lg-12"> <label class="form-label" for="intro">Intro</label><textarea class="form-control" id="intro" name="intro" cols="30" rows="13"></textarea></div>
-                    <div class="col-12 d-flex justify-content-end"><button class="btn btn-primary" type="submit">Update </button></div>
-                </form>
-            </div>
+            <EditForm Model="@_userProfile" OnValidSubmit="@OnValidSubmit" 
+                      OnInvalidSubmit="@OnInvalidSubmit" Context="_context">
+                <DataAnnotationsValidator />
+
+                <div class="modal-body p-3">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center mb-3">
+                            <div class="avatar avatar-5xl">
+                                <div class="h-100 w-100 rounded-circle overflow-hidden">
+                                    <img class="rounded-circle" src="assets/img/avatar.png" alt="" data-dz-thumbnail="data-dz-thumbnail" />
+                                    <input class="d-none" id="profile-image" type="file" />
+                                    <label class="mb-0 overlay-icon d-flex flex-center" for="profile-image">
+                                        <span class="bg-holder overlay overlay-0"></span>
+                                        <span class="z-index-1 text-white dark__text-white text-center fs--1">
+                                            <span class="fas fa-camera"></span>
+                                            <span class="d-block">Edit Photo</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-2">
+                        <div class="col">
+                            <div class="form-floating">
+                                <input class="form-control" readonly id="user-id" type="text" @bind-value="_userProfile.CUSER_ID" />
+                                <label class="form-label" for="user-id">User Id</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <input class="form-control @_context.FieldCssClass(() => _userProfile.CUSER_NAME)" id="username" type="text" @bind-value="_userProfile.CUSER_NAME" />
+                                <label class="form-label" for="username">Username</label>
+                            </div>
+                            <ValidationMessage For="@(() => _userProfile.CUSER_NAME)" />
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input class="form-control @_context.FieldCssClass(() => _userProfile.CEMAIL_ADDRESS)" id="email" type="text" @bind-value="_userProfile.CEMAIL_ADDRESS" />
+                                <label class="form-label" for="email">Email</label>
+                            </div>
+                            <ValidationMessage For="@(() => _userProfile.CEMAIL_ADDRESS)" class="form-label is-invalid" />
+                        </div>
+
+                        <div class="col">
+                            <div class="form-floating">
+                                <input class="form-control" id="last-update-password" type="date" @bind-value="_lastUpdatePassword" readonly />
+                                <label class="form-label" for="last-update-password">Last Update</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <input class="form-control" id="position" type="text" @bind-value="_userProfile.CPOSITION" />
+                                <label class="form-label" for="position">Position</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <select class="form-select @_context.FieldCssClass(() => _userProfile.CCULTURE_ID)" id="culture-id" @bind="_userProfile.CCULTURE_ID">
+                                    @{
+                                        foreach (var culture in _cultures)
+                                        {
+                                            <option value="@culture.CultureId">@culture.CultureName</option>
+                                        }
+                                    }
+                                </select>
+                                <label class="form-label" for="email">Culture Id</label>
+                            </div>
+                            <ValidationMessage For="@(() => _userProfile.CCULTURE_ID)" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button class="btn btn-outline-secondary" type="button" data-bs-dismiss="modal" @onclick="CloseProfile">Cancel</button>
+                    <button class="btn btn-primary" type="submit">Update</button>
+                </div>
+            </EditForm>
         </div>
     </div>
 </div>
 
-@code { 
-    protected override Task R_Init_From_Master(object poParameter)
+@if (_showBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}
+
+@code {
+    [Inject] private IClientHelper _clientHelper { get; set; }
+
+    private string _modalClass = "";
+    private string _modalDisplay = "none;";
+    private bool _showBackdrop = false;
+
+    private R_MenuModel _menuModel = new();
+    private UserProfileModel _userProfile = new();
+    private DateTime? _lastUpdatePassword = null;
+    private List<CultureModel> _cultures = new();
+    private UserProfileFieldClassProvider _userProfileFieldClassProvider = new();
+
+    public async Task Open()
     {
-        return base.R_Init_From_Master(poParameter);
+        var loEx = new R_Exception();
+
+        try
+        {
+            var loResult = await _menuModel.GetUserProfileAsync(new GetUserProfileParameterDTO
+                {
+                    CUSER_ID = _clientHelper.UserId
+                });
+
+            _userProfile = R_FrontUtility.ConvertObjectToObject<UserProfileModel>(loResult.Data);
+
+            _lastUpdatePassword = !string.IsNullOrWhiteSpace(_userProfile.CLAST_UPDATE_PASSWORD) ? 
+            DateTime.ParseExact(_userProfile.CLAST_UPDATE_PASSWORD, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture) : null;
+
+            _cultures = R_Culture.R_GetAvailableCultures().Where(x => x.Value != "3").Select(x => new CultureModel
+            {
+                CultureId = x.Value == "1" ? "en" : "id",
+                CultureName = x.Name
+            }).ToList();
+
+            _modalClass = "show";
+            _modalDisplay = "block;";
+            _showBackdrop = true;
+
+            StateHasChanged();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public void OnValidSubmit(EditContext editContext)
+    {
+        
+    }
+
+    public void OnInvalidSubmit(EditContext editContext)
+    {
+        editContext.SetFieldCssClassProvider(_userProfileFieldClassProvider);
+
+        StateHasChanged();
+    }
+
+    public void CloseProfile()
+    {
+        _modalClass = "";
+        _modalDisplay = "none;";
+        _showBackdrop = false;
+
+        StateHasChanged();
     }
 }

@@ -10,7 +10,12 @@
         "dependencies": {
           "BlazorMenuBack": "1.0.0",
           "BlazorMenuCommon": "1.0.0",
-          "R_APICommon": "1.0.0.0"
+          "R_SecurityTokenBack": "1.0.0",
+          "R_SecurityTokenCommon": "1.0.0",
+          "R_APICommon": "1.0.0.0",
+          "R_ApplicationBack": "1.0.0.0",
+          "R_AuthenticationBack": "1.0.0.0",
+          "R_CrossPlatformSecurity": "1.0.0.0"
         },
         "runtime": {
           "BlazorMenuService.dll": {}
@@ -24,7 +29,9 @@
       "BlazorMenuBack/1.0.0": {
         "dependencies": {
           "BackExtension": "1.0.0",
-          "BlazorMenuCommon": "1.0.0"
+          "BlazorMenuCommon": "1.0.0",
+          "R_SecurityPolicyBack": "1.0.0",
+          "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
           "BlazorMenuBack.dll": {}
@@ -43,9 +50,61 @@
           "BlazorMenuCommon.dll": {}
         }
       },
+      "R_SecurityPolicyBack/1.0.0": {
+        "dependencies": {
+          "BackExtension": "1.0.0",
+          "R_SecurityPolicyCommon": "1.0.0"
+        },
+        "runtime": {
+          "R_SecurityPolicyBack.dll": {}
+        }
+      },
+      "R_SecurityPolicyCommon/1.0.0": {
+        "runtime": {
+          "R_SecurityPolicyCommon.dll": {}
+        }
+      },
+      "R_SecurityTokenBack/1.0.0": {
+        "dependencies": {
+          "BackExtension": "1.0.0",
+          "R_SecurityTokenCommon": "1.0.0"
+        },
+        "runtime": {
+          "R_SecurityTokenBack.dll": {}
+        }
+      },
+      "R_SecurityTokenCommon/1.0.0": {
+        "runtime": {
+          "R_SecurityTokenCommon.dll": {}
+        }
+      },
       "R_APICommon/1.0.0.0": {
         "runtime": {
           "R_APICommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_ApplicationBack/1.0.0.0": {
+        "runtime": {
+          "R_ApplicationBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_AuthenticationBack/1.0.0.0": {
+        "runtime": {
+          "R_AuthenticationBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_CrossPlatformSecurity/1.0.0.0": {
+        "runtime": {
+          "R_CrossPlatformSecurity.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -107,6 +166,30 @@
           }
         }
       },
+      "R_AuthenticationEnumAndInterface/1.0.0.0": {
+        "runtime": {
+          "R_AuthenticationEnumAndInterface.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_OpenTelemetry/1.0.0.0": {
+        "runtime": {
+          "R_OpenTelemetry.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "R_Cache/1.0.0.0": {
+        "runtime": {
+          "R_Cache.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "R_ContextEnumAndInterface/1.0.0.0": {
         "runtime": {
           "R_ContextEnumAndInterface.dll": {
@@ -138,7 +221,42 @@
       "serviceable": false,
       "sha512": ""
     },
+    "R_SecurityPolicyBack/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_SecurityPolicyCommon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_SecurityTokenBack/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_SecurityTokenCommon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "R_APICommon/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_ApplicationBack/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_AuthenticationBack/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_CrossPlatformSecurity/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -169,6 +287,21 @@
       "sha512": ""
     },
     "R_AuthorizationBack.Abstract/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_AuthenticationEnumAndInterface/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_OpenTelemetry/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_Cache/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

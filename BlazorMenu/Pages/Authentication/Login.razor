@@ -44,17 +44,17 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="split-login-companyid">Company Id</label>
-                                    <input class="form-control" id="split-login-companyid" type="text" @bind="_loginModel.CompanyId" style="text-transform: uppercase" />
+                                    <input class="form-control" id="split-login-companyid" type="text" @bind="_loginVM.LoginModel.CompanyId" style="text-transform: uppercase" />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="split-login-username">Username</label>
-                                    <input class="form-control" id="split-login-username" type="text" @bind="_loginModel.UserId" />
+                                    <input class="form-control" id="split-login-username" type="text" @bind="_loginVM.LoginModel.UserId" />
                                 </div>
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between">
                                         <label class="form-label" for="split-login-password">Password</label>
                                     </div>
-                                    <input class="form-control" id="split-login-password" type="password" @bind="_loginModel.Password" />
+                                    <input class="form-control" id="split-login-password" type="password" @bind="_loginVM.LoginModel.Password" />
                                 </div>
 
                                 <!-- BEGIN::Remember Me -->

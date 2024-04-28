@@ -10,6 +10,8 @@
         "dependencies": {
           "BackExtension": "1.0.0",
           "BlazorMenuCommon": "1.0.0",
+          "R_SecurityPolicyBack": "1.0.0",
+          "R_SecurityPolicyCommon": "1.0.0",
           "R_APIBackEnd": "1.0.0.0",
           "R_APICommon": "1.0.0.0",
           "R_ContextBackEnd": "1.0.0.0",
@@ -27,6 +29,20 @@
       "BlazorMenuCommon/1.0.0": {
         "runtime": {
           "BlazorMenuCommon.dll": {}
+        }
+      },
+      "R_SecurityPolicyBack/1.0.0": {
+        "dependencies": {
+          "BackExtension": "1.0.0",
+          "R_SecurityPolicyCommon": "1.0.0"
+        },
+        "runtime": {
+          "R_SecurityPolicyBack.dll": {}
+        }
+      },
+      "R_SecurityPolicyCommon/1.0.0": {
+        "runtime": {
+          "R_SecurityPolicyCommon.dll": {}
         }
       },
       "R_APIBackEnd/1.0.0.0": {
@@ -115,6 +131,16 @@
       "sha512": ""
     },
     "BlazorMenuCommon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_SecurityPolicyBack/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_SecurityPolicyCommon/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

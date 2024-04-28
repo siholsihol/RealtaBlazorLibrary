@@ -11,6 +11,8 @@
         "dependencies": {
           "BlazorMenuCommon": "1.0.0",
           "R_BlazorFrontEnd": "1.0.0",
+          "R_SecurityPolicyModel": "1.0.0",
+          "System.ComponentModel.Annotations": "4.5.0",
           "R_APIClient": "1.0.0.0",
           "R_APICommonDTO": "1.0.0.0"
         },
@@ -26,6 +28,14 @@
           }
         }
       },
+      "System.ComponentModel.Annotations/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.ComponentModel.Annotations.dll": {
+            "assemblyVersion": "4.2.1.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
       "BlazorMenuCommon/1.0.0": {
         "runtime": {
           "BlazorMenuCommon.dll": {}
@@ -37,6 +47,19 @@
         },
         "runtime": {
           "R_BlazorFrontEnd.dll": {}
+        }
+      },
+      "R_SecurityPolicyCommon/1.0.0": {
+        "runtime": {
+          "R_SecurityPolicyCommon.dll": {}
+        }
+      },
+      "R_SecurityPolicyModel/1.0.0": {
+        "dependencies": {
+          "R_SecurityPolicyCommon": "1.0.0"
+        },
+        "runtime": {
+          "R_SecurityPolicyModel.dll": {}
         }
       },
       "R_APIClient/1.0.0.0": {
@@ -102,12 +125,29 @@
       "path": "newtonsoft.json/13.0.1",
       "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
+    "System.ComponentModel.Annotations/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
+      "path": "system.componentmodel.annotations/4.5.0",
+      "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
+    },
     "BlazorMenuCommon/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "R_BlazorFrontEnd/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_SecurityPolicyCommon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_SecurityPolicyModel/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

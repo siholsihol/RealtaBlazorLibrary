@@ -478,3 +478,10 @@ ul ul li.nav-item a.nav-link span {
     margin-top: 80px;
     margin-bottom: 80px;
 }
+
+.validation-message {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 75%;
+    color: #e63757;
+}

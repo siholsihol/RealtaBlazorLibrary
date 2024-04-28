@@ -11,8 +11,6 @@ using R_BlazorFrontEnd.Controls.Notification;
 using R_BlazorFrontEnd.Exceptions;
 using R_CommonFrontBackAPI;
 using R_CrossPlatformSecurity;
-using R_SecurityPolicyCommon.Requests;
-using R_SecurityPolicyModel;
 
 namespace BlazorMenu.Pages.Authentication
 {
@@ -29,8 +27,9 @@ namespace BlazorMenu.Pages.Authentication
         [Inject] private MenuTabSetTool MenuTabSetTool { get; set; }
         [Inject] private R_NotificationService _notificationService { get; set; }
 
-        private LoginModel _loginModel = new LoginModel();
-        private R_SecurityModel loClientWrapper = new R_SecurityModel();
+        //private LoginModel _loginModel = new LoginModel();
+        //private R_SecurityModel loClientWrapper = new R_SecurityModel();
+        private R_LoginViewModel _loginVM = new R_LoginViewModel();
 
         protected override async Task OnParametersSetAsync()
         {
@@ -42,11 +41,11 @@ namespace BlazorMenu.Pages.Authentication
                 if (state.User.Identity.IsAuthenticated)
                     _navigationManager.NavigateTo("/");
 
-                var loPolicyParameter = await loClientWrapper.R_GetSecurityPolicyParameterAsync();
+                await _loginVM.R_GetSecurityPolicyParameterAsync();
 
-                //_loginModel.CompanyId = "rcd";
-                //_loginModel.UserId = "cp";
-                //_loginModel.Password = "cp";
+                //_loginVM.LoginModel.CompanyId = "001";
+                //_loginVM.LoginModel.UserId = "cp";
+                //_loginVM.LoginModel.Password = "cp";
             }
             catch (R_Exception rex)
             {
@@ -58,7 +57,7 @@ namespace BlazorMenu.Pages.Authentication
             }
 
             if (loEx.HasError)
-                await R_MessageBox.Show("Error", loEx.ErrorList[0].ErrDescp, R_eMessageBoxButtonType.OK);
+                _notificationService.Error(loEx.ErrorList[0].ErrDescp);
         }
 
         private async Task ValidateUser()
@@ -68,73 +67,65 @@ namespace BlazorMenu.Pages.Authentication
             try
             {
                 _clientHelper.Set_ComputerId();
-                _clientHelper.Set_CompanyId(_loginModel.CompanyId);
+                _clientHelper.Set_CompanyId(_loginVM.LoginModel.CompanyId);
 
-                var lcEncryptedPassword = await _encryptProvider.TextEncrypt(_loginModel.Password, _loginModel.UserId);
+                var lcEncryptedPassword = await _encryptProvider.TextEncrypt(_loginVM.LoginModel.Password, _loginVM.LoginModel.UserId);
 
-                var loPolicyLogin = await loClientWrapper.R_SecurityPolicyLogonAsync
-                    (
-                        new R_SecurityPolicyLogonRequest
-                        {
-                            CCOMPANY_ID = _loginModel.CompanyId,
-                            CUSER_ID = _loginModel.UserId.ToLower(),
-                            CUSER_PASSWORD = lcEncryptedPassword
-                        }
-                    );
+                //var loPolicyLogin = await loClientWrapper.R_SecurityPolicyLogonAsync
+                //    (
+                //        new SecurityPolicyLogonParameterDTO
+                //        {
+                //            CCOMPANY_ID = _loginModel.CompanyId,
+                //            CUSER_ID = _loginModel.UserId.ToLower(),
+                //            CUSER_PASSWORD = lcEncryptedPassword
+                //        }
+                //    );
 
-                if (loPolicyLogin.Data != null)
+                await _loginVM.LoginAsync(lcEncryptedPassword);
+
+                _tokenRepository.R_SetToken(_loginVM.LoginResult.CTOKEN);
+                _tokenRepository.R_SetRefreshToken(_loginVM.LoginResult.CREFRESH_TOKEN);
+
+                _clientHelper.Set_UserId(_loginVM.LoginResult.CUSER_ID);
+                _clientHelper.Set_UserName(_loginVM.LoginResult.CUSER_NAME);
+
+                if (!string.IsNullOrWhiteSpace(_loginVM.LoginResult.CCULTURE_ID))
                 {
-                    R_LoginViewModel _loginViewModel = new R_LoginViewModel();
-                    var loLogin = await _loginViewModel.LoginAsync(_loginModel);
+                    var leLoginCulture = R_Culture.R_GetCultureEnum(_loginVM.LoginResult.CCULTURE_ID);
 
-                    _tokenRepository.R_SetToken(loPolicyLogin.Data.CTOKEN);
-                    _tokenRepository.R_SetRefreshToken(loPolicyLogin.Data.CREFRESH_TOKEN);
-
-                    _clientHelper.Set_UserId(loLogin.CUSER_ID);
-                    _clientHelper.Set_UserName(loLogin.CUSER_NAME);
-
-                    if (!string.IsNullOrWhiteSpace(loLogin.CCULTURE_ID))
-                    {
-                        var leLoginCulture = R_Culture.R_GetCultureEnum(loLogin.CCULTURE_ID);
-
-                        _clientHelper.Set_CultureUI(leLoginCulture);
-                    }
-                    else
-                        _clientHelper.Set_CultureUI(eCulture.English);
-
-                    var loCultureInfoBuilder = new CultureInfoBuilder();
-                    loCultureInfoBuilder.WithNumberFormatInfo(loLogin.CNUMBER_FORMAT, loLogin.IDECIMAL_PLACES)
-                                        .WithDatePattern(loLogin.CDATE_LONG_FORMAT, loLogin.CDATE_SHORT_FORMAT)
-                                        .WithTimePattern(loLogin.CTIME_LONG_FORMAT, loLogin.CTIME_SHORT_FORMAT);
-
-                    var loCultureInfo = loCultureInfoBuilder.BuildCultureInfo();
-
-                    _clientHelper.Set_Culture(loCultureInfo.NumberFormat, loCultureInfo.DateTimeFormat);
-
-                    await _localStorageService.SetCultureAsync(loLogin.CCULTURE_ID);
-
-                    var loDictCulture = new Dictionary<string, string>
-                    {
-                        { "CNUMBER_FORMAT", loLogin.CNUMBER_FORMAT },
-                        { "IDECIMAL_PLACES", loLogin.IDECIMAL_PLACES.ToString() },
-                        { "CDATE_LONG_FORMAT", loLogin.CDATE_LONG_FORMAT },
-                        { "CDATE_SHORT_FORMAT", loLogin.CDATE_SHORT_FORMAT },
-                        { "CTIME_LONG_FORMAT", loLogin.CTIME_LONG_FORMAT },
-                        { "CTIME_SHORT_FORMAT", loLogin.CTIME_SHORT_FORMAT }
-                    };
-                    await _localStorageService.SetCultureInfoAsync(loDictCulture);
-
-                    if (!loLogin.CCULTURE_ID.Equals("en", StringComparison.InvariantCultureIgnoreCase))
-                        _navigationManager.NavigateTo(_navigationManager.Uri, true);
-
-                    MenuTabSetTool.Tabs.Clear();
-
-                    await ((BlazorMenuAuthenticationStateProvider)_stateProvider).MarkUserAsAuthenticated();
+                    _clientHelper.Set_CultureUI(leLoginCulture);
                 }
                 else
-                {
-                    throw new Exception("Invalid username or password");
-                }
+                    _clientHelper.Set_CultureUI(eCulture.English);
+
+                var loCultureInfoBuilder = new CultureInfoBuilder();
+                loCultureInfoBuilder.WithNumberFormatInfo(_loginVM.LoginResult.CNUMBER_FORMAT, _loginVM.LoginResult.IDECIMAL_PLACES)
+                                    .WithDatePattern(_loginVM.LoginResult.CDATE_LONG_FORMAT, _loginVM.LoginResult.CDATE_SHORT_FORMAT)
+                                    .WithTimePattern(_loginVM.LoginResult.CTIME_LONG_FORMAT, _loginVM.LoginResult.CTIME_SHORT_FORMAT);
+
+                var loCultureInfo = loCultureInfoBuilder.BuildCultureInfo();
+
+                _clientHelper.Set_Culture(loCultureInfo.NumberFormat, loCultureInfo.DateTimeFormat);
+
+                await _localStorageService.SetCultureAsync(_loginVM.LoginResult.CCULTURE_ID);
+
+                var loDictCulture = new Dictionary<string, string>
+                    {
+                        { "CNUMBER_FORMAT", _loginVM.LoginResult.CNUMBER_FORMAT },
+                        { "IDECIMAL_PLACES", _loginVM.LoginResult.IDECIMAL_PLACES.ToString() },
+                        { "CDATE_LONG_FORMAT", _loginVM.LoginResult.CDATE_LONG_FORMAT },
+                        { "CDATE_SHORT_FORMAT", _loginVM.LoginResult.CDATE_SHORT_FORMAT },
+                        { "CTIME_LONG_FORMAT", _loginVM.LoginResult.CTIME_LONG_FORMAT },
+                        { "CTIME_SHORT_FORMAT", _loginVM.LoginResult.CTIME_SHORT_FORMAT }
+                    };
+                await _localStorageService.SetCultureInfoAsync(loDictCulture);
+
+                if (!_loginVM.LoginResult.CCULTURE_ID.Equals("en", StringComparison.InvariantCultureIgnoreCase))
+                    _navigationManager.NavigateTo(_navigationManager.Uri, true);
+
+                MenuTabSetTool.Tabs.Clear();
+
+                await ((BlazorMenuAuthenticationStateProvider)_stateProvider).MarkUserAsAuthenticated();
             }
             catch (R_Exception rex)
             {

@@ -1,6 +1,5 @@
 ﻿using BlazorClientHelper;
 using BlazorMenuCommon.DTOs;
-using BlazorMenuCommon.Requests;
 using BlazorMenuModel;
 using R_BlazorFrontEnd.Configurations;
 using R_BlazorFrontEnd.Exceptions;
@@ -25,7 +24,7 @@ namespace BlazorMenu.Services
 
             try
             {
-                var loParam = new GetMenuRequest
+                var loParam = new GetMenuParameterDTO
                 {
                     CCOMPANY_ID = _clientHelper.CompanyId,
                     CUSER_ID = _clientHelper.UserId,

@@ -1,0 +1,104 @@
+﻿@inject IJSRuntime JS
+@implements IDisposable
+
+<div class="modal modalinfo fade @_modalClass" role="dialog" tabindex="-1" style="display:@_modalDisplay">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content border-0">
+            <div class="position-absolute top-0 end-0 mt-3 me-3 z-index-1"></div>
+            <div class="modal-header bg-card-gradient">
+                <h5 class="modal-title text-white" id="exampleModalLabel">More Information</h5>
+                <button class="btn-close btn-close-white text-white" type="button" data-bs-dismiss="modal" aria-label="Close" @onclick="@CloseInfo"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="p-3">
+                    <p class="d-flex flex-between-center mb-1">
+                        <b><i class="fa fa-check me-1 text-success"></i>Database :</b> <span>@_info.DatabaseName</span>
+                    </p>
+                    <p class="d-flex flex-between-center mb-1">
+                        <b><i class="fa fa-check me-1 text-success"></i>Database Server :</b> <span>@_info.DatabaseServer</span>
+                    </p>
+                    <p class="d-flex flex-between-center mb-1">
+                        <b><i class="fa fa-check me-1 text-success"></i>Menu Version :</b> <span>1.0.0.0</span>
+                    </p>
+                    <p class="d-flex flex-between-center mb-1">
+                        <b><i class="fa fa-check me-1 text-success"></i>FrontEnd Version :</b> <span>1.0.0.0</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (_showBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}
+
+<script>
+    window.initInfoModal = function (dotNetHelper) {
+        document.querySelector('.modal.modalinfo').addEventListener('click', function (e) {
+            // Check if the modal is clicked, not an element inside the modal:
+            if (e.target === e.currentTarget) {
+                dotNetHelper.invokeMethodAsync('CloseInfo');
+            }
+        });
+    };
+</script>
+
+@code {
+    private string _modalClass = "";
+    private string _modalDisplay = "none;";
+    private bool _showBackdrop = false;
+
+    private DotNetObjectReference<Info> _selfRef;
+
+    private R_MenuModel _menuModel = new();
+    private InfoDTO _info = new();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _selfRef = DotNetObjectReference.Create(this);
+            await JS.InvokeVoidAsync("initInfoModal", _selfRef);
+        }
+    }
+
+    public async Task Open()
+    {
+        var loEx = new R_Exception();
+
+        try
+        {
+            var loResult = await _menuModel.GetInfoAsync(new GetInfoParameterDTO
+                {
+                    CAPPLICATION_ID = "BIMASAKTI"
+                });
+
+            _info = loResult.Data;
+
+            _modalClass = "show";
+            _modalDisplay = "block;";
+            _showBackdrop = true;
+            StateHasChanged();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    [JSInvokable]
+    public void CloseInfo()
+    {
+        _modalClass = "";
+        _modalDisplay = "none;";
+        _showBackdrop = false;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        _selfRef.Dispose();
+    }
+}

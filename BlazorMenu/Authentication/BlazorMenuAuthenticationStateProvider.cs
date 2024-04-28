@@ -1,11 +1,13 @@
 ﻿using BlazorClientHelper;
 using BlazorMenu.Services;
-using BlazorMenuCommon.Requests;
+using BlazorMenuCommon.DTOs;
 using BlazorMenuModel;
 using Microsoft.AspNetCore.Components.Authorization;
 using R_AuthenticationEnumAndInterface;
 using R_BlazorFrontEnd.Exceptions;
 using R_CommonFrontBackAPI;
+using R_SecurityPolicyCommon.DTOs;
+using R_SecurityPolicyModel;
 using System.Security.Claims;
 using System.Text.Json;
 
@@ -92,6 +94,16 @@ namespace BlazorMenu.Authentication
 
             try
             {
+                var lcSavedToken = _tokenRepository.R_GetToken();
+                var loUserClaim = GetClaimsFromToken(lcSavedToken);
+
+                var loSecurityModel = new R_SecurityModel();
+                await loSecurityModel.R_SecurityPolicyLogoutAsync(new SecurityPolicyLogoutParameterDTO
+                {
+                    CCOMPANY_ID = loUserClaim.Where(x => x.Type == "COMPANY_ID").FirstOrDefault().Value,
+                    CUSER_ID = loUserClaim.Where(x => x.Type == "USER_ID").FirstOrDefault().Value
+                });
+
                 await UserLockingFlushAsync();
 
                 var anonymousUser = new ClaimsPrincipal(new ClaimsIdentity());
@@ -123,7 +135,7 @@ namespace BlazorMenu.Authentication
                 var lcSavedToken = _tokenRepository.R_GetToken();
                 var loUserClaim = GetClaimsFromToken(lcSavedToken);
 
-                var loParam = new UserLockingFlushRequest
+                var loParam = new UserLockingFlushParameterDTO
                 {
                     CCOMPANY_ID = loUserClaim.Where(x => x.Type == "COMPANY_ID").FirstOrDefault().Value,
                     CUSER_ID = loUserClaim.Where(x => x.Type == "USER_ID").FirstOrDefault().Value
