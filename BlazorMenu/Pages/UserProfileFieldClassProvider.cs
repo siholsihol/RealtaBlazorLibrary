@@ -2,7 +2,7 @@
 
 namespace BlazorMenu.Pages
 {
-    internal class UserProfileFieldClassProvider : FieldCssClassProvider
+    internal sealed class UserProfileFieldClassProvider : FieldCssClassProvider
     {
         public override string GetFieldCssClass(EditContext editContext, in FieldIdentifier fieldIdentifier)
         {

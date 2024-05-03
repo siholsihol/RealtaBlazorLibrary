@@ -1,4 +1,5 @@
-﻿using BlazorMenu.Authentication;
+﻿using BlazorClientHelper;
+using BlazorMenu.Authentication;
 using BlazorMenu.Pages;
 using BlazorMenu.Services;
 using BlazorMenu.Shared.Drawer;
@@ -17,12 +18,14 @@ namespace BlazorMenu.Shared
         [Inject] private MenuTabSetTool TabSetTool { get; set; }
         [Inject] private IJSRuntime JSRuntime { get; set; }
         [Inject] private HttpInterceptorService _httpInterceptorService { get; set; }
+        [Inject] private IClientHelper _clientHelper { get; set; }
 
         private List<MenuListDTO> _menuList = new();
         private List<DrawerMenuItem> _data = new();
         private Info _modalInfo;
         private Profile _profileInfo;
         private string _searchText = "";
+        private string _userId = "";
         private List<DrawerMenuItem> _filteredData
         {
             get
@@ -73,6 +76,12 @@ namespace BlazorMenu.Shared
                         }).ToList()
                     }).ToList()
                 }).ToList();
+
+                var lcUserId = _clientHelper.UserId.ToUpper();
+                if (lcUserId.Length > 3)
+                    lcUserId = lcUserId.Substring(0, 3);
+
+                _userId = lcUserId;
             }
             catch (Exception)
             {

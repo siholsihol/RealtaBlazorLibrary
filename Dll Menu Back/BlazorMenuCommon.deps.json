@@ -9,10 +9,16 @@
     ".NETStandard,Version=v2.1/": {
       "BlazorMenuCommon/1.0.0": {
         "dependencies": {
+          "R_SecurityPolicyCommon": "1.0.0",
           "R_APICommonDTO": "1.0.0.0"
         },
         "runtime": {
           "BlazorMenuCommon.dll": {}
+        }
+      },
+      "R_SecurityPolicyCommon/1.0.0": {
+        "runtime": {
+          "R_SecurityPolicyCommon.dll": {}
         }
       },
       "R_APICommonDTO/1.0.0.0": {
@@ -27,6 +33,11 @@
   },
   "libraries": {
     "BlazorMenuCommon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_SecurityPolicyCommon/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

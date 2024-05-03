@@ -27,6 +27,9 @@
         }
       },
       "BlazorMenuCommon/1.0.0": {
+        "dependencies": {
+          "R_SecurityPolicyCommon": "1.0.0"
+        },
         "runtime": {
           "BlazorMenuCommon.dll": {}
         }
