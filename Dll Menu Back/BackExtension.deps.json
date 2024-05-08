@@ -8,10 +8,16 @@
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
       "BackExtension/1.0.0": {
+        "dependencies": {
+          "Roslynator.Analyzers": "4.12.2",
+          "StyleCop.Analyzers": "1.1.118"
+        },
         "runtime": {
           "BackExtension.dll": {}
         }
-      }
+      },
+      "Roslynator.Analyzers/4.12.2": {},
+      "StyleCop.Analyzers/1.1.118": {}
     }
   },
   "libraries": {
@@ -19,6 +25,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Roslynator.Analyzers/4.12.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6gLnu303OyuBwOjd3QFKG3wEmbRPXKfVHRKLkZB6lDs5Ik8mfBGVoCIVN86HAQcbZI5KQD5dY3HEie0ScoeEag==",
+      "path": "roslynator.analyzers/4.12.2",
+      "hashPath": "roslynator.analyzers.4.12.2.nupkg.sha512"
+    },
+    "StyleCop.Analyzers/1.1.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
+      "path": "stylecop.analyzers/1.1.118",
+      "hashPath": "stylecop.analyzers.1.1.118.nupkg.sha512"
     }
   }
 }
