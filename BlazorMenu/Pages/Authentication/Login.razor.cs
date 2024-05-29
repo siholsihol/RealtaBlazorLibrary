@@ -18,8 +18,10 @@ namespace BlazorMenu.Pages.Authentication
     {
         [Inject] private AuthenticationStateProvider _stateProvider { get; set; }
         [Inject] private R_ITokenRepository _tokenRepository { get; set; }
+
         //[Inject] private ILocalStorageService _localStorageService { get; set; }
         [Inject] private BlazorMenuLocalStorageService _localStorageService { get; set; }
+
         //[Inject] private R_IMenuService _menuService { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
         [Inject] public R_MessageBoxService R_MessageBox { get; set; }
@@ -29,7 +31,7 @@ namespace BlazorMenu.Pages.Authentication
 
         //private LoginModel _loginModel = new LoginModel();
         //private R_SecurityModel loClientWrapper = new R_SecurityModel();
-        private R_LoginViewModel _loginVM = new R_LoginViewModel();
+        private readonly R_LoginViewModel _loginVM = new();
 
         protected override async Task OnParametersSetAsync()
         {
@@ -96,7 +98,9 @@ namespace BlazorMenu.Pages.Authentication
                     _clientHelper.Set_CultureUI(leLoginCulture);
                 }
                 else
+                {
                     _clientHelper.Set_CultureUI(eCulture.English);
+                }
 
                 var loCultureInfoBuilder = new CultureInfoBuilder();
                 loCultureInfoBuilder.WithNumberFormatInfo(_loginVM.LoginResult.CNUMBER_FORMAT, _loginVM.LoginResult.IDECIMAL_PLACES)
@@ -140,7 +144,7 @@ namespace BlazorMenu.Pages.Authentication
             {
                 _notificationService.Error(loEx.ErrorList[0].ErrDescp);
 
-                _tokenRepository.R_SetToken("");
+                _tokenRepository.R_SetToken(string.Empty);
             }
         }
     }

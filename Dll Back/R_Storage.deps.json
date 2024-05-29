@@ -76,6 +76,17 @@
           }
         }
       },
+      "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "8.0.0"
@@ -1125,6 +1136,7 @@
           "R_AuthorizationBack.Abstract": "1.0.0",
           "R_CommonFrontBackAPI": "1.0.0",
           "R_ContextBackEnd": "1.0.0",
+          "R_MultiTenantDb": "1.0.0",
           "System.Configuration.ConfigurationManager": "6.0.1"
         },
         "runtime": {
@@ -1191,6 +1203,21 @@
           "R_ContextEnumAndInterface.dll": {}
         }
       },
+      "R_MultiTenantDb/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "6.0.0",
+          "R_CommonFrontBackAPI": "1.0.0",
+          "R_MultiTenantDb.Abstract": "1.0.0"
+        },
+        "runtime": {
+          "R_MultiTenantDb.dll": {}
+        }
+      },
+      "R_MultiTenantDb.Abstract/1.0.0": {
+        "runtime": {
+          "R_MultiTenantDb.Abstract.dll": {}
+        }
+      },
       "R_Security/1.0.0": {
         "dependencies": {
           "System.Text.Encoding.CodePages": "6.0.0"
@@ -1239,6 +1266,13 @@
       "sha512": "sha512-pXFvqBBkvsA7USZMHXRQqi6GNUi4MSvJSi0fq5LPqEM3RXA1qHCpwXtaIUO8gGtXHNFtmmDJtRvROybBu0/3EQ==",
       "path": "google.apis.core/1.63.0",
       "hashPath": "google.apis.core.1.63.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bcz5sSFJbganH0+YrfvIjJDIcKNW7TL07C4d1eTmXy/wOt52iz4LVogJb6pazs7W0+74j0YpXFErvp++Aq5Bsw==",
+      "path": "microsoft.extensions.caching.abstractions/6.0.0",
+      "hashPath": "microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
       "type": "package",
@@ -2020,6 +2054,16 @@
       "sha512": ""
     },
     "R_ContextEnumAndInterface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_MultiTenantDb/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_MultiTenantDb.Abstract/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

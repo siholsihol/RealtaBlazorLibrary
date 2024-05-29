@@ -2321,6 +2321,7 @@
           "R_AuthorizationBack.Abstract": "1.0.0",
           "R_CommonFrontBackAPI": "1.0.0",
           "R_ContextBackEnd": "1.0.0",
+          "R_MultiTenantDb": "1.0.0",
           "System.Configuration.ConfigurationManager": "6.0.1"
         },
         "runtime": {
@@ -2473,6 +2474,21 @@
         },
         "runtime": {
           "R_ExceptionAPIMiddleware.dll": {}
+        }
+      },
+      "R_MultiTenantDb/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "6.0.0",
+          "R_CommonFrontBackAPI": "1.0.0",
+          "R_MultiTenantDb.Abstract": "1.0.0"
+        },
+        "runtime": {
+          "R_MultiTenantDb.dll": {}
+        }
+      },
+      "R_MultiTenantDb.Abstract/1.0.0": {
+        "runtime": {
+          "R_MultiTenantDb.Abstract.dll": {}
         }
       },
       "R_OpenTelemetry/1.0.0": {
@@ -4092,6 +4108,16 @@
       "sha512": ""
     },
     "R_ExceptionAPIMiddleware/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_MultiTenantDb/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_MultiTenantDb.Abstract/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

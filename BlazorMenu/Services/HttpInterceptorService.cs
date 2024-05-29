@@ -1,6 +1,7 @@
 ﻿using BlazorMenu.Authentication;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using R_BlazorFrontEnd.Controls.Notification;
 using Toolbelt.Blazor;
 
@@ -12,16 +13,20 @@ namespace BlazorMenu.Services
         private readonly NavigationManager _navigationManager;
         private readonly AuthenticationStateProvider _stateProvider;
         private readonly R_NotificationService _notificationService;
+        private readonly IWebAssemblyHostEnvironment _webAssemblyHostEnvironment;
 
-        public HttpInterceptorService(HttpClientInterceptor httpClientInterceptor,
+        public HttpInterceptorService(
+            HttpClientInterceptor httpClientInterceptor,
             NavigationManager navigationManager,
             AuthenticationStateProvider stateProvider,
-            R_NotificationService notificationService)
+            R_NotificationService notificationService,
+            IWebAssemblyHostEnvironment webAssemblyHostEnvironment)
         {
             _httpClientInterceptor = httpClientInterceptor;
             _navigationManager = navigationManager;
             _stateProvider = stateProvider;
             _notificationService = notificationService;
+            _webAssemblyHostEnvironment = webAssemblyHostEnvironment;
         }
 
         public void RegisterEvent()
@@ -46,6 +51,7 @@ namespace BlazorMenu.Services
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+
                     //await _authenticationManager.Logout();
                     _navigationManager.NavigateTo("/");
                 }

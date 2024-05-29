@@ -5,50 +5,50 @@ namespace BlazorMenu.Services
     public class CultureInfoBuilder
     {
         //number
-        private string NumberDecimalSeparator = ",";
-        private string NumberGroupSeparator = ".";
-        private int NumberDecimalDigits = 2;
-        private NumberFormatInfo NumberFormatInfo = default;
+        private string _numberDecimalSeparator = ",";
+        private string _numberGroupSeparator = ".";
+        private int _numberDecimalDigits = 2;
+        private NumberFormatInfo _numberFormatInfo = default;
 
         //date
-        private string LongDatePattern = "MMMM d, yyyy";
-        private string ShortDatePattern = "M/d/yy";
-        private string LongTimePattern = "hh:mm:ss tt";
-        private string ShortTimePattern = "hh:mm tt";
-        private DateTimeFormatInfo DateTimeFormatInfo = default;
+        private string _longDatePattern = "MMMM d, yyyy";
+        private string _shortDatePattern = "M/d/yy";
+        private string _longTimePattern = "hh:mm:ss tt";
+        private string _shortTimePattern = "hh:mm tt";
+        private DateTimeFormatInfo _dateTimeFormatInfo = default;
 
         public CultureInfoBuilder()
         {
-            NumberFormatInfo = Thread.CurrentThread.CurrentUICulture.NumberFormat;
-            DateTimeFormatInfo = Thread.CurrentThread.CurrentUICulture.DateTimeFormat;
+            _numberFormatInfo = Thread.CurrentThread.CurrentUICulture.NumberFormat;
+            _dateTimeFormatInfo = Thread.CurrentThread.CurrentUICulture.DateTimeFormat;
         }
 
         #region Number
         public CultureInfoBuilder WithNumberDecimalSeparator(string pcDecimalSeparator)
         {
-            NumberDecimalSeparator = pcDecimalSeparator;
-            NumberGroupSeparator = pcDecimalSeparator == "," ? NumberGroupSeparator : ",";
+            _numberDecimalSeparator = pcDecimalSeparator;
+            _numberGroupSeparator = pcDecimalSeparator == "," ? _numberGroupSeparator : ",";
 
             return this;
         }
 
         public CultureInfoBuilder WithNumberDecimalDigits(int piNumberDecimalDigits)
         {
-            NumberDecimalDigits = piNumberDecimalDigits;
+            _numberDecimalDigits = piNumberDecimalDigits;
 
             return this;
         }
 
         public CultureInfoBuilder WithNumberFormatInfo(string pcDecimalSeparator, int piNumberDecimalDigits)
         {
-            NumberDecimalSeparator = pcDecimalSeparator;
-            NumberGroupSeparator = pcDecimalSeparator == "," ? NumberGroupSeparator : ",";
+            _numberDecimalSeparator = pcDecimalSeparator;
+            _numberGroupSeparator = pcDecimalSeparator == "," ? _numberGroupSeparator : ",";
 
-            NumberDecimalDigits = piNumberDecimalDigits;
+            _numberDecimalDigits = piNumberDecimalDigits;
 
-            NumberFormatInfo.NumberDecimalSeparator = NumberDecimalSeparator;
-            NumberFormatInfo.NumberGroupSeparator = NumberGroupSeparator;
-            NumberFormatInfo.NumberDecimalDigits = NumberDecimalDigits;
+            _numberFormatInfo.NumberDecimalSeparator = _numberDecimalSeparator;
+            _numberFormatInfo.NumberGroupSeparator = _numberGroupSeparator;
+            _numberFormatInfo.NumberDecimalDigits = _numberDecimalDigits;
 
             return this;
         }
@@ -57,50 +57,50 @@ namespace BlazorMenu.Services
         #region Date
         public CultureInfoBuilder WithLongDatePattern(string pcLongDatePattern)
         {
-            LongDatePattern = pcLongDatePattern;
+            _longDatePattern = pcLongDatePattern;
 
             return this;
         }
 
         public CultureInfoBuilder WithShortDatePattern(string pcShortDatePattern)
         {
-            ShortDatePattern = pcShortDatePattern;
+            _shortDatePattern = pcShortDatePattern;
 
             return this;
         }
 
         public CultureInfoBuilder WithLongTimePattern(string pcLongTimePattern)
         {
-            LongTimePattern = pcLongTimePattern;
+            _longTimePattern = pcLongTimePattern;
 
             return this;
         }
 
         public CultureInfoBuilder WithShortTimePattern(string pcShortTimePattern)
         {
-            ShortTimePattern = pcShortTimePattern;
+            _shortTimePattern = pcShortTimePattern;
 
             return this;
         }
 
         public CultureInfoBuilder WithDatePattern(string pcLongDatePattern, string pcShortDatePattern)
         {
-            LongDatePattern = pcLongDatePattern;
-            ShortDatePattern = pcShortDatePattern;
+            _longDatePattern = pcLongDatePattern;
+            _shortDatePattern = pcShortDatePattern;
 
-            DateTimeFormatInfo.LongDatePattern = LongDatePattern;
-            DateTimeFormatInfo.ShortDatePattern = ShortDatePattern;
+            _dateTimeFormatInfo.LongDatePattern = _longDatePattern;
+            _dateTimeFormatInfo.ShortDatePattern = _shortDatePattern;
 
             return this;
         }
 
         public CultureInfoBuilder WithTimePattern(string pcLongTimePattern, string pcShortTimePattern)
         {
-            LongTimePattern = pcLongTimePattern;
-            ShortTimePattern = pcShortTimePattern;
+            _longTimePattern = pcLongTimePattern;
+            _shortTimePattern = pcShortTimePattern;
 
-            DateTimeFormatInfo.LongTimePattern = LongTimePattern;
-            DateTimeFormatInfo.ShortTimePattern = ShortTimePattern;
+            _dateTimeFormatInfo.LongTimePattern = _longTimePattern;
+            _dateTimeFormatInfo.ShortTimePattern = _shortTimePattern;
 
             return this;
         }
@@ -109,8 +109,8 @@ namespace BlazorMenu.Services
         public CultureInfo BuildCultureInfo()
         {
             var loCulture = Thread.CurrentThread.CurrentUICulture;
-            loCulture.NumberFormat = NumberFormatInfo;
-            loCulture.DateTimeFormat = DateTimeFormatInfo;
+            loCulture.NumberFormat = _numberFormatInfo;
+            loCulture.DateTimeFormat = _dateTimeFormatInfo;
 
             return loCulture;
         }

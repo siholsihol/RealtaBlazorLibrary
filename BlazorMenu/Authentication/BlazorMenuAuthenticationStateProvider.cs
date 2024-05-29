@@ -52,8 +52,8 @@ namespace BlazorMenu.Authentication
 
                 var loUserClaim = GetClaimsFromToken(lcSavedToken);
 
-                _clientHelper.Set_CompanyId(loUserClaim.Where(x => x.Type == "COMPANY_ID").FirstOrDefault().Value);
-                _clientHelper.Set_UserId(loUserClaim.Where(x => x.Type == "USER_ID").FirstOrDefault().Value);
+                _clientHelper.Set_CompanyId(loUserClaim.FirstOrDefault(x => x.Type == "COMPANY_ID").Value);
+                _clientHelper.Set_UserId(loUserClaim.FirstOrDefault(x => x.Type == "USER_ID").Value);
 
                 var lcCultureId = _localStorageService.GetCulture();
                 if (!string.IsNullOrWhiteSpace(lcCultureId))
@@ -63,7 +63,9 @@ namespace BlazorMenu.Authentication
                     _clientHelper.Set_CultureUI(leLoginCulture);
                 }
                 else
+                {
                     _clientHelper.Set_CultureUI(eCulture.English);
+                }
 
                 var loStorageCultureInfo = _localStorageService.GetCultureInfo();
 
@@ -100,8 +102,8 @@ namespace BlazorMenu.Authentication
                 var loSecurityModel = new R_SecurityModel();
                 await loSecurityModel.R_SecurityPolicyLogoutAsync(new SecurityPolicyLogoutParameterDTO
                 {
-                    CCOMPANY_ID = loUserClaim.Where(x => x.Type == "COMPANY_ID").FirstOrDefault().Value,
-                    CUSER_ID = loUserClaim.Where(x => x.Type == "USER_ID").FirstOrDefault().Value
+                    CCOMPANY_ID = loUserClaim.FirstOrDefault(x => x.Type == "COMPANY_ID").Value,
+                    CUSER_ID = loUserClaim.FirstOrDefault(x => x.Type == "USER_ID").Value
                 });
 
                 await UserLockingFlushAsync();
@@ -137,12 +139,12 @@ namespace BlazorMenu.Authentication
 
                 var loParam = new UserLockingFlushParameterDTO
                 {
-                    CCOMPANY_ID = loUserClaim.Where(x => x.Type == "COMPANY_ID").FirstOrDefault().Value,
-                    CUSER_ID = loUserClaim.Where(x => x.Type == "USER_ID").FirstOrDefault().Value
+                    CCOMPANY_ID = loUserClaim.FirstOrDefault(x => x.Type == "COMPANY_ID").Value,
+                    CUSER_ID = loUserClaim.FirstOrDefault(x => x.Type == "USER_ID").Value
                 };
 
-                R_LoginViewModel _loginViewModel = new R_LoginViewModel();
-                await _loginViewModel.UserLockingFlushAsync(loParam);
+                var loLoginViewModel = new R_LoginViewModel();
+                await loLoginViewModel.UserLockingFlushAsync(loParam);
 
                 await _localStorageService.ClearLocalStorageAsync();
             }
@@ -154,7 +156,7 @@ namespace BlazorMenu.Authentication
             loEx.ThrowExceptionIfErrors();
         }
 
-        private IEnumerable<Claim> GetClaimsFromToken(string pcToken)
+        private static IEnumerable<Claim> GetClaimsFromToken(string pcToken)
         {
             var loClaims = new List<Claim>();
             var lcPayload = pcToken.Split('.')[1];
@@ -188,7 +190,7 @@ namespace BlazorMenu.Authentication
             return loClaims;
         }
 
-        private byte[] ParseBase64WithoutPadding(string lcPayload)
+        private static byte[] ParseBase64WithoutPadding(string lcPayload)
         {
             lcPayload = lcPayload.Trim().Replace('-', '+').Replace('-', '/');
             var lcBase64 = lcPayload.PadRight(lcPayload.Length + (4 - lcPayload.Length % 4) % 4, '=');

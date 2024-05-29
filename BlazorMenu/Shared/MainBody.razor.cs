@@ -21,6 +21,7 @@ namespace BlazorMenu.Shared
         protected override async Task OnInitializedAsync()
         {
             if (CurrentTab != null)
+            {
                 await R_AddTab(
                     string.IsNullOrWhiteSpace(CurrentTab.PageTitle) ? CurrentTab.Title : CurrentTab.PageTitle,
                     CurrentTab.Body,
@@ -28,6 +29,7 @@ namespace BlazorMenu.Shared
                     null,
                     null,
                     null);
+            }
         }
 
         public async Task R_AddTab(
@@ -72,7 +74,9 @@ namespace BlazorMenu.Shared
                 await _tabRef.SetActiveTabAsync(loTab);
             }
             else
+            {
                 _tabRef?.NotifyStateHasChanged();
+            }
         }
 
         private async Task OnTabRemoving(R_TabRemovingEventArgs eventArgs)

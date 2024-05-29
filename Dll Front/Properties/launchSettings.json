@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "R_BlazorFrontEnd.Controls": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:1566;http://localhost:1567"
+    }
+  }
+}

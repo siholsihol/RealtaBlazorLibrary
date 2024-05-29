@@ -8,7 +8,8 @@ namespace BlazorMenu.Services
 {
     public class R_Localizer<T> : R_Localizer, R_ILocalizer<T>
     {
-        public R_Localizer(R_ContextHeader contextHeader) : base(contextHeader)
+        public R_Localizer(R_ContextHeader contextHeader)
+            : base(contextHeader)
         {
         }
 
@@ -16,7 +17,7 @@ namespace BlazorMenu.Services
         {
             get
             {
-                return base.GetStringFromResource(typeof(T), pcResourceId);
+                return GetStringFromResource(typeof(T), pcResourceId);
             }
         }
     }
@@ -38,9 +39,9 @@ namespace BlazorMenu.Services
             _contextHeader = contextHeader;
         }
 
-        protected string GetStringFromResource(Type poType, string pcResourceId, CultureInfo poCulture = null, string pcResourceName = "")
+        protected static string GetStringFromResource(Type poType, string pcResourceId, CultureInfo poCulture = null, string pcResourceName = "")
         {
-            string lcMessage = "";
+            string lcMessage;
 
             try
             {
@@ -57,7 +58,7 @@ namespace BlazorMenu.Services
 
         public R_Error R_GetError(Type poType, string pcResourceId, CultureInfo poCulture = null, string pcResourceName = "")
         {
-            R_Error loError = null;
+            R_Error loError;
 
             try
             {
@@ -74,7 +75,7 @@ namespace BlazorMenu.Services
 
         public R_ErrorDetail R_GetErrorDetail(Type poType, string pcResourceId, CultureInfo poCulture = null, string pcResourceName = "")
         {
-            R_ErrorDetail loErrorDetail = null;
+            R_ErrorDetail loErrorDetail;
 
             try
             {

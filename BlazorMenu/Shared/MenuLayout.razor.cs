@@ -17,15 +17,14 @@ namespace BlazorMenu.Shared
         [Inject] private R_IMenuService _menuService { get; set; }
         [Inject] private MenuTabSetTool TabSetTool { get; set; }
         [Inject] private IJSRuntime JSRuntime { get; set; }
-        [Inject] private HttpInterceptorService _httpInterceptorService { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
 
         private List<MenuListDTO> _menuList = new();
         private List<DrawerMenuItem> _data = new();
         private Info _modalInfo;
         private Profile _profileInfo;
-        private string _searchText = "";
-        private string _userId = "";
+        private string _searchText = string.Empty;
+        private string _userId = string.Empty;
         private List<DrawerMenuItem> _filteredData
         {
             get
@@ -49,8 +48,6 @@ namespace BlazorMenu.Shared
         {
             try
             {
-                _httpInterceptorService.RegisterEvent();
-
                 _menuList = await _menuService.GetMenuAsync();
 
                 var menuIds = _menuList.Where(x => x.CMENU_ID != "FAV")

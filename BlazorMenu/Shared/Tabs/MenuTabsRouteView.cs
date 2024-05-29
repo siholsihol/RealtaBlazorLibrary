@@ -50,7 +50,7 @@ namespace BlazorMenu.Shared.Tabs
                             Url = url,
                             IsInited = isLoad,
                             IsActive = true,
-                            Title = url.Equals("/") ? "Home" : ""
+                            Title = url.Equals("/") ? "Home" : string.Empty
                         });
                     }
                 }
@@ -68,7 +68,7 @@ namespace BlazorMenu.Shared.Tabs
             }
         }
 
-        private RenderFragment CreatePage(RouteData routeData)
+        private static RenderFragment CreatePage(RouteData routeData)
         {
             RenderFragment page = builder =>
             {
@@ -91,10 +91,10 @@ namespace BlazorMenu.Shared.Tabs
             return page;
         }
 
-        private string GetTitleFromPageAttribute(Type poPageType)
+        private static string GetTitleFromPageAttribute(Type poPageType)
         {
             var loEx = new R_Exception();
-            var lcRtn = "";
+            var lcRtn = string.Empty;
 
             try
             {
@@ -116,9 +116,9 @@ namespace BlazorMenu.Shared.Tabs
             return lcRtn;
         }
 
-        private R_eFormAccess[] GetFullFormAccess()
+        private static R_eFormAccess[] GetFullFormAccess()
         {
-            R_eFormAccess[] loFormAccess =
+            return new R_eFormAccess[]
             {
                 R_eFormAccess.Add,
                 R_eFormAccess.Update,
@@ -126,8 +126,6 @@ namespace BlazorMenu.Shared.Tabs
                 R_eFormAccess.Print,
                 R_eFormAccess.View
             };
-
-            return loFormAccess;
         }
     }
 }

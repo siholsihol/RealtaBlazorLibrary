@@ -1,8 +1,10 @@
-﻿@using Microsoft.AspNetCore.Components.WebAssembly.Services
+﻿@using BlazorMenu.Routing
+@using Microsoft.AspNetCore.Components.WebAssembly.Services
 @using System.Reflection
 @using R_BlazorFrontEnd.Helpers
 @using BlazorMenu.Shared.Tabs
 @inject LazyAssemblyLoader AssemblyLoader
+@inject NavigationManager NavigationManager
 
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(Program).Assembly"
@@ -17,6 +19,17 @@
             </LayoutView>
         </NotFound>
     </Router>
+
+    @* <ConventionRouter>
+        <Found Context="routeData">
+            <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        </Found>
+        <NotFound>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </ConventionRouter> *@
 </CascadingAuthenticationState>
 
 @code {

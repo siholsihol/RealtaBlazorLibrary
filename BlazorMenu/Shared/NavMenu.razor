@@ -32,7 +32,7 @@
                     </NavLink>
 
                     <nav class="nav flex-column">
-                        @if (expandedSubNav && menu.Key == _clickedMenu)
+                        @if (_expandedSubNav && menu.Key == _clickedMenu)
                         {
                             @foreach (var subMenu in _menuGroupList)
                             {
@@ -46,7 +46,7 @@
                                     </NavLink>
 
                                     <nav class="nav flex-column">
-                                        @if (expandedSubMenu && subMenu.CMENU_ID + subMenu.CSUB_MENU_ID == _clickedGroup)
+                                        @if (_expandedSubMenu && subMenu.CMENU_ID + subMenu.CSUB_MENU_ID == _clickedGroup)
                                         {
                                             @foreach (var program in _menuProgramList)
                                             {

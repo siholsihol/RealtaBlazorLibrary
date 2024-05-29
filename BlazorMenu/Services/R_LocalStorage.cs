@@ -8,7 +8,8 @@ namespace BlazorMenu.Services
         private readonly ILocalStorageService _localStorageService;
         private readonly ISyncLocalStorageService _syncLocalStorageService;
 
-        public R_LocalStorage(ILocalStorageService localStorageService,
+        public R_LocalStorage(
+            ILocalStorageService localStorageService,
             ISyncLocalStorageService syncLocalStorageService)
         {
             _localStorageService = localStorageService;

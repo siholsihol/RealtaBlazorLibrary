@@ -10,17 +10,17 @@ namespace BlazorMenu.Shared
     {
         private bool IconMenuActive { get; set; } = false;
 
-        private bool collapseNavMenu = true;
-        private bool expandedSubMenu = false;
-        private bool expandedSubNav = false;
+        private bool _collapseNavMenu = true;
+        private bool _expandedSubMenu = false;
+        private bool _expandedSubNav = false;
 
-        private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+        private string NavMenuCssClass => _collapseNavMenu ? "collapse" : null;
 
         [Parameter] public EventCallback<bool> ShowIconMenu { get; set; }
 
         private void ToggleNavMenu()
         {
-            collapseNavMenu = !collapseNavMenu;
+            _collapseNavMenu = !_collapseNavMenu;
         }
 
         private async Task ToggleIconMenu()
@@ -33,8 +33,8 @@ namespace BlazorMenu.Shared
         public List<MenuListDTO> _menuList { get; set; }
         public Dictionary<string, MenuListDTO> _menuIds { get; set; }
 
-        private string _clickedMenu = "";
-        private string _prevClickedMenu = "";
+        private string _clickedMenu = string.Empty;
+        private string _prevClickedMenu = string.Empty;
 
         protected override async Task OnParametersSetAsync()
         {
@@ -59,22 +59,22 @@ namespace BlazorMenu.Shared
         public List<MenuListDTO> _menuGroupList { get; set; }
         public void GetClicked(MenuListDTO poMenu)
         {
-            expandedSubMenu = false;
+            _expandedSubMenu = false;
 
             _clickedMenu = poMenu.CMENU_ID;
             if (_prevClickedMenu != _clickedMenu)
             {
                 _menuGroupList = _menuList.Where(x => x.CSUB_MENU_TYPE == "G" && x.CMENU_ID == poMenu.CMENU_ID).OrderBy(x => x.IGROUP_INDEX).ToList();
-                expandedSubNav = false;
+                _expandedSubNav = false;
 
                 _prevClickedMenu = _clickedMenu;
             }
 
-            expandedSubNav = !expandedSubNav;
+            _expandedSubNav = !_expandedSubNav;
         }
 
-        private string _clickedGroup = "";
-        private string _prevClickedGroup = "";
+        private string _clickedGroup = string.Empty;
+        private string _prevClickedGroup = string.Empty;
         public List<MenuListDTO> _menuProgramList { get; set; }
         public void GetClickedGroup(MenuListDTO poMenu)
         {
@@ -83,12 +83,12 @@ namespace BlazorMenu.Shared
             if (_prevClickedGroup != _clickedGroup)
             {
                 _menuProgramList = _menuList.Where(x => x.CSUB_MENU_TYPE == "P" && x.CMENU_ID == poMenu.CMENU_ID && x.CPARENT_SUB_MENU_ID == poMenu.CSUB_MENU_ID).OrderBy(x => x.IFAVORITE_INDEX).ToList();
-                expandedSubMenu = false;
+                _expandedSubMenu = false;
 
                 _prevClickedGroup = _clickedGroup;
             }
 
-            expandedSubMenu = !expandedSubMenu;
+            _expandedSubMenu = !_expandedSubMenu;
         }
 
         [Inject] public MenuTabSetTool TabSetTool { get; set; }

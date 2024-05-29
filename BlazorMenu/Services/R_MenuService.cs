@@ -9,7 +9,7 @@ namespace BlazorMenu.Services
     public class R_MenuService : R_IMenuService
     {
         private readonly IClientHelper _clientHelper;
-        private R_MenuModel _menuModel = null;
+        private readonly R_MenuModel _menuModel;
 
         public R_MenuService(IClientHelper clientHelper)
         {
@@ -29,8 +29,8 @@ namespace BlazorMenu.Services
                     CCOMPANY_ID = _clientHelper.CompanyId,
                     CUSER_ID = _clientHelper.UserId,
                     CLANGUAGE_ID = "en",
-                    CMENU_ID = "",
-                    CSUB_MENU_ID = "",
+                    CMENU_ID = string.Empty,
+                    CSUB_MENU_ID = string.Empty,
                     ILEVEL = 1,
                     CMODUL_ID = R_FrontConfig.R_GetConfigAsString("R_Md")
                 };
