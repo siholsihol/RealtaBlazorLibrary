@@ -18,19 +18,13 @@ namespace BlazorMenu.Pages.Authentication
     {
         [Inject] private AuthenticationStateProvider _stateProvider { get; set; }
         [Inject] private R_ITokenRepository _tokenRepository { get; set; }
-
-        //[Inject] private ILocalStorageService _localStorageService { get; set; }
         [Inject] private BlazorMenuLocalStorageService _localStorageService { get; set; }
-
-        //[Inject] private R_IMenuService _menuService { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
         [Inject] public R_MessageBoxService R_MessageBox { get; set; }
         [Inject] private R_ISymmetricJSProvider _encryptProvider { get; set; }
         [Inject] private MenuTabSetTool MenuTabSetTool { get; set; }
         [Inject] private R_NotificationService _notificationService { get; set; }
 
-        //private LoginModel _loginModel = new LoginModel();
-        //private R_SecurityModel loClientWrapper = new R_SecurityModel();
         private readonly R_LoginViewModel _loginVM = new();
 
         protected override async Task OnParametersSetAsync()
@@ -110,6 +104,10 @@ namespace BlazorMenu.Pages.Authentication
                 var loCultureInfo = loCultureInfoBuilder.BuildCultureInfo();
 
                 _clientHelper.Set_Culture(loCultureInfo.NumberFormat, loCultureInfo.DateTimeFormat);
+
+                _clientHelper.Set_ReportCulture(_loginVM.LoginResult.CREPORT_CULTURE);
+
+                _clientHelper.Set_ProgramId("");
 
                 await _localStorageService.SetCultureAsync(_loginVM.LoginResult.CCULTURE_ID);
 
