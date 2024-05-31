@@ -67,16 +67,6 @@ namespace BlazorMenu.Pages.Authentication
 
                 var lcEncryptedPassword = await _encryptProvider.TextEncrypt(_loginVM.LoginModel.Password, _loginVM.LoginModel.UserId);
 
-                //var loPolicyLogin = await loClientWrapper.R_SecurityPolicyLogonAsync
-                //    (
-                //        new SecurityPolicyLogonParameterDTO
-                //        {
-                //            CCOMPANY_ID = _loginModel.CompanyId,
-                //            CUSER_ID = _loginModel.UserId.ToLower(),
-                //            CUSER_PASSWORD = lcEncryptedPassword
-                //        }
-                //    );
-
                 await _loginVM.LoginAsync(lcEncryptedPassword);
 
                 _tokenRepository.R_SetToken(_loginVM.LoginResult.CTOKEN);
