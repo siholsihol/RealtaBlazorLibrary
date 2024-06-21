@@ -58,7 +58,7 @@ namespace BlazorMenu.Shared
 
                 if (poPredefinedDock is not null)
                 {
-                    poPredefinedDock.EnabledChanged = () => _tabRef.SetEnableTab(loNewTab.Id.ToString());
+                    poPredefinedDock.EnabledChanged = (bool plEnable) => _tabRef.SetEnableTab(loNewTab.Id.ToString(), plEnable);
                 }
 
                 Tabs.Add(loNewTab);
