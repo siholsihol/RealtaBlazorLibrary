@@ -27,6 +27,7 @@
           "R_ExceptionAPIMiddleware": "1.0.0",
           "R_OpenTelemetry": "1.0.0",
           "R_ReportFastReportBack": "1.0.0",
+          "R_ValidationAPIMiddleware": "1.0.0",
           "Serilog.AspNetCore": "8.0.0",
           "Serilog.Enrichers.CorrelationId": "3.0.1",
           "Serilog.Sinks.OpenTelemetry": "1.2.0",
@@ -2523,6 +2524,17 @@
         "runtime": {
           "R_Security.dll": {}
         }
+      },
+      "R_ValidationAPIMiddleware/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "R_APICommonDTO": "1.0.0",
+          "R_ApplicationBack": "1.0.0"
+        },
+        "runtime": {
+          "R_ValidationAPIMiddleware.dll": {}
+        }
       }
     }
   },
@@ -4138,6 +4150,11 @@
       "sha512": ""
     },
     "R_Security/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_ValidationAPIMiddleware/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
