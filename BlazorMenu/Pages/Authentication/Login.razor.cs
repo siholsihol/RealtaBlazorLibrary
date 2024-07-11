@@ -38,10 +38,6 @@ namespace BlazorMenu.Pages.Authentication
                     _navigationManager.NavigateTo("/");
 
                 await _loginVM.R_GetSecurityPolicyParameterAsync();
-
-                //_loginVM.LoginModel.CompanyId = "001";
-                //_loginVM.LoginModel.UserId = "cp";
-                //_loginVM.LoginModel.Password = "cp";
             }
             catch (R_Exception rex)
             {
@@ -100,6 +96,8 @@ namespace BlazorMenu.Pages.Authentication
                 _clientHelper.Set_ProgramId("");
 
                 await _localStorageService.SetCultureAsync(_loginVM.LoginResult.CCULTURE_ID);
+
+                await _localStorageService.SetCultureReportAsync(_loginVM.LoginResult.CREPORT_CULTURE);
 
                 var loDictCulture = new Dictionary<string, string>
                     {

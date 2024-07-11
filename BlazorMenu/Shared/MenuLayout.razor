@@ -3,7 +3,7 @@
 
 <main class="main" id="top">
     <div class="container" data-layout="container">
-        <script>
+        <script suppress-error="BL9992">
             var isFluid = JSON.parse(localStorage.getItem('isFluid'));
             if (isFluid) {
                 var container = document.querySelector('[data-layout]');
@@ -12,7 +12,7 @@
             }
         </script>
         <nav class="navbar navbar-light navbar-vertical navbar-expand-xl pb-5" style="display: none;">
-            <script>
+            <script suppress-error="BL9992">
                 var navbarStyle = localStorage.getItem("navbarStyle");
                 if (navbarStyle && navbarStyle !== 'transparent') {
                     document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
@@ -221,14 +221,14 @@
                             <div class="bg-white dark__bg-1000 rounded-2 py-2">
                                 <a class="dropdown-item" href="#authentication-modal" data-bs-toggle="modal" @onclick="async () => await _profileInfo.Open()">Profile &amp; account</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" @onclick="@Logout">Logout</a>
+                                <a class="dropdown-item" @onclick="@Logout">Logout</a>
                             </div>
                         </div>
                     </li>
                 </ul>
             </nav>
 
-            <script>
+            <script suppress-error="BL9992">
                 var navbarPosition = localStorage.getItem('navbarPosition');
                 var navbarVertical = document.querySelector('.navbar-vertical');
                 var navbarTopVertical = document.querySelector('.content .navbar-top');

@@ -164,6 +164,16 @@ ul ul li.nav-item a.nav-link span {
     cursor:not-allowed !important;
 }
 
+/* ComboBox Button */
+.k-input .k-button {
+    padding: 0.25rem !important;
+    padding-block: 0px !important;
+}
+
+/* DropdownList Button */
+.k-picker-md .k-input-button {
+    padding-block: 0px !important;
+}
 
 /* Input */
 .k-input-md .k-input-inner, .k-picker-md .k-input-inner {
@@ -174,9 +184,6 @@ ul ul li.nav-item a.nav-link span {
     border-color: var(--falcon-input-border-color) !important;
     background-color: var(--falcon-input-bg) !important;
     color: var(--falcon-input-color) !important;
-}
-.k-input .k-button {
-    padding: 0.25rem !important;
 }
 
 .k-disabled [disabled],

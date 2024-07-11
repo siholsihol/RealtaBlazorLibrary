@@ -77,6 +77,11 @@ namespace BlazorMenu.Authentication
                 var loCultureInfo = loCultureInfoBuilder.BuildCultureInfo();
                 _clientHelper.Set_Culture(loCultureInfo.NumberFormat, loCultureInfo.DateTimeFormat);
 
+                var lcReportCulture = await _localStorageService.GetCultureReportAsync();
+                _clientHelper.Set_ReportCulture(lcReportCulture);
+
+                _clientHelper.Set_ProgramId("");
+
                 loState = new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(loUserClaim, "jwt")));
             }
             catch (Exception)

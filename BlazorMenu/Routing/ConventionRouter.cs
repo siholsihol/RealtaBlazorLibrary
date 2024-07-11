@@ -14,7 +14,6 @@ namespace BlazorMenu.Routing
         [Inject] private NavigationManager NavigationManager { get; set; }
         [Inject] private INavigationInterception NavigationInterception { get; set; }
         [Inject] RouteManager RouteManager { get; set; }
-        //[Inject] private HttpClient HttpClient { get; set; }
         [Inject] private Interop DOMinterop { get; set; }
         [Inject] private IHttpClientFactory HttpClientFactory { get; set; }
 
