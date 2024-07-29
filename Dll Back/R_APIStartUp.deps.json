@@ -27,6 +27,7 @@
           "R_ExceptionAPIMiddleware": "1.0.0",
           "R_OpenTelemetry": "1.0.0",
           "R_ReportFastReportBack": "1.0.0",
+          "R_ReportServerClient": "1.0.0",
           "R_ValidationAPIMiddleware": "1.0.0",
           "Serilog.AspNetCore": "8.0.0",
           "Serilog.Enrichers.CorrelationId": "3.0.1",
@@ -664,6 +665,14 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.23.53103"
           }
+        }
+      },
+      "Microsoft.Extensions.Http/6.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Logging": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Options": "8.0.0"
         }
       },
       "Microsoft.Extensions.Logging/8.0.0": {
@@ -2517,6 +2526,22 @@
           "R_ReportFastReportBack.dll": {}
         }
       },
+      "R_ReportServerClient/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Http": "6.0.0",
+          "R_APICommonDTO": "1.0.0",
+          "R_CommonFrontBackAPI": "1.0.0",
+          "R_ReportServerCommon": "1.0.0"
+        },
+        "runtime": {
+          "R_ReportServerClient.dll": {}
+        }
+      },
+      "R_ReportServerCommon/1.0.0": {
+        "runtime": {
+          "R_ReportServerCommon.dll": {}
+        }
+      },
       "R_Security/1.0.0": {
         "dependencies": {
           "System.Text.Encoding.CodePages": "6.0.0"
@@ -2893,6 +2918,13 @@
       "sha512": "sha512-AG7HWwVRdCHlaA++1oKDxLsXIBxmDpMPb3VoyOoAghEWnkUvEAdYQUwnV4jJbAaa/nMYNiEh5ByoLauZBEiovg==",
       "path": "microsoft.extensions.hosting.abstractions/8.0.0",
       "hashPath": "microsoft.extensions.hosting.abstractions.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Http/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-15+pa2G0bAMHbHewaQIdr/y6ag2H3yh4rd9hTXavtWDzQBkvpe2RMqFg8BxDpcQWssmjmBApGPcw93QRz6YcMg==",
+      "path": "microsoft.extensions.http/6.0.0",
+      "hashPath": "microsoft.extensions.http.6.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/8.0.0": {
       "type": "package",
@@ -4145,6 +4177,16 @@
       "sha512": ""
     },
     "R_ReportFastReportBack/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_ReportServerClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_ReportServerCommon/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
