@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "R_Storage/1.0.0": {
         "dependencies": {
-          "Google.Apis.Auth": "1.63.0",
+          "Google.Apis.Auth": "1.57.0",
           "R_APIBackEnd": "1.0.0",
           "R_APICommon": "1.0.0",
           "R_StorageCommon": "1.0.0"
@@ -37,42 +37,41 @@
           }
         }
       },
-      "Google.Apis/1.63.0": {
+      "Google.Apis/1.57.0": {
         "dependencies": {
-          "Google.Apis.Core": "1.63.0"
+          "Google.Apis.Core": "1.57.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.dll": {
-            "assemblyVersion": "1.63.0.0",
-            "fileVersion": "1.63.0.0"
+            "assemblyVersion": "1.57.0.0",
+            "fileVersion": "1.57.0.0"
           }
         }
       },
-      "Google.Apis.Auth/1.63.0": {
+      "Google.Apis.Auth/1.57.0": {
         "dependencies": {
-          "Google.Apis": "1.63.0",
-          "Google.Apis.Core": "1.63.0",
-          "System.Management": "7.0.2"
+          "Google.Apis": "1.57.0",
+          "Google.Apis.Core": "1.57.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
-            "assemblyVersion": "1.63.0.0",
-            "fileVersion": "1.63.0.0"
+            "assemblyVersion": "1.57.0.0",
+            "fileVersion": "1.57.0.0"
           },
           "lib/netstandard2.0/Google.Apis.Auth.dll": {
-            "assemblyVersion": "1.63.0.0",
-            "fileVersion": "1.63.0.0"
+            "assemblyVersion": "1.57.0.0",
+            "fileVersion": "1.57.0.0"
           }
         }
       },
-      "Google.Apis.Core/1.63.0": {
+      "Google.Apis.Core/1.57.0": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Core.dll": {
-            "assemblyVersion": "1.63.0.0",
-            "fileVersion": "1.63.0.0"
+            "assemblyVersion": "1.57.0.0",
+            "fileVersion": "1.57.0.0"
           }
         }
       },
@@ -234,11 +233,11 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/13.0.3": {
+      "Newtonsoft.Json/13.0.1": {
         "runtime": {
-          "lib/net6.0/Newtonsoft.Json.dll": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.3.27908"
+            "fileVersion": "13.0.1.25517"
           }
         }
       },
@@ -336,14 +335,6 @@
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Threading": "4.3.0"
-        }
-      },
-      "System.CodeDom/7.0.0": {
-        "runtime": {
-          "lib/net6.0/System.CodeDom.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
-          }
         }
       },
       "System.Collections/4.3.0": {
@@ -665,25 +656,6 @@
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
           "System.Threading": "4.3.0"
-        }
-      },
-      "System.Management/7.0.2": {
-        "dependencies": {
-          "System.CodeDom": "7.0.0"
-        },
-        "runtime": {
-          "lib/net6.0/System.Management.dll": {
-            "assemblyVersion": "7.0.0.2",
-            "fileVersion": "7.0.723.27404"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/net6.0/System.Management.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "7.0.0.2",
-            "fileVersion": "7.0.723.27404"
-          }
         }
       },
       "System.Net.Http/4.3.0": {
@@ -1180,7 +1152,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "Microsoft.Extensions.Configuration.Binder": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
-          "Newtonsoft.Json": "13.0.3",
+          "Newtonsoft.Json": "13.0.1",
           "R_APICommonDTO": "1.0.0",
           "R_ContextEnumAndInterface": "1.0.0",
           "System.Text.Encoding.CodePages": "6.0.0"
@@ -1191,7 +1163,7 @@
       },
       "R_ContextBackEnd/1.0.0": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.3",
+          "Newtonsoft.Json": "13.0.1",
           "R_ContextEnumAndInterface": "1.0.0"
         },
         "runtime": {
@@ -1246,26 +1218,26 @@
       "path": "castle.core/4.3.1",
       "hashPath": "castle.core.4.3.1.nupkg.sha512"
     },
-    "Google.Apis/1.63.0": {
+    "Google.Apis/1.57.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+eZyt17tnx3KiNqYTu3s810RWe4P5t7Ou1sdLVGaHkwagWAUN5NfnD4/xLA9gMvnFT2ETGyrsUXgxQ8wU0KRAw==",
-      "path": "google.apis/1.63.0",
-      "hashPath": "google.apis.1.63.0.nupkg.sha512"
+      "sha512": "sha512-30V7T2G98HQjfI6y0AzBOXJUu7j7Trl1ZzH0e6DKmUaXNCvdMPwxApjBKESeTOkWjMdFRmkpAGyDEoxim+Xq1A==",
+      "path": "google.apis/1.57.0",
+      "hashPath": "google.apis.1.57.0.nupkg.sha512"
     },
-    "Google.Apis.Auth/1.63.0": {
+    "Google.Apis.Auth/1.57.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+kdWA72t5B9kjm1MO4niU6NUOqakFFwTIaaikpdejUMAYrgBreQs6r8ntk/jPB727XlJ/ho+kQKE7CYJVT180A==",
-      "path": "google.apis.auth/1.63.0",
-      "hashPath": "google.apis.auth.1.63.0.nupkg.sha512"
+      "sha512": "sha512-xNY9rprn3iih1H5dymbxxHeZggn4bMYKtYdwO3Yr+Cj06f6xrxnL0LqEi1bmG46LBY2FlVMy9NKIF99tZ6ZBZg==",
+      "path": "google.apis.auth/1.57.0",
+      "hashPath": "google.apis.auth.1.57.0.nupkg.sha512"
     },
-    "Google.Apis.Core/1.63.0": {
+    "Google.Apis.Core/1.57.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-pXFvqBBkvsA7USZMHXRQqi6GNUi4MSvJSi0fq5LPqEM3RXA1qHCpwXtaIUO8gGtXHNFtmmDJtRvROybBu0/3EQ==",
-      "path": "google.apis.core/1.63.0",
-      "hashPath": "google.apis.core.1.63.0.nupkg.sha512"
+      "sha512": "sha512-5wuY88PewhfaWsk37EEHcwU6CFqxpaWMm20ogWLXmaCw8NbTlV/Lna0gjtr2jpTLgb3mtVa7RC1AG/mgi530SQ==",
+      "path": "google.apis.core/1.57.0",
+      "hashPath": "google.apis.core.1.57.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
       "type": "package",
@@ -1358,12 +1330,12 @@
       "path": "netstandard.library/1.6.1",
       "hashPath": "netstandard.library.1.6.1.nupkg.sha512"
     },
-    "Newtonsoft.Json/13.0.3": {
+    "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
-      "path": "newtonsoft.json/13.0.3",
-      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -1518,13 +1490,6 @@
       "sha512": "sha512-ratu44uTIHgeBeI0dE8DWvmXVBSo4u7ozRZZHOMmK/JPpYyo0dAfgSiHlpiObMQ5lEtEyIXA40sKRYg5J6A8uQ==",
       "path": "system.buffers/4.3.0",
       "hashPath": "system.buffers.4.3.0.nupkg.sha512"
-    },
-    "System.CodeDom/7.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-GLltyqEsE5/3IE+zYRP5sNa1l44qKl9v+bfdMcwg+M9qnQf47wK3H0SUR/T+3N4JEQXF3vV4CSuuo0rsg+nq2A==",
-      "path": "system.codedom/7.0.0",
-      "hashPath": "system.codedom.7.0.0.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",
@@ -1721,13 +1686,6 @@
       "sha512": "sha512-PGKkrd2khG4CnlyJwxwwaWWiSiWFNBGlgXvJpeO0xCXrZ89ODrQ6tjEWS/kOqZ8GwEOUATtKtzp1eRgmYNfclg==",
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
-    },
-    "System.Management/7.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
-      "path": "system.management/7.0.2",
-      "hashPath": "system.management.7.0.2.nupkg.sha512"
     },
     "System.Net.Http/4.3.0": {
       "type": "package",
