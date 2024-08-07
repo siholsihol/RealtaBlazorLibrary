@@ -32257,7 +32257,7 @@ select.k-picker-lg {
     box-sizing: border-box;
     outline: 0;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 0.75rem;
+    font-size: 1rem;
     line-height: 1;
     display: inline-grid;
     vertical-align: middle;
@@ -32333,7 +32333,7 @@ select.k-picker-lg {
 
 .k-progressbar-horizontal {
     width: 100%;
-    height: var(--kendo-progressbar-height, 1rem);
+    height: var(--kendo-progressbar-height, 1.5rem);
     grid-template-columns: 1fr;
     grid-template-rows: 100%;
 }

@@ -4,6 +4,8 @@ using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.Attributes;
 using R_BlazorFrontEnd.Controls.Enums;
 using R_BlazorFrontEnd.Exceptions;
+using R_BlazorFrontEnd.Extensions;
+using R_BlazorFrontEnd.Helpers;
 using System.Reflection;
 
 namespace BlazorMenu.Shared.Tabs
@@ -15,7 +17,20 @@ namespace BlazorMenu.Shared.Tabs
 
         protected override void Render(RenderTreeBuilder builder)
         {
-            var body = CreatePage(RouteData);
+            var leAccess = GetFullFormAccess();
+
+            var url = "/" + NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+            if (!url.Equals("/"))
+            {
+                var selTab = TabSetTool.Tabs.FirstOrDefault(m => !m.IsInited);
+
+                if (selTab != null)
+                {
+                    leAccess = ConvertStringToFormAccess(selTab.Access.Split(","));
+                }
+            }
+
+            var body = CreatePage(RouteData, leAccess);
 
             RenderContentInDefaultLayout(builder, body, true);
         }
@@ -58,7 +73,7 @@ namespace BlazorMenu.Shared.Tabs
                 {
                     selTab.Body = body;
                     selTab.IsActive = true;
-                    selTab.PageTitle = GetTitleFromPageAttribute(RouteData.PageType);
+                    selTab.PageTitle = GetPageTitle(RouteData.PageType);
 
                     if (isLoad)
                     {
@@ -68,7 +83,7 @@ namespace BlazorMenu.Shared.Tabs
             }
         }
 
-        private static RenderFragment CreatePage(RouteData routeData)
+        private RenderFragment CreatePage(RouteData routeData, R_eFormAccess[] peFormAccess)
         {
             RenderFragment page = builder =>
             {
@@ -80,8 +95,8 @@ namespace BlazorMenu.Shared.Tabs
 
                 if (routeData.PageType.IsSubclassOf(typeof(R_Page)))
                 {
-                    var loAccess = GetFullFormAccess();
-                    builder.AddAttribute(1, "FormAccess", loAccess);
+                    //var loAccess = GetFullFormAccess();
+                    builder.AddAttribute(1, "FormAccess", peFormAccess);
                     builder.AddAttribute(2, "FormModel", R_eFormModel.MainForm);
                 }
 
@@ -91,7 +106,7 @@ namespace BlazorMenu.Shared.Tabs
             return page;
         }
 
-        private static string GetTitleFromPageAttribute(Type poPageType)
+        private string GetPageTitle(Type poPageType)
         {
             var loEx = new R_Exception();
             var lcRtn = string.Empty;
@@ -104,7 +119,15 @@ namespace BlazorMenu.Shared.Tabs
                 var loAttributes = poPageType.GetCustomAttributes(true);
 
                 if (loAttributes.FirstOrDefault(x => x is R_PageAttribute) is R_PageAttribute loPageAttribute && loPageAttribute != null)
+                {
                     lcRtn = loPageAttribute.Title;
+
+                    if (!string.IsNullOrWhiteSpace(loPageAttribute.ResourceId))
+                    {
+                        var lcProgramId = NavigationManager.ToBaseRelativePath(NavigationManager.Uri) + "FrontResources";
+                        lcRtn = R_FrontUtility.R_GetMessage(lcProgramId, loPageAttribute.ResourceId);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -126,6 +149,13 @@ namespace BlazorMenu.Shared.Tabs
                 R_eFormAccess.Print,
                 R_eFormAccess.View
             };
+        }
+
+        private static R_eFormAccess[] ConvertStringToFormAccess(string[] pcFormAccess)
+        {
+            var loFormAccess = pcFormAccess.Select(x => x.ToEnum<R_eFormAccess>()).ToArray();
+
+            return loFormAccess;
         }
     }
 }
