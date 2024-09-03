@@ -1320,7 +1320,10 @@
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "R_BlazorFrontEnd.dll": {}
+          "R_BlazorFrontEnd.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_BlazorFrontEnd.Authentication/1.0.0": {
@@ -1329,7 +1332,10 @@
           "System.IdentityModel.Tokens.Jwt": "6.35.0"
         },
         "runtime": {
-          "R_BlazorFrontEnd.Authentication.dll": {}
+          "R_BlazorFrontEnd.Authentication.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_BlazorFrontEnd.Controls/1.0.0": {
@@ -1342,7 +1348,10 @@
           "Telerik.UI.for.Blazor": "5.1.1"
         },
         "runtime": {
-          "R_BlazorFrontEnd.Controls.dll": {}
+          "R_BlazorFrontEnd.Controls.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "resources": {
           "id/R_BlazorFrontEnd.Controls.resources.dll": {
@@ -1357,7 +1366,10 @@
           "R_BlazorFrontEnd": "1.0.0"
         },
         "runtime": {
-          "R_BlazorFrontEnd.Excel.dll": {}
+          "R_BlazorFrontEnd.Excel.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIClient/1.0.0.0": {
