@@ -40,7 +40,7 @@ else
 {
 <CascadingValue Value="this" Name="MenuTabSet">
     <div class="card-body overflow-hidden p-0">
-        <TelerikTabStrip ActiveTabIndex="@ActiveTabIndex"
+        @* <TelerikTabStrip ActiveTabIndex="@ActiveTabIndex"
                          ActiveTabIndexChanged="@OnActiveTabIndexChanged"
                          PersistTabContent>
             @foreach (var loTab in Tabs)
@@ -53,7 +53,6 @@ else
                     <HeaderTemplate>
                         <a>@loTab.Title</a>
                         <span class="ms-2 close" @onclick="@(() => OnTabClose(loTab))">
-                        @*<span class="tab btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></span>*@
                             <i class="fa fa-times"></i>
                         </span>
                     </HeaderTemplate>
@@ -69,35 +68,74 @@ else
                     </Content>
                 </TabStripTab>
             }
-        </TelerikTabStrip>
+        </TelerikTabStrip> *@
+
+        <XTabs @ref="@_tabsRef"
+                RenderMode="BlazorXTabs.Configuration.RenderMode.Full"
+                CloseTabs
+                CloseAllTabs
+                CloseAllTabsButtonThreshold="2"
+                JustifiedHeader="false"
+                NewTabSetActive
+                OnTabRemoved="@OnTabRemoved"
+                OnActiveTabChanged="@OnActiveTabChanged">
+            @foreach (var loTab in Tabs)
+            {
+                <XTab Title="@loTab.Title"
+                        Id="@loTab.Id.ToString()" CssClass="">
+                    @if (loTab.Body != null)
+                    {
+                        <CascadingValue Value="@loTab" Name="currentTabMenu">
+                            <MainBody>
+                                @loTab.Body
+                            </MainBody>
+                        </CascadingValue>
+                    }
+                </XTab>
+            }
+        </XTabs>
     </div>
 </CascadingValue>
 }
 
 <style>
-    .k-tabstrip-content.k-active {
+    /* .k-tabstrip-content.k-active {
         padding: .5rem;
     }
 
     .k-tabstrip-content,
     .k-tabstrip > .k-content {
         color: inherit;
+    } */
+
+    .xtabs-item .xtabs-link.active {
+        padding: .5rem 1rem !important;
+    }
+
+    .xtabs-item .xtabs-link {
+        padding: .5rem 1rem !important;
+    }
+
+    .xtabs-tab-content {
+        padding: 0.25rem !important;
+    }
+
+    .xtabs .xtabs-header {
+        padding: 0rem 1.25rem .75rem !important;
     }
 </style>
 
 @code {
-    private int ActiveTabIndex = 0;
+    [CascadingParameter(Name = "RouteView")] public MenuTabsRouteView RouteView { get; set; }
 
-    [Inject]
-    public MenuTabSetTool TabSetTool { get; set; }
+    [Inject] private MenuTabSetTool _tabSetTool { get; set; }
+    [Inject] private NavigationManager NavigationManager { get; set; }
+    // [Inject] private Tenant _tenant { get; set; }
 
-    [CascadingParameter(Name = "RouteView")]
-    public MenuTabsRouteView RouteView { get; set; }
+    public List<MenuTab> Tabs => _tabSetTool.Tabs;
 
-    public List<MenuTab> Tabs => TabSetTool.Tabs;
-
-    [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    private int _activeTabIndex = 0;
+    private XTabs _tabsRef;
 
     protected override Task OnAfterRenderAsync(bool firstRender)
     {
@@ -116,54 +154,55 @@ else
         return Task.CompletedTask;
     }
 
-    private async Task OnTabClose(MenuTab poTab)
+    private async Task OnTabRemoved(XTab poTab)
     {
-        var liTabIndex = Tabs.IndexOf(poTab);
-        if (poTab.OnCloseMenuTab is not null)
+        var loTab = Tabs.FirstOrDefault(x => x.Id == Guid.Parse(poTab.Id));
+
+        if (loTab is not null)
         {
-            var llPageClose = await poTab.OnCloseMenuTab.Invoke();
-            if (!llPageClose)
-                return;
+            if (loTab.OnCloseMenuTab is not null)
+            {
+                var llPageClose = await loTab.OnCloseMenuTab.Invoke();
+                if (!llPageClose)
+                    return;
+            }
+
+            Tabs.Remove(loTab);
+
+            var liTabIndex = Tabs.IndexOf(loTab);
+            if (loTab.IsActive)
+            {
+                MenuTab activeTab = null;
+                if (liTabIndex > 0)
+                    activeTab = Tabs[liTabIndex - 1];
+                else if (Tabs.Count > 0)
+                    activeTab = Tabs[0];
+
+                if (activeTab != null)
+                    await ActivateTab(activeTab);
+                else
+                    NavigationManager.NavigateTo("/");
+            }
         }
+    }
 
-        Tabs.Remove(poTab);
-
-        if (poTab.IsActive)
-        {
-            MenuTab activeTab = null;
-            if (liTabIndex > 0)
-                activeTab = Tabs[liTabIndex - 1];
-            else if (Tabs.Count > 0)
-                activeTab = Tabs[0];
-
-            if (activeTab != null)
-                await ActivateTab(activeTab);
-            else
-                NavigationManager.NavigateTo("/");
-        }
+    private void OnActiveTabChanged(XTab poTab)
+    {
+        _activeTabIndex = _tabsRef.TabContent.ToList().IndexOf(poTab);
     }
 
     private Task ActivateTab(MenuTab poTab)
     {
-        TabSetTool.AddTab(poTab.Title, poTab.Url);
-
-        return Task.CompletedTask;
-    }
-
-    private Task OnActiveTabIndexChanged(int piTabIndex)
-    {
-        var loCurrentTab = Tabs[piTabIndex];
-
-        TabSetTool.AddTab(loCurrentTab.Title, loCurrentTab.Url);
+        _tabSetTool.AddTab(poTab.Title, poTab.Url);
 
         return Task.CompletedTask;
     }
 
     private Task ScrollToTab(MenuTab poTab)
     {
-        if (ActiveTabIndex != Tabs.IndexOf(poTab))
+        if (_activeTabIndex != Tabs.IndexOf(poTab))
         {
-            ActiveTabIndex = Tabs.IndexOf(poTab);
+            _activeTabIndex = Tabs.IndexOf(poTab);
             StateHasChanged();
         }
 
@@ -173,6 +212,9 @@ else
     public async Task CloseTabFromProgram(R_IMenuTab poTab)
     {
         var loTab = (MenuTab)poTab;
-        await OnTabClose(loTab);
+
+        var loXTab = _tabsRef.TabContent.FirstOrDefault(x => x.Id == poTab.Id.ToString());
+
+        await _tabsRef.CloseTabAsync(loXTab);
     }
 }

@@ -1342,7 +1342,6 @@
         "dependencies": {
           "Microsoft.AspNetCore.Components.Authorization": "6.0.14",
           "Microsoft.AspNetCore.Components.Web": "6.0.14",
-          "Microsoft.AspNetCore.Components.WebAssembly": "6.0.14",
           "Newtonsoft.Json": "13.0.1",
           "R_BlazorFrontEnd": "1.0.0",
           "Telerik.UI.for.Blazor": "5.1.1"

@@ -25,6 +25,7 @@ builder.Services.AddTransient<R_IFileConverter, R_FileConverter>();
 builder.Services.AddTransient<R_IReport, R_ReportService>();
 builder.Services.AddSingleton<R_IFileDownloader, R_FileDownloader>();
 builder.Services.AddTransient<HttpInterceptorService>();
+builder.Services.AddSingleton<R_IEnvironment, BlazorMenuEnvironmentService>();
 
 Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", builder.HostEnvironment.Environment);
 

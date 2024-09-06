@@ -64,7 +64,8 @@ html.navbar-vertical-collapsed footer, html.navbar-vertical-collapsed .navbar-br
 
 /* Tabbing */
 .k-tabstrip-items .k-link, ul.nav-tabs .nav-link {
-    padding: 0rem .5rem .1em !important;
+    /*padding: 0rem .5rem .1em !important;*/
+    padding: 0rem .5rem .1em;
 }
 .k-tabstrip-content, .k-tabstrip > .k-content {
     border-width:0px !important;
