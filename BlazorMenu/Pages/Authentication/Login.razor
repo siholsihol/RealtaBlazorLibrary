@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="split-login-username">Username</label>
-                                    <input class="form-control" id="split-login-username" type="text" @bind="_loginVM.LoginModel.UserId" />
+                                    <input class="form-control" id="split-login-username" type="text" @bind="_loginVM.LoginModel.UserId" style="text-transform:uppercase"/>
                                 </div>
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between">
@@ -66,7 +66,7 @@
                                 <!-- END::Remember Me -->
 
                                 <div class="mb-3">
-                                    <input class="btn btn-primary d-block w-100 mt-3" type="submit" value="Login" @onclick="@ValidateUser" />
+                                    <input class="btn btn-primary d-block w-100 mt-3" type="submit" value="Login" @onclick="@ValidateUser" id="login-btn" />
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,32 @@
                 <p class="mb-0 mt-3 text-600 text-center">2023 &copy; <a href="http://www.realta.co.id" target="_blank">PT. Realta Chakradarma</a>. All rights reserved.</p>
 
             </div>
-
         </div>
     </div>
+
+    <script>
+        var inputCompanyId = document.getElementById("split-login-companyid");
+        inputCompanyId.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("login-btn").click();
+            }
+        });
+
+        var inputUserName = document.getElementById("split-login-username");
+        inputUserName.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("login-btn").click();
+            }
+        });
+
+        var inputPassword = document.getElementById("split-login-password");
+        inputPassword.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("login-btn").click();
+            }
+        });
+    </script>
 </main>

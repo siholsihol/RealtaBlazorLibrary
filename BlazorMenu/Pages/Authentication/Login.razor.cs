@@ -61,7 +61,7 @@ namespace BlazorMenu.Pages.Authentication
                 _clientHelper.Set_ComputerId();
                 _clientHelper.Set_CompanyId(_loginVM.LoginModel.CompanyId);
 
-                var lcEncryptedPassword = await _encryptProvider.TextEncrypt(_loginVM.LoginModel.Password, _loginVM.LoginModel.UserId);
+                var lcEncryptedPassword = await _encryptProvider.TextEncrypt(_loginVM.LoginModel.Password, _loginVM.LoginModel.UserId.ToLower());
 
                 await _loginVM.LoginAsync(lcEncryptedPassword);
 

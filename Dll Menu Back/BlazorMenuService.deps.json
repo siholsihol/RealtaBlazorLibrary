@@ -24,7 +24,10 @@
       },
       "BackExtension/1.0.0": {
         "runtime": {
-          "BackExtension.dll": {}
+          "BackExtension.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BlazorMenuBack/1.0.0": {
@@ -35,7 +38,10 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "BlazorMenuBack.dll": {}
+          "BlazorMenuBack.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BlazorMenuCommon/1.0.0": {
@@ -43,7 +49,10 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "BlazorMenuCommon.dll": {}
+          "BlazorMenuCommon.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyBack/1.0.0": {
@@ -52,12 +61,18 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyBack.dll": {}
+          "R_SecurityPolicyBack.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {}
+          "R_SecurityPolicyCommon.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityTokenBack/1.0.0": {
@@ -66,12 +81,18 @@
           "R_SecurityTokenCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityTokenBack.dll": {}
+          "R_SecurityTokenBack.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityTokenCommon/1.0.0": {
         "runtime": {
-          "R_SecurityTokenCommon.dll": {}
+          "R_SecurityTokenCommon.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIBackEnd/1.0.0.0": {
