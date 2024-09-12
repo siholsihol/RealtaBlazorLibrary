@@ -1085,17 +1085,26 @@
           "System.Text.Encoding.CodePages": "6.0.0"
         },
         "runtime": {
-          "R_APICommon.dll": {}
+          "R_APICommon.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APICommonDTO/1.0.0": {
         "runtime": {
-          "R_APICommonDTO.dll": {}
+          "R_APICommonDTO.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_AuthorizationBack.Abstract/1.0.0": {
         "runtime": {
-          "R_AuthorizationBack.Abstract.dll": {}
+          "R_AuthorizationBack.Abstract.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_CommonFrontBackAPI/1.0.0": {
@@ -1109,7 +1118,10 @@
           "System.Text.Encoding.CodePages": "6.0.0"
         },
         "runtime": {
-          "R_CommonFrontBackAPI.dll": {}
+          "R_CommonFrontBackAPI.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ContextBackEnd/1.0.0": {
@@ -1118,12 +1130,18 @@
           "R_ContextEnumAndInterface": "1.0.0"
         },
         "runtime": {
-          "R_ContextBackEnd.dll": {}
+          "R_ContextBackEnd.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ContextEnumAndInterface/1.0.0": {
         "runtime": {
-          "R_ContextEnumAndInterface.dll": {}
+          "R_ContextEnumAndInterface.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_MultiTenantDb/1.0.0": {
@@ -1133,12 +1151,18 @@
           "R_MultiTenantDb.Abstract": "1.0.0"
         },
         "runtime": {
-          "R_MultiTenantDb.dll": {}
+          "R_MultiTenantDb.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_MultiTenantDb.Abstract/1.0.0": {
         "runtime": {
-          "R_MultiTenantDb.Abstract.dll": {}
+          "R_MultiTenantDb.Abstract.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_Security/1.0.0": {
@@ -1146,7 +1170,10 @@
           "System.Text.Encoding.CodePages": "6.0.0"
         },
         "runtime": {
-          "R_Security.dll": {}
+          "R_Security.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
