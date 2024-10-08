@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-	<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+	  <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
   </PropertyGroup>
 
   <ItemGroup>
@@ -89,8 +89,5 @@
 	  <HintPath>..\Dll Menu\R_SecurityPolicyModel.dll</HintPath>
 	</Reference>
   </ItemGroup>
-
-    <!--<ItemGroup>
-	    <BlazorWebAssemblyLazyLoad Include="SAB00700Front.dll" />
-    </ItemGroup>-->
+  
 </Project>
