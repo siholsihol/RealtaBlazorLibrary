@@ -1,5 +1,4 @@
 using BlazorMenu.Extensions;
-using BlazorMenu.Routing;
 using BlazorMenu.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -28,9 +27,6 @@ builder.Services.AddTransient<HttpInterceptorService>();
 builder.Services.AddSingleton<R_IEnvironment, BlazorMenuEnvironmentService>();
 
 Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", builder.HostEnvironment.Environment);
-
-builder.Services.AddSingleton<RouteManager>();
-builder.Services.AddScoped<Interop>();
 
 var host = builder.Build();
 
