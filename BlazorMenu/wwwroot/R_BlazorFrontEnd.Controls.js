@@ -98,9 +98,10 @@ export function changeDisabledState(elm, disabled) {
     }
 }
 
-export function disableAllControl(containerClass, disabled) {
+export function disableAllControl(containerClass, disabled, elementId) {
     // Get DIV container to be disabled
-    const container = document.querySelector(containerClass);
+    //const container = document.querySelector(containerClass);
+    const container = document.getElementById(elementId);
     // Check if helper class is there
     //const isDisabled = container.classList.contains('disabled');
     const isDisabled = disabled;
