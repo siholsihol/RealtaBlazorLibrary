@@ -32,7 +32,8 @@ namespace BlazorMenu.Shared
                 if (string.IsNullOrWhiteSpace(_searchText))
                     return new List<DrawerMenuItem>();
 
-                var loData = _menuList.Where(x => x.CSUB_MENU_TYPE == "P" && x.CSUB_MENU_ID.ToLower().Contains(_searchText.ToLower())).
+                var loData = _menuList.Where(x => x.CSUB_MENU_TYPE == "P" &&
+                (x.CSUB_MENU_ID.ToLower().Contains(_searchText.ToLower())) || x.CSUB_MENU_NAME.ToLower().Contains(_searchText.ToLower())).
                     Select(x => new DrawerMenuItem
                     {
                         Id = x.CSUB_MENU_ID,

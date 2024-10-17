@@ -11,5 +11,6 @@ namespace BlazorMenu.Shared.Drawer
         public int Level { get; set; }
         public string Description { get; set; }
         public List<DrawerMenuItem> Children { get; set; }
+        public string Title => $"{Id} - {Text}";
     }
 }

@@ -38,76 +38,22 @@
 }
 else
 {
-<CascadingValue Value="this" Name="MenuTabSet">
-    <div class="card-body overflow-hidden p-0">
-        @* <TelerikTabStrip ActiveTabIndex="@ActiveTabIndex"
-                         ActiveTabIndexChanged="@OnActiveTabIndexChanged"
-                         PersistTabContent>
-            @foreach (var loTab in Tabs)
-            {
-                <TabStripTab Title="@loTab.Title"
-                             Disabled="@loTab.Disabled"
-                             Visible="@loTab.Visible"
-                             Id="@loTab.Id.ToString()"
-                             @key="@loTab.Id">
-                    <HeaderTemplate>
-                        <a>@loTab.Title</a>
-                        <span class="ms-2 close" @onclick="@(() => OnTabClose(loTab))">
-                            <i class="fa fa-times"></i>
-                        </span>
-                    </HeaderTemplate>
-                    <Content>
-                        @if (loTab.Body != null)
-                        {
-                            <CascadingValue Value="@loTab" Name="currentTabMenu">
-                                <MainBody>
-                                    @loTab.Body
-                                </MainBody>
-                            </CascadingValue>
-                        }
-                    </Content>
-                </TabStripTab>
-            }
-        </TelerikTabStrip> *@
-
-        <XTabs @ref="@_tabsRef"
-                RenderMode="BlazorXTabs.Configuration.RenderMode.Full"
-                CloseTabs
-                CloseAllTabs
-                CloseAllTabsButtonThreshold="2"
-                JustifiedHeader="false"
-                NewTabSetActive
-                OnTabRemoved="@OnTabRemoved"
-                OnActiveTabChanged="@OnActiveTabChanged">
-            @foreach (var loTab in Tabs)
-            {
-                <XTab Title="@loTab.Title"
-                        Id="@loTab.Id.ToString()" CssClass="">
-                    @if (loTab.Body != null)
-                    {
-                        <CascadingValue Value="@loTab" Name="currentTabMenu">
-                            <MainBody>
-                                @loTab.Body
-                            </MainBody>
-                        </CascadingValue>
-                    }
-                </XTab>
-            }
-        </XTabs>
-    </div>
-</CascadingValue>
+    <CascadingValue Value="this" Name="MenuTabSet">
+        <div class="card-body overflow-hidden p-0">
+            <XTabs @ref="@_tabsRef"
+                   RenderMode="BlazorXTabs.Configuration.RenderMode.Full"
+                   CloseTabs
+                   CloseAllTabs
+                   CloseAllTabsButtonThreshold="2"
+                   JustifiedHeader="false"
+                   NewTabSetActive
+                   OnTabRemoved="@OnTabRemoved"
+                   OnActiveTabChanged="@OnActiveTabChanged" />
+        </div>
+    </CascadingValue>
 }
 
 <style>
-    /* .k-tabstrip-content.k-active {
-        padding: .5rem;
-    }
-
-    .k-tabstrip-content,
-    .k-tabstrip > .k-content {
-        color: inherit;
-    } */
-
     .xtabs-item .xtabs-link.active {
         padding: .5rem 1rem !important;
     }
@@ -134,24 +80,18 @@ else
 
     public List<MenuTab> Tabs => _tabSetTool.Tabs;
 
-    private int _activeTabIndex = 0;
     private XTabs _tabsRef;
 
-    protected override Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (Tabs.Count == 0)
-            return Task.CompletedTask;
+            return;
 
-        for (int i = 0; i < Tabs.Count; i++)
+        var loItem = Tabs.FirstOrDefault(x => x.IsActive);
+        if (loItem is not null)
         {
-            var item = Tabs[i];
-            if (item.IsActive)
-            {
-                ScrollToTab(item);
-            }
+            await CreateNewTab(loItem);
         }
-
-        return Task.CompletedTask;
     }
 
     private async Task OnTabRemoved(XTab poTab)
@@ -179,34 +119,30 @@ else
                     activeTab = Tabs[0];
 
                 if (activeTab != null)
-                    await ActivateTab(activeTab);
+                    _tabSetTool.AddTab(activeTab.Title, activeTab.Url);
                 else
                     NavigationManager.NavigateTo("/");
             }
         }
     }
 
-    private void OnActiveTabChanged(XTab poTab)
+    private Task OnActiveTabChanged(XTab poTab)
     {
-        _activeTabIndex = _tabsRef.TabContent.ToList().IndexOf(poTab);
-    }
+        var loTab = Tabs.FirstOrDefault(x => x.Id == Guid.Parse(poTab.Id));
 
-    private Task ActivateTab(MenuTab poTab)
-    {
-        _tabSetTool.AddTab(poTab.Title, poTab.Url);
+        if (loTab is not null)
+            _tabSetTool.AddTab(loTab.Title, loTab.Url);
 
         return Task.CompletedTask;
     }
 
-    private Task ScrollToTab(MenuTab poTab)
+    private async Task CreateNewTab(MenuTab poTab)
     {
-        if (_activeTabIndex != Tabs.IndexOf(poTab))
-        {
-            _activeTabIndex = Tabs.IndexOf(poTab);
-            StateHasChanged();
-        }
+        var loNewTab = new XTab(_tabsRef, poTab.Title, CreatePageBody(poTab), "", false, poTab.Url);
+        loNewTab.Id = poTab.Id.ToString();
 
-        return Task.CompletedTask;
+        if (!_tabsRef.TabContent.Any(x => x.Id == poTab.Id.ToString()))
+            await _tabsRef.AddPageAsync(loNewTab);
     }
 
     public async Task CloseTabFromProgram(R_IMenuTab poTab)
@@ -216,5 +152,19 @@ else
         var loXTab = _tabsRef.TabContent.FirstOrDefault(x => x.Id == poTab.Id.ToString());
 
         await _tabsRef.CloseTabAsync(loXTab);
+    }
+
+    public RenderFragment CreatePageBody(MenuTab poTab)
+    {
+        RenderFragment bodyContent = __builder =>
+           {
+               <CascadingValue Value="@poTab" Name="currentTabMenu">
+                   <MainBody>
+                       @poTab.Body
+                   </MainBody>
+               </CascadingValue>
+           };
+
+        return bodyContent;
     }
 }

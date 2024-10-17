@@ -71,7 +71,7 @@
                                                         foreach (var item2 in item1.Children)
                                                         {
                                                             <li class="nav-item" 
-                                                            title="@($"{item2.Id} - {item2.Text}")" 
+                                                            title="@item2.Title" 
                                                             @onclick="@(() => OnClickProgram(item2))">
                                                                 <a class="nav-link" data-bs-toggle="" aria-expanded="false">
                                                                     <div class="d-flex align-items-center">
@@ -163,10 +163,10 @@
                                                 foreach (var item in _filteredData)
                                                 {
                                                     <a class="dropdown-item fs--1 px-card py-1 hover-primary"
-                                                       href="/" @onclick="() => OnClickProgram(item)">
+                                                    @onclick="() => OnClickProgram(item)">
                                                         <div class="d-flex align-items-center">
                                                             <span class="fas fa-circle me-2 text-300 fs--2"></span>
-                                                            <div class="fw-normal title">@item.Text</div>
+                                                            <div class="fw-normal title" title="@item.Title">@item.Text</div>
                                                         </div>
                                                     </a>
                                                 }
