@@ -181,9 +181,10 @@ kendo-sortable {
 }
 
 .k-content {
-    border-color: #dee2e6;
+    /*    border-color: #dee2e6;*/
     color: #212529;
-    background-color: #ffffff;
+/*    background-color: #ffffff;*/
+    border-color: var(--falcon-border-color) !important;
 }
 
 .k-disabled,
@@ -25688,8 +25689,11 @@ kendo-sortable {
     align-items: center;
     align-self: flex-start;
     vertical-align: middle;
-    position: relative;
+    position: relative; 
 }
+    .k-checkbox-wrap::.k-checkbox:disabled {
+        cursor: not-allowed !important;
+    }
 
 .k-checkbox-wrap::before {
     content: "\200b";
@@ -28812,15 +28816,20 @@ kendo-badge-container {
 }
 
 .k-button-solid-base {
-    border-color: #e4e7eb;
+    /*    border-color: #e4e7eb;*/
+    border-color: var(--falcon-border-color) !important;
     color: #212529;
     background-color: #e4e7eb;
 }
 
-.k-button-solid-base:hover, .k-button-solid-base.k-hover {
-    border-color: #c7cdd5;
-    background-color: #ced3db;
+.k-editor .k-button-solid-base {
+    background-color: transparent;
 }
+
+    .k-button-solid-base:hover, .k-button-solid-base.k-hover {
+        border-color: #c7cdd5;
+        background-color: #ced3db;
+    }
 
 .k-button-solid-base:focus, .k-button-solid-base.k-focus {
     box-shadow: 0 0 0 0.25rem rgba(228, 231, 235, 0.5);
@@ -30442,7 +30451,8 @@ kendo-badge-container {
 }
 
 .k-toolbar {
-    border-color: #dee2e6;
+    /*    border-color: #dee2e6;*/
+    border-color: var(--falcon-border-color) !important;
     color: #212529;
     background-color: #f8f9fa;
 }
@@ -34868,6 +34878,7 @@ select.k-picker-lg {
     padding: 0 0 0 16px;
     border-width: 0;
     display: block;
+    color: var(--falcon-body-color);
 }
 
 .k-treeview-toggle {
@@ -42270,7 +42281,7 @@ div.k-grid-norecords {
 }
 
 .k-grid .k-table-alt-row {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgba(0, 0, 0, 0.04) !important;
 }
 
 .k-grid tbody > tr:not(.k-detail-row):hover,
@@ -45609,9 +45620,10 @@ kendo-grid.k-grid .k-table-row.k-hover .k-grid-content-sticky.k-selected {
     outline: none;
 }
 
-.k-editor-content p {
-    margin: 0 0 1rem;
-}
+    .k-editor-content p {
+        margin: 0 0 1rem;
+        color: var(--falcon-800);
+    }
 
 .k-editor-content td p,
 .k-editor-content th p,
@@ -46015,9 +46027,10 @@ kendo-grid.k-grid .k-table-row.k-hover .k-grid-content-sticky.k-selected {
 }
 
 .k-editor {
-    border-color: #dee2e6;
+    /*    border-color: #dee2e6;*/
+    border-color: var(--falcon-border-color) !important;
     color: #212529;
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
 }
 
 .k-editor.k-readonly .k-editor-content.k-focus {
