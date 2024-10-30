@@ -8,17 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
-    <PackageReference Include="BlazorXTabs" Version="2.0.0" />
-    <PackageReference Include="EPPlus" Version="6.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.14" />
 	  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.14" PrivateAssets="all" />
 	  <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Telerik.UI.for.Blazor" Version="5.1.1" />
-	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
-	  <PackageReference Include="Toolbelt.Blazor.HttpClientInterceptor" Version="10.2.0" />
+    <PackageReference Include="Realta.BlazorMenuCollectionNuget" Version="1.0.1-alpha" />
   </ItemGroup>
 
   <ItemGroup>
