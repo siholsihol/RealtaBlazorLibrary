@@ -18,7 +18,10 @@
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {}
+          "R_SecurityPolicyCommon.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APICommonDTO/1.0.0.0": {
