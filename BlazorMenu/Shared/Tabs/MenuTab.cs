@@ -18,5 +18,8 @@ namespace BlazorMenu.Shared.Tabs
         public string PageTitle { get; set; }
 
         public Func<Task<bool>> OnCloseMenuTab { get; set; }
+
+        public string AssemblyName => $"{Url}Front";
+        public string AssemblyResourceName => $"{Url}FrontResources";
     }
 }

@@ -1,30 +1,44 @@
 ﻿using BlazorClientHelper;
 using BlazorMenu.Authentication;
+using BlazorMenu.Extensions;
 using BlazorMenu.Pages;
 using BlazorMenu.Services;
 using BlazorMenu.Shared.Drawer;
+using BlazorMenu.Shared.Modals;
 using BlazorMenu.Shared.Tabs;
 using BlazorMenuCommon.DTOs;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.JSInterop;
+using R_BlazorCommon.Constants;
+using R_BlazorCommon.Models;
+using R_BlazorFrontEnd.Controls;
+using R_BlazorFrontEnd.Controls.Helpers;
+using R_BlazorFrontEnd.Interfaces;
 
 namespace BlazorMenu.Shared
 {
-    public partial class MenuLayout : ComponentBase
+    public partial class MenuLayout : ComponentBase, IDisposable
     {
         [Inject] private AuthenticationStateProvider _stateProvider { get; set; }
         [Inject] private R_IMenuService _menuService { get; set; }
         [Inject] private MenuTabSetTool TabSetTool { get; set; }
         [Inject] private IJSRuntime JSRuntime { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
+        //[Inject] private R_ITenant _tenant { get; set; }
+        //[Inject] private R_NotificationService _notificationService { get; set; }
+        [Inject] private R_PreloadService _preloadService { get; set; }
+        [Inject] private R_ToastService _toastService { get; set; }
+        [Inject] private R_ILocalStorage _localStorageService { get; set; }
 
         private List<MenuListDTO> _menuList = new();
         private List<DrawerMenuItem> _data = new();
-        private Info _modalInfo;
-        private Profile _profileInfo;
         private string _searchText = string.Empty;
         private string _userId = string.Empty;
+
+        private HubConnection _hubConnection;
+
         private List<DrawerMenuItem> _filteredData
         {
             get
@@ -45,10 +59,23 @@ namespace BlazorMenu.Shared
             }
         }
 
+        protected string NotificationCssClass =>
+        new CssBuilder()
+            .AddClass("notification-indicator", !_notificationOpened && _newNotificationMessages.Count > 0)
+            .AddClass("notification-indicator-primary", !_notificationOpened && _newNotificationMessages.Count > 0)
+            .Build();
+
+        private bool _notificationOpened = false;
+        private List<BlazorMenuNotificationDTO> _newNotificationMessages = new List<BlazorMenuNotificationDTO>();
+        private List<BlazorMenuNotificationDTO> _oldNotificationMessages = new List<BlazorMenuNotificationDTO>();
+        private DotNetObjectReference<MenuLayout> DotNetReference { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             try
             {
+                _preloadService.Show();
+
                 _menuList = await _menuService.GetMenuAsync();
 
                 var menuIds = _menuList.Where(x => x.CMENU_ID != "FAV")
@@ -80,10 +107,36 @@ namespace BlazorMenu.Shared
                     lcUserId = lcUserId.Substring(0, 3);
 
                 _userId = lcUserId;
+
+                _hubConnection = _hubConnection.TryInitialize();
+                await _hubConnection.StartAsync();
+
+                _hubConnection.On<string>(BlazorMenuConstants.SignalR.OnConnect, (message) =>
+                {
+                    _toastService.Success(message);
+                });
+
+                _hubConnection.On<BlazorMenuNotificationDTO>(BlazorMenuConstants.SignalR.ReceiveNotification, (notification) =>
+                {
+                    if (_newNotificationMessages.Count <= 5)
+                        _newNotificationMessages.Add(notification);
+
+                    if (_notificationOpened)
+                        return;
+
+                    _notificationOpened = false;
+                    InvokeAsync(StateHasChanged);
+                });
+
+                await _hubConnection.SendAsync(BlazorMenuConstants.SignalR.OnConnect, lcUserId);
             }
             catch (Exception)
             {
                 throw;
+            }
+            finally
+            {
+                _preloadService.Hide();
             }
         }
 
@@ -91,10 +144,34 @@ namespace BlazorMenu.Shared
         {
             if (firstRender)
             {
-                await JSRuntime.InvokeVoidAsync("handleNavbarVerticalCollapsed");
+                //await JSRuntime.InvokeVoidAsync("handleNavbarVerticalCollapsed");
 
                 await JSRuntime.InvokeVoidAsync("searchInit");
+
+                DotNetReference = DotNetObjectReference.Create(this);
+                await JSRuntime.InvokeVoidAsync("blazorMenuBootstrap.observeElement", "navbarDropdownNotification", DotNetReference);
+
+                await JSRuntime.InvokeVoidAsync("blazorMenuBootstrap.changeThemeToggle", "themeControlToggle");
             }
+        }
+
+        [JSInvokable("ObserverNotification")]
+        public Task ObserverNotification(bool plShow)
+        {
+            if (plShow && !_notificationOpened)
+            {
+                foreach (var message in _newNotificationMessages)
+                {
+                    message.IsRead = true;
+                }
+
+                _oldNotificationMessages.AddRange(_newNotificationMessages);
+                _newNotificationMessages.Clear();
+
+                _notificationOpened = true;
+            }
+
+            return Task.CompletedTask;
         }
 
         private void OnClickProgram(DrawerMenuItem drawerMenuItem)
@@ -108,5 +185,48 @@ namespace BlazorMenu.Shared
 
             _navigationManager.NavigateTo("/");
         }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
+
+            if (DotNetReference != null)
+            {
+                DotNetReference.Dispose();
+            }
+        }
+
+        #region ProfilePage
+
+        private MenuModal modalProfilePage;
+
+        private async Task ShowProfilePage()
+        {
+            var parameters = new Dictionary<string, object>();
+            parameters.Add("CloseModalTask", OnCloseModalProfilePageTask);
+
+            await modalProfilePage.ShowAsync<Profile>(parameters: parameters);
+        }
+
+        private async Task OnCloseModalProfilePageTask(bool isUpdated)
+        {
+            await modalProfilePage.HideAsync();
+
+            if (isUpdated)
+                _toastService.Success("Success update user info.");
+        }
+
+        #endregion
+
+        #region Info Page
+
+        private MenuModal modalInfoPage;
+
+        private async Task ShowInfoPage()
+        {
+            await modalInfoPage.ShowAsync<Info>();
+        }
+
+        #endregion
     }
 }

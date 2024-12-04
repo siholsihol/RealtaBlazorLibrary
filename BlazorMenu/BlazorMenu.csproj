@@ -11,9 +11,14 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.14" />
 	  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.14" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.35" />
 	  <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Realta.BlazorMenuCollectionNuget" Version="1.0.1-alpha" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.9" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.9" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.9" />
+    <PackageReference Include="SkiaSharp.Views.Blazor" Version="2.88.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +43,9 @@
     <Reference Include="R_AuthenticationFront">
       <HintPath>..\Dll Front\R_AuthenticationFront.dll</HintPath>
     </Reference>
+    <Reference Include="R_BlazorCommon">
+      <HintPath>..\Dll Menu\R_BlazorCommon.dll</HintPath>
+    </Reference>
     <Reference Include="R_BlazorFrontEnd">
       <HintPath>..\Dll Front\R_BlazorFrontEnd.dll</HintPath>
     </Reference>
@@ -46,6 +54,9 @@
     </Reference>
     <Reference Include="R_BlazorFrontEnd.Controls">
       <HintPath>..\Dll Front\R_BlazorFrontEnd.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="R_BlazorFrontEnd.Controls.Captcha">
+      <HintPath>..\Dll Front\R_BlazorFrontEnd.Controls.Captcha.dll</HintPath>
     </Reference>
     <Reference Include="R_BlazorFrontEnd.Excel">
       <HintPath>..\Dll Front\R_BlazorFrontEnd.Excel.dll</HintPath>

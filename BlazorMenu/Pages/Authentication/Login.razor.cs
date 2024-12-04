@@ -6,9 +6,10 @@ using BlazorMenuModel;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using R_AuthenticationEnumAndInterface;
+using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.MessageBox;
-using R_BlazorFrontEnd.Controls.Notification;
 using R_BlazorFrontEnd.Exceptions;
+using R_BlazorFrontEnd.Interfaces;
 using R_CommonFrontBackAPI;
 using R_CrossPlatformSecurity;
 
@@ -23,9 +24,15 @@ namespace BlazorMenu.Pages.Authentication
         [Inject] public R_MessageBoxService R_MessageBox { get; set; }
         [Inject] private R_ISymmetricJSProvider _encryptProvider { get; set; }
         [Inject] private MenuTabSetTool MenuTabSetTool { get; set; }
-        [Inject] private R_NotificationService _notificationService { get; set; }
+        //[Inject] private R_NotificationService _notificationService { get; set; }
+        //[Inject] private R_ITenant _tenant { get; set; }
+        [Inject] private R_IEnvironment _environment { get; set; }
+        [Inject] private R_ToastService _toastService { get; set; }
+        [Inject] private R_PreloadService _preloadService { get; set; }
 
         private readonly R_LoginViewModel _loginVM = new();
+        private string _captcha = "";
+        private int _captchaLength = 4;
 
         protected override async Task OnParametersSetAsync()
         {
@@ -33,11 +40,20 @@ namespace BlazorMenu.Pages.Authentication
 
             try
             {
+                _preloadService.Show();
+
                 var state = await _stateProvider.GetAuthenticationStateAsync();
                 if (state.User.Identity.IsAuthenticated)
                     _navigationManager.NavigateTo("/");
 
                 await _loginVM.R_GetSecurityPolicyParameterAsync();
+
+                if (_environment.IsDevelopment)
+                {
+                    _loginVM.LoginModel.CompanyId = "001";
+                    _loginVM.LoginModel.UserId = "cp";
+                    _loginVM.LoginModel.Password = "cp";
+                }
             }
             catch (R_Exception rex)
             {
@@ -47,9 +63,22 @@ namespace BlazorMenu.Pages.Authentication
             {
                 loEx.Add(ex);
             }
+            finally
+            {
+                _preloadService.Hide();
+            }
 
             if (loEx.HasError)
-                _notificationService.Error(loEx.ErrorList[0].ErrDescp);
+                _toastService.Error(loEx.ErrorList[0].ErrDescp);
+
+            //_notificationService.Error(loEx.ErrorList[0].ErrDescp);
+        }
+
+        protected override void OnInitialized()
+        {
+            _captcha = R_BlazorFrontEnd.Controls.Captcha.Tools.GetCaptchaWord(_captchaLength);
+
+            base.OnInitialized();
         }
 
         private async Task ValidateUser()
@@ -58,10 +87,12 @@ namespace BlazorMenu.Pages.Authentication
 
             try
             {
+                _preloadService.Show();
+
                 _clientHelper.Set_ComputerId();
                 _clientHelper.Set_CompanyId(_loginVM.LoginModel.CompanyId);
 
-                var lcEncryptedPassword = await _encryptProvider.TextEncrypt(_loginVM.LoginModel.Password, _loginVM.LoginModel.UserId.ToLower());
+                var lcEncryptedPassword = await _encryptProvider.TextEncrypt(_loginVM.LoginModel.Password, _loginVM.LoginModel.UserId);
 
                 await _loginVM.LoginAsync(lcEncryptedPassword);
 
@@ -125,10 +156,16 @@ namespace BlazorMenu.Pages.Authentication
             {
                 loEx.Add(ex);
             }
+            finally
+            {
+                _preloadService.Hide();
+            }
 
             if (loEx.HasError)
             {
-                _notificationService.Error(loEx.ErrorList[0].ErrDescp);
+                //_notificationService.Error(loEx.ErrorList[0].ErrDescp);
+
+                _toastService.Error(loEx.ErrorList[0].ErrDescp);
 
                 _tokenRepository.R_SetToken(string.Empty);
             }

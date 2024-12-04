@@ -181,10 +181,9 @@ kendo-sortable {
 }
 
 .k-content {
-    /*    border-color: #dee2e6;*/
+    border-color: #dee2e6;
     color: #212529;
-/*    background-color: #ffffff;*/
-    border-color: var(--falcon-border-color) !important;
+    background-color: #ffffff;
 }
 
 .k-disabled,
@@ -28816,14 +28815,9 @@ kendo-badge-container {
 }
 
 .k-button-solid-base {
-    /*    border-color: #e4e7eb;*/
-    border-color: var(--falcon-border-color) !important;
+    border-color: #e4e7eb;
     color: #212529;
     background-color: #e4e7eb;
-}
-
-.k-editor .k-button-solid-base {
-    background-color: transparent;
 }
 
     .k-button-solid-base:hover, .k-button-solid-base.k-hover {
@@ -30451,8 +30445,7 @@ kendo-badge-container {
 }
 
 .k-toolbar {
-    /*    border-color: #dee2e6;*/
-    border-color: var(--falcon-border-color) !important;
+    border-color: #dee2e6;
     color: #212529;
     background-color: #f8f9fa;
 }
@@ -45622,7 +45615,6 @@ kendo-grid.k-grid .k-table-row.k-hover .k-grid-content-sticky.k-selected {
 
     .k-editor-content p {
         margin: 0 0 1rem;
-        color: var(--falcon-800);
     }
 
 .k-editor-content td p,
@@ -46027,10 +46019,9 @@ kendo-grid.k-grid .k-table-row.k-hover .k-grid-content-sticky.k-selected {
 }
 
 .k-editor {
-    /*    border-color: #dee2e6;*/
-    border-color: var(--falcon-border-color) !important;
+    border-color: #dee2e6;
     color: #212529;
-    /*background-color: #ffffff;*/
+    background-color: #ffffff;
 }
 
 .k-editor.k-readonly .k-editor-content.k-focus {

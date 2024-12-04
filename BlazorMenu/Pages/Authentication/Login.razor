@@ -56,6 +56,10 @@
                                     </div>
                                     <input class="form-control" id="split-login-password" type="password" @bind="_loginVM.LoginModel.Password" />
                                 </div>
+                                <div class="mb-3">
+                                    <R_BlazorFrontEnd.Controls.Captcha.R_Captcha @bind-CaptchaWord="@_captcha"
+                                                                                 CharNumber="5" />
+                                </div>
 
                                 <!-- BEGIN::Remember Me -->
                                 @*<div class="row flex-between-center">

@@ -1,23 +1,8 @@
 ﻿@inherits ComponentBase
 
 <main class="main" id="top">
-    <div class="container" data-layout="container">
-        <script suppress-error="BL9992">
-            var isFluid = JSON.parse(localStorage.getItem('isFluid'));
-            if (isFluid) {
-                var container = document.querySelector('[data-layout]');
-                container.classList.remove('container');
-                container.classList.add('container-fluid');
-            }
-        </script>
+    <div class="container-fluid" data-layout="container">
         <nav class="navbar navbar-light navbar-vertical navbar-expand-xl pb-5" style="display: none;">
-            <script suppress-error="BL9992">
-                var navbarStyle = localStorage.getItem("navbarStyle");
-                if (navbarStyle && navbarStyle !== 'transparent') {
-                    document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
-                }
-            </script>
-
             <div class="d-flex align-items-center" style="height:46.99px">
                 <div class="toggle-icon-wrapper">
                     <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation">
@@ -29,9 +14,7 @@
                 <a class="navbar-brand" href="/">
                     <div class="d-flex align-items-center py-2">
                         <img class="" src="assets/img/logo-bimasakti.png" alt="" style="max-width:125px; max-height:35px;" />
-                        <!-- <span class="font-sans-serif">Bimasakti</span> -->
                     </div>
-                    <!-- <div class="d-flex align-items-center py-3"><span class="font-sans-serif">bimasakti</span></div> -->
                 </a>
             </div>
 
@@ -99,10 +82,7 @@
                 <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
                     <div class="col">
                         <p class="fs--2 mb-0 text-600">2023 &copy; <a href="http://www.realta.co.id" target="_blank">PT. Realta Chakradarma</a>.<br />All rights reserved. | v1.0 
-                            @* <a href="#more-info" data-bs-toggle="modal">
-                                <i class="fas fa-info-circle"></i>
-                            </a> *@
-                            <a href="#more-info" data-bs-toggle="modal" @onclick="async () => await _modalInfo.Open()">
+                            <a href="#more-info" data-bs-toggle="modal" @onclick="ShowInfoPage">
                                 <i class="fas fa-info-circle"></i>
                             </a>
                         </p>
@@ -121,7 +101,6 @@
             <a class="navbar-brand me-1 me-sm-3" href="/">
                 <div class="d-flex align-items-center">
                     <img class="me-2" src="assets/img/logo-bimasakti.png" alt="" width="40" />
-                    @* <span class="font-sans-serif">falcon</span> *@
                 </div>
             </a>
         </nav>
@@ -137,7 +116,6 @@
                 <a class="navbar-brand me-1 me-sm-3" href="/">
                     <div class="d-flex align-items-center">
                         <img class="me-2" src="assets/img/logo-bimasakti.png" alt="" width="40" />
-                        @* <span class="font-sans-serif">bimasakti</span> *@
                     </div>
                 </a>
 
@@ -199,10 +177,66 @@
                     </li>
 
                     <!-- notification -->
-                    <li class="nav-item" title="Notification">
-                        <a class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait" role="button" aria-haspopup="true" aria-expanded="false" data-hide-on-body-scroll="data-hide-on-body-scroll">
-                            <span class="fas fa-bell" data-fa-transform="shrink-6" style="font-size: 27px;"></span>
+                    <li class="nav-item dropdown" title="Notification">
+                        <a class="nav-link @NotificationCssClass px-0 fa-icon-wait" id="navbarDropdownNotification" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hide-on-body-scroll="data-hide-on-body-scroll">
+                            <span class="fas fa-bell" data-fa-transform="shrink-6" style="font-size: 33px;"></span>
                         </a>
+
+                        <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end dropdown-menu-card dropdown-menu-notification dropdown-caret-bg" aria-labelledby="navbarDropdownNotification">
+                            <div class="card card-notification shadow-none">
+                                <!-- card header -->
+                                <div class="card-header">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-auto">
+                                            <h6 class="card-header-title mb-0">Notifications</h6>
+                                        </div>
+                                        <div class="col-auto ps-0 ps-sm-3"><a class="card-link fw-normal" href="#">Mark all as read</a></div>
+                                    </div>
+                                </div>
+
+                                <div class="scrollbar" style="max-height:19rem">
+                                    <div class="list-group list-group-flush fw-normal fs--1">
+                                        <!-- new notification -->
+                                        @if (_newNotificationMessages.Count > 0)
+                                        {
+                                            <div class="list-group-title border-bottom">NEW</div>
+                                            <!-- new notification item -->
+                                            @foreach (var newMessage in _newNotificationMessages)
+                                            {
+                                                <div class="list-group-item">
+                                                    <a class="notification notification-flush notification-unread">
+                                                        <div class="notification-body">
+                                                            <p class="mb-1">@((MarkupString)newMessage.HtmlMessage)</p>
+                                                            <span class="notification-time">Just now</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            }
+                                        }
+                                        
+                                        <!-- old notification -->
+                                        @if (_oldNotificationMessages.Count > 0)
+                                        {
+                                            <div class="list-group-title border-bottom">EARLIER</div>
+                                            <!-- old notification item -->
+                                            @foreach (var oldMessage in _oldNotificationMessages)
+                                            {
+                                                <div class="list-group-item">
+                                                    <a class="notification notification-flush">
+                                                        <div class="notification-body">
+                                                            <p class="mb-1">@((MarkupString)oldMessage.HtmlMessage)</p>
+                                                            <span class="notification-time">1d</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="card-footer text-center border-top"><a class="card-link d-block" href="app/social/notifications.html">View all</a></div>
+                            </div>
+                        </div>
                     </li>
 
                     <!-- user menu -->
@@ -212,13 +246,12 @@
                                 <div class="avatar-name rounded-circle">
                                     <span>@_userId</span>
                                 </div>
-                                @* <img class="rounded-circle" src="assets/img/avatar.png" alt="" /> *@
                             </div>
                         </a>
                         
                         <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
                             <div class="bg-white dark__bg-1000 rounded-2 py-2">
-                                <a class="dropdown-item" href="#authentication-modal" data-bs-toggle="modal" @onclick="async () => await _profileInfo.Open()">Profile &amp; account</a>
+                                <a class="dropdown-item" href="#authentication-modal" data-bs-toggle="modal" @onclick="@ShowProfilePage">Profile &amp; account</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" @onclick="@Logout">Logout</a>
                             </div>
@@ -243,11 +276,23 @@
                     navbarTopCombo.removeAttribute('style');
                     navbarTop.remove(navbarTop);
                     navbarTopVertical.remove(navbarTopVertical);
-                } else {
-                    navbarVertical.removeAttribute('style');
-                    navbarTopVertical.removeAttribute('style');
-                    navbarTop.remove(navbarTop);
-                    navbarTopCombo.remove(navbarTopCombo);
+                }
+                else {
+                    if (navbarVertical != null) {
+                        navbarVertical.removeAttribute('style');
+                    }
+
+                    if (navbarTopVertical != null) {
+                        navbarTopVertical.removeAttribute('style');
+                    }
+
+                    if (navbarTop != null) {
+                        navbarTop.remove(navbarTop);
+                    }
+
+                    if (navbarTopCombo != null) {
+                        navbarTopCombo.remove(navbarTopCombo);
+                    }
                 }
             </script>
 
@@ -262,9 +307,15 @@
         </div>
 
         <!-- begin::Modal Version Info -->
-        <BlazorMenu.Pages.Info @ref="_modalInfo" />
+        @* <BlazorMenu.Pages.Info @ref="_modalInfo" /> *@
         <!-- end::Version Info -->
 
-        <BlazorMenu.Pages.Profile @ref="_profileInfo" />
+        <MenuModal @ref="@modalInfoPage"
+                   BodyCssClass="p-0"
+                   Title="More Information" />
+
+        <MenuModal @ref="@modalProfilePage"
+                   BodyCssClass="p-3"
+                   Title="Profile" />
     </div>
 </main>

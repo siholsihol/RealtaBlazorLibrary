@@ -1,0 +1,413 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "R_BlazorFrontEnd.Controls.Captcha/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.14",
+          "SkiaSharp": "2.88.9",
+          "SkiaSharp.NativeAssets.Linux": "2.88.9",
+          "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.9",
+          "SkiaSharp.Views.Blazor": "2.88.9"
+        },
+        "runtime": {
+          "R_BlazorFrontEnd.Controls.Captcha.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authorization/6.0.14": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "6.0.14",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.3",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1423.7403"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components/6.0.14": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "6.0.14",
+          "Microsoft.AspNetCore.Components.Analyzers": "6.0.14"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1423.7403"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/6.0.14": {},
+      "Microsoft.AspNetCore.Components.Forms/6.0.14": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.14"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1423.7403"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web/6.0.14": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.14",
+          "Microsoft.AspNetCore.Components.Forms": "6.0.14",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1",
+          "Microsoft.JSInterop": "6.0.14",
+          "System.IO.Pipelines": "6.0.3"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1423.7403"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/6.0.14": {
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1423.7403"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/6.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1022.47605"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/6.0.3": {
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1122.52304"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options/6.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "Microsoft.JSInterop/6.0.14": {
+        "runtime": {
+          "lib/net6.0/Microsoft.JSInterop.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1423.7403"
+          }
+        }
+      },
+      "SkiaSharp/2.88.9": {
+        "dependencies": {
+          "SkiaSharp.NativeAssets.Win32": "2.88.9",
+          "SkiaSharp.NativeAssets.macOS": "2.88.9"
+        },
+        "runtime": {
+          "lib/net6.0/SkiaSharp.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.9.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux/2.88.9": {
+        "dependencies": {
+          "SkiaSharp": "2.88.9"
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSkiaSharp.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libSkiaSharp.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libSkiaSharp.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libSkiaSharp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.9": {
+        "dependencies": {
+          "SkiaSharp": "2.88.9"
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSkiaSharp.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libSkiaSharp.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libSkiaSharp.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libSkiaSharp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.macOS/2.88.9": {
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.WebAssembly/2.88.9": {},
+      "SkiaSharp.NativeAssets.Win32/2.88.9": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.Views.Blazor/2.88.9": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.14",
+          "SkiaSharp": "2.88.9",
+          "SkiaSharp.NativeAssets.WebAssembly": "2.88.9"
+        },
+        "runtime": {
+          "lib/net6.0/SkiaSharp.Views.Blazor.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.9.0"
+          }
+        }
+      },
+      "System.IO.Pipelines/6.0.3": {
+        "runtime": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.522.21309"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {}
+    }
+  },
+  "libraries": {
+    "R_BlazorFrontEnd.Controls.Captcha/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Authorization/6.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gFktP5LXNvPPWOALCVb0jdBscSTNDsAbP3eSq4BH0xid57/8SgM+nQssPLS18qa8DdNDVIJjhtpyZguMb7NNuQ==",
+      "path": "microsoft.aspnetcore.authorization/6.0.14",
+      "hashPath": "microsoft.aspnetcore.authorization.6.0.14.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components/6.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hd8uaIm2BGfMUws41PocD4XdeTlGCv06iEiXns3nAFMJy6fLPbYrLrsMDMtZE46/53M/MVhhR767sCWrZuiKJQ==",
+      "path": "microsoft.aspnetcore.components/6.0.14",
+      "hashPath": "microsoft.aspnetcore.components.6.0.14.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/6.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IkNGrKgeGc9oL9KrhP5dojlTMJyKV6NzxEt3anMJJB/V+jpqcAkrw++NshDzclnf9uX033TVQtg5/ENzlQk8xA==",
+      "path": "microsoft.aspnetcore.components.analyzers/6.0.14",
+      "hashPath": "microsoft.aspnetcore.components.analyzers.6.0.14.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Forms/6.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-O46kGrM+9wZ05rsapemkhx3/JIbGUz9LlLENp12zu71K/f0dLFYai8RuobyKGNB1IvsNR4fzkjrJdr+pm4fuow==",
+      "path": "microsoft.aspnetcore.components.forms/6.0.14",
+      "hashPath": "microsoft.aspnetcore.components.forms.6.0.14.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Web/6.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h/5OzlN1coJAAXE+pU0hw31BWNUjHjIqy+IWwkl5/vYNHGGbMgx5RpeBszZZ0yIvbsso+3gqeZmElSIZWLP1lA==",
+      "path": "microsoft.aspnetcore.components.web/6.0.14",
+      "hashPath": "microsoft.aspnetcore.components.web.6.0.14.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Metadata/6.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-giNY/VjXoC2gauhzQiCIEQ620RvbxCfOKWY6K8Sc7LFgo6jbERdIN3QNpQ1CI8oFLz9e2mbUGnBsCM9KMMDHsw==",
+      "path": "microsoft.aspnetcore.metadata/6.0.14",
+      "hashPath": "microsoft.aspnetcore.metadata.6.0.14.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vWXPg3HJQIpZkENn1KWq8SfbqVujVD7S7vIAyFXXqK5xkf1Vho+vG0bLBCHxU36lD1cLLtmGpfYf0B3MYFi9tQ==",
+      "path": "microsoft.extensions.dependencyinjection/6.0.1",
+      "hashPath": "microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xlzi2IYREJH3/m6+lUrQlujzX8wDitm4QGnUu6kUXTQAWPuZY8i+ticFJbzfqaetLA6KR/rO6Ew/HuYD+bxifg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/6.0.0",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/6.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SUpStcdjeBbdKjPKe53hVVLkFjylX0yIXY8K+xWa47+o1d+REDyOMZjHZa+chsQI1K9qZeiHWk9jos0TFU7vGg==",
+      "path": "microsoft.extensions.logging.abstractions/6.0.3",
+      "hashPath": "microsoft.extensions.logging.abstractions.6.0.3.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dzXN0+V1AyjOe2xcJ86Qbo233KHuLEY0njf/P2Kw8SfJU+d45HNS2ctJdnEnrWbM9Ye2eFgaC5Mj9otRMU6IsQ==",
+      "path": "microsoft.extensions.options/6.0.0",
+      "hashPath": "microsoft.extensions.options.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9+PnzmQFfEFNR9J2aDTfJGGupShHjOuGw4VUv+JB044biSHrnmCIMD+mJHmb2H7YryrfBEXDurxQ47gJZdCKNQ==",
+      "path": "microsoft.extensions.primitives/6.0.0",
+      "hashPath": "microsoft.extensions.primitives.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.JSInterop/6.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k1DAQqTVYaQGzh4uBJo318oSWa3OLdgJN+ZrKBzRn3Y+iG1VNxIBCBKNW9OgyEVv55fw81+yfHkv1f0e5RXOBg==",
+      "path": "microsoft.jsinterop/6.0.14",
+      "hashPath": "microsoft.jsinterop.6.0.14.nupkg.sha512"
+    },
+    "SkiaSharp/2.88.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3MD5VHjXXieSHCleRLuaTXmL2pD0mB7CcOB1x2kA1I4bhptf4e3R27iM93264ZYuAq6mkUyX5XbcxnZvMJYc1Q==",
+      "path": "skiasharp/2.88.9",
+      "hashPath": "skiasharp.2.88.9.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Linux/2.88.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cWSaJKVPWAaT/WIn9c8T5uT/l4ETwHxNJTkEOtNKjphNo8AW6TF9O32aRkxqw3l8GUdUo66Bu7EiqtFh/XG0Zg==",
+      "path": "skiasharp.nativeassets.linux/2.88.9",
+      "hashPath": "skiasharp.nativeassets.linux.2.88.9.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZA9syMvIuoqxPhyFTgde/bNV6VMdeYT9gRdNQT5O+ZjPK+a/nVkKRrqBbn7EVA7XQiW+xIycyT4gW/sea9eh+w==",
+      "path": "skiasharp.nativeassets.linux.nodependencies/2.88.9",
+      "hashPath": "skiasharp.nativeassets.linux.nodependencies.2.88.9.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.macOS/2.88.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nv5spmKc4505Ep7oUoJ5vp3KweFpeNqxpyGDWyeEPTX2uR6S6syXIm3gj75dM0YJz7NPvcix48mR5laqs8dPuA==",
+      "path": "skiasharp.nativeassets.macos/2.88.9",
+      "hashPath": "skiasharp.nativeassets.macos.2.88.9.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.WebAssembly/2.88.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kt06RccBHSnAs2wDYdBSfsjIDbY3EpsOVqnlDgKdgvyuRA8ZFDaHRdWNx1VHjGgYzmnFCGiTJBnXFl5BqGwGnA==",
+      "path": "skiasharp.nativeassets.webassembly/2.88.9",
+      "hashPath": "skiasharp.nativeassets.webassembly.2.88.9.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Win32/2.88.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wb2kYgU7iy84nQLYZwMeJXixvK++GoIuECjU4ECaUKNuflyRlJKyiRhN1MAHswvlvzuvkrjRWlK0Za6+kYQK7w==",
+      "path": "skiasharp.nativeassets.win32/2.88.9",
+      "hashPath": "skiasharp.nativeassets.win32.2.88.9.nupkg.sha512"
+    },
+    "SkiaSharp.Views.Blazor/2.88.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-obvZyIdj0g9iFqMMr2zF1+HZH99vvy2NCYK160Y5BiVRzpoaq6jUvu5TDmXlQdDWskryaFsf8NIipVQ5APSoYw==",
+      "path": "skiasharp.views.blazor/2.88.9",
+      "hashPath": "skiasharp.views.blazor.2.88.9.nupkg.sha512"
+    },
+    "System.IO.Pipelines/6.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ryTgF+iFkpGZY1vRQhfCzX0xTdlV3pyaTTqRu2ETbEv+HlV7O6y7hyQURnghNIXvctl5DuZ//Dpks6HdL/Txgw==",
+      "path": "system.io.pipelines/6.0.3",
+      "hashPath": "system.io.pipelines.6.0.3.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    }
+  }
+}

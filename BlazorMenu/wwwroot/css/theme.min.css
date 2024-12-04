@@ -21573,8 +21573,7 @@ pre[class*=language-] {
 
 @media(min-width: 576px) {
     .content {
-        /*padding-bottom: 3.9875rem*/
-        padding-bottom: 0rem
+        padding-bottom: 3.9875rem
     }
 }
 
@@ -24334,11 +24333,6 @@ h5, .h5 {
     background-color: var(--falcon-navbar-vertical-scrollbar-color)
 }
 
-.dark.windows.chrome .navbar-vertical .scrollbar::-webkit-scrollbar-thumb {
-    /* background-color: var(--falcon-navbar-vertical-scrollbar-color) */
-    background-color: rgba(44, 123, 229, 0.5);
-}
-
 .windows.firefox .navbar-vertical .scrollbar {
     scrollbar-color: var(--falcon-navbar-vertical-scrollbar-color) transparent
 }
@@ -24616,7 +24610,7 @@ h5, .h5 {
 
         .navbar-vertical.navbar-expand-xl .navbar-vertical-content {
             width: 12.625rem;
-            height: calc(100vh - 7.3125rem);
+            height: calc(100vh - 4.3125rem);
             padding: .5rem 0 0 0
         }
 

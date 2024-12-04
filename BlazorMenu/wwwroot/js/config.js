@@ -8,9 +8,6 @@
 var CONFIG = {
   isNavbarVerticalCollapsed: false,
   theme: 'light',
-  isRTL: false,
-  isFluid: true,
-  navbarStyle: 'transparent',
   navbarPosition: 'vertical'
 };
 Object.keys(CONFIG).forEach(function (key) {
@@ -25,4 +22,9 @@ if (JSON.parse(localStorage.getItem('isNavbarVerticalCollapsed'))) {
 
 if (localStorage.getItem('theme') === 'dark') {
   document.documentElement.classList.add('dark');
+}
+
+var navbarStyle = localStorage.getItem("navbarStyle");
+if (navbarStyle && navbarStyle !== 'transparent') {
+    document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
 }

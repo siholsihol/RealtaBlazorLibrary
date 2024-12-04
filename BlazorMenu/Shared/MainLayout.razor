@@ -2,7 +2,7 @@
 @inherits LayoutComponentBase
 
 <TelerikRootComponent>
-    <R_NotificationContainer />
+    @* <R_NotificationContainer /> *@
 
     <AuthorizeView>
         <NotAuthorized>
@@ -15,4 +15,7 @@
             <MenuLayout />
         </Authorized>
     </AuthorizeView>
+
+    <R_Preload />
+    <R_Toasts />
 </TelerikRootComponent>
