@@ -1,4 +1,5 @@
-﻿using BlazorClientHelper;
+﻿using System.Globalization;
+using BlazorClientHelper;
 using BlazorMenu.Authentication;
 using BlazorMenu.Services;
 using BlazorMenu.Shared;
@@ -7,13 +8,12 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using R_BlazorFrontEnd.Controls.Menu;
 using R_BlazorFrontEnd.Interfaces;
-using System.Globalization;
 
 namespace BlazorMenu.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        internal static IServiceCollection R_AddBlazorFrontEnd(this IServiceCollection services)
+        internal static IServiceCollection R_AddBlazorMenuServices(this IServiceCollection services)
         {
             services.AddAuthorizationCore();
             services.AddScoped<AuthenticationStateProvider, BlazorMenuAuthenticationStateProvider>();
@@ -31,10 +31,13 @@ namespace BlazorMenu.Extensions
             services.AddScoped<R_ILocalStorage, R_LocalStorage>();
             services.AddScoped<BlazorMenuLocalStorageService>();
 
+            services.AddTransient<HttpInterceptorService>();
+            services.AddSingleton<R_IEnvironment, BlazorMenuEnvironmentService>();
+
             return services;
         }
 
-        internal static async Task R_UseBlazorFrontEnd(this WebAssemblyHost host)
+        internal static async Task R_UseBlazorMenuServices(this WebAssemblyHost host)
         {
             var loLocalStorage = host.Services.GetRequiredService<BlazorMenuLocalStorageService>();
             var lcCulture = await loLocalStorage.GetCultureAsync();

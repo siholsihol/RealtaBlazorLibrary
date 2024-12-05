@@ -1,4 +1,6 @@
-﻿using BlazorClientHelper;
+﻿using System.Security.Claims;
+using System.Text.Json;
+using BlazorClientHelper;
 using BlazorMenu.Services;
 using BlazorMenuCommon.DTOs;
 using BlazorMenuModel;
@@ -8,8 +10,6 @@ using R_BlazorFrontEnd.Exceptions;
 using R_CommonFrontBackAPI;
 using R_SecurityPolicyCommon.DTOs;
 using R_SecurityPolicyModel;
-using System.Security.Claims;
-using System.Text.Json;
 
 namespace BlazorMenu.Authentication
 {
@@ -17,19 +17,16 @@ namespace BlazorMenu.Authentication
     {
         private readonly R_ITokenRepository _tokenRepository;
         private readonly BlazorMenuLocalStorageService _localStorageService;
-        private readonly R_IMenuService _menuService;
         private readonly IClientHelper _clientHelper;
 
         public BlazorMenuAuthenticationStateProvider(
             R_ITokenRepository tokenRepository,
             BlazorMenuLocalStorageService localStorageService,
-            IClientHelper clientHelper,
-            R_IMenuService menuService)
+            IClientHelper clientHelper)
         {
             _tokenRepository = tokenRepository;
             _localStorageService = localStorageService;
             _clientHelper = clientHelper;
-            _menuService = menuService;
         }
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
