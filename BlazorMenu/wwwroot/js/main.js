@@ -97,5 +97,123 @@
                 element.setAttribute('checked', true);
             }
         }
+    },
+
+    hotKey: {
+        addKeyboardListenerEvent: (elementId, dotNetHelper) => {
+            let serializeEvent = function (e) {
+                if (e) {
+                    return {
+                        key: e.key,
+                        code: e.keyCode.toString(),
+                        location: e.location,
+                        repeat: e.repeat,
+                        ctrlKey: e.ctrlKey,
+                        shiftKey: e.shiftKey,
+                        altKey: e.altKey,
+                        metaKey: e.metaKey,
+                        type: e.type
+                    };
+                }
+            };
+
+            //let element = window.document.getElementById(elementId);
+
+            //if (element != null) {
+            //    element.addEventListener('keydown', function (e) {
+            //        dotNetHelper.invokeMethodAsync('JsKeyDown', serializeEvent(e));
+            //    });
+            //}
+
+            window.document.addEventListener('keydown', function (e) {
+                dotNetHelper.invokeMethodAsync('JsKeyDown', elementId, serializeEvent(e));
+            });
+        }
+    },
+
+    qrCode: {
+        //getImageFromCanvas: (elementId) => {
+        //    const element = document.getElementById(elementId);
+
+        //    if (element) {
+        //        return element.toDataURL("image/png");
+        //    }
+        //},
+
+        getImageFromCanvas: (selector) => {
+            const canvas = document.querySelector(`${selector} canvas`);
+
+            if (canvas) {
+                return canvas.toDataURL("image/png");
+            }
+        },
+
+        getImageFromSvg: (selector) => {
+            const dpr = window.devicePixelRatio;
+
+            const svg = document.querySelector(`${selector} svg`);
+            if (!svg) {
+                return;
+            }
+
+            const svgBox = svg.getBBox();
+            const svgW = svgBox.width;
+            const svgH = svgBox.height;
+
+            const svgData = (new XMLSerializer()).serializeToString(svg);
+            const svgBlob = new Blob([svgData], {
+                type: "image/svg+xml;charset=utf-8"
+            });
+            const blobUrl = URL.createObjectURL(svgBlob);
+
+            return getBlobImage(blobUrl, svgW, svgH).then((img) => {
+                const canvas = document.createElement("canvas");
+                canvas.width = svgW * dpr;
+                canvas.height = svgH * dpr;
+
+                const context = canvas.getContext("2d");
+                context.imageSmoothingEnabled = false;
+                context.drawImage(img, 0, 0, svgW * dpr, svgH * dpr);
+
+                URL.revokeObjectURL(blobUrl);
+                img.parentElement.removeChild(img);
+
+                return canvas.toDataURL("image/png");
+            });
+
+            function getBlobImage(blobUrl, imageWidth, imageHeight) {
+                return new Promise(function (resolve) {
+                    const img = new Image();
+
+                    img.addEventListener("load", () => {
+                        setTimeout(() => resolve(img));
+                    });
+
+                    img.style.cssText = "visibility:hidden;position:absolute;top:0;left:0;";
+                    img.width = imageWidth;
+                    img.height = imageHeight;
+                    document.body.appendChild(img);
+
+                    img.src = blobUrl;
+                });
+            }
+        },
+
+        //getBlobImage: (blobUrl, imageWidth, imageHeight) => {
+        //    return new Promise(function (resolve) {
+        //        const img = new Image();
+
+        //        img.addEventListener("load", () => {
+        //            setTimeout(() => resolve(img));
+        //        });
+
+        //        img.style.cssText = "visibility:hidden;position:absolute;top:0;left:0;";
+        //        img.width = imageWidth;
+        //        img.height = imageHeight;
+        //        document.body.appendChild(img);
+
+        //        img.src = blobUrl;
+        //    });
+        //}
     }
 }
