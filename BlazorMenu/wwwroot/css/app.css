@@ -602,4 +602,5 @@ h6[b-21c0qposjk] {
 .modal-content-page-loading {
     background-color: inherit !important;
     border: inherit !important;
+    box-shadow: none !important;
 }
