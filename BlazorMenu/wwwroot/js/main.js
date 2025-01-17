@@ -117,14 +117,6 @@
                 }
             };
 
-            //let element = window.document.getElementById(elementId);
-
-            //if (element != null) {
-            //    element.addEventListener('keydown', function (e) {
-            //        dotNetHelper.invokeMethodAsync('JsKeyDown', serializeEvent(e));
-            //    });
-            //}
-
             window.document.addEventListener('keydown', function (e) {
                 dotNetHelper.invokeMethodAsync('JsKeyDown', elementId, serializeEvent(e));
             });
@@ -132,14 +124,6 @@
     },
 
     qrCode: {
-        //getImageFromCanvas: (elementId) => {
-        //    const element = document.getElementById(elementId);
-
-        //    if (element) {
-        //        return element.toDataURL("image/png");
-        //    }
-        //},
-
         getImageFromCanvas: (selector) => {
             const canvas = document.querySelector(`${selector} canvas`);
 
@@ -197,23 +181,13 @@
                     img.src = blobUrl;
                 });
             }
-        },
+        }
+    },
 
-        //getBlobImage: (blobUrl, imageWidth, imageHeight) => {
-        //    return new Promise(function (resolve) {
-        //        const img = new Image();
-
-        //        img.addEventListener("load", () => {
-        //            setTimeout(() => resolve(img));
-        //        });
-
-        //        img.style.cssText = "visibility:hidden;position:absolute;top:0;left:0;";
-        //        img.width = imageWidth;
-        //        img.height = imageHeight;
-        //        document.body.appendChild(img);
-
-        //        img.src = blobUrl;
-        //    });
-        //}
-    }
+    addStyleToElement: function (elementId, style) {
+        const element = document.getElementById(elementId);
+        if (element != null) {
+            element.style.cssText = style;
+        }
+    },
 }
