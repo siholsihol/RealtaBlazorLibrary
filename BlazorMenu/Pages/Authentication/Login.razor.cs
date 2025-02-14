@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using R_AuthenticationEnumAndInterface;
 using R_BlazorFrontEnd.Controls;
-using R_BlazorFrontEnd.Controls.MessageBox;
 using R_BlazorFrontEnd.Exceptions;
 using R_BlazorFrontEnd.Interfaces;
 using R_CommonFrontBackAPI;
@@ -21,10 +20,8 @@ namespace BlazorMenu.Pages.Authentication
         [Inject] private R_ITokenRepository _tokenRepository { get; set; }
         [Inject] private BlazorMenuLocalStorageService _localStorageService { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
-        [Inject] public R_MessageBoxService R_MessageBox { get; set; }
         [Inject] private R_ISymmetricJSProvider _encryptProvider { get; set; }
         [Inject] private MenuTabSetTool MenuTabSetTool { get; set; }
-        //[Inject] private R_NotificationService _notificationService { get; set; }
         //[Inject] private R_ITenant _tenant { get; set; }
         [Inject] private R_IEnvironment _environment { get; set; }
         [Inject] private R_ToastService _toastService { get; set; }
@@ -33,6 +30,7 @@ namespace BlazorMenu.Pages.Authentication
         private readonly R_LoginViewModel _loginVM = new();
         private string _captcha = "";
         private int _captchaLength = 4;
+        private string validateCaptcha;
 
         protected override async Task OnParametersSetAsync()
         {
@@ -70,8 +68,6 @@ namespace BlazorMenu.Pages.Authentication
 
             if (loEx.HasError)
                 _toastService.Error(loEx.ErrorList[0].ErrDescp);
-
-            //_notificationService.Error(loEx.ErrorList[0].ErrDescp);
         }
 
         protected override void OnInitialized()
@@ -88,6 +84,18 @@ namespace BlazorMenu.Pages.Authentication
             try
             {
                 _preloadService.Show();
+
+                if (string.IsNullOrWhiteSpace(_loginVM.LoginModel.CompanyId) ||
+                    string.IsNullOrWhiteSpace(_loginVM.LoginModel.UserId) ||
+                    string.IsNullOrWhiteSpace(_loginVM.LoginModel.Password))
+                {
+                    throw new Exception("Invalid user credential.");
+                }
+
+                if (!_captcha.Equals(validateCaptcha, StringComparison.InvariantCultureIgnoreCase) && !_environment.IsDevelopment)
+                {
+                    throw new Exception("Wrong captcha.");
+                }
 
                 _clientHelper.Set_ComputerId();
                 _clientHelper.Set_CompanyId(_loginVM.LoginModel.CompanyId);
@@ -163,8 +171,6 @@ namespace BlazorMenu.Pages.Authentication
 
             if (loEx.HasError)
             {
-                //_notificationService.Error(loEx.ErrorList[0].ErrDescp);
-
                 _toastService.Error(loEx.ErrorList[0].ErrDescp);
 
                 _tokenRepository.R_SetToken(string.Empty);
