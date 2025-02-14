@@ -81,7 +81,8 @@
             <footer class="footer">
                 <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
                     <div class="col">
-                        <p class="fs--2 mb-0 text-600">2023 &copy; <a href="http://www.realta.co.id" target="_blank">PT. Realta Chakradarma</a>.<br />All rights reserved. | v1.0 
+                        <p class="fs--1 mb-0 text-600">
+                            2023 &copy; <a href="http://www.realta.co.id" target="_blank">PT. Realta Chakradarma</a>.<br />All rights reserved. | v1.0
                             <a href="#more-info" data-bs-toggle="modal" @onclick="ShowInfoPage">
                                 <i class="fas fa-info-circle"></i>
                             </a>
@@ -115,14 +116,14 @@
                 </button>
                 <a class="navbar-brand me-1 me-sm-3" href="/">
                     <div class="d-flex align-items-center">
-                        <img class="me-2" src="assets/img/logo-bimasakti.png" alt="" width="40" />
+                        <img class="me-2" src="assets/img/logo-bimasakti.png" alt="" width="80" height="25" />
                     </div>
                 </a>
 
                 <ul class="navbar-nav align-items-center d-none d-lg-block">
                     <li class="nav-item">
                         <!-- search box -->
-                        <div class="search-box" data-list='{"valueNames":["title"]}'>
+                        @* <div class="search-box" data-list='{"valueNames":["title"]}'>
                             <form class="position-relative" data-bs-toggle="search" data-bs-display="static">
                                 <input class="form-control search-input fuzzy-search" type="search" placeholder="Search..." aria-label="Search" @bind-value="_searchText" @bind-value:event="oninput" />
                                 <span class="fas fa-search search-box-icon"></span>
@@ -158,6 +159,27 @@
                                     }
                                 }
                             </div>
+                        </div> *@
+
+                        <div @onkeypress="@onkeypress">
+                            <TelerikAutoComplete Data="@searchBoxData"
+                                                 @bind-Value="@_searchText"
+                                                 Placeholder="Search..."
+                                                 ClearButton
+                                                 ValueField="@(nameof(SearchBoxItem.Text))"
+                                                 Filterable
+                                                 Class="form-control search-input"
+                                                 AdaptiveMode="AdaptiveMode.Auto" 
+                                                 Id="searchbox">
+                                <AutoCompleteSettings>
+                                    <AutoCompletePopupSettings Height="auto" MaxHeight="200px" />
+                                </AutoCompleteSettings>
+                                <NoDataTemplate>
+                                    <div class="text-center mt-n3">
+                                        <p class="fallback fw-bold fs-1 d-none">No Result Found.</p>
+                                    </div>
+                                </NoDataTemplate>
+                            </TelerikAutoComplete>
                         </div>
                     </li>
                 </ul>

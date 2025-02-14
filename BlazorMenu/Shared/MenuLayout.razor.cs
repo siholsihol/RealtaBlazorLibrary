@@ -8,6 +8,7 @@ using BlazorMenu.Shared.Tabs;
 using BlazorMenuCommon.DTOs;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.JSInterop;
 using R_BlazorCommon.Models;
@@ -57,6 +58,20 @@ namespace BlazorMenu.Shared
             }
         }
 
+        private List<SearchBoxItem> searchBoxData
+        {
+            get
+            {
+                var loData = _menuList.Where(x => x.CSUB_MENU_TYPE == "P").
+                    Select(x => new SearchBoxItem
+                    {
+                        Id = x.CSUB_MENU_ID,
+                        Text = x.CSUB_MENU_ID + " - " + x.CSUB_MENU_NAME
+                    }).ToList();
+
+                return loData;
+            }
+        }
         protected string NotificationCssClass =>
         new CssBuilder()
             .AddClass("notification-indicator", !_notificationOpened && _newNotificationMessages.Count > 0)
@@ -142,7 +157,7 @@ namespace BlazorMenu.Shared
         {
             if (firstRender)
             {
-                //await JSRuntime.InvokeVoidAsync("handleNavbarVerticalCollapsed");
+                await JSRuntime.InvokeVoidAsync("handleNavbarVerticalCollapsed");
 
                 await JSRuntime.InvokeVoidAsync("searchInit");
 
@@ -175,6 +190,11 @@ namespace BlazorMenu.Shared
         private void OnClickProgram(DrawerMenuItem drawerMenuItem)
         {
             TabSetTool.AddTab(drawerMenuItem.Text, drawerMenuItem.Id, "A,U,D,P,V");
+        }
+
+        private void OnClickProgram(string text, string id)
+        {
+            TabSetTool.AddTab(text, id, "A,U,D,P,V");
         }
 
         private async Task Logout()
@@ -226,5 +246,24 @@ namespace BlazorMenu.Shared
         }
 
         #endregion
+
+        private void onkeypress(KeyboardEventArgs eventArgs)
+        {
+            if (eventArgs.Code == "Enter" && !string.IsNullOrWhiteSpace(_searchText))
+            {
+                var programId = _searchText.Split(" - ")[0];
+                var menuItem = _menuList.FirstOrDefault(x => x.CSUB_MENU_ID == programId);
+                if (menuItem != null)
+                {
+                    OnClickProgram(menuItem.CSUB_MENU_NAME, menuItem.CSUB_MENU_ID);
+                }
+            }
+        }
+    }
+
+    public class SearchBoxItem
+    {
+        public string Id { get; set; }
+        public string Text { get; set; }
     }
 }

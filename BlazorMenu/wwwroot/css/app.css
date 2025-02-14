@@ -614,7 +614,7 @@ h6[b-21c0qposjk] {
 }
 
 .navbar-vertical.navbar-expand-xl .navbar-vertical-content {
-    height: calc(100vh - 7.3125rem) !important;
+    height: calc(100vh - 11.3125rem) !important;
 }
 
 /* preload */
@@ -639,6 +639,7 @@ h6[b-21c0qposjk] {
     height: auto !important;
     font-size: 10px;
 }
+
 /* lightbox */
 .lightbox-background {
     position: fixed;
@@ -647,14 +648,14 @@ h6[b-21c0qposjk] {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100vh;
-    width: 100vw;
     background-color: rgba(130, 130, 130, .3);
     display: grid;
     place-items: center;
     opacity: 0;
     pointer-events: none;
     transition: all 200ms ease-in-out;
+    align-content: center;
+    justify-content: center;
 }
 
     .lightbox-background.active {
@@ -711,5 +712,4 @@ h6[b-21c0qposjk] {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
 }
