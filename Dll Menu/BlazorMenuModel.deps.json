@@ -41,7 +41,10 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "BlazorMenuCommon.dll": {}
+          "BlazorMenuCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_BlazorFrontEnd/1.0.0": {
@@ -49,20 +52,30 @@
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "R_BlazorFrontEnd.dll": {}
+          "R_BlazorFrontEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {}
+          "R_SecurityPolicyCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyModel/1.0.0": {
         "dependencies": {
+          "R_BlazorFrontEnd": "1.0.0",
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyModel.dll": {}
+          "R_SecurityPolicyModel.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIClient/1.0.0.0": {

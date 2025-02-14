@@ -19,7 +19,7 @@
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
           "R_SecurityPolicyCommon.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

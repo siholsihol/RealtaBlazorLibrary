@@ -28,7 +28,10 @@
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "R_BlazorFrontEnd.dll": {}
+          "R_BlazorFrontEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ContextFrontEnd/1.0.0.0": {
