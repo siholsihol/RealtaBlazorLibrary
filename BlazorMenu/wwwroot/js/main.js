@@ -190,4 +190,59 @@
             element.style.cssText = style;
         }
     },
+
+    overrideDefaultKey: (dotNetHelper) => {
+        let serializeEvent = function (e) {
+            if (e) {
+                return {
+                    key: e.key,
+                    code: e.keyCode.toString(),
+                    location: e.location,
+                    repeat: e.repeat,
+                    ctrlKey: e.ctrlKey,
+                    shiftKey: e.shiftKey,
+                    altKey: e.altKey,
+                    metaKey: e.metaKey,
+                    type: e.type
+                };
+            }
+        };
+
+        var util = {};
+
+        document.addEventListener('keydown', function (e) {
+
+            var key = util.key[e.which];
+            if (key) {
+                e.preventDefault();
+            }
+
+            if (key === 'F1') {
+                // do stuff
+                dotNetHelper.invokeMethodAsync('DefaultKeyDown', serializeEvent(e));
+            }
+            else if (e.key === 'f' && e.ctrlKey) {
+                e.preventDefault();
+                // set focus to search bar
+                dotNetHelper.invokeMethodAsync('FindKeyDown', serializeEvent(e));
+            }
+        })
+
+        util.key = {
+            112: "F1"
+        }
+    },
+
+    blazorOpen: (args) => {
+        window.open(args);
+    },
+
+    attachFocusHandler: (dotNetHelper, elementId) => {
+        var element = document.getElementById(elementId);
+        if (element) {
+            element.addEventListener("focus", (event) => {
+                dotNetHelper.invokeMethodAsync("OpenComponent");
+            });
+        }
+    }
 }

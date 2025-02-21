@@ -1,5 +1,6 @@
 ﻿using BlazorClientHelper;
 using BlazorMenu.Authentication;
+using BlazorMenu.Helper.Documentation;
 using BlazorMenu.Pages;
 using BlazorMenu.Services;
 using BlazorMenu.Shared.Drawer;
@@ -15,6 +16,7 @@ using R_BlazorCommon.Models;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.Helpers;
 using R_BlazorFrontEnd.Interfaces;
+using Telerik.Blazor.Components;
 
 namespace BlazorMenu.Shared
 {
@@ -26,7 +28,7 @@ namespace BlazorMenu.Shared
         [Inject] private IJSRuntime JSRuntime { get; set; }
         [Inject] private IClientHelper _clientHelper { get; set; }
         //[Inject] private R_ITenant _tenant { get; set; }
-        //[Inject] private R_NotificationService _notificationService { get; set; }
+        [Inject] private IConfiguration _configuration { get; set; }
         [Inject] private R_PreloadService _preloadService { get; set; }
         [Inject] private R_ToastService _toastService { get; set; }
         [Inject] private R_ILocalStorage _localStorageService { get; set; }
@@ -82,6 +84,9 @@ namespace BlazorMenu.Shared
         private List<BlazorMenuNotificationDTO> _newNotificationMessages = new List<BlazorMenuNotificationDTO>();
         private List<BlazorMenuNotificationDTO> _oldNotificationMessages = new List<BlazorMenuNotificationDTO>();
         private DotNetObjectReference<MenuLayout> DotNetReference { get; set; }
+
+        private TelerikAutoComplete<SearchBoxItem> TelerikAutoCompleteRef;
+        private string _autoCompleteId = IdGeneratorHelper.Generate("searchbox", 3);
 
         protected override async Task OnInitializedAsync()
         {
@@ -159,13 +164,36 @@ namespace BlazorMenu.Shared
             {
                 await JSRuntime.InvokeVoidAsync("handleNavbarVerticalCollapsed");
 
-                await JSRuntime.InvokeVoidAsync("searchInit");
-
                 DotNetReference = DotNetObjectReference.Create(this);
                 await JSRuntime.InvokeVoidAsync("blazorMenuBootstrap.observeElement", "navbarDropdownNotification", DotNetReference);
 
                 await JSRuntime.InvokeVoidAsync("blazorMenuBootstrap.changeThemeToggle", "themeControlToggle");
+
+                await JSRuntime.InvokeVoidAsync("blazorMenuBootstrap.overrideDefaultKey", DotNetReference);
+
+                await JSRuntime.InvokeVoidAsync("blazorMenuBootstrap.attachFocusHandler", DotNetReference, _autoCompleteId);
             }
+        }
+
+        [JSInvokable("DefaultKeyDown")]
+        public async Task DefaultKeyDown(KeyboardEventArgs args)
+        {
+            var documentationUrl = GetDocumentationBaseUrl();
+            var currentUrl = new Uri(new Uri(documentationUrl), ParseProgramId());
+
+            await JSRuntime.InvokeVoidAsync("blazorMenuBootstrap.blazorOpen", new object[2] { currentUrl, "_blank" });
+        }
+
+        [JSInvokable("FindKeyDown")]
+        public async Task FindKeyDown(KeyboardEventArgs args)
+        {
+            await TelerikAutoCompleteRef.FocusAsync();
+        }
+
+        [JSInvokable("OpenComponent")]
+        public void OpenComponent()
+        {
+            TelerikAutoCompleteRef.Open();
         }
 
         [JSInvokable("ObserverNotification")]
@@ -189,7 +217,7 @@ namespace BlazorMenu.Shared
 
         private void OnClickProgram(DrawerMenuItem drawerMenuItem)
         {
-            TabSetTool.AddTab(drawerMenuItem.Text, drawerMenuItem.Id, "A,U,D,P,V");
+            OnClickProgram(drawerMenuItem.Text, drawerMenuItem.Id);
         }
 
         private void OnClickProgram(string text, string id)
@@ -197,11 +225,30 @@ namespace BlazorMenu.Shared
             TabSetTool.AddTab(text, id, "A,U,D,P,V");
         }
 
+        private void SearchTextValueChanged(object value)
+        {
+            if (string.IsNullOrWhiteSpace(_searchText))
+                return;
+
+            var programId = _searchText.Split(" - ")[0];
+            var menuItem = _menuList.FirstOrDefault(x => x.CSUB_MENU_ID == programId);
+            if (menuItem != null)
+            {
+                OnClickProgram(menuItem.CSUB_MENU_NAME, menuItem.CSUB_MENU_ID);
+                _searchText = "";
+                TelerikAutoCompleteRef.Close();
+            }
+        }
+
         private async Task Logout()
         {
+            _preloadService.Show();
+
             await ((BlazorMenuAuthenticationStateProvider)_stateProvider).MarkUserAsLoggedOut();
 
             _navigationManager.NavigateTo("/");
+
+            _preloadService.Hide();
         }
 
         public void Dispose()
@@ -256,9 +303,43 @@ namespace BlazorMenu.Shared
                 if (menuItem != null)
                 {
                     OnClickProgram(menuItem.CSUB_MENU_NAME, menuItem.CSUB_MENU_ID);
+                    _searchText = "";
+                    TelerikAutoCompleteRef.Close();
                 }
             }
         }
+
+        #region Documentation
+
+        private string GetDocumentationBaseUrl()
+        {
+            var lcUrl = _configuration.GetSection("R_ServiceUrlSection:R_DocumentationServiceUrl").Get<string>();
+
+            return lcUrl;
+        }
+
+        private string ParseProgramId()
+        {
+            var relativeUri = _navigationManager.ToBaseRelativePath(_navigationManager.Uri).Replace("#", "");
+
+            if (relativeUri.IndexOf('?') > -1)
+            {
+                relativeUri = relativeUri.Substring(0, relativeUri.IndexOf('?'));
+            }
+
+            var urlSegment = relativeUri.Split("/");
+            if (urlSegment.Count() > 1)
+            {
+                relativeUri = urlSegment.Last();
+
+                var programName = _menuList.FirstOrDefault(x => x.CSUB_MENU_ID == relativeUri).CSUB_MENU_NAME;
+                relativeUri = DocumentationTemplateParser.ParseTemplate(relativeUri, programName);
+            }
+
+            return relativeUri;
+        }
+
+        #endregion
     }
 
     public class SearchBoxItem

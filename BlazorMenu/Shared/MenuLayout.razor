@@ -162,23 +162,21 @@
                         </div> *@
 
                         <div @onkeypress="@onkeypress">
-                            <TelerikAutoComplete Data="@searchBoxData"
+                            <TelerikAutoComplete @ref="@TelerikAutoCompleteRef"
+                                                 Data="@searchBoxData"
                                                  @bind-Value="@_searchText"
                                                  Placeholder="Search..."
+                                                 OnChange="@SearchTextValueChanged"
                                                  ClearButton
                                                  ValueField="@(nameof(SearchBoxItem.Text))"
                                                  Filterable
+                                                 FilterOperator="StringFilterOperator.Contains"
                                                  Class="form-control search-input"
-                                                 AdaptiveMode="AdaptiveMode.Auto" 
-                                                 Id="searchbox">
+                                                 AdaptiveMode="AdaptiveMode.Auto"
+                                                 Id="@_autoCompleteId">
                                 <AutoCompleteSettings>
                                     <AutoCompletePopupSettings Height="auto" MaxHeight="200px" />
                                 </AutoCompleteSettings>
-                                <NoDataTemplate>
-                                    <div class="text-center mt-n3">
-                                        <p class="fallback fw-bold fs-1 d-none">No Result Found.</p>
-                                    </div>
-                                </NoDataTemplate>
                             </TelerikAutoComplete>
                         </div>
                     </li>
