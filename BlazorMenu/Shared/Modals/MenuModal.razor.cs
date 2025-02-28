@@ -20,15 +20,13 @@ namespace BlazorMenu.Shared.Modals
         [Parameter] public string FooterCssClass { get; set; }
         [Parameter] public bool UseStaticBackdrop { get; set; } = true;
         [Parameter] public bool CloseOnEscape { get; set; } = true;
-
-        //[Inject] private MenuModalService ModalService { get; set; }
         [Parameter] public EventCallback OnShowing { get; set; }
         [Parameter] public EventCallback OnShown { get; set; }
         [Parameter] public EventCallback OnHiding { get; set; }
         [Parameter] public EventCallback OnHidden { get; set; }
         [Parameter] public EventCallback OnHidePrevented { get; set; }
 
-        public override string Id { get; set; } = IdGeneratorHelper.Generate("menumodal");
+        [Parameter] public override string Id { get; set; } = IdGeneratorHelper.Generate("menumodal");
 
         #endregion
 
@@ -36,15 +34,12 @@ namespace BlazorMenu.Shared.Modals
 
         protected string ClassNames =>
             new CssBuilder(Class)
-            .AddClass("modal")
-            .AddClass("fade")
             .Build();
 
         protected string StyleNames =>
             new StyleBuilder(Style)
             .Build();
 
-        private bool isVisible;
         private Type childComponent;
         private Dictionary<string, object> parameters;
         private DotNetObjectReference<MenuModal> objRef;
@@ -55,9 +50,6 @@ namespace BlazorMenu.Shared.Modals
 
         protected override async Task OnInitializedAsync()
         {
-            //if (ModalService is not null)
-            //    ModalService.OnShow += OnShowAsync;
-
             objRef ??= DotNetObjectReference.Create(this);
             await base.OnInitializedAsync();
 
@@ -66,24 +58,6 @@ namespace BlazorMenu.Shared.Modals
 
         private Task OnShowAsync()
         {
-            //if (modalOption is null)
-            //    throw new ArgumentNullException(nameof(modalOption));
-
-            //modalType = modalOption.Type;
-
-            //Size = modalOption.Size;
-
-            //IsVerticallyCentered = modalOption.IsVerticallyCentered;
-
-            //showFooterButton = modalOption.ShowFooterButton;
-            //if (showFooterButton)
-            //{
-            //    footerButtonColor = modalOption.FooterButtonColor;
-            //    footerButtonCSSClass = modalOption.FooterButtonCSSClass;
-            //    footerButtonText = modalOption.FooterButtonText;
-            //    FooterCssClass = "border-top-0";
-            //}
-
             return ShowAsync(title: null, message: null, type: null, parameters: null);
         }
 
@@ -93,8 +67,6 @@ namespace BlazorMenu.Shared.Modals
 
         private async Task ShowAsync(string title, string message, Type type, Dictionary<string, object> parameters)
         {
-            isVisible = true;
-
             if (!string.IsNullOrWhiteSpace(title))
                 Title = title;
 
@@ -111,7 +83,6 @@ namespace BlazorMenu.Shared.Modals
 
         public async Task HideAsync()
         {
-            isVisible = false;
             await JS.InvokeVoidAsync("blazorMenuBootstrap.modal.hide", Id);
         }
 
@@ -127,9 +98,6 @@ namespace BlazorMenu.Shared.Modals
             {
                 ExecuteAfterRender(async () => { await JS.InvokeVoidAsync("blazorMenuBootstrap.modal.dispose", Id); });
                 objRef?.Dispose();
-
-                //if (ModalService is not null && IsServiceModal)
-                //    ModalService.OnShow -= OnShowAsync;
             }
 
             await base.DisposeAsync(disposing);

@@ -95,8 +95,6 @@
     [Inject] private IClientHelper _clientHelper { get; set; }
     [Inject] private R_ToastService _toastService { get; set; }
 
-    private ChangePassword _modalChangePassword;
-
     private R_MenuModel _menuModel = new();
     private UserProfileModel _userProfile = new();
     private DateTime? _lastUpdatePassword = null;
@@ -117,6 +115,7 @@
             });
 
             _userProfile = R_FrontUtility.ConvertObjectToObject<UserProfileModel>(loResult.Data);
+            _userProfile.CCULTURE_ID = _userProfile.CCULTURE_ID.ToLower();
 
             _lastUpdatePassword = !string.IsNullOrWhiteSpace(_userProfile.CLAST_UPDATE_PASSWORD) ?
             DateTime.ParseExact(_userProfile.CLAST_UPDATE_PASSWORD, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture) : null;
@@ -187,7 +186,7 @@
     private async Task ShowChangePasswordPage()
     {
         var parameters = new Dictionary<string, object>();
-        parameters.Add("CloseModalTask", OnCloseModalTask);
+        parameters.Add("CloseModalTask", async () => await OnCloseModalTask());
 
         await changePasswordModal.ShowAsync<ChangePassword>(parameters: parameters);
     }

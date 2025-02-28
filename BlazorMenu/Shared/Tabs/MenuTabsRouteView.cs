@@ -73,7 +73,7 @@ namespace BlazorMenu.Shared.Tabs
                 {
                     selTab.Body = body;
                     selTab.IsActive = true;
-                    selTab.PageTitle = GetPageTitle(RouteData.PageType);
+                    selTab.PageTitle = GetPageTitle(RouteData.PageType, selTab.AssemblyResourceName);
 
                     if (isLoad)
                     {
@@ -106,7 +106,7 @@ namespace BlazorMenu.Shared.Tabs
             return page;
         }
 
-        private string GetPageTitle(Type poPageType)
+        private string GetPageTitle(Type poPageType, string pcAssemblyResourceName)
         {
             var loEx = new R_Exception();
             var lcRtn = string.Empty;
@@ -124,8 +124,7 @@ namespace BlazorMenu.Shared.Tabs
 
                     if (!string.IsNullOrWhiteSpace(loPageAttribute.ResourceId))
                     {
-                        var lcProgramId = NavigationManager.ToBaseRelativePath(NavigationManager.Uri) + "FrontResources";
-                        lcRtn = R_FrontUtility.R_GetMessage(lcProgramId, loPageAttribute.ResourceId);
+                        lcRtn = R_FrontUtility.R_GetMessage(pcAssemblyResourceName, loPageAttribute.ResourceId);
                     }
                 }
             }

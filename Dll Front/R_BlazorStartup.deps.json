@@ -40,19 +40,27 @@
           }
         }
       },
-      "EPPlus/6.2.4": {
+      "CsvHelper/33.0.1": {
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {
+            "assemblyVersion": "33.0.0.0",
+            "fileVersion": "33.0.1.24"
+          }
+        }
+      },
+      "EPPlus/6.2.14": {
         "dependencies": {
           "EPPlus.Interfaces": "6.1.1",
           "EPPlus.System.Drawing": "6.1.1",
           "Microsoft.Extensions.Configuration.Json": "6.0.0",
           "Microsoft.IO.RecyclableMemoryStream": "2.2.1",
-          "System.Security.Cryptography.Pkcs": "6.0.1",
+          "System.Security.Cryptography.Pkcs": "6.0.4",
           "System.Text.Encoding.CodePages": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/EPPlus.dll": {
-            "assemblyVersion": "6.2.4.0",
-            "fileVersion": "6.2.4.0"
+            "assemblyVersion": "6.2.14.0",
+            "fileVersion": "6.2.14.0"
           }
         }
       },
@@ -1041,14 +1049,14 @@
           "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.2"
         }
       },
-      "System.Security.Cryptography.Pkcs/6.0.1": {
+      "System.Security.Cryptography.Pkcs/6.0.4": {
         "dependencies": {
           "System.Formats.Asn1": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/System.Security.Cryptography.Pkcs.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.522.21309"
+            "fileVersion": "6.0.1923.31806"
           }
         },
         "runtimeTargets": {
@@ -1056,7 +1064,7 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.522.21309"
+            "fileVersion": "6.0.1923.31806"
           }
         }
       },
@@ -1321,7 +1329,7 @@
         },
         "runtime": {
           "R_BlazorFrontEnd.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1333,7 +1341,7 @@
         },
         "runtime": {
           "R_BlazorFrontEnd.Authentication.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1342,13 +1350,16 @@
         "dependencies": {
           "Microsoft.AspNetCore.Components.Authorization": "6.0.14",
           "Microsoft.AspNetCore.Components.Web": "6.0.14",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.0",
+          "Microsoft.Extensions.Http": "6.0.0",
           "Newtonsoft.Json": "13.0.1",
           "R_BlazorFrontEnd": "1.0.0",
           "Telerik.UI.for.Blazor": "5.1.1"
         },
         "runtime": {
           "R_BlazorFrontEnd.Controls.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         },
@@ -1360,13 +1371,14 @@
       },
       "R_BlazorFrontEnd.Excel/1.0.0": {
         "dependencies": {
-          "EPPlus": "6.2.4",
+          "CsvHelper": "33.0.1",
+          "EPPlus": "6.2.14",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "R_BlazorFrontEnd": "1.0.0"
         },
         "runtime": {
           "R_BlazorFrontEnd.Excel.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1442,12 +1454,19 @@
       "path": "blazored.localstorage/4.2.0",
       "hashPath": "blazored.localstorage.4.2.0.nupkg.sha512"
     },
-    "EPPlus/6.2.4": {
+    "CsvHelper/33.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-q61q8TeVqBRz+wGP0u/k0MJlpLM5YmkXhwUQxeSfaNBJD+RXvMhfioSq5b0HqTjc01h19Tt6vzHj0x5PfndOZQ==",
-      "path": "epplus/6.2.4",
-      "hashPath": "epplus.6.2.4.nupkg.sha512"
+      "sha512": "sha512-fev4lynklAU2A9GVMLtwarkwaanjSYB4wUqO2nOJX5hnzObORzUqVLe+bDYCUyIIRQM4o5Bsq3CcyJR89iMmEQ==",
+      "path": "csvhelper/33.0.1",
+      "hashPath": "csvhelper.33.0.1.nupkg.sha512"
+    },
+    "EPPlus/6.2.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5o320yKn4h7C3KzM5B40QMYkX+hpBjOXVUetsx1aC3fYl9GFhzGoARUI+1whu540wJPABF5eAglxfkA8YPgbrQ==",
+      "path": "epplus/6.2.14",
+      "hashPath": "epplus.6.2.14.nupkg.sha512"
     },
     "EPPlus.Interfaces/6.1.1": {
       "type": "package",
@@ -2184,12 +2203,12 @@
       "path": "system.security.cryptography.openssl/4.3.0",
       "hashPath": "system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
-    "System.Security.Cryptography.Pkcs/6.0.1": {
+    "System.Security.Cryptography.Pkcs/6.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ynmbW2GjIGg9K1wXmVIRs4IlyDolf0JXNpzFQ8JCVgwM+myUC2JeUggl2PwQig2PNVMegKmN1aAx7WPQ8tI3vA==",
-      "path": "system.security.cryptography.pkcs/6.0.1",
-      "hashPath": "system.security.cryptography.pkcs.6.0.1.nupkg.sha512"
+      "sha512": "sha512-LGbXi1oUJ9QgCNGXRO9ndzBL/GZgANcsURpMhNR8uO+rca47SZmciS3RSQUvlQRwK3QHZSHNOXzoMUASKA+Anw==",
+      "path": "system.security.cryptography.pkcs/6.0.4",
+      "hashPath": "system.security.cryptography.pkcs.6.0.4.nupkg.sha512"
     },
     "System.Security.Cryptography.Primitives/4.3.0": {
       "type": "package",

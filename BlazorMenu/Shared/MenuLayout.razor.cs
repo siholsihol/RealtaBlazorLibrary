@@ -15,6 +15,7 @@ using Microsoft.JSInterop;
 using R_BlazorCommon.Models;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.Helpers;
+using R_BlazorFrontEnd.Controls.MessageBox;
 using R_BlazorFrontEnd.Interfaces;
 using Telerik.Blazor.Components;
 
@@ -32,6 +33,7 @@ namespace BlazorMenu.Shared
         [Inject] private R_PreloadService _preloadService { get; set; }
         [Inject] private R_ToastService _toastService { get; set; }
         [Inject] private R_ILocalStorage _localStorageService { get; set; }
+        [Inject] private R_MessageBoxService _messageBoxService { get; set; }
 
         private List<MenuListDTO> _menuList = new();
         private List<DrawerMenuItem> _data = new();
@@ -215,14 +217,21 @@ namespace BlazorMenu.Shared
             return Task.CompletedTask;
         }
 
-        private void OnClickProgram(DrawerMenuItem drawerMenuItem)
+        private async Task OnClickProgram(DrawerMenuItem drawerMenuItem)
         {
-            OnClickProgram(drawerMenuItem.Text, drawerMenuItem.Id);
+            await OnClickProgram(drawerMenuItem.Text, drawerMenuItem.Id);
         }
 
-        private void OnClickProgram(string text, string id)
+        private async Task OnClickProgram(string text, string id)
         {
-            TabSetTool.AddTab(text, id, "A,U,D,P,V");
+            try
+            {
+                await TabSetTool.AddTab(text, id, "A,U,D,P,V");
+            }
+            catch (Exception ex)
+            {
+                await _messageBoxService.Show(ex.Message);
+            }
         }
 
         private void SearchTextValueChanged(object value)
@@ -264,11 +273,12 @@ namespace BlazorMenu.Shared
         #region ProfilePage
 
         private MenuModal modalProfilePage;
+        private string _modalProfileId = IdGeneratorHelper.Generate("modalprofile");
 
         private async Task ShowProfilePage()
         {
             var parameters = new Dictionary<string, object>();
-            parameters.Add("CloseModalTask", OnCloseModalProfilePageTask);
+            parameters.Add("CloseModalTask", async (bool isUpdated) => await OnCloseModalProfilePageTask(isUpdated));
 
             await modalProfilePage.ShowAsync<Profile>(parameters: parameters);
         }
@@ -286,6 +296,7 @@ namespace BlazorMenu.Shared
         #region Info Page
 
         private MenuModal modalInfoPage;
+        private string _modalInfo = IdGeneratorHelper.Generate("modalinfo");
 
         private async Task ShowInfoPage()
         {

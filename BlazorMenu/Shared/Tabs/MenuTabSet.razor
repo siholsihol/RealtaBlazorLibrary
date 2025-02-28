@@ -119,21 +119,19 @@ else
                     activeTab = Tabs[0];
 
                 if (activeTab != null)
-                    _tabSetTool.AddTab(activeTab.Title, activeTab.Url);
+                    await _tabSetTool.AddTab(activeTab.Title, activeTab.Url);
                 else
                     NavigationManager.NavigateTo("/");
             }
         }
     }
 
-    private Task OnActiveTabChanged(XTab poTab)
+    private async Task OnActiveTabChanged(XTab poTab)
     {
         var loTab = Tabs.FirstOrDefault(x => x.Id == Guid.Parse(poTab.Id));
 
         if (loTab is not null)
-            _tabSetTool.AddTab(loTab.Title, loTab.Url);
-
-        return Task.CompletedTask;
+            await _tabSetTool.AddTab(loTab.Title, loTab.Url);
     }
 
     private async Task CreateNewTab(MenuTab poTab)

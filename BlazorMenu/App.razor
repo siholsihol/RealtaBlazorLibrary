@@ -5,60 +5,26 @@
 @inject LazyAssemblyLoader AssemblyLoader
 @inject NavigationManager NavigationManager
 
-<CascadingAuthenticationState>
-    <Router AppAssembly="@typeof(Program).Assembly"
-            AdditionalAssemblies="@lazyLoadedAssemblies"
-            OnNavigateAsync="@OnNavigateAsync">
-        <Found Context="routeData">
+<R_BasicRouter AppAssembly="@typeof(Program).Assembly"
+               AdditionalAssemblies="@lazyLoadedAssemblies">
+    <Found Context="routeData">
+        <CascadingAuthenticationState>
             <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        </Found>
-        <NotFound>
+        </CascadingAuthenticationState>
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
             <LayoutView Layout="@typeof(MainLayout)">
                 <p>Sorry, there's nothing at this address.</p>
             </LayoutView>
-        </NotFound>
-    </Router>
-</CascadingAuthenticationState>
+        </CascadingAuthenticationState>
+    </NotFound>
+</R_BasicRouter>
+
 
 @code {
     private List<Assembly> lazyLoadedAssemblies = new()
     {
         //typeof(GSM00100Front.GSM00100).Assembly,
     };
-
-    private async Task OnNavigateAsync(NavigationContext args)
-    {
-        try
-        {
-            if (string.IsNullOrWhiteSpace(args.Path))
-                return;
-
-            var lcAssemblyName = args.Path + "Front.dll";
-            R_eFormAccess[] loFormAccess = new[] { R_eFormAccess.Add };
-
-            if (args.Path == "SAB0070011")
-            {
-                var loAssemblies = await AssemblyLoader.LoadAssembliesAsync(
-                    new[] { lcAssemblyName });
-
-                var loAssembly = loAssemblies.FirstOrDefault();
-
-                if (loAssembly != null)
-                {
-                    var lcAssemblyFullName = args.Path + "Front." + args.Path;
-
-                    Type loType = loAssembly.GetType(lcAssemblyFullName, false, true);
-                    var loPage = Activator.CreateInstance(loType, null);
-
-                    ((R_IFormAccess)loPage).R_SetAccess(loFormAccess);
-                }
-
-                lazyLoadedAssemblies.AddRange(loAssemblies);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
 }
