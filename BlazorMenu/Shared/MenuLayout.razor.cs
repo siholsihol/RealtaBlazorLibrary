@@ -1,5 +1,6 @@
 ﻿using BlazorClientHelper;
 using BlazorMenu.Authentication;
+using BlazorMenu.Extensions;
 using BlazorMenu.Helper.Documentation;
 using BlazorMenu.Pages;
 using BlazorMenu.Services;
@@ -12,6 +13,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.JSInterop;
+using R_BlazorCommon.Constants;
 using R_BlazorCommon.Models;
 using R_BlazorFrontEnd.Controls;
 using R_BlazorFrontEnd.Controls.Helpers;
@@ -128,27 +130,27 @@ namespace BlazorMenu.Shared
 
                 _userId = lcUserId;
 
-                //_hubConnection = _hubConnection.TryInitialize();
-                //await _hubConnection.StartAsync();
+                _hubConnection = _hubConnection.TryInitialize();
+                await _hubConnection.StartAsync();
 
-                //_hubConnection.On<string>(BlazorMenuConstants.SignalR.OnConnect, (message) =>
-                //{
-                //    _toastService.Success(message);
-                //});
+                _hubConnection.On<string>(BlazorMenuConstants.SignalR.OnConnect, (message) =>
+                {
+                    _toastService.Success(message);
+                });
 
-                //_hubConnection.On<BlazorMenuNotificationDTO>(BlazorMenuConstants.SignalR.ReceiveNotification, (notification) =>
-                //{
-                //    if (_newNotificationMessages.Count <= 5)
-                //        _newNotificationMessages.Add(notification);
+                _hubConnection.On<BlazorMenuNotificationDTO>(BlazorMenuConstants.SignalR.ReceiveNotification, (notification) =>
+                {
+                    if (_newNotificationMessages.Count <= 5)
+                        _newNotificationMessages.Add(notification);
 
-                //    if (_notificationOpened)
-                //        return;
+                    if (_notificationOpened)
+                        return;
 
-                //    _notificationOpened = false;
-                //    InvokeAsync(StateHasChanged);
-                //});
+                    _notificationOpened = false;
+                    InvokeAsync(StateHasChanged);
+                });
 
-                //await _hubConnection.SendAsync(BlazorMenuConstants.SignalR.OnConnect, lcUserId);
+                await _hubConnection.SendAsync(BlazorMenuConstants.SignalR.OnConnect, lcUserId);
             }
             catch (Exception)
             {
