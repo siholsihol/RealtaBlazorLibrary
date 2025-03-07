@@ -1,9 +1,4 @@
-﻿@using Microsoft.AspNetCore.Components.WebAssembly.Services
-@using System.Reflection
-@using R_BlazorFrontEnd.Helpers
-@using BlazorMenu.Shared.Tabs
-@inject LazyAssemblyLoader AssemblyLoader
-@inject NavigationManager NavigationManager
+﻿@using System.Reflection
 
 <R_BasicRouter AppAssembly="@typeof(Program).Assembly"
                AdditionalAssemblies="@lazyLoadedAssemblies">
@@ -25,6 +20,7 @@
 @code {
     private List<Assembly> lazyLoadedAssemblies = new()
     {
+        typeof(BlazorMenu.Components.Pages.Content.Home).Assembly,
         //typeof(GSM00100Front.GSM00100).Assembly,
     };
 }

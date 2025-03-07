@@ -17,17 +17,15 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.14" />
 	  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.14" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.35" />
-    <PackageReference Include="Realta.BlazorMenuCollectionNuget" Version="1.0.3-alpha" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
-    <PackageReference Include="EPPlus" Version="6.2.14" />
-    <PackageReference Include="Telerik.UI.for.Blazor" Version="6.0.2" />
-    <PackageReference Include="Telerik.Documents.Flow.FormatProviders.Pdf" Version="2024.2.426" />
+    <PackageReference Include="Realta.BlazorMenuCollectionNuget" Version="1.0.4-alpha" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="BlazorClientHelper">
       <HintPath>..\Dll Menu\BlazorClientHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="BlazorMenu.Components">
+      <HintPath>..\Dll Front\BlazorMenu.Components.dll</HintPath>
     </Reference>
     <Reference Include="BlazorMenuCommon">
       <HintPath>..\Dll Menu\BlazorMenuCommon.dll</HintPath>
@@ -92,12 +90,12 @@
     <Reference Include="R_SecurityPolicyCommon">
       <HintPath>..\Dll Menu\R_SecurityPolicyCommon.dll</HintPath>
     </Reference>
-	<Reference Include="R_BlazorFrontEnd.FileConverter">
-		<HintPath>..\Dll Front\R_BlazorFrontEnd.FileConverter.dll</HintPath>
-	</Reference>
-	<Reference Include="R_SecurityPolicyModel">
-	  <HintPath>..\Dll Menu\R_SecurityPolicyModel.dll</HintPath>
-	</Reference>
+	  <Reference Include="R_BlazorFrontEnd.FileConverter">
+		  <HintPath>..\Dll Front\R_BlazorFrontEnd.FileConverter.dll</HintPath>
+	  </Reference>
+	  <Reference Include="R_SecurityPolicyModel">
+	    <HintPath>..\Dll Menu\R_SecurityPolicyModel.dll</HintPath>
+	  </Reference>
   </ItemGroup>
   
 </Project>

@@ -1,51 +1,11 @@
-﻿@using System.Net.Http
-@using System.Net.Http.Json
-@using Microsoft.AspNetCore.Components.Forms
-@using Microsoft.AspNetCore.Components.Routing
-@using Microsoft.AspNetCore.Components.Web
-@using Microsoft.AspNetCore.Components.Web.Virtualization
-@using Microsoft.AspNetCore.Components.WebAssembly.Http
+﻿@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
-@using Microsoft.AspNetCore.Authorization
-@using Microsoft.JSInterop
 
-@using BlazorMenu
-@using BlazorMenu.Shared
-@using BlazorMenu.Shared.Tabs
-@using BlazorMenu.Shared.Modals
-
-@using BlazorMenu.Pages.Authentication
-
-@using BlazorMenuCommon.DTOs
-@using BlazorMenuModel
-@using BlazorMenuModel.Models
-
-@using R_BlazorFrontEnd.Controls
-@using R_BlazorFrontEnd.Controls.Base
-@using R_BlazorFrontEnd.Controls.Enums
-@using R_BlazorFrontEnd.Controls.Interfaces
-@using R_BlazorFrontEnd.Controls.MessageBox
-@using R_BlazorFrontEnd.Controls.Popup
-@using R_BlazorFrontEnd.Controls.Forms
-@using R_BlazorFrontEnd.Controls.Menu
-@using R_BlazorFrontEnd.Controls.Menu.Tab
-@using R_BlazorFrontEnd.Controls.Attributes
-@using R_BlazorFrontEnd.Controls.Helpers
-@using R_BlazorFrontEnd.Controls.Router
-
-@using R_BlazorFrontEnd.Controls.Captcha
-
-@using R_BlazorFrontEnd.Exceptions
-@using R_BlazorFrontEnd.Helpers
 @using R_BlazorFrontEnd.Interfaces
 
-@using BlazorClientHelper
+@using R_BlazorFrontEnd.Controls.Router
 
-@using Telerik.Blazor
-@using Telerik.Blazor.Components
-
-@using BlazorXTabs
-
-@inject NavigationManager _navigationManager
+@using BlazorMenu.Components.Shared
+@using BlazorMenu.Components.Shared.Tabs
 
 @attribute [Authorize]

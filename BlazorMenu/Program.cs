@@ -1,4 +1,4 @@
-using BlazorMenu.Extensions;
+using BlazorMenu.Components.Extensions;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using R_BlazorFrontEnd;
