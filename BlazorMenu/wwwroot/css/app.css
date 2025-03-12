@@ -713,3 +713,7 @@ h6[b-21c0qposjk] {
     height: 100%;
     display: block;
 }
+
+.toast-container {
+    z-index: 7000;
+}
