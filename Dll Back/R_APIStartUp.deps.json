@@ -2335,7 +2335,10 @@
           "System.Configuration.ConfigurationManager": "6.0.1"
         },
         "runtime": {
-          "R_APIBackEnd.dll": {}
+          "R_APIBackEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "resources": {
           "id/R_APIBackEnd.resources.dll": {
@@ -2357,12 +2360,18 @@
           "System.Text.Encoding.CodePages": "6.0.0"
         },
         "runtime": {
-          "R_APICommon.dll": {}
+          "R_APICommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APICommonDTO/1.0.0": {
         "runtime": {
-          "R_APICommonDTO.dll": {}
+          "R_APICommonDTO.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ApplicationBack/1.0.0": {
@@ -2370,7 +2379,10 @@
           "R_CommonFrontBackAPI": "1.0.0"
         },
         "runtime": {
-          "R_ApplicationBack.dll": {}
+          "R_ApplicationBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_AuthenticationBack/1.0.0": {
@@ -2387,7 +2399,10 @@
           "System.IdentityModel.Tokens.Jwt": "6.23.1"
         },
         "runtime": {
-          "R_AuthenticationBack.dll": {}
+          "R_AuthenticationBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_AuthenticationEnumAndInterface/1.0.0": {
@@ -2395,7 +2410,10 @@
           "R_APICommonDTO": "1.0.0"
         },
         "runtime": {
-          "R_AuthenticationEnumAndInterface.dll": {}
+          "R_AuthenticationEnumAndInterface.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_AuthorizationBack/1.0.0": {
@@ -2407,12 +2425,18 @@
           "R_Cache": "1.0.0"
         },
         "runtime": {
-          "R_AuthorizationBack.dll": {}
+          "R_AuthorizationBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_AuthorizationBack.Abstract/1.0.0": {
         "runtime": {
-          "R_AuthorizationBack.Abstract.dll": {}
+          "R_AuthorizationBack.Abstract.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_Cache/1.0.0": {
@@ -2423,7 +2447,10 @@
           "R_CommonFrontBackAPI": "1.0.0"
         },
         "runtime": {
-          "R_Cache.dll": {}
+          "R_Cache.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_CommonFrontBackAPI/1.0.0": {
@@ -2437,7 +2464,10 @@
           "System.Text.Encoding.CodePages": "6.0.0"
         },
         "runtime": {
-          "R_CommonFrontBackAPI.dll": {}
+          "R_CommonFrontBackAPI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ContextAPIMiddleware/1.0.0": {
@@ -2450,7 +2480,10 @@
           "R_ContextEnumAndInterface": "1.0.0"
         },
         "runtime": {
-          "R_ContextAPIMiddleware.dll": {}
+          "R_ContextAPIMiddleware.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ContextBackEnd/1.0.0": {
@@ -2459,12 +2492,18 @@
           "R_ContextEnumAndInterface": "1.0.0"
         },
         "runtime": {
-          "R_ContextBackEnd.dll": {}
+          "R_ContextBackEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ContextEnumAndInterface/1.0.0": {
         "runtime": {
-          "R_ContextEnumAndInterface.dll": {}
+          "R_ContextEnumAndInterface.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ControllerPlugins/1.0.0": {
@@ -2473,7 +2512,10 @@
           "R_PluginsCommon": "1.0.0"
         },
         "runtime": {
-          "R_ControllerPlugins.dll": {}
+          "R_ControllerPlugins.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ExceptionAPIMiddleware/1.0.0": {
@@ -2483,7 +2525,10 @@
           "R_APICommonDTO": "1.0.0"
         },
         "runtime": {
-          "R_ExceptionAPIMiddleware.dll": {}
+          "R_ExceptionAPIMiddleware.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_MultiTenantDb/1.0.0": {
@@ -2493,17 +2538,26 @@
           "R_MultiTenantDb.Abstract": "1.0.0"
         },
         "runtime": {
-          "R_MultiTenantDb.dll": {}
+          "R_MultiTenantDb.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_MultiTenantDb.Abstract/1.0.0": {
         "runtime": {
-          "R_MultiTenantDb.Abstract.dll": {}
+          "R_MultiTenantDb.Abstract.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_OpenTelemetry/1.0.0": {
         "runtime": {
-          "R_OpenTelemetry.dll": {}
+          "R_OpenTelemetry.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_PluginsCommon/1.0.0": {
@@ -2511,7 +2565,10 @@
           "Microsoft.Extensions.DependencyInjection": "8.0.0"
         },
         "runtime": {
-          "R_PluginsCommon.dll": {}
+          "R_PluginsCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ReportFastReportBack/1.0.0": {
@@ -2523,7 +2580,10 @@
           "SkiaSharp.NativeAssets.Linux": "2.88.5"
         },
         "runtime": {
-          "R_ReportFastReportBack.dll": {}
+          "R_ReportFastReportBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ReportServerClient/1.0.0": {
@@ -2534,12 +2594,18 @@
           "R_ReportServerCommon": "1.0.0"
         },
         "runtime": {
-          "R_ReportServerClient.dll": {}
+          "R_ReportServerClient.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ReportServerCommon/1.0.0": {
         "runtime": {
-          "R_ReportServerCommon.dll": {}
+          "R_ReportServerCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_Security/1.0.0": {
@@ -2547,7 +2613,10 @@
           "System.Text.Encoding.CodePages": "6.0.0"
         },
         "runtime": {
-          "R_Security.dll": {}
+          "R_Security.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ValidationAPIMiddleware/1.0.0": {
@@ -2558,7 +2627,10 @@
           "R_ApplicationBack": "1.0.0"
         },
         "runtime": {
-          "R_ValidationAPIMiddleware.dll": {}
+          "R_ValidationAPIMiddleware.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
