@@ -1,23 +1,56 @@
 ﻿@using System.Reflection
+@using R_BlazorFrontEnd.Tenant;
 
-<R_BasicRouter AppAssembly="@typeof(Program).Assembly"
-               AdditionalAssemblies="@lazyLoadedAssemblies">
-    <Found Context="routeData">
-        <CascadingAuthenticationState>
-            <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        </CascadingAuthenticationState>
-    </Found>
-    <NotFound>
-        <CascadingAuthenticationState>
-            <LayoutView Layout="@typeof(MainLayout)">
-                <p>Sorry, there's nothing at this address.</p>
+@if (_environment.IsDevelopment)
+{
+    <R_BasicRouter AppAssembly="@typeof(Program).Assembly"
+            AdditionalAssemblies="@lazyLoadedAssemblies">
+        <Found Context="routeData">
+            <CascadingAuthenticationState>
+                <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            </CascadingAuthenticationState>
+        </Found>
+        <NotFound>
+            <CascadingAuthenticationState>
+                <LayoutView Layout="@typeof(MainLayout)">
+                    <p>Sorry, there's nothing at this address.</p>
+                </LayoutView>
+            </CascadingAuthenticationState>
+        </NotFound>
+    </R_BasicRouter>
+}
+else
+{
+    <R_TenantRouter AppAssembly="@typeof(Program).Assembly"
+                    AdditionalAssemblies="@lazyLoadedAssemblies">
+        <Found Context="routeData">
+            <CascadingAuthenticationState>
+                <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            </CascadingAuthenticationState>
+        </Found>
+        <NotFound>
+            <CascadingAuthenticationState>
+                <LayoutView Layout="@typeof(MainLayout)">
+                    <p>Sorry, there's nothing at this address.</p>
+                </LayoutView>
+            </CascadingAuthenticationState>
+        </NotFound>
+        <NoTenant Context="message">
+            <LayoutView Layout="@typeof(NoTenantLayout)">
+                <p>@message</p>
             </LayoutView>
-        </CascadingAuthenticationState>
-    </NotFound>
-</R_BasicRouter>
-
+        </NoTenant>
+        <ApiError Context="message">
+            <LayoutView Layout="@typeof(NoTenantLayout)">
+                <p>@message</p>
+            </LayoutView>
+        </ApiError>
+    </R_TenantRouter>
+}
 
 @code {
+    [Inject] private R_IEnvironment _environment { get; set; }
+
     private List<Assembly> lazyLoadedAssemblies = new()
     {
         typeof(BlazorMenu.Components.Pages.Content.Home).Assembly,
