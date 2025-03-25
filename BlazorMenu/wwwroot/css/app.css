@@ -1,8 +1,9 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @import url('theme.min.css');
 
+
 :root {
-    --r-default-font-size: 12px;
+    --r-default-font-size: 13px;
     /* preload */
     --preload-modal-z-index: 2055;
     --preload-modal-backdrop-z-index: 2050;
@@ -16,24 +17,25 @@ html, body {
 .main {
     background-image: url(../assets/img/bg-theme.png);
     background-repeat: no-repeat;
-    background-position: bottom left;
+    background-position: bottom right;
     background-attachment: fixed;
 }
 
 .dark .main {
     background-image: url(../assets/img/bg-theme-dark.png);
     background-repeat: no-repeat;
-    background-position: bottom left;
+    background-position: bottom right;
     background-attachment: fixed;
 }
 
-.navbar-vertical .navbar-collapse {
+/*.navbar-vertical .navbar-collapse {
     background: transparent !important;
-}
+}*/
 
 .toggle-icon-wrapper {
     font-size: var(--falcon-body-font-size) !important;
 }
+/*
 
 .content .navbar {
     padding: .3rem 1rem !important;
@@ -42,7 +44,6 @@ html, body {
 .content .navbar-top {
     min-height: 1rem !important;
 }
-
 .theme-control-toggle .theme-control-toggle-label, .nav-link .avatar.avatar-xl {
     height: 20px !important;
     width: 20px !important;
@@ -50,9 +51,9 @@ html, body {
 
 html.navbar-vertical-collapsed footer, html.navbar-vertical-collapsed .navbar-brand img, html.navbar-vertical-collapsed #navbarVerticalCollapse {
     display: none !important;
-}
+}*/
 
-/* Menu Sidebar*/
+/* Menu Sidebar
 .navbar-vertical-collapsed .navbar-vertical.navbar-expand-xl + .content {
     margin-left: 2.125rem;
 }
@@ -68,6 +69,9 @@ html.navbar-vertical-collapsed footer, html.navbar-vertical-collapsed .navbar-br
     .navbar-vertical .navbar-nav .nav {
         font-size: 10px !important;
     }
+
+ */
+
 
 /* Tabbing */
 .k-tabstrip-items .k-link, ul.nav-tabs .nav-link {
@@ -613,9 +617,9 @@ h6[b-21c0qposjk] {
     background-color: rgba(44, 123, 229, 0.5) !important;
 }
 
-.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
+/*.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
     height: calc(100vh - 11.3125rem) !important;
-}
+}*/
 
 /* preload */
 .modal-page-loading {
@@ -717,3 +721,5 @@ h6[b-21c0qposjk] {
 .toast-container {
     z-index: 7000;
 }
+
+/* Untuk Screen > 1400px */

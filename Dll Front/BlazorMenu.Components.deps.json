@@ -28,6 +28,7 @@
           "R_APICommonDTO": "1.0.0.0",
           "R_AuthenticationEnumAndInterface": "1.0.0.0",
           "R_CommonFrontBackAPI": "1.0.0.0",
+          "R_ContextEnumAndInterface": "1.0.0.0",
           "R_ContextFrontEnd": "1.0.0.0",
           "R_CrossPlatformSecurity": "1.0.0.0"
         },
@@ -1423,6 +1424,14 @@
           }
         }
       },
+      "R_ContextEnumAndInterface/1.0.0.0": {
+        "runtime": {
+          "R_ContextEnumAndInterface.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "R_ContextFrontEnd/1.0.0.0": {
         "runtime": {
           "R_ContextFrontEnd.dll": {
@@ -1442,14 +1451,6 @@
       "R_APIClient/1.0.0.0": {
         "runtime": {
           "R_APIClient.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "R_ContextEnumAndInterface/1.0.0.0": {
-        "runtime": {
-          "R_ContextEnumAndInterface.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -2424,6 +2425,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "R_ContextEnumAndInterface/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "R_ContextFrontEnd/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -2435,11 +2441,6 @@
       "sha512": ""
     },
     "R_APIClient/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "R_ContextEnumAndInterface/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
