@@ -87,6 +87,9 @@
     <Reference Include="R_CrossPlatformSecurity">
       <HintPath>..\Dll Front\R_CrossPlatformSecurity.dll</HintPath>
     </Reference>
+    <Reference Include="R_LockingFront">
+      <HintPath>..\Dll Front\R_LockingFront.dll</HintPath>
+    </Reference>
     <Reference Include="R_ProcessAndUploadFront">
       <HintPath>..\Dll Front\R_ProcessAndUploadFront.dll</HintPath>
     </Reference>

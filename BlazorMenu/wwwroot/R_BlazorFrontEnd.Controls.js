@@ -89,29 +89,44 @@ export function tabToButton(args, id) {
 //}
 
 // Helper function to change disabled state of single element
-export function changeDisabledState(elm, disabled) {
-    if (!disabled) {
+export function setElementEnabledState(elm, enabled) {
+    if (enabled) {
         elm.removeAttribute('disabled');
     }
     else {
-        elm.setAttribute('disabled', disabled);
+        elm.setAttribute('disabled', 'true');
     }
 }
 
-export function disableAllControl(elementId, disabled) {
+export function setElementEnabledClass(elm, enabled) {
+    if (enabled) {
+        elm.classList.remove('k-disabled');
+    }
+    else {
+        elm.classList.add('k-disabled');
+    }
+}
+
+export function changeAllControlStatus(elementId, status) {
     // Get DIV container to be disabled
     //const container = document.querySelector(containerClass);
     const container = document.getElementById(elementId);
     // Check if helper class is there
     //const isDisabled = container.classList.contains('disabled');
-    const isDisabled = disabled;
+    setElementEnabledState(container, status)
 
     // Query all fields inside DIV.
-    const allFields = container.querySelectorAll('input, textarea, button, select');
+    const allFields = container.querySelectorAll('input, textarea, button, select, span');
 
-    // Iterate over all elements and set the opposite state
+    // Iterate over all elements
+    // If Parent Group Box is enabled and Current Group Box is enabled => enabled field
+    // Else, disabled field
     [...allFields].forEach(elm => {
-        changeDisabledState(elm, !isDisabled);
+        const currentContainer = elm.closest('div[id*="grpbox"]');
+        const isCurrentContainerDisabled = currentContainer.hasAttribute('disabled');
+
+        // Enable or disable based on the flag
+        setElementEnabledClass(elm, status && !isCurrentContainerDisabled);
     });
 
     // Toggle helper class

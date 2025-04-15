@@ -383,6 +383,13 @@ ul ul li.nav-item a.nav-link span {
 .search-box a.dropdown-item {
     cursor: pointer;
 }
+
+.search-popup * {
+    background-color: var(--falcon-card-bg) !important;
+    border-color: var(--falcon-input-border-color) !important;
+    color: var(--falcon-input-color) !important;
+}
+
 /* Popup */
 .k-popup {
     background-color: var(--falcon-card-bg) !important;
@@ -581,14 +588,23 @@ ul ul li.nav-item a.nav-link span {
     border-bottom-color: var(--falcon-primary) !important;
 }
 
+li.xtabs-item.nav-item[b-21c0qposjk] {
+    position: relative;
+}
+
 button.close[b-21c0qposjk] {
     font-weight: 300 !important;
     color: #2c7be5 !important;
     text-shadow: none !important;
     line-height: 26px !important;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
 }
 
 button.close span {
+    position: relative;
     padding: 0 3px !important;
 }
 
