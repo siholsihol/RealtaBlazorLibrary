@@ -15,7 +15,7 @@
           "Microsoft.Extensions.Http": "6.0.0",
           "Newtonsoft.Json": "13.0.1",
           "R_BlazorFrontEnd": "1.0.0",
-          "Telerik.UI.for.Blazor": "6.0.2",
+          "Telerik.UI.for.Blazor": "6.2.0",
           "R_APICommonDTO": "1.0.0.0"
         },
         "runtime": {
@@ -739,14 +739,14 @@
           }
         }
       },
-      "Telerik.Documents.SpreadsheetStreaming/2024.2.426": {
+      "Telerik.Documents.SpreadsheetStreaming/2024.3.806": {
         "dependencies": {
-          "Telerik.Zip": "2024.2.426"
+          "Telerik.Zip": "2024.3.806"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.SpreadsheetStreaming.dll": {
-            "assemblyVersion": "2024.2.426.20",
-            "fileVersion": "2024.2.426.20"
+            "assemblyVersion": "2024.3.806.20",
+            "fileVersion": "2024.3.806.20"
           }
         }
       },
@@ -793,13 +793,13 @@
           }
         }
       },
-      "Telerik.UI.for.Blazor/6.0.2": {
+      "Telerik.UI.for.Blazor/6.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "6.0.14",
           "System.Data.Common": "4.3.0",
           "System.Linq.Queryable": "4.3.0",
           "Telerik.DataSource": "3.0.1",
-          "Telerik.Documents.SpreadsheetStreaming": "2024.2.426",
+          "Telerik.Documents.SpreadsheetStreaming": "2024.3.806",
           "Telerik.FontIcons": "3.0.0",
           "Telerik.Pivot.Core": "0.1.1",
           "Telerik.Pivot.DataProviders.Xmla": "0.1.1",
@@ -808,16 +808,16 @@
         },
         "runtime": {
           "lib/net6.0/Telerik.Blazor.dll": {
-            "assemblyVersion": "6.0.2.0",
-            "fileVersion": "6.0.2.0"
+            "assemblyVersion": "6.2.0.0",
+            "fileVersion": "6.2.0.0"
           }
         }
       },
-      "Telerik.Zip/2024.2.426": {
+      "Telerik.Zip/2024.3.806": {
         "runtime": {
           "lib/netstandard2.0/Telerik.Zip.dll": {
-            "assemblyVersion": "2024.2.426.20",
-            "fileVersion": "2024.2.426.20"
+            "assemblyVersion": "2024.3.806.20",
+            "fileVersion": "2024.3.806.20"
           }
         }
       },
@@ -1460,12 +1460,12 @@
       "path": "telerik.datasource/3.0.1",
       "hashPath": "telerik.datasource.3.0.1.nupkg.sha512"
     },
-    "Telerik.Documents.SpreadsheetStreaming/2024.2.426": {
+    "Telerik.Documents.SpreadsheetStreaming/2024.3.806": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8Xj+Ibq8pa7uGgDB8bRvIB/5ZUik1yCrEY7E6haOAUdGE8tNc8ZUa9W+u6A2UMP4/aqP2OpIJOb4Opp7qfrHkA==",
-      "path": "telerik.documents.spreadsheetstreaming/2024.2.426",
-      "hashPath": "telerik.documents.spreadsheetstreaming.2024.2.426.nupkg.sha512"
+      "sha512": "sha512-8QLiSIx5rAqFD5ctKege1rzbcVBrsFZ0XsBCmf713inmvrNu+kae1znso3OUh3eFKRibzGljuM5JnXrWSdI2XQ==",
+      "path": "telerik.documents.spreadsheetstreaming/2024.3.806",
+      "hashPath": "telerik.documents.spreadsheetstreaming.2024.3.806.nupkg.sha512"
     },
     "Telerik.FontIcons/3.0.0": {
       "type": "package",
@@ -1502,19 +1502,19 @@
       "path": "telerik.svgicons/3.0.0",
       "hashPath": "telerik.svgicons.3.0.0.nupkg.sha512"
     },
-    "Telerik.UI.for.Blazor/6.0.2": {
+    "Telerik.UI.for.Blazor/6.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YDqaWc4tEfTl3sk37NePFClavXc5jnQOXFGckN8e5H3KwoJ33wpwbQp4+7h6DJ04DtgZ9N0kYavKU29MPsIXlw==",
-      "path": "telerik.ui.for.blazor/6.0.2",
-      "hashPath": "telerik.ui.for.blazor.6.0.2.nupkg.sha512"
+      "sha512": "sha512-cB0Lt/SNWuo5066hHCMyx6CIkysGqYu8EjmCP4lWSouSCM1bGodRFtOImxc0L87zaNV9d4YW7WoBVSljyXjNCA==",
+      "path": "telerik.ui.for.blazor/6.2.0",
+      "hashPath": "telerik.ui.for.blazor.6.2.0.nupkg.sha512"
     },
-    "Telerik.Zip/2024.2.426": {
+    "Telerik.Zip/2024.3.806": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vdX5PP41iDKpjRhEHtYpJirerRD3fPjGWMIUwkSK+RVs8UtTiBbtUpQzvyUDTXihDWKhgMN+C94XU5G27qH7Tw==",
-      "path": "telerik.zip/2024.2.426",
-      "hashPath": "telerik.zip.2024.2.426.nupkg.sha512"
+      "sha512": "sha512-A0S+ubh+37uE10gcrfjXfo6K0kGIC+jUDFLs5ZfEJgYGeaWPLArq56UEHi6AaX7ZMlLyB9y4H/Hh0LPwrWPCkw==",
+      "path": "telerik.zip/2024.3.806",
+      "hashPath": "telerik.zip.2024.3.806.nupkg.sha512"
     },
     "R_BlazorFrontEnd/1.0.0": {
       "type": "project",

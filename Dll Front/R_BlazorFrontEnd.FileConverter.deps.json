@@ -10,7 +10,7 @@
       "R_BlazorFrontEnd.FileConverter/1.0.0": {
         "dependencies": {
           "R_BlazorFrontEnd": "1.0.0",
-          "Telerik.Documents.Flow.FormatProviders.Pdf": "2024.2.426"
+          "Telerik.Documents.Flow.FormatProviders.Pdf": "2024.3.806"
         },
         "runtime": {
           "R_BlazorFrontEnd.FileConverter.dll": {}
@@ -40,7 +40,7 @@
           }
         }
       },
-      "System.Formats.Asn1/6.0.0": {
+      "System.Formats.Asn1/6.0.1": {
         "dependencies": {
           "System.Buffers": "4.5.1",
           "System.Memory": "4.5.4"
@@ -48,7 +48,7 @@
         "runtime": {
           "lib/netstandard2.0/System.Formats.Asn1.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
+            "fileVersion": "6.0.3224.31407"
           }
         }
       },
@@ -89,84 +89,85 @@
           }
         }
       },
-      "System.Security.Cryptography.Pkcs/6.0.3": {
+      "System.Security.Cryptography.Pkcs/6.0.4": {
         "dependencies": {
-          "System.Formats.Asn1": "6.0.0",
+          "System.Formats.Asn1": "6.0.1",
           "System.Security.Cryptography.Cng": "5.0.0"
         },
         "runtime": {
           "lib/netstandard2.1/System.Security.Cryptography.Pkcs.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.1823.26907"
+            "fileVersion": "6.0.1923.31806"
           }
         }
       },
-      "Telerik.Documents.Core/2024.2.426": {
+      "Telerik.Documents.Core/2024.3.806": {
         "dependencies": {
-          "Telerik.Zip": "2024.2.426"
+          "Telerik.Zip": "2024.3.806"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Core.dll": {
-            "assemblyVersion": "2024.2.426.20",
-            "fileVersion": "2024.2.426.20"
+            "assemblyVersion": "2024.3.806.20",
+            "fileVersion": "2024.3.806.20"
           }
         }
       },
-      "Telerik.Documents.DrawingML/2024.2.426": {
+      "Telerik.Documents.DrawingML/2024.3.806": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
-          "Telerik.Documents.Core": "2024.2.426"
+          "Telerik.Documents.Core": "2024.3.806"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.DrawingML.dll": {
-            "assemblyVersion": "2024.2.426.20",
-            "fileVersion": "2024.2.426.20"
+            "assemblyVersion": "2024.3.806.20",
+            "fileVersion": "2024.3.806.20"
           }
         }
       },
-      "Telerik.Documents.Fixed/2024.2.426": {
+      "Telerik.Documents.Fixed/2024.3.806": {
         "dependencies": {
-          "System.Security.Cryptography.Pkcs": "6.0.3",
-          "Telerik.Documents.Core": "2024.2.426",
-          "Telerik.Zip": "2024.2.426"
+          "System.Formats.Asn1": "6.0.1",
+          "System.Security.Cryptography.Pkcs": "6.0.4",
+          "Telerik.Documents.Core": "2024.3.806",
+          "Telerik.Zip": "2024.3.806"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Fixed.dll": {
-            "assemblyVersion": "2024.2.426.20",
-            "fileVersion": "2024.2.426.20"
+            "assemblyVersion": "2024.3.806.20",
+            "fileVersion": "2024.3.806.20"
           }
         }
       },
-      "Telerik.Documents.Flow/2024.2.426": {
+      "Telerik.Documents.Flow/2024.3.806": {
         "dependencies": {
-          "Telerik.Documents.Core": "2024.2.426",
-          "Telerik.Documents.DrawingML": "2024.2.426"
+          "Telerik.Documents.Core": "2024.3.806",
+          "Telerik.Documents.DrawingML": "2024.3.806"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Flow.dll": {
-            "assemblyVersion": "2024.2.426.20",
-            "fileVersion": "2024.2.426.20"
+            "assemblyVersion": "2024.3.806.20",
+            "fileVersion": "2024.3.806.20"
           }
         }
       },
-      "Telerik.Documents.Flow.FormatProviders.Pdf/2024.2.426": {
+      "Telerik.Documents.Flow.FormatProviders.Pdf/2024.3.806": {
         "dependencies": {
-          "Telerik.Documents.Core": "2024.2.426",
-          "Telerik.Documents.Fixed": "2024.2.426",
-          "Telerik.Documents.Flow": "2024.2.426"
+          "Telerik.Documents.Core": "2024.3.806",
+          "Telerik.Documents.Fixed": "2024.3.806",
+          "Telerik.Documents.Flow": "2024.3.806"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Pdf.dll": {
-            "assemblyVersion": "2024.2.426.20",
-            "fileVersion": "2024.2.426.20"
+            "assemblyVersion": "2024.3.806.20",
+            "fileVersion": "2024.3.806.20"
           }
         }
       },
-      "Telerik.Zip/2024.2.426": {
+      "Telerik.Zip/2024.3.806": {
         "runtime": {
           "lib/netstandard2.0/Telerik.Zip.dll": {
-            "assemblyVersion": "2024.2.426.20",
-            "fileVersion": "2024.2.426.20"
+            "assemblyVersion": "2024.3.806.20",
+            "fileVersion": "2024.3.806.20"
           }
         }
       },
@@ -242,12 +243,12 @@
       "path": "system.buffers/4.5.1",
       "hashPath": "system.buffers.4.5.1.nupkg.sha512"
     },
-    "System.Formats.Asn1/6.0.0": {
+    "System.Formats.Asn1/6.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-T6fD00dQ3NTbPDy31m4eQUwKW84s03z0N2C8HpOklyeaDgaJPa/TexP4/SkORMSOwc7WhKifnA6Ya33AkzmafA==",
-      "path": "system.formats.asn1/6.0.0",
-      "hashPath": "system.formats.asn1.6.0.0.nupkg.sha512"
+      "sha512": "sha512-glgtKqWJpH9GDw0m9I5xFiF6WDIQqi/eZXU6MkMRPzAWEERGGAJh+qztkrlWSDbokQ1jalj5NcBNIvVoSDpSSA==",
+      "path": "system.formats.asn1/6.0.1",
+      "hashPath": "system.formats.asn1.6.0.1.nupkg.sha512"
     },
     "System.Memory/4.5.4": {
       "type": "package",
@@ -277,54 +278,54 @@
       "path": "system.security.cryptography.cng/5.0.0",
       "hashPath": "system.security.cryptography.cng.5.0.0.nupkg.sha512"
     },
-    "System.Security.Cryptography.Pkcs/6.0.3": {
+    "System.Security.Cryptography.Pkcs/6.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-18UT1BdZ4TYFBHk/wuq7JzCdE3X75z81X+C2rXqIlmEnC21Pm60spGV/dKQSzbyomstqYE33EuN5hfnC86VFxA==",
-      "path": "system.security.cryptography.pkcs/6.0.3",
-      "hashPath": "system.security.cryptography.pkcs.6.0.3.nupkg.sha512"
+      "sha512": "sha512-LGbXi1oUJ9QgCNGXRO9ndzBL/GZgANcsURpMhNR8uO+rca47SZmciS3RSQUvlQRwK3QHZSHNOXzoMUASKA+Anw==",
+      "path": "system.security.cryptography.pkcs/6.0.4",
+      "hashPath": "system.security.cryptography.pkcs.6.0.4.nupkg.sha512"
     },
-    "Telerik.Documents.Core/2024.2.426": {
+    "Telerik.Documents.Core/2024.3.806": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tNsSoRKqyiM7j3ky+3LwLqCNPSvoV4qG8ltkBPKnRGwty7pfR/lJmBGsUB1yc46s1CcHc0ciBR/uF16h1kErOA==",
-      "path": "telerik.documents.core/2024.2.426",
-      "hashPath": "telerik.documents.core.2024.2.426.nupkg.sha512"
+      "sha512": "sha512-rZM2A840URPEu0yNjI4EQKa5vTM4YY8Tw0Qk54w2MNZeP8tkYRZ0cQbkF+6VSHQr6b6Cf0Dlody2g7Cc66wFdg==",
+      "path": "telerik.documents.core/2024.3.806",
+      "hashPath": "telerik.documents.core.2024.3.806.nupkg.sha512"
     },
-    "Telerik.Documents.DrawingML/2024.2.426": {
+    "Telerik.Documents.DrawingML/2024.3.806": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tto54jAeTArmnpdzbSKgWBxoFZ/Chxsql3wpoTgvONEQOSq9LjBDmqLn6LVitEDSHmxQIarTvWCC7Oz73DV5yA==",
-      "path": "telerik.documents.drawingml/2024.2.426",
-      "hashPath": "telerik.documents.drawingml.2024.2.426.nupkg.sha512"
+      "sha512": "sha512-ZK5TMjYVc595D5Bbq3zQUj2WDoGXQUgwxusyoWDJIUjAJUnqugDyAiygR0ukjWUkfcKudZbe7lKvp7WCjkBzPQ==",
+      "path": "telerik.documents.drawingml/2024.3.806",
+      "hashPath": "telerik.documents.drawingml.2024.3.806.nupkg.sha512"
     },
-    "Telerik.Documents.Fixed/2024.2.426": {
+    "Telerik.Documents.Fixed/2024.3.806": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nMSLeI+WdVmt4mrJ0fLHHH4cqr4GVMeAGsd5DIflj8985lE7XraDZ8lCocaMihlhkiTKyVeK7RkOse7tgWLOmg==",
-      "path": "telerik.documents.fixed/2024.2.426",
-      "hashPath": "telerik.documents.fixed.2024.2.426.nupkg.sha512"
+      "sha512": "sha512-UbtSECi/E/1tk9O2E/cTLDO4+2GWvKlNaNvfArTrngg1IX45mArnuSKBK77AnrgICL17HWOiTyKeXtWPd5BzGw==",
+      "path": "telerik.documents.fixed/2024.3.806",
+      "hashPath": "telerik.documents.fixed.2024.3.806.nupkg.sha512"
     },
-    "Telerik.Documents.Flow/2024.2.426": {
+    "Telerik.Documents.Flow/2024.3.806": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VsXZAmru6CvcpkUlNLjSFY5kq/SRRx9zGCwfnITgEHtkG22Q8UMlNuUfma35wWR8jgfxwOCCDaykCN/nXhxcMA==",
-      "path": "telerik.documents.flow/2024.2.426",
-      "hashPath": "telerik.documents.flow.2024.2.426.nupkg.sha512"
+      "sha512": "sha512-y7TQy7V7sjDDqAFTSkyAhNO4mhHLgtGXJOmp/0L1LXM3XOb15czCp/BEhZRGdB42kII00bsTIo8+7d6BOU3HBg==",
+      "path": "telerik.documents.flow/2024.3.806",
+      "hashPath": "telerik.documents.flow.2024.3.806.nupkg.sha512"
     },
-    "Telerik.Documents.Flow.FormatProviders.Pdf/2024.2.426": {
+    "Telerik.Documents.Flow.FormatProviders.Pdf/2024.3.806": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XpQOPiQZZwEp5a5p7T6ldYH+SSsZQI2DuknlpMXVJ3WoN6mgoksUNPYGgdPwWghbWUhLrDFENTT8bE6UFxmqPQ==",
-      "path": "telerik.documents.flow.formatproviders.pdf/2024.2.426",
-      "hashPath": "telerik.documents.flow.formatproviders.pdf.2024.2.426.nupkg.sha512"
+      "sha512": "sha512-e79t+IO1XX5aWA5/R0RjYA8SVLk10iKOoBvs3mhU/Z+SvE5epuFlu8EezkYqm9nuRSwpQoIUEVYNK+SPCnMWRg==",
+      "path": "telerik.documents.flow.formatproviders.pdf/2024.3.806",
+      "hashPath": "telerik.documents.flow.formatproviders.pdf.2024.3.806.nupkg.sha512"
     },
-    "Telerik.Zip/2024.2.426": {
+    "Telerik.Zip/2024.3.806": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vdX5PP41iDKpjRhEHtYpJirerRD3fPjGWMIUwkSK+RVs8UtTiBbtUpQzvyUDTXihDWKhgMN+C94XU5G27qH7Tw==",
-      "path": "telerik.zip/2024.2.426",
-      "hashPath": "telerik.zip.2024.2.426.nupkg.sha512"
+      "sha512": "sha512-A0S+ubh+37uE10gcrfjXfo6K0kGIC+jUDFLs5ZfEJgYGeaWPLArq56UEHi6AaX7ZMlLyB9y4H/Hh0LPwrWPCkw==",
+      "path": "telerik.zip/2024.3.806",
+      "hashPath": "telerik.zip.2024.3.806.nupkg.sha512"
     },
     "R_BlazorFrontEnd/1.0.0": {
       "type": "project",
