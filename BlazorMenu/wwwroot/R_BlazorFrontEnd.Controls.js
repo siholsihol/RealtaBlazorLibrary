@@ -79,15 +79,6 @@ export function tabToButton(args, id) {
     }
 }
 
-//export function tabLastColumn(args) {
-//    if (args.key == "Tab" && !args.shiftKey) {
-//        DotNet.invokeMethodAsync('TestTelerikGrid', 'InvokeSave');
-
-//        args.preventDefault();
-//        args.stopImmediatePropagation();
-//    }
-//}
-
 // Helper function to change disabled state of single element
 export function setElementEnabledState(elm, enabled) {
     if (enabled) {
@@ -122,11 +113,21 @@ export function changeAllControlStatus(elementId, status) {
     // If Parent Group Box is enabled and Current Group Box is enabled => enabled field
     // Else, disabled field
     [...allFields].forEach(elm => {
-        const currentContainer = elm.closest('div[id*="grpbox"]');
-        const isCurrentContainerDisabled = currentContainer.hasAttribute('disabled');
+        // check all parents, not just immediate parents
+        let parent = elm.closest('div[id*="grpbox"]');
+        let isDisabledByAncestor = false;
 
-        // Enable or disable based on the flag
-        setElementEnabledClass(elm, status && !isCurrentContainerDisabled);
+        while (parent) {
+            if (parent.hasAttribute('disabled')) {
+                isDisabledByAncestor = true;
+                break;
+            }
+            parent = parent.parentElement?.closest('div[id*="grpbox"]');
+        }
+
+
+        // Final status: only enabled if status == true and no parent disables it
+        setElementEnabledClass(elm, status && !isDisabledByAncestor);
     });
 
     // Toggle helper class

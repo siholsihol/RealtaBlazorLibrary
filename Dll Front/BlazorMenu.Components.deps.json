@@ -16,6 +16,7 @@
           "Microsoft.AspNetCore.Components.Web": "6.0.14",
           "Microsoft.AspNetCore.Components.WebAssembly": "6.0.14",
           "Microsoft.AspNetCore.SignalR.Client": "6.0.35",
+          "Microsoft.Authentication.WebAssembly.Msal": "6.0.14",
           "R_BlazorCommon": "1.0.0",
           "R_BlazorFrontEnd": "1.0.0",
           "R_BlazorFrontEnd.Controls": "1.0.0",
@@ -241,6 +242,17 @@
           "lib/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.3524.46214"
+          }
+        }
+      },
+      "Microsoft.Authentication.WebAssembly.Msal/6.0.14": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.WebAssembly.Authentication": "6.0.14"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Authentication.WebAssembly.Msal.dll": {
+            "assemblyVersion": "6.0.14.0",
+            "fileVersion": "6.0.1423.7403"
           }
         }
       },
@@ -1597,6 +1609,13 @@
       "sha512": "sha512-UbjlP5JAb3yNG8bd5J8qcvGjGJkUKo0Gx/qsxwrrJSWDaaWcmFbbAjgEs1mLMGOnljhDU3yTKi2qLzUIgm1I2g==",
       "path": "microsoft.aspnetcore.signalr.protocols.json/6.0.35",
       "hashPath": "microsoft.aspnetcore.signalr.protocols.json.6.0.35.nupkg.sha512"
+    },
+    "Microsoft.Authentication.WebAssembly.Msal/6.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-s7gb+JtVSJ6A+/1tRz12tKucfnz43LrGJbXEQRpHK2ICGOWBxefxQyjjVHH2mIh4wwQho68vIAlCPdNnxS3dfg==",
+      "path": "microsoft.authentication.webassembly.msal/6.0.14",
+      "hashPath": "microsoft.authentication.webassembly.msal.6.0.14.nupkg.sha512"
     },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",
