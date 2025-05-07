@@ -722,4 +722,27 @@ h6[b-21c0qposjk] {
     z-index: 7000;
 }
 
+/* Global Scrollbar Styling */
+
+*::-webkit-scrollbar {
+    visibility: hidden;
+    -webkit-appearance: none;
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    visibility: hidden;
+    border-radius: 3px;
+    background-color: var(--falcon-scrollbar-bg);
+}
+
+*:hover::-webkit-scrollbar,
+*:hover::-webkit-scrollbar-thumb,
+*:focus::-webkit-scrollbar,
+*:focus::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
 /* Untuk Screen > 1400px */
