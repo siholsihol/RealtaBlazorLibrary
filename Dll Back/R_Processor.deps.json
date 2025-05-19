@@ -18,7 +18,10 @@
       },
       "R_APICommonDTO/1.0.0": {
         "runtime": {
-          "R_APICommonDTO.dll": {}
+          "R_APICommonDTO.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ProcessorJob/1.0.0": {
@@ -26,7 +29,10 @@
           "R_APICommonDTO": "1.0.0"
         },
         "runtime": {
-          "R_ProcessorJob.dll": {}
+          "R_ProcessorJob.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

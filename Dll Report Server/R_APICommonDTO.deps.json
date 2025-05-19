@@ -7,30 +7,14 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "R_ProcessorJob/1.0.0": {
-        "dependencies": {
-          "R_APICommonDTO": "1.0.0"
-        },
-        "runtime": {
-          "R_ProcessorJob.dll": {}
-        }
-      },
       "R_APICommonDTO/1.0.0": {
         "runtime": {
-          "R_APICommonDTO.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_APICommonDTO.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "R_ProcessorJob/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "R_APICommonDTO/1.0.0": {
       "type": "project",
       "serviceable": false,

@@ -140,7 +140,10 @@
       },
       "R_APICommonDTO/1.0.0": {
         "runtime": {
-          "R_APICommonDTO.dll": {}
+          "R_APICommonDTO.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_CommonFrontBackAPI/1.0.0": {
@@ -154,17 +157,26 @@
           "System.Text.Encoding.CodePages": "6.0.0"
         },
         "runtime": {
-          "R_CommonFrontBackAPI.dll": {}
+          "R_CommonFrontBackAPI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ContextEnumAndInterface/1.0.0": {
         "runtime": {
-          "R_ContextEnumAndInterface.dll": {}
+          "R_ContextEnumAndInterface.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ReportServerCommon/1.0.0": {
         "runtime": {
-          "R_ReportServerCommon.dll": {}
+          "R_ReportServerCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
