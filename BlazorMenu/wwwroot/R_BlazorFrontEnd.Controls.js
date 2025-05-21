@@ -90,12 +90,49 @@ export function setElementEnabledState(elm, enabled) {
 }
 
 export function setElementEnabledClass(elm, enabled) {
+    let element = getEnabledElement(elm);
+
     if (enabled) {
-        elm.classList.remove('k-disabled');
+        element.classList.remove('k-disabled');
     }
     else {
-        elm.classList.add('k-disabled');
+        element.classList.add('k-disabled');
     }
+}
+
+export function setElementTargetable(elm, enabled) {
+    if (enabled) {
+        // Restore old tabindex if it was saved
+        if (elm.hasAttribute('data-old-tabindex')) {
+            elm.setAttribute('tabindex', elm.getAttribute('data-old-tabindex'));
+            elm.removeAttribute('data-old-tabindex');
+        } else {
+            elm.removeAttribute('tabindex');
+        }
+    } else {
+        // Save current tabindex if it's not already saved
+        if (elm.hasAttribute('tabindex') && elm.getAttribute('tabindex') != -1) {
+            elm.setAttribute('data-old-tabindex', elm.getAttribute('tabindex'));
+        }
+
+        elm.setAttribute('tabindex', '-1');
+    }
+}
+
+export function getEnabledElement(elm) {
+    const tag = elm.tagName.toLowerCase();
+
+    let returnElement = elm;
+
+    if (tag === 'input' && elm.type !== 'radio' && elm.type !== 'checkbox') {
+        returnElement = elm.closest('.k-input');
+    } else if (tag === 'textarea' && elm.id && elm.id.startsWith('ta')) {
+        returnElement = elm.closest('.k-input');
+    } else {
+        returnElement = elm;
+    }
+
+    return returnElement;
 }
 
 export function changeAllControlStatus(elementId, status) {
@@ -107,7 +144,7 @@ export function changeAllControlStatus(elementId, status) {
     setElementEnabledState(container, status)
 
     // Query all fields inside DIV.
-    const allFields = container.querySelectorAll('input, textarea, button, select, span');
+    const allFields = container.querySelectorAll('input, textarea[id^="ta"], button, select, span[id], div.k-editor');
 
     // Iterate over all elements
     // If Parent Group Box is enabled and Current Group Box is enabled => enabled field
@@ -115,6 +152,16 @@ export function changeAllControlStatus(elementId, status) {
     [...allFields].forEach(elm => {
         // check all parents, not just immediate parents
         let parent = elm.closest('div[id*="grpbox"]');
+        let isFieldDisabled = elm.getAttribute('aria-disabled') === 'true' ? true : false;
+
+        if ([...elm.classList].some(cls => cls.startsWith('k-spinner'))) {
+            const spinInput = elm.closest('span.k-numerictextbox')?.querySelector('input[role="spinbutton"]');
+
+            if (spinInput) {
+                isFieldDisabled = spinInput.getAttribute('aria-disabled') === 'true';
+            }
+        }
+
         let isDisabledByAncestor = false;
 
         while (parent) {
@@ -125,11 +172,53 @@ export function changeAllControlStatus(elementId, status) {
             parent = parent.parentElement?.closest('div[id*="grpbox"]');
         }
 
+        const enabled = status && !isDisabledByAncestor && !isFieldDisabled;
 
         // Final status: only enabled if status == true and no parent disables it
-        setElementEnabledClass(elm, status && !isDisabledByAncestor);
+        setElementTargetable(elm, enabled);
+        setElementEnabledState(elm, enabled);
+        setElementEnabledClass(elm, enabled);
     });
 
     // Toggle helper class
     //container.classList.toggle('disabled');
+}
+
+export function setAriaDisabled(elementId, enabled) {
+    let element = document.getElementById(elementId);
+
+    if (enabled) {
+        element.setAttribute('aria-disabled', !enabled);
+    }
+    else {
+        element.setAttribute('aria-disabled', !enabled);
+    }
+}
+
+export function addValidationMessage(inputWrapperId, iconId) {
+    const container = document.getElementById(inputWrapperId);
+    if (!container) return;
+    container.className = 'r-input-invalid';
+
+    const target = container.querySelector("span.k-input");
+
+    if (target) {
+        const div = document.createElement('div');
+        div.id = iconId;
+        div.className = 'r-icon-container';
+        div.innerHTML = '<div class="r-icon"><i class="fas fa-exclamation-circle text-danger"></i></div>';
+        target.appendChild(div, target.lastChild);
+    }
+}
+
+export function removeValidationMessage(inputWrapperId, iconId) {
+    const container = document.getElementById(inputWrapperId);
+    if (!container) return;
+    container.className = '';
+
+    const target = container.querySelector(`#${iconId}`);
+
+    if (target && target.parentNode) {
+        target.parentNode.removeChild(target);
+    }
 }

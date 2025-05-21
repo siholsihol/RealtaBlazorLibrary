@@ -745,4 +745,10 @@ h6[b-21c0qposjk] {
     visibility: visible;
 }
 
+/* validation */
+
+.r-input-invalid span.k-input {
+    border-color: var(--falcon-danger) !important;
+}
+
 /* Untuk Screen > 1400px */
