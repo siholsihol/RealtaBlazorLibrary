@@ -186,13 +186,7 @@ export function changeAllControlStatus(elementId, status) {
 
 export function setAriaDisabled(elementId, enabled) {
     let element = document.getElementById(elementId);
-
-    if (enabled) {
-        element.setAttribute('aria-disabled', !enabled);
-    }
-    else {
-        element.setAttribute('aria-disabled', !enabled);
-    }
+    element.setAttribute('aria-disabled', !enabled);
 }
 
 export function addValidationMessage(inputWrapperId, iconId) {
