@@ -732,6 +732,10 @@ h6[b-21c0qposjk] {
     background-color: transparent;
 }
 
+*::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
 *::-webkit-scrollbar-thumb {
     visibility: hidden;
     border-radius: 3px;
@@ -745,8 +749,44 @@ h6[b-21c0qposjk] {
     visibility: visible;
 }
 
-/* validation */
+/* xtabs horizontal scroll */
+.xtabs .xtabs-header {
+    display: flex;
+    height: max-content;
+    flex-wrap: nowrap; /* ✅ Prevent wrapping */
+    overflow-x: scroll;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
 
+.xtabs .xtabs-header .xtabs-header-tabs {
+    display: flex;
+    flex-wrap: nowrap !important; /* ✅ Prevent wrapping */
+    overflow: visible !important;
+    box-sizing: border-box;
+    margin: 0 !important;
+}
+
+    .xtabs .xtabs-header .xtabs-header-tabs .xtabs-item {
+        flex: 0 0 auto; /* ✅ Prevent shrinking/growing */
+        height: max-content !important;
+        box-sizing: border-box;
+        margin: 0 !important;
+        
+    }
+        .xtabs .xtabs-header .xtabs-header-tabs .xtabs-item .xtabs-close {
+            height: 100% !important;
+        }
+
+        .xtabs .xtabs-header .xtabs-header-tabs .xtabs-item .xtabs-link {
+            box-sizing: border-box !important;
+            margin: 0 !important; 
+            padding: .5rem 1rem !important;
+        }
+
+/* validation */
 .r-input-invalid span.k-input {
     border-color: var(--falcon-danger) !important;
 }

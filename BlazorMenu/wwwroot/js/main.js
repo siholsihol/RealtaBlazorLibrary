@@ -259,4 +259,41 @@
             element.classList.remove('d-none');
         }
     },
+
+    /* Enable Horizontal Scroll in XTabs */
+    enableHorizontalScroll: function (elementClass) {
+        const element = document.getElementsByClassName(elementClass)[0];
+        if (!element) return;
+
+        element.addEventListener('wheel', function (e) {
+            // Only if there's a horizontal scrollbar
+            if (element.scrollWidth > element.clientWidth) {
+                e.preventDefault();
+                element.scrollLeft += e.deltaY;
+            }
+        }, { passive: false });
+    },
+
+    scrollToActiveTab: function () {
+        const xtabsHeader = document.querySelector('.xtabs-header');
+        if (!xtabsHeader) return;
+
+        // Find the active tab (adjust selector if needed)
+        const activeTab = xtabsHeader.querySelector('.active') 
+        if (!activeTab) return;
+
+        // Get bounding rectangles
+        const containerRect = xtabsHeader.getBoundingClientRect();
+        const activeRect = activeTab.getBoundingClientRect();
+
+        // Calculate how much to scroll to bring active tab fully into view
+        if (activeRect.left < containerRect.left) {
+            // Scroll left if active tab is hidden on left side
+            xtabsHeader.scrollBy({ left: activeRect.left - containerRect.left, behavior: 'smooth' });
+        } else if (activeRect.right > containerRect.right) {
+            // Scroll right if active tab is hidden on right side
+            xtabsHeader.scrollBy({ left: activeRect.right - containerRect.right, behavior: 'smooth' });
+        }
+    }
+
 }
