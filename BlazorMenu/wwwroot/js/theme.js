@@ -3774,6 +3774,8 @@ var handleNavbarVerticalCollapsed = function handleNavbarVerticalCollapsed() {
   var html = document.querySelector(Selector.HTML);
   var navbarVerticalCollapse = document.querySelector(Selector.NAVBAR_VERTICAL_COLLAPSE);
 
+  var footer = html.querySelector('#navbar-footer');
+
   if (navbarVerticalToggle) {
     navbarVerticalToggle.addEventListener(Events.CLICK, function (e) {
       navbarVerticalToggle.blur();
@@ -3781,6 +3783,12 @@ var handleNavbarVerticalCollapsed = function handleNavbarVerticalCollapsed() {
 
       var isNavbarVerticalCollapsed = utils.getItemFromStore('isNavbarVerticalCollapsed');
       utils.setItemToStore('isNavbarVerticalCollapsed', !isNavbarVerticalCollapsed);
+      // Show/hide footer based on new state
+      if (!isNavbarVerticalCollapsed) {
+        footer.style.display = 'none';
+      } else {
+        footer.style.display = 'block';
+      }
       var event = new CustomEvent(Events.NAVBAR_VERTICAL_TOGGLE);
       e.currentTarget.dispatchEvent(event);
     });

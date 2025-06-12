@@ -634,10 +634,22 @@ h6[b-21c0qposjk] {
     background-color: rgba(44, 123, 229, 0.5) !important;
 }
 
-/*.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
-    height: calc(100vh - 11.3125rem) !important;
-}*/
+.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 100% !important;
+}
 
+    .navbar-vertical.navbar-expand-xl .navbar-vertical-content .navbar-content {
+        flex: 1 1 auto;
+        overflow: auto;
+    }
+
+#navbar-footer{
+    height: fit-content !important;
+    flex: 0 0 auto;
+}
 /* preload */
 .modal-page-loading {
     z-index: var(--preload-modal-z-index) !important;
@@ -789,6 +801,52 @@ h6[b-21c0qposjk] {
 /* validation */
 .r-input-invalid span.k-input {
     border-color: var(--falcon-danger) !important;
+}
+
+/* custom grid pager*/
+div.r-custom-pager {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: max-content;
+    padding: 2px 4px;
+}
+
+    div.r-custom-pager * {
+        font-size: 0.8rem !important;
+        font-weight: 500 !important;
+        font-family: var(--falcon-font-sans-serif) !important;
+        white-space: nowrap;
+    }
+
+    div.r-custom-pager svg {
+        width: 13px !important;
+        height: 13px !important;
+    }
+
+    div.r-custom-pager button {
+        padding: 1px !important;
+        border-radius: 0 !important;
+    }
+
+div.r-custom-pager-text-wrapper {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 1px !important
+}
+
+html.dark #login-bg {
+    filter: invert(1);
+}
+
+/* Untuk Program Gridview Batch */
+.k-grouping-row, .k-group-cell {
+    border-color: var(--falcon-border-color) !important;
+    color: var(--falcon-body-color) !important;
+    background-color: transparent !important;
 }
 
 /* Untuk Screen > 1400px */

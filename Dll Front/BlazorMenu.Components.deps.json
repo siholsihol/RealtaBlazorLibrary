@@ -35,6 +35,11 @@
         },
         "runtime": {
           "BlazorMenu.Components.dll": {}
+        },
+        "resources": {
+          "id/BlazorMenu.Components.resources.dll": {
+            "locale": "id"
+          }
         }
       },
       "Blazored.LocalStorage/4.2.0": {

@@ -10,7 +10,8 @@
       "BlazorMenuCommon/1.0.0": {
         "dependencies": {
           "R_SecurityPolicyCommon": "1.0.0",
-          "R_APICommonDTO": "1.0.0.0"
+          "R_APICommonDTO": "1.0.0.0",
+          "R_CommonFrontBackAPI": "1.0.0.0"
         },
         "runtime": {
           "BlazorMenuCommon.dll": {}
@@ -31,6 +32,14 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "R_CommonFrontBackAPI/1.0.0.0": {
+        "runtime": {
+          "R_CommonFrontBackAPI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -46,6 +55,11 @@
       "sha512": ""
     },
     "R_APICommonDTO/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_CommonFrontBackAPI/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

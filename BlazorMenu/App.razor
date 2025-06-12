@@ -1,5 +1,7 @@
 ﻿@using System.Reflection
-@using R_BlazorFrontEnd.Tenant;
+@using R_BlazorFrontEnd.Helpers
+@using R_BlazorFrontEnd.Tenant
+@using BlazorMenu.Components.Resources
 
 @if (_environment.IsDevelopment)
 {
@@ -13,7 +15,7 @@
         <NotFound>
             <CascadingAuthenticationState>
                 <LayoutView Layout="@typeof(MainLayout)">
-                    <p>Sorry, there's nothing at this address.</p>
+                    <p>@(R_FrontUtility.R_GetMessage(typeof(BlazorMenuLocalizer), "_PageNotFound", pcResourceName: "BlazorMenuResources"))</p>
                 </LayoutView>
             </CascadingAuthenticationState>
         </NotFound>
@@ -31,7 +33,7 @@ else
         <NotFound>
             <CascadingAuthenticationState>
                 <LayoutView Layout="@typeof(MainLayout)">
-                    <p>Sorry, there's nothing at this address.</p>
+                    <p>@(R_FrontUtility.R_GetMessage(typeof(BlazorMenuLocalizer), "_PageNotFound", pcResourceName: "BlazorMenuResources"))</p>
                 </LayoutView>
             </CascadingAuthenticationState>
         </NotFound>
