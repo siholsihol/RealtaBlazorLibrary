@@ -14,9 +14,10 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.R_AddBlazorFrontEndControls();
 
-builder.R_RegisterBlazorServices(opt =>
+builder.R_RegisterBlazorServices(option =>
 {
-    opt.R_WithMultiTenant();
+    if (!builder.HostEnvironment.IsDevelopment())
+        option.R_WithMultiTenant();
 });
 
 builder.Services.R_AddBlazorMenuServices();
