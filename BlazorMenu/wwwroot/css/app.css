@@ -7,6 +7,17 @@
     /* preload */
     --preload-modal-z-index: 2055;
     --preload-modal-backdrop-z-index: 2050;
+    --falcon-btn-falcon-default-active-background-rgb: 162, 173, 187;
+
+    /* stroke color based on --falcon-body-color */
+    --checkbox-checkmark-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%235e6e82' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+}
+
+.dark {
+    --falcon-btn-falcon-default-active-background-rgb: 47, 64, 85;
+
+    /* stroke color based on --falcon-body-color */
+    --checkbox-checkmark-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%239da9bb' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
 html, body {
@@ -139,24 +150,39 @@ span.tab.btn-close {
     background-color: #e4e7eb;
 }
 
-.k-editor .k-button-solid-base {
-    background-color: transparent;
+.k-editor {
+    border-color: var(--falcon-300) !important;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    background-color: transparent !important;
 }
 
-.k-content {
-    border-color: transparent !important;
-    /*    color: #212529;
-    background-color: #ffffff;*/
-    border-color: var(--falcon-border-color) !important;
-}
+    .k-editor .k-button-solid-base {
+        background-color: transparent;
+    }
+
+    .k-editor .k-toolbar {
+        background-color: var(--falcon-input-bg) !important;
+    }
+
+    .k-editor.k-disabled .k-toolbar {
+        background-color: var(--falcon-200) !important;
+    }
+
+    .k-editor .k-content {
+        color: var(--falcon-body-bg) !important;
+        background-color: var(--falcon-input-bg) !important;
+        border-color: transparent !important;
+        border-color: var(--falcon-border-color) !important;
+    }
+
+    .k-editor.k-disabled .k-content {
+        background-color: var(--falcon-200) !important;
+    }
 
 .k-button-solid-base {
     /*    border-color: #e4e7eb;*/
     border-color: var(--falcon-border-color) !important;
-}
-
-.k-editor .k-button-solid-base {
-    background-color: transparent;
 }
 
 .k-toolbar {
@@ -167,14 +193,6 @@ span.tab.btn-close {
 .k-editor-content p {
     color: var(--falcon-800);
 }
-
-.k-editor {
-    /*    border-color: #dee2e6;*/
-    border-color: var(--falcon-border-color) !important;
-    background-color: transparent !important;
-}
-
-
 
 /* Pointer */
 ul ul li.nav-item a.nav-link span {
@@ -382,12 +400,6 @@ ul ul li.nav-item a.nav-link span {
 
 .search-box a.dropdown-item {
     cursor: pointer;
-}
-
-.search-popup * {
-    background-color: var(--falcon-card-bg) !important;
-    border-color: var(--falcon-input-border-color) !important;
-    color: var(--falcon-input-color) !important;
 }
 
 /* Popup */
@@ -646,7 +658,7 @@ h6[b-21c0qposjk] {
         overflow: auto;
     }
 
-#navbar-footer{
+#navbar-footer {
     height: fit-content !important;
     flex: 0 0 auto;
 }
@@ -761,6 +773,17 @@ h6[b-21c0qposjk] {
     visibility: visible;
 }
 
+html.dark #login-bg {
+    filter: invert(1);
+}
+
+/* Untuk Program Gridview Batch */
+.k-grouping-row, .k-group-cell {
+    border-color: var(--falcon-border-color) !important;
+    color: var(--falcon-body-color) !important;
+    background-color: transparent !important;
+}
+
 /* xtabs horizontal scroll */
 .xtabs .xtabs-header {
     display: flex;
@@ -803,50 +826,88 @@ h6[b-21c0qposjk] {
     border-color: var(--falcon-danger) !important;
 }
 
-/* custom grid pager*/
-div.r-custom-pager {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    min-width: max-content;
-    padding: 2px 4px;
+/* fix delay in dark-light transition */
+.k-textbox,
+.form-control,
+.k-button,
+.btn,
+.k-treeview-leaf,
+.nav-link {
+    transition: none !important;
+    -webkit-transition: none !important;
 }
 
-    div.r-custom-pager * {
-        font-size: 0.8rem !important;
-        font-weight: 500 !important;
-        font-family: var(--falcon-font-sans-serif) !important;
-        white-space: nowrap;
-    }
-
-    div.r-custom-pager svg {
-        width: 13px !important;
-        height: 13px !important;
-    }
-
-    div.r-custom-pager button {
-        padding: 1px !important;
-        border-radius: 0 !important;
-    }
-
-div.r-custom-pager-text-wrapper {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    padding: 1px !important
-}
-
-html.dark #login-bg {
-    filter: invert(1);
-}
-
-/* Untuk Program Gridview Batch */
-.k-grouping-row, .k-group-cell {
-    border-color: var(--falcon-border-color) !important;
+/* fix treeview text color not changing on dark mode */
+.k-treeview {
     color: var(--falcon-body-color) !important;
-    background-color: transparent !important;
 }
+
+/* fix treeview leaf on hover too bright */
+.k-treeview-leaf:hover, .k-treeview-leaf.k-hover {
+    color: var(--falcon-body-color) !important;
+    background-color: var(--falcon-border-color) !important;
+}
+
+/* fix autocomplete popup focused program doesn't have selection border */
+.k-popup .k-list {
+    background-color: var(--falcon-card-bg) !important;
+    color: var(--falcon-input-color) !important;
+}
+
+    .k-popup .k-list .k-list-item:focus,
+    .k-popup .k-list .k-list-optionlabel:focus,
+    .k-popup .k-list .k-list-item.k-focus,
+    .k-popup .k-list .k-focus.k-list-optionlabel {
+        box-shadow: inset 0 0 0 3px rgba(var(--falcon-light-rgb), 0.5) !important;
+    }
+
+    .k-popup .k-list .k-list-item:hover,
+    .k-popup .k-list .k-list-optionlabel:hover,
+    .k-popup .k-list .k-list-item.k-hover,
+    .k-popup .k-list .k-hover.k-list-optionlabel {
+        color: var(--falcon-black) !important;
+        background-color: var(--falcon-200) !important;
+    }
+
+/* fix calendar popup dark mode style */
+.k-popup .k-calendar {
+    background-color: var(--falcon-card-bg) !important;
+    color: var(--falcon-input-color) !important;
+}
+
+    .k-popup .k-calendar .k-calendar-td .k-link:hover,
+    .k-popup .k-calendar .k-calendar-td .k-link.k-hover {
+        color: var(--falcon-body-color) !important;
+        background-color: var(--falcon-border-color) !important;
+    }
+
+/* fix default button does not change color in dark mode */
+.k-button-solid-base {
+    color: var(--falcon-btn-falcon-default-active-border) !important;
+    background-color: var(--falcon-btn-falcon-default-active-background) !important;
+    border: 0 !important;
+}
+
+.dark .k-button-solid-base:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--falcon-btn-falcon-default-active-background-rgb), 0.5) !important;
+}
+
+/* fix checkbox style difference */
+.k-checkbox {
+    background-color: var(--falcon-input-bg) !important;
+    color: var(--falcon-input-color) !important;
+    border-color: var(--falcon-input-border-color) !important;
+}
+
+    .k-checkbox.k-disabled {
+        background-color: var(--falcon-200) !important;
+        border-color: var(--falcon-input-border-color) !important;
+    }
+
+    .k-checkbox:checked,
+    .k-checkbox.k-checked {
+        background-image: var(--checkbox-checkmark-url) !important;
+    }
+
 
 /* Untuk Screen > 1400px */
