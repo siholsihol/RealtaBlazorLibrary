@@ -8,16 +8,18 @@
     --preload-modal-z-index: 2055;
     --preload-modal-backdrop-z-index: 2050;
     --falcon-btn-falcon-default-active-background-rgb: 162, 173, 187;
-
     /* stroke color based on --falcon-body-color */
     --checkbox-checkmark-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%235e6e82' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    --radiobutton-checked-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='25' fill='%235e6e82'/%3e%3c/svg%3e");
+    /* [Telerik v7.1.0] update CSS fix */
+    --kendo-color-on-app-surface: var(--falcon-body-color) !important;
 }
 
 .dark {
     --falcon-btn-falcon-default-active-background-rgb: 47, 64, 85;
-
     /* stroke color based on --falcon-body-color */
     --checkbox-checkmark-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%239da9bb' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    --radiobutton-checked-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='25' fill='%239da9bb'/%3e%3c/svg%3e");
 }
 
 html, body {
@@ -46,6 +48,7 @@ html, body {
 .toggle-icon-wrapper {
     font-size: var(--falcon-body-font-size) !important;
 }
+
 /*
 
 .content .navbar {
@@ -796,30 +799,30 @@ html.dark #login-bg {
     -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
-.xtabs .xtabs-header .xtabs-header-tabs {
-    display: flex;
+    .xtabs .xtabs-header .xtabs-header-tabs {
+        display: flex;
     flex-wrap: nowrap !important; /* ✅ Prevent wrapping */
-    overflow: visible !important;
-    box-sizing: border-box;
-    margin: 0 !important;
-}
-
-    .xtabs .xtabs-header .xtabs-header-tabs .xtabs-item {
-        flex: 0 0 auto; /* ✅ Prevent shrinking/growing */
-        height: max-content !important;
+        overflow: visible !important;
         box-sizing: border-box;
         margin: 0 !important;
-        
     }
-        .xtabs .xtabs-header .xtabs-header-tabs .xtabs-item .xtabs-close {
-            height: 100% !important;
+
+        .xtabs .xtabs-header .xtabs-header-tabs .xtabs-item {
+        flex: 0 0 auto; /* ✅ Prevent shrinking/growing */
+            height: max-content !important;
+            box-sizing: border-box;
+            margin: 0 !important;
         }
 
-        .xtabs .xtabs-header .xtabs-header-tabs .xtabs-item .xtabs-link {
-            box-sizing: border-box !important;
-            margin: 0 !important; 
-            padding: .5rem 1rem !important;
-        }
+            .xtabs .xtabs-header .xtabs-header-tabs .xtabs-item .xtabs-close {
+                height: 100% !important;
+            }
+
+            .xtabs .xtabs-header .xtabs-header-tabs .xtabs-item .xtabs-link {
+                box-sizing: border-box !important;
+                margin: 0 !important;
+                padding: .5rem 1rem !important;
+            }
 
 /* validation */
 .r-input-invalid span.k-input {
@@ -858,7 +861,7 @@ html.dark #login-bg {
     .k-popup .k-list .k-list-optionlabel:focus,
     .k-popup .k-list .k-list-item.k-focus,
     .k-popup .k-list .k-focus.k-list-optionlabel {
-        box-shadow: inset 0 0 0 3px rgba(var(--falcon-light-rgb), 0.5) !important;
+        box-shadow: inset 0 0 0 3px rgba(var(--falcon-dark-rgb), 0.1) !important;
     }
 
     .k-popup .k-list .k-list-item:hover,
@@ -909,5 +912,53 @@ html.dark #login-bg {
         background-image: var(--checkbox-checkmark-url) !important;
     }
 
+/* fix radiobutton style difference */
+.k-radio {
+    background-color: var(--falcon-input-bg) !important;
+    color: var(--falcon-input-color) !important;
+    border-color: var(--falcon-input-border-color) !important;
+}
 
+    .k-radio.k-disabled {
+        background-color: var(--falcon-200) !important;
+        border-color: var(--falcon-input-border-color) !important;
+    }
+
+    .k-radio:checked,
+    .k-radio.k-checked {
+        background-image: var(--radiobutton-checked-url) !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+
+/* fix context menu focused program doesn't have selection border */
+.k-popup .k-context-menu {
+    background-color: var(--falcon-card-bg) !important;
+    color: var(--falcon-input-color) !important;
+}
+
+.k-popup .k-menu-group .k-item > .k-link:focus,
+.k-popup .k-menu-group .k-item > .k-link.k-focus,
+.k-popup .k-menu.k-context-menu .k-item > .k-link:focus,
+.k-popup .k-menu.k-context-menu .k-item > .k-link.k-focus {
+    box-shadow: inset 0 0 0 3px rgba(var(--falcon-dark-rgb), 0.1) !important;
+}
+
+.k-popup .k-menu-group .k-item > .k-link:hover,
+.k-popup .k-menu-group .k-item > .k-link.k-hover,
+.k-popup .k-menu.k-context-menu .k-item > .k-link:hover,
+.k-popup .k-menu.k-context-menu .k-item > .k-link.k-hover {
+    color: var(--falcon-black) !important;
+    background-color: var(--falcon-200) !important;
+}
+
+/* remove focus styling if item is disabled */
+.k-disabled:focus, .k-disabled.k-focus {
+    box-shadow: none !important;
+}
+
+.k-disabled:focus-within {
+    box-shadow: none !important;
+}
 /* Untuk Screen > 1400px */
