@@ -19,9 +19,11 @@
     --radiobutton-checked-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='25' fill='%239da9bb'/%3e%3c/svg%3e");
 }
 
-html, body {
-    font-family: var(--falcon-font-sans-serif);
-    font-size: var(--r-default-font-size) !important;
+html,
+body {
+  font-family: var(--falcon-font-sans-serif);
+  font-size: var(--r-default-font-size) !important;
+  overscroll-behavior: none !important; /* no bouncing effect on scroll*/
 }
 
 .main {
@@ -46,6 +48,14 @@ html, body {
     font-size: var(--falcon-body-font-size) !important;
 }
 
+.navbar {
+    background-color: var(--falcon-body-bg) !important;
+}
+
+.navbar-vertical-content:hover #navbar-footer{
+    display:block !important; 
+}
+
 /*
 
 .content .navbar {
@@ -63,7 +73,6 @@ html, body {
 html.navbar-vertical-collapsed footer, html.navbar-vertical-collapsed .navbar-brand img, html.navbar-vertical-collapsed #navbarVerticalCollapse {
     display: none !important;
 }*/
-
 /* Menu Sidebar
 .navbar-vertical-collapsed .navbar-vertical.navbar-expand-xl + .content {
     margin-left: 2.125rem;
@@ -82,8 +91,6 @@ html.navbar-vertical-collapsed footer, html.navbar-vertical-collapsed .navbar-br
     }
 
  */
-
-
 /* Tabbing */
 .k-tabstrip-items .k-link, ul.nav-tabs .nav-link {
     /*padding: 0rem .5rem .1em !important;*/
@@ -755,6 +762,18 @@ h6[b-21c0qposjk] {
     visibility: visible;
 }
 
+
+/* not displaying scrollbar on page so it doesnt break layout */
+html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        display: none; 
+    }
+
 html.dark #login-bg {
     filter: invert(1);
 }
@@ -814,7 +833,8 @@ html.dark #login-bg {
 .k-button,
 .btn,
 .k-treeview-leaf,
-.nav-link {
+.nav-link,
+.k-switch-track {
     transition: none !important;
     -webkit-transition: none !important;
 }
@@ -932,6 +952,12 @@ html.dark #login-bg {
     background-color: var(--falcon-200) !important;
 }
 
+/* fix switcher style difference */
+.k-switch-off .k-switch-track {
+    border-color: var(--falcon-border-color) !important;
+    background-color: var(--falcon-input-bg) !important;
+}
+
 /* remove focus styling if item is disabled */
 .k-disabled:focus, .k-disabled.k-focus {
     box-shadow: none !important;
@@ -942,7 +968,43 @@ html.dark #login-bg {
 }
 /* Untuk Screen > 1400px */
 
+/* sanitize styling in k-columnmenu-item */
+.k-columnmenu-item:hover,
+.k-columnmenu-item:focus,
+.k-columnmenu-item:focus-visible,
+.k-columnmenu-item:focus-within {
+    background: inherit !important;
+    color: inherit !important;
+    outline: inherit !important;
+    box-shadow: inherit !important;
+    border-color: inherit !important;
+    text-decoration: inherit !important;
+    cursor: default !important;
+}
 
+/* make checklist filter not too long */
+.k-popup .k-multicheck-wrap {
+    max-height: 100px !important;
+}
+
+/* fix tooltip styling */
+.k-tooltip {
+    background-color: var(--falcon-card-bg) !important;
+    color: var(--falcon-card-color) !important;
+}
+
+/* fix tooltip styling for validation message */
+#r-validation-message-tooltip.k-tooltip {
+    background-color: #e63757 !important;
+    color: #000 !important;
+}
+
+/* preserved input styling in blazor menu component that originally use bootstrap: "form-control" class */
+.r-form-control {
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    border-radius: .25rem !important;
+}
 .r-invisible-telerik-window {
     background: none !important;
     border: none !important;

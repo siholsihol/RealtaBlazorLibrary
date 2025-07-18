@@ -349,7 +349,7 @@
         --falcon-navbar-light-brand-color: #2c7be5;
         --falcon-navbar-dark-brand-color: #2c7be5;
         --falcon-navbar-vertical-collapsed-hover-shadow-color: rgba(0, 0, 0, 0.2);
-        --falcon-navbar-vertical-bg-color: var(--falcon-bg-navbar-glass);
+        --falcon-navbar-vertical-bg-color: var(--falcon-body-bg);
         --falcon-navbar-vertical-link-color: #5e6e82;
         --falcon-navbar-vertical-link-hover-color: #232e3c;
         --falcon-navbar-vertical-link-active-color: #2c7be5;
@@ -643,7 +643,7 @@
     --falcon-navbar-light-brand-color: #2c7be5;
     --falcon-navbar-dark-brand-color: #2c7be5;
     --falcon-navbar-vertical-collapsed-hover-shadow-color: rgba(0, 0, 0, 0.2);
-    --falcon-navbar-vertical-bg-color: var(--falcon-bg-navbar-glass);
+    --falcon-navbar-vertical-bg-color: var(--falcon-body-bg);
     --falcon-navbar-vertical-link-color: #9da9bb;
     --falcon-navbar-vertical-link-hover-color: #edf2f9;
     --falcon-navbar-vertical-link-active-color: #2c7be5;
@@ -24577,9 +24577,9 @@ h5, .h5 {
             }
 }
 
-@media(min-width: 1200px) {
+@media(min-width: 0px) { /* consistent navbar behavior */
     .navbar-vertical.navbar-expand-xl {
-        max-width: 12.625rem;
+        max-width: 15.625rem;
         top: 0;
         height: 100vh;
         margin: 0
