@@ -872,7 +872,8 @@ html.dark #login-bg {
     }
 
 /* fix calendar popup dark mode style */
-.k-popup .k-calendar {
+.k-popup .k-calendar,
+.k-popup .k-timeselector {
     background-color: var(--falcon-card-bg) !important;
     color: var(--falcon-input-color) !important;
 }
@@ -881,6 +882,17 @@ html.dark #login-bg {
     .k-popup .k-calendar .k-calendar-td .k-link.k-hover {
         color: var(--falcon-body-color) !important;
         background-color: var(--falcon-border-color) !important;
+    }
+
+    .k-popup .k-timeselector .k-time-highlight {
+        background-color: var(--falcon-card-bg) !important;
+        color: var(--falcon-input-color) !important;
+        border-color: var(--falcon-border-color) !important;
+    }
+
+    .k-popup .k-timeselector .k-time-list::before,
+    .k-popup .k-timeselector .k-time-list::after {
+        box-shadow: 0 0 3em 1.5em var(--falcon-card-bg) !important;
     }
 
 /* fix default button does not change color in dark mode */
