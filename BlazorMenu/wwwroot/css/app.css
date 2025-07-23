@@ -315,13 +315,6 @@ ul ul li.nav-item a.nav-link span {
     border: none !important;
 }
 
-.k-checkbox:disabled, .k-checkbox.k-disabled, .k-radio:disabled, .k-radio.k-disabled {
-    background-color: #2c7be5 !important;
-    border-color: #2c7be5 !important;
-    cursor: not-allowed !important;
-}
-
-
 /* Table */
 .dark .table {
     --falcon-table-striped-bg: #0b1727;
@@ -930,7 +923,10 @@ html.dark #login-bg {
     border-color: var(--falcon-input-border-color) !important;
 }
 
-    .k-radio.k-disabled {
+    .k-radio.k-disabled,
+    .k-radio:disabled,
+    .k-disabled .k-radio,
+    *:disabled .k-radio {
         background-color: var(--falcon-200) !important;
         border-color: var(--falcon-input-border-color) !important;
     }
