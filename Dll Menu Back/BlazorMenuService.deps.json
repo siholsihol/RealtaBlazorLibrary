@@ -25,6 +25,7 @@
           "BlazorMenuService.dll": {}
         }
       },
+      "System.ComponentModel.Annotations/4.5.0": {},
       "BackExtension/1.0.0": {
         "runtime": {
           "BackExtension.dll": {
@@ -49,7 +50,8 @@
       },
       "BlazorMenuCommon/1.0.0": {
         "dependencies": {
-          "R_SecurityPolicyCommon": "1.0.0"
+          "R_SecurityPolicyCommon": "1.0.0",
+          "System.ComponentModel.Annotations": "4.5.0"
         },
         "runtime": {
           "BlazorMenuCommon.dll": {
@@ -269,6 +271,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "System.ComponentModel.Annotations/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
+      "path": "system.componentmodel.annotations/4.5.0",
+      "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
     },
     "BackExtension/1.0.0": {
       "type": "project",

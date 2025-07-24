@@ -23,16 +23,11 @@ builder.R_RegisterBlazorServices(option =>
 builder.Services.R_AddBlazorMenuServices();
 
 builder.Services.AddTransient<R_IFileConverter, R_FileConverter>();
-//builder.Services.AddTransient<R_IReport, R_ReportService>();
 builder.Services.AddSingleton<R_IFileDownloader, R_FileDownloader>();
 
 Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", builder.HostEnvironment.Environment);
 
-//builder.Services.AddMultiTenantancy();
-
 var host = builder.Build();
-
-//host.Services.AddServiceProviderToTenantRoutes();
 
 host.R_SetupBlazorService();
 

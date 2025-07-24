@@ -1,4 +1,4 @@
-// This is a JavaScript module that is loaded on demand. It can export any number of
+﻿// This is a JavaScript module that is loaded on demand. It can export any number of
 // functions, and may import other JavaScript modules if required.
 
 export function showPrompt(message) {
@@ -81,6 +81,8 @@ export function tabToButton(args, id) {
 
 // Helper function to change disabled state of single element
 export function setElementEnabledState(elm, enabled) {
+    if (!elm) return;
+
     if (enabled) {
         elm.removeAttribute('disabled');
     }
@@ -92,6 +94,7 @@ export function setElementEnabledState(elm, enabled) {
 export function setElementEnabledClass(elm, enabled) {
     let element = getEnabledElement(elm);
 
+    if (element) return;
     if (enabled) {
         element.classList.remove('k-disabled');
     }
@@ -101,6 +104,8 @@ export function setElementEnabledClass(elm, enabled) {
 }
 
 export function setElementTargetable(elm, enabled) {
+    if (elm) return;
+ 
     if (enabled) {
         // Restore old tabindex if it was saved
         if (elm.hasAttribute('data-old-tabindex')) {
@@ -139,6 +144,8 @@ export function changeAllControlStatus(elementId, status) {
     // Get DIV container to be disabled
     //const container = document.querySelector(containerClass);
     const container = document.getElementById(elementId);
+
+    if (!container) return;
     // Check if helper class is there
     //const isDisabled = container.classList.contains('disabled');
     setElementEnabledState(container, status)
@@ -220,6 +227,8 @@ export function removeValidationMessage(inputWrapperId, iconId) {
 
 export function adjustCustomPagerVisibility(gridId) {
     const grid = document.getElementById(gridId);
+    if (!grid) return;
+
     const parent = grid.querySelector("#PagerContainer");
     const pager = grid.querySelector("#CustomPager");
     const info = grid.querySelector("#CustomPagerInfo");
@@ -262,28 +271,34 @@ function debounce(fn, delay) {
         timeout = setTimeout(fn, delay);
     };
 }
-const resizeHandlers = {};
 
+const resizeObservers = {};
 
 export function initializeCustomPagerResize(gridId) {
-    const handler = debounce(() => adjustCustomPagerVisibility(gridId), 100);
+    const handler = debounce(() => {
+        const grid = document.getElementById(gridId);
 
-    resizeHandlers[gridId] = handler;
+        if (!grid) {
+            disposeCustomPagerResize(gridId);
+            return;
+        }
 
-    // Run initially in case it's already overflowing
-    window.addEventListener("load", handler);
-    window.addEventListener("resize", handler);
-
-    handler();
+        adjustCustomPagerVisibility(gridId);
+    }, 100);
+    const gridElement = document.getElementById(gridId);
+    if (gridElement) {
+        // Create and store ResizeObserver
+        const observer = new ResizeObserver(handler);
+        observer.observe(gridElement);
+        resizeObservers[gridId] = observer;
+        requestAnimationFrame(() => handler());
+    }
 }
 
 export function disposeCustomPagerResize(gridId) {
-    const handler = resizeHandlers[gridId];
-    if (!handler) return;
-
-    window.removeEventListener("load", handler);
-    window.removeEventListener("resize", handler);
-
-
-    delete resizeHandlers[gridId];
+    const observer = resizeObservers[gridId];
+    if (observer) {
+        observer.disconnect();
+        delete resizeObservers[gridId];
+    }
 }

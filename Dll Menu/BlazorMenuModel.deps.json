@@ -38,7 +38,8 @@
       },
       "BlazorMenuCommon/1.0.0": {
         "dependencies": {
-          "R_SecurityPolicyCommon": "1.0.0"
+          "R_SecurityPolicyCommon": "1.0.0",
+          "System.ComponentModel.Annotations": "4.5.0"
         },
         "runtime": {
           "BlazorMenuCommon.dll": {
