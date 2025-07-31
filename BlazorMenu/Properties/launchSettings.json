@@ -4,7 +4,6 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        //"ASPNETCORE_ENVIRONMENT": "Staging",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
@@ -14,6 +13,20 @@
       "hotReloadProfile": "aspnetcore",
       "nativeDebugging": false,
       "launchUrl": ""
+    },
+    "Staging": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      },
+      "dotnetRunMessages": true,
+      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+      "applicationUrl": "http://localhost:5004",
+      "hotReloadEnabled": false,
+      "hotReloadProfile": "aspnetcore",
+      "nativeDebugging": false,
+      "launchUrl": "realta-bsi"
     },
     "IIS Express": {
       "commandName": "IISExpress",
