@@ -459,6 +459,10 @@ ul ul li.nav-item a.nav-link span {
   font-weight: 700;
 }
 
+    .k-window-title::before {
+        content: "\200b";
+    }
+
 .k-button,
 .k-input,
 .k-input .k-input-inner,
@@ -1099,12 +1103,18 @@ html.dark #login-bg {
     background-color: var(--falcon-card-bg) !important;
     color: var(--falcon-card-color) !important;
 }
+    .k-tooltip .k-callout {
+        color: var(--falcon-card-bg) !important;
+    }
 
 /* fix tooltip styling for validation message */
 #r-validation-message-tooltip.k-tooltip {
     background-color: #e63757 !important;
     color: #000 !important;
 }
+    #r-validation-message-tooltip.k-tooltip .k-callout {
+        color: #e63757 !important;
+    }
 
 /* preserved input styling in blazor menu component that originally use bootstrap: "form-control" class */
 .r-form-control {
@@ -1162,10 +1172,36 @@ html.dark #login-bg {
     pointer-events: none; /* Let clicks pass through */
 }
 
+.k-listbox .k-list-scroller {
+    background-color: var(--falcon-input-bg) !important;
+    color: var(--falcon-input-color) !important;
+    border-color: var(--falcon-input-border-color) !important;
+}
+
+    .k-listbox .k-list-scroller .k-list .k-list-content .k-list-item:hover,
+    .k-listbox .k-list-scroller .k-list .k-list-content .k-list-optionlabel:hover,
+    .k-listbox .k-list-scroller .k-list .k-list-content .k-list-item.k-hover,
+    .k-listbox .k-list-scroller .k-list .k-list-content .k-hover.k-list-optionlabel {
+        color: var(--falcon-black) !important;
+        background-color: var(--falcon-200) !important;
+    }
+
+.k-nodata {
+    color: var(--falcon-input-color) !important;
+}
+
+.divCaptcha {
+    border-color: var(--falcon-input-border-color) !important;
+    background-color: var(--falcon-input-bg) !important;
+}
+
+.divCaptcha button.refresh-button {
+    color: var(--falcon-input-color) !important;
+
 /* Remove default browser password toggle */
 input::-ms-reveal,
 input::-ms-clear {
     display: none;
 }
 
-/* Untuk Screen > 1400px */
+

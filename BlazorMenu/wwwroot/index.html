@@ -11,7 +11,7 @@
     <link href="css/app.css" rel="stylesheet" />
     <link href="BlazorMenu.styles.css" rel="stylesheet" />
 
-    <link href="css/captcha.css" rel="stylesheet" />
+    <link href="_content/R_Captcha/R_Captcha.styles.css" rel="stylesheet" />
 
     <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
 
@@ -82,7 +82,7 @@
 
             var aesCbc = new aesjs.ModeOfOperation.cbc(keyBytes, ivBytes);
 
-            var decryptedBytes = aesCbc.decrypt(encryptedBytes);
+            var decryptedBytes = aesjs.padding.pkcs7.strip(aesCbc.decrypt(encryptedBytes));
             return aesjs.utils.utf8.fromBytes(decryptedBytes);
         }
     </script>
