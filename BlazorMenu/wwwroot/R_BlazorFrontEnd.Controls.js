@@ -113,7 +113,7 @@ export function setElementEnabledClass(elm, enabled) {
 
 export function setElementTargetable(elm, enabled) {
     if (elm) return;
- 
+
     if (enabled) {
         // Restore old tabindex if it was saved
         if (elm.hasAttribute('data-old-tabindex')) {
@@ -139,7 +139,7 @@ export function getEnabledElement(elm) {
 
     if (tag === 'input' && elm.type !== 'radio' && elm.type !== 'checkbox') {
         returnElement = elm.closest('.k-input');
-    } else if (tag === 'textarea' && elm.id && elm.id.startsWith('ta')) {
+    } else if (tag === 'textarea' && elm.id && elm.id.startsWith('TextArea_')) {
         returnElement = elm.closest('.k-input');
     } else {
         returnElement = elm;
@@ -159,14 +159,14 @@ export function changeAllControlStatus(elementId, status) {
     setElementEnabledState(container, status)
 
     // Query all fields inside DIV.
-    const allFields = container.querySelectorAll('input, textarea[id^="ta"], button, select, span[id], div.k-editor');
+    const allFields = container.querySelectorAll('input, textarea[id^="TextArea_"], button, select, span[id], div.k-editor');
 
     // Iterate over all elements
     // If Parent Group Box is enabled and Current Group Box is enabled => enabled field
     // Else, disabled field
     [...allFields].forEach(elm => {
         // check all parents, not just immediate parents
-        let parent = elm.closest('div[id*="grpbox"]');
+        let parent = elm.closest('div[id*="GroupBox_"]');
         let isFieldDisabled = elm.getAttribute('aria-disabled') === 'true' ? true : false;
 
         if ([...elm.classList].some(cls => cls.startsWith('k-spinner'))) {
@@ -184,7 +184,7 @@ export function changeAllControlStatus(elementId, status) {
                 isDisabledByAncestor = true;
                 break;
             }
-            parent = parent.parentElement?.closest('div[id*="grpbox"]');
+            parent = parent.parentElement?.closest('div[id*="GroupBox_"]');
         }
 
         const enabled = status && !isDisabledByAncestor && !isFieldDisabled;

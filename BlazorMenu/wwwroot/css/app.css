@@ -944,9 +944,10 @@ html.dark #login-bg {
 }
 
 /* fix calendar popup dark mode style */
-.k-popup .k-calendar {
-  background-color: var(--falcon-card-bg) !important;
-  color: var(--falcon-input-color) !important;
+.k-popup .k-calendar,
+.k-popup .k-timeselector {
+    background-color: var(--falcon-card-bg) !important;
+    color: var(--falcon-input-color) !important;
 }
 
 .k-popup .k-calendar .k-calendar-td .k-link:hover,
@@ -955,11 +956,22 @@ html.dark #login-bg {
   background-color: var(--falcon-border-color) !important;
 }
 
+    .k-popup .k-timeselector .k-time-highlight {
+        background-color: var(--falcon-card-bg) !important;
+        color: var(--falcon-input-color) !important;
+        border-color: var(--falcon-border-color) !important;
+    }
+
+    .k-popup .k-timeselector .k-time-list::before,
+    .k-popup .k-timeselector .k-time-list::after {
+        box-shadow: 0 0 3em 1.5em var(--falcon-card-bg) !important;
+    }
+
 /* fix default button does not change color in dark mode */
 .k-button-solid-base {
-  color: var(--falcon-btn-falcon-default-active-border) !important;
-  background-color: var(--falcon-btn-falcon-default-active-background) !important;
-  border: 0 !important;
+    color: var(--falcon-btn-falcon-default-active-border) !important;
+    background-color: var(--falcon-btn-falcon-default-active-background) !important;
+    border: 0 !important;
 }
 
 .dark .k-button-solid-base:focus {
@@ -1148,6 +1160,12 @@ html.dark #login-bg {
 .flash-new {
     animation: flash-highlight 1s ease-out;
     pointer-events: none; /* Let clicks pass through */
+}
+
+/* Remove default browser password toggle */
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
 }
 
 /* Untuk Screen > 1400px */

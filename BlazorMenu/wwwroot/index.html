@@ -56,7 +56,11 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        const script = document.createElement('script');
+        script.src = `_framework/blazor.webassembly.js?cb=${Date.now()}`;
+        document.head.appendChild(script);
+    </script>
 
     <script type="text/javascript">
         function encryptText(inputSrt, keyStr, ivStr) {
