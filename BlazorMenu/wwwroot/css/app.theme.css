@@ -1,0 +1,270 @@
+﻿/* ==========================================================================
+   1. Navbar Behavior
+   ========================================================================== */
+
+/* #region 1.1 Navbar Consistent Behavior */
+@media(min-width: 0px) {
+    .consistent.navbar-vertical.navbar-expand-xl {
+        max-width: 15.625rem;
+        top: 0;
+        height: 100vh;
+        margin: 0;
+        background-color: var(--falcon-body-bg) !important;
+    }
+
+        .consistent.navbar-vertical.navbar-expand-xl .nav-link {
+            padding: .35rem 0
+        }
+
+        .consistent.navbar-vertical.navbar-expand-xl .navbar-brand {
+            display: block;
+            text-align: center
+        }
+
+        .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse {
+            margin-top: -0.3125rem;
+            -webkit-transition: width .2s ease;
+            -o-transition: width .2s ease;
+            transition: width .2s ease;
+            -webkit-transition-property: width,-webkit-box-shadow;
+            transition-property: width,-webkit-box-shadow;
+            -o-transition-property: width,box-shadow;
+            transition-property: width,box-shadow;
+            transition-property: width,box-shadow,-webkit-box-shadow;
+            display: inline-block !important;
+            width: 12.625rem
+        }
+
+        .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse .navbar-vertical-content {
+            padding: .5rem 0 0 0;
+        }
+
+        .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
+            width: 12.625rem;
+            height: calc(100vh - 4.3125rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            max-height: 100% !important;
+        }
+
+            .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content .navbar-content {
+                flex: 1 1 auto;
+                overflow: auto;
+            }
+
+            .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content #navbar-footer {
+                height: fit-content !important;
+                flex: 0 0 auto;
+            }
+
+            .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content:hover #navbar-footer {
+                display: block !important;
+            }
+
+        .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-toggle {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .consistent.navbar-vertical.navbar-expand-xl.navbar-card, .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant, .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted {
+            padding: 0;
+            max-width: 14.625rem !important
+        }
+
+            .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-vertical-content, .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-vertical-content, .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-vertical-content {
+                padding: .5rem .625rem 0 1rem !important
+            }
+
+            .consistent.navbar-vertical.navbar-expand-xl.navbar-card .toggle-icon-wrapper, .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .toggle-icon-wrapper, .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .toggle-icon-wrapper {
+                margin-left: .25rem;
+                margin-right: 1.5rem;
+                font-size: var(--falcon-body-font-size) !important;
+            }
+
+            .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-collapse, .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-vertical-content, .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-collapse, .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-vertical-content, .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-collapse, .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-vertical-content {
+                width: 14.625rem !important
+            }
+
+            .consistent.navbar-vertical.navbar-expand-xl.navbar-card + .content, .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant + .content, .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted + .content {
+                margin-left: 15.625rem
+            }
+
+        .consistent.navbar-vertical.navbar-expand-xl + .content {
+            margin-left: 15.625rem
+        }
+
+            .consistent.navbar-vertical.navbar-expand-xl + .content .navbar-top {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0
+            }
+
+                .consistent.navbar-vertical.navbar-expand-xl + .content .navbar-top .navbar-toggler, .consistent.navbar-vertical.navbar-expand-xl + .content .navbar-top .navbar-brand {
+                    display: none
+                }
+
+    .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl {
+        z-index: 1030;
+        width: 3.125rem;
+        height: 100vh
+    }
+
+        .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse {
+            width: 3.125rem !important;
+            margin-left: -1rem;
+            overflow: hidden
+        }
+
+        .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
+            padding-right: 1rem;
+            padding-left: 1rem
+        }
+
+        .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-label {
+            display: none;
+            -webkit-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease
+        }
+
+        .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .dropdown-indicator:after, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .nav-link .badge, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .nav-link-text, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .settings {
+            opacity: 0;
+            -webkit-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease
+        }
+
+        .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .navbar-toggle-icon {
+            padding-right: .3125rem
+        }
+
+            .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .navbar-toggle-icon:after {
+                width: 75%
+            }
+
+            .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .navbar-toggle-icon:before {
+                width: 50%
+            }
+
+        .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl + .content {
+            margin-left: 3.125rem
+        }
+
+            .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl + .content .navbar-top {
+                padding-left: 13.5rem
+            }
+
+        .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-card, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted {
+            width: 4.125rem
+        }
+
+            .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-collapse, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-collapse, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-collapse {
+                width: 4.125rem;
+                margin-left: 0
+            }
+
+            .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-card + .content, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant + .content, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted + .content {
+                margin-left: 4.125rem
+            }
+
+                .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-card + .content .navbar-top, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant + .content .navbar-top, .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted + .content .navbar-top {
+                    padding-left: 12.5rem
+                }
+
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse, .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .nav.collapse.show, .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .nav-link .badge, .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .settings, .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .nav-link-text {
+        display: none
+    }
+
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-divider {
+        max-width: 2rem
+    }
+
+    .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl {
+        width: 15.625rem !important
+    }
+
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse {
+            width: 15.625rem !important
+        }
+
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
+            width: 14.625rem;
+        }
+
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse {
+            -webkit-box-shadow: .625rem 0 .625rem -0.5625rem var(--falcon-navbar-vertical-collapsed-hover-shadow-color);
+            box-shadow: .625rem 0 .625rem -0.5625rem var(--falcon-navbar-vertical-collapsed-hover-shadow-color)
+        }
+
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .dropdown-indicator:after, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .nav-link .badge, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .nav-link-text, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .settings {
+            opacity: 1;
+            padding-right: 0
+        }
+
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-label {
+            display: block
+        }
+
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-card, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted {
+            width: 14.625rem
+        }
+
+            .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-collapse, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-vertical-content, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-collapse, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-vertical-content, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-collapse, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-vertical-content {
+                width: 14.625rem !important
+            }
+}
+/* #endregion */
+
+/* ==========================================================================
+   2. Notification
+   ========================================================================== */
+
+/* #region 2.1 Notification styling on Dark Mode */
+.dark .notification {
+    --falcon-notification-bg: #232e3c;
+}
+
+.dark .notification-unread {
+    --falcon-notification-unread-bg: #1c2938;
+}
+
+    .dark .notification-unread:hover, .notification-unread:focus {
+        --falcon-notification-unread-hover-bg: #192536;
+    }
+/* #endregion*/
+
+/* #region 2.2 Notification Caret Styling */
+.navbar .dropdown-menu.dropdown-caret:after {
+    background: inherit !important;
+    top: -0.5rem !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+/* #endregion */
+
+/* ==========================================================================
+   3. Tabs (R_Tabs)
+   ========================================================================== */
+
+/* #region 3.1 Tab Header Styling */
+ul.nav-tabs .nav-item .nav-link {
+    padding: 0rem .5rem .1em;
+}
+
+    ul.nav-tabs .nav-item span.close {
+        transition: background .2s ease-in-out;
+        border-radius: 50px;
+        padding: 1px 5px;
+    }
+
+        ul.nav-tabs .nav-item span.close:hover {
+            background: var(--falcon-300);
+        }
+
+    ul.nav-tabs .nav-item span.tab.btn-close {
+        width: 8px !important;
+        height: 8px !important;
+    }
+/* #endregion */

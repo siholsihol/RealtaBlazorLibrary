@@ -1,0 +1,482 @@
+﻿
+/* ==========================================================================
+   1. Button
+   ========================================================================== */
+
+/* #region 1.1 Button Base Styling */
+.k-button {
+    padding: 0.25rem .7rem !important;
+    font-size: var(--r-default-font-size) !important;
+    line-height: 1.2 !important;
+    font-family: var(--falcon-font-sans-serif) !important;
+}
+
+    .k-button:disabled,
+    .k-button.k-disabled {
+        opacity: .3 !important;
+        cursor: not-allowed !important;
+    }
+
+.k-button-solid-primary:hover,
+.k-button-solid-primary.k-hover,
+.k-button-solid-success:hover,
+.k-button-solid-success.k-hover,
+.k-button-solid-secondary:hover,
+.k-button-solid-secondary.k-hover,
+.k-button-solid-warning:hover,
+.k-button-solid-warning.k-hover,
+.k-button-solid-error:hover,
+.k-button-solid-error.k-hover {
+    color: #fff !important;
+}
+
+.k-button-solid-warning {
+    background-color: #f5803e !important;
+    border-color: #f5803e !important;
+}
+
+    .k-button-solid-warning:hover,
+    .k-button-solid-warning.k-hover {
+        background-color: #df6d2d !important;
+        border-color: #df6d2d !important;
+    }
+
+.k-button-solid-success {
+    background-color: #00d27a !important;
+    border-color: #00d27a !important;
+}
+
+    .k-button-solid-success:hover,
+    .k-button-solid-success.k-hover {
+        background-color: #00b368 !important;
+        border-color: #00a862 !important;
+    }
+
+.k-button-solid-warning {
+    color: #fff !important;
+}
+
+.k-button .k-button-text {
+    font-family: var(--falcon-font-sans-serif);
+    font-weight: 500;
+}
+
+.k-button-group .k-button-text {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+.k-button.k-split-button-arrow.k-icon-button .k-button-icon {
+    min-height: unset !important;
+}
+/* #endregion*/
+
+/* #region 1.2 fix default button does not change color in dark mode */
+.k-button-solid-base {
+    color: var(--falcon-btn-falcon-default-active-border) !important;
+    background-color: var(--falcon-btn-falcon-default-active-background) !important;
+    border: 0 !important;
+}
+
+.dark .k-button-solid-base:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--falcon-btn-falcon-default-active-background-rgb), 0.5) !important;
+}
+/* #endregion*/
+
+/* ==========================================================================
+   2. Editor
+   ========================================================================== */
+
+/* #region 2.2 Editor Base Styling */
+.k-editor {
+    border-color: var(--falcon-300) !important;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    background-color: transparent !important;
+}
+
+    .k-editor .k-toolbar {
+        background-color: var(--falcon-input-bg) !important;
+        border-color: var(--falcon-border-color) !important;
+    }
+
+    .k-editor.k-disabled .k-toolbar {
+        background-color: var(--falcon-200) !important;
+    }
+
+    .k-editor .k-content {
+        color: var(--falcon-body-bg) !important;
+        background-color: var(--falcon-input-bg) !important;
+    }
+
+        .k-editor .k-content p {
+            color: var(--falcon-800);
+        }
+
+    .k-editor.k-disabled .k-content {
+        background-color: var(--falcon-200) !important;
+    }
+
+    .k-editor .k-button-solid-base {
+        background-color: transparent;
+    }
+/* #endregion */
+
+/* ==========================================================================
+   3. Grid & Table
+   ========================================================================== */
+
+/* #region 3.1 Grid Base Styling */
+.k-grid {
+    background-color: transparent !important;
+    color: var(--falcon-800) !important;
+    border: 0 !important;
+}
+
+    .k-grid .k-grid-aria-root,
+    .k-grid #PagerContainer {
+        border-color: var(--falcon-input-border-color) !important;
+        color: var(--falcon-800) !important;
+        background-color: transparent !important;
+    }
+
+    /* #region 3.1.1 Toolbar */
+    .k-grid .k-grid-toolbar {
+        background: none !important;
+        border: 0px !important;
+        color: var(--falcon-input-color) !important; /* fix edit grid toolbar text is not changing color in dark mode */
+        font-size: var(--r-default-font-size);
+        font-family: var(--falcon-font-sans-serif);
+    }
+    /* #endregion */
+
+    /* #region 3.1.2 Header & Footer */
+    .k-grid .k-grid-header {
+        border-color: #dee2e6 !important;
+        color: var(--falcon-800) !important;
+        --falcon-bg-opacity: 1 !important;
+        background-color: rgba(var(--falcon-200-rgb), var(--falcon-bg-opacity)) !important;
+        font-weight: 700 !important;
+        font-size: 14px;
+    }
+
+        .k-grid .k-grid-header .k-table-thead,
+        .k-grid .k-grid-header .k-table-header,
+        .k-grid .k-grid-header .k-table-group-sticky-header {
+            background-color: transparent !important;
+        }
+
+        .k-grid .k-grid-header .k-grid-header-wrap,
+        .k-grid .k-grid-footer .k-grid-footer-wrap {
+            border-inline-end-width: 0px !important;
+        }
+
+        .k-grid .k-grid-header .k-grid-filter,
+        .k-grid .k-grid-header .k-header-column-menu,
+        .k-grid .k-grid-header .k-grid-header-menu {
+            padding: 3px;
+            width: calc(1.4285714286em + 5px);
+            height: calc(1.4285714286em + 5px);
+            right: 2px;
+            bottom: 2px;
+        }
+    /* #endregion */
+
+    /* #region 3.1.3 Table */
+    .k-grid .k-table,
+    .k-grid .k-data-table {
+        color: var(--falcon-800) !important;
+    }
+
+    .k-grid .k-table-th,
+    .k-grid .k-table-td {
+        border-inline-start-width: 0px !important;
+    }
+
+    .k-grid .k-table-td {
+        padding: 0.2rem 0.5rem !important;
+        font-size: 10px !important;
+    }
+
+    .k-grid .k-table-row {
+        font-size: var(--r-default-font-size);
+        font-family: var(--falcon-font-sans-serif);
+    }
+
+        .k-grid .k-table-th.k-selected,
+        .k-grid .k-table-td.k-selected,
+        .k-grid .k-table-row.k-selected > td,
+        .k-grid .k-table-row.k-selected > .k-table-td,
+        .k-grid .k-table-row.k-selected > .k-group-cell /* Blue BG on selected grouping cell*/ {
+            --falcon-table-striped-bg: rgba(0, 0, 0, 0.5) !important;
+            color: var(--falcon-800) !important;
+            background-color: rgba(var(--falcon-primary-rgb), 0.25) !important;
+        }
+
+    .k-grid th,
+    .k-grid td {
+        padding: 4px 10px;
+    }
+
+    /* #endregion */
+
+    /* #region 3.1.4 Drag Cells*/
+    .k-grid .k-drag-cell > .k-icon {
+        padding: 0px !important;
+        width: 33% !important;
+        height: auto !important;
+        font-size: 10px;
+    }
+    /* #endregion */
+
+    /* #region 3.1.5 Grid Grouping Styling issue in Dark Mode */
+    .k-grid .k-table-row.k-grouping-row,
+    .k-grid .k-table-row .k-group-cell {
+        border-color: var(--falcon-border-color) !important;
+        color: var(--falcon-body-color) !important;
+        background-color: transparent !important;
+    }
+    /* #endregion */
+
+/* #endregion */
+
+/* ==========================================================================
+   4. Popup, Modal, Window, Dialog
+   ========================================================================== */
+
+/* #region 4.1 Base Styling */
+.k-dialog-wrapper .k-popup,
+.k-animation-container .k-popup,
+.k-dialog-wrapper .k-window,
+.k-animation-container .k-window {
+    background-color: var(--falcon-card-bg);
+    border-color: var(--falcon-input-border-color);
+    color: var(--falcon-input-color);
+}
+
+    /* #region 4.1.1 Title */
+    .k-dialog-wrapper .k-window .k-window-titlebar,
+    .k-animation-container .k-window .k-window-titlebar {
+        border-color: var(--falcon-input-border-color);
+        color: var(--falcon-headings-color);
+        font-family: var(--falcon-font-sans-serif);
+        font-size: 1.45rem;
+        font-weight: 700;
+    }
+
+        .k-dialog-wrapper .k-window .k-window-titlebar .k-window-title::before,
+        .k-animation-container .k-window .k-window-titlebar .k-window-title::before {
+            content: "\200b";
+        }
+
+        .k-dialog-wrapper .k-window .k-window-titlebar .k-button.k-icon-button .k-button-icon,
+        .k-animation-container .k-window .k-window-titlebar .k-button.k-icon-button .k-button-icon {
+            color: var(--falcon-headings-color);
+        }
+    /* #endregion */
+
+/* #endregion */
+
+/* ==========================================================================
+   5. Filters
+   ========================================================================== */
+
+/* #region 5.1 Make checklist filter not too long */
+.k-popup .k-multicheck-wrap {
+    max-height: 100px !important;
+}
+/* #endregion */
+
+/* ==========================================================================
+   6. Inputs
+   ========================================================================== */
+
+/* #region 6.1 Base Font Style */
+.k-input,
+.k-input .k-input-inner,
+.k-input .k-button,
+.k-picker,
+.k-picker .k-input-inner
+.k-picker .k-button {
+    font-size: var(--r-default-font-size);
+    font-family: var(--falcon-font-sans-serif);
+}
+
+/* Popups */
+.k-popup * {
+    font-size: var(--r-default-font-size) !important;
+    font-family: var(--falcon-font-sans-serif) !important;
+}
+/**/
+
+/* #endregion */
+
+/* #region 6.2 Dark Mode Style in Components */
+/* Input Wrapper */
+.k-input,
+.k-picker,
+.k-treeview,
+.k-listbox,
+.k-listbox .k-list-scroller,
+.k-switch-off .k-switch-track,
+.k-popup {
+    border-color: var(--falcon-input-border-color) !important;
+    color: var(--falcon-input-color) !important;
+    background-color: var(--falcon-input-bg) !important;
+}
+
+    /* Input & Popup (Except dialog) */
+    span > input,
+    .k-input .k-input-inner,
+    .k-picker .k-input-inner,
+    .k-treeview li > span,
+    .k-listbox li > span,
+    .k-popup > *:not([role="dialog"]),
+    .k-popup .k-calendar,
+    .k-popup .k-timeselector {
+        border-color: var(--falcon-input-border-color) !important;
+        color: var(--falcon-input-color) !important;
+        background-color: var(--falcon-input-bg) !important;
+    }
+
+    /* Popup (Only dialog) */
+    .k-popup > *[role="dialog"] {
+        background-color: var(--falcon-card-bg) !important;
+        color: var(--falcon-input-color) !important;
+        border-color: var(--falcon-input-border-color) !important;
+    }
+
+    /* Input (only if it's not with r-form-control) */
+    .k-input:not(.r-form-control) .k-input-inner,
+    .k-picker:not(.r-form-control) .k-input-inner {
+        padding: 0.1rem 1rem !important;
+    }
+
+    /* Button of Input */
+    .k-input .k-button,
+    .k-picker .k-button {
+        padding: 0.25rem !important;
+        padding-block: 0px !important;
+        background: transparent !important;
+        border-inline-start-width: 0px !important;
+        border: none !important;
+    }
+/* #endregion */
+
+/* #region 6.3 Disabled Base Style */
+/* All Components */
+.k-disabled [disabled],
+.k-disabled :disabled,
+.k-disabled .k-disabled,
+input[disabled],
+input:disabled,
+input.k-disabled {
+    background-color: var(--falcon-200) !important;
+}
+
+/* Inputs Only */
+input.k-disabled,
+input[disabled],
+input:disabled {
+    border-color: var(--falcon-input-border-color) !important;
+}
+/* #endregion */
+
+/* #region 6.4 Hover Style */
+/* treeview */
+.k-treeview .k-treeview-leaf:hover,
+.k-treeview .k-treeview-leaf.k-hover,
+/* dropdown */
+.k-popup .k-list .k-list-item:hover,
+.k-popup .k-list .k-list-optionlabel:hover,
+.k-popup .k-list .k-list-item.k-hover,
+.k-popup .k-list .k-hover.k-list-optionlabel,
+/* calendar days */
+.k-popup .k-calendar .k-calendar-td .k-link:hover,
+.k-popup .k-calendar .k-calendar-td .k-link.k-hover,
+/* context menu & split button */
+.k-popup .k-menu-group .k-item > .k-link:hover,
+.k-popup .k-menu-group .k-item > .k-link.k-hover,
+.k-popup .k-menu.k-context-menu .k-item > .k-link:hover,
+.k-popup .k-menu.k-context-menu .k-item > .k-link.k-hover {
+    color: var(--falcon-black) !important;
+    background-color: var(--falcon-300) !important;
+}
+/* #endregion */
+
+/* #region 6.5 Checked Style */
+.k-checkbox:checked,
+.k-checkbox.k-checked {
+    background-image: var(--r-checkbox-checked-url) !important;
+}
+
+/* fix radiobutton style difference */
+.k-radio:checked,
+.k-radio.k-checked {
+    background-image: var(--r-radiobutton-checked-url) !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+/* #endregion */
+
+/* #region 6.6 TimeSelector */
+.k-popup .k-timeselector .k-time-highlight {
+    background-color: var(--falcon-card-bg) !important;
+    color: var(--falcon-input-color) !important;
+}
+
+.k-popup .k-timeselector .k-time-list::before,
+.k-popup .k-timeselector .k-time-list::after {
+    box-shadow: 0 0 3em 1.5em var(--falcon-input-bg) !important;
+}
+/* #endregion */
+
+/* ==========================================================================
+   7. Tooltip
+   ========================================================================== */
+
+/* #region 7.1 Base Tooltip styling */
+.k-tooltip {
+    background-color: #2c7be5 !important;
+    color: var(--falcon-white) !important;
+}
+
+    .k-tooltip .k-callout {
+        color: #2c7be5 !important;
+    }
+/* #endregion */
+
+/* #region 7.2 Tooltip styling for validation message */
+#r-validation-message-tooltip.k-tooltip {
+    background-color: var(--falcon-danger) !important;
+    color: var(--falcon-white) !important;
+}
+    #r-validation-message-tooltip.k-tooltip .k-callout {
+        color: var(--falcon-danger) !important;
+    }
+/* #endregion */
+
+/* ==========================================================================
+   X. No Categories
+   ========================================================================== */
+
+/* #region X.1 Remove focus styling if item is disabled */
+.k-disabled:focus, .k-disabled.k-focus,
+[disabled]:focus, [disabled].k-focus,
+:disabled:focus, :disabled.k-focus {
+    box-shadow: none !important;
+}
+
+.k-disabled:focus-within,
+[disabled]:focus-within,
+:disabled:focus-within {
+    box-shadow: none !important;
+}
+/* #endregion */
+
+/* #region X.2 No Data */
+.k-nodata {
+    color: var(--falcon-input-color) !important;
+}
+/* #endregion */

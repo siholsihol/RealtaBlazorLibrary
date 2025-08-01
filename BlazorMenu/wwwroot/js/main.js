@@ -294,6 +294,26 @@
             // Scroll right if active tab is hidden on right side
             xtabsHeader.scrollBy({ left: activeRect.right - containerRect.right, behavior: 'smooth' });
         }
-    }
+    },
 
+    navbar: {
+        toggleFooter: function (footerId) {
+            const footer = document.getElementById(footerId);
+            const html = document.querySelector("html");
+
+            // Attach listener to the custom event fired by theme.js
+            const toggleButton = document.querySelector(".navbar-vertical-toggle");
+            if (toggleButton && footer) {
+                toggleButton.addEventListener("navbar.vertical.toggle", function () {
+                    const isCollapsed = html.classList.contains("navbar-vertical-collapsed");
+                    footer.style.display = isCollapsed ? "none" : "block";
+                });
+
+                // Set initial state on page load
+                footer.style.display = html.classList.contains("navbar-vertical-collapsed")
+                    ? "none"
+                    : "block";
+            }
+        }
+    }
 }

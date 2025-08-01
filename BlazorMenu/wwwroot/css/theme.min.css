@@ -349,7 +349,7 @@
         --falcon-navbar-light-brand-color: #2c7be5;
         --falcon-navbar-dark-brand-color: #2c7be5;
         --falcon-navbar-vertical-collapsed-hover-shadow-color: rgba(0, 0, 0, 0.2);
-        --falcon-navbar-vertical-bg-color: var(--falcon-body-bg);
+        --falcon-navbar-vertical-bg-color: var(--falcon-bg-navbar-glass);
         --falcon-navbar-vertical-link-color: #5e6e82;
         --falcon-navbar-vertical-link-hover-color: #232e3c;
         --falcon-navbar-vertical-link-active-color: #2c7be5;
@@ -643,7 +643,7 @@
     --falcon-navbar-light-brand-color: #2c7be5;
     --falcon-navbar-dark-brand-color: #2c7be5;
     --falcon-navbar-vertical-collapsed-hover-shadow-color: rgba(0, 0, 0, 0.2);
-    --falcon-navbar-vertical-bg-color: var(--falcon-body-bg);
+    --falcon-navbar-vertical-bg-color: var(--falcon-bg-navbar-glass);
     --falcon-navbar-vertical-link-color: #9da9bb;
     --falcon-navbar-vertical-link-hover-color: #edf2f9;
     --falcon-navbar-vertical-link-active-color: #2c7be5;
@@ -864,10 +864,10 @@
     --falcon-avatar-name-bg: #4d5969;
     --falcon-avatar-button-bg: #4d5969;
     --falcon-avatar-button-hover-bg: #5e6e82;
-    --falcon-notification-bg: #232e3c;
+    --falcon-notification-bg: var(--falcon-card-cap-bg);
     --falcon-notification-title-bg: #344050;
-    --falcon-notification-unread-bg: #1c2938;
-    --falcon-notification-unread-hover-bg: #192536;
+    --falcon-notification-unread-bg: #232e3c;
+    --falcon-notification-unread-hover-bg: #1a222c;
     --falcon-notification-indicator-border-color: #0a1727;
     --falcon-kanban-bg: rgba(35, 46, 60, 0.25);
     --falcon-kanban-item-bg: #232e3c;
@@ -20601,8 +20601,9 @@ pre, code, kbd, samp {
         z-index: -1;
         width: 1rem;
         height: 1rem;
-        background: inherit !important;
-        top: -0.5rem;
+        background: var(--falcon-card-bg);
+        background: inherit;
+        top: -0.375rem;
         left: 1.8rem;
         -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
@@ -20611,6 +20612,8 @@ pre, code, kbd, samp {
         border-width: 1px 0 0 1px;
         border-style: solid;
         border-color: var(--falcon-dropdown-border-color);
+        -webkit-box-shadow: var(--falcon-box-shadow-sm);
+        box-shadow: var(--falcon-box-shadow-sm)
     }
 
     .navbar .dropdown-menu.dropdown-menu-end {
@@ -24574,9 +24577,9 @@ h5, .h5 {
             }
 }
 
-@media(min-width: 0px) { /* consistent navbar behavior */
+@media(min-width: 1200px) {
     .navbar-vertical.navbar-expand-xl {
-        max-width: 15.625rem;
+        max-width: 12.625rem;
         top: 0;
         height: 100vh;
         margin: 0
