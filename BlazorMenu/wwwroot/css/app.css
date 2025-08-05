@@ -353,3 +353,9 @@ X. No Categories
     border-radius: .25rem !important;
 }
 /* #endregion */
+
+/* #region X.6 Responsive "Hidden" Attribute */
+html body *[hidden]:not([hidden="false" i]) {
+    display: none !important;
+}
+/* #endregion */
