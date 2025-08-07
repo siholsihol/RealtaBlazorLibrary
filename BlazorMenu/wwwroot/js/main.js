@@ -314,6 +314,28 @@
                     ? "none"
                     : "block";
             }
+        },
+        toggleMenuOverlay: function (plVisible) {
+            const html = document.querySelector("html");
+            const visibleClassName = "r-menu-overlay-show";
+            const isVisible = html.classList.contains(visibleClassName);
+
+            if (plVisible && !isVisible) {
+                html.classList.add(visibleClassName);
+            }
+
+            if (!plVisible && isVisible) {
+                html.classList.remove(visibleClassName);
+            }
+        }
+    },
+
+    svg: {
+        injectSvgToBody: function (svgContent) {
+            const wrapper = document.createElement("div");
+            wrapper.style.display = "none";
+            wrapper.innerHTML = svgContent;
+            document.body.insertBefore(wrapper, document.body.firstChild);
         }
     }
 }

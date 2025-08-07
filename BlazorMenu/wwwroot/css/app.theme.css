@@ -11,6 +11,9 @@
         margin: 0;
         background-color: var(--falcon-body-bg) !important;
     }
+        .consistent.navbar-vertical.navbar-expand-xl div.nav-link-icon {
+            display: none !important;
+        }
 
         .consistent.navbar-vertical.navbar-expand-xl .nav-link {
             padding: .35rem 0
@@ -53,13 +56,13 @@
                 overflow: auto;
             }
 
+                .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content .navbar-content .navbar-nav .nav .nav-item .nav-link {
+                    padding-left: .5rem !important;
+                }
+
             .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content #navbar-footer {
                 height: fit-content !important;
                 flex: 0 0 auto;
-            }
-
-            .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content:hover #navbar-footer {
-                display: block !important;
             }
 
         .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-toggle {
@@ -108,13 +111,13 @@
     .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl {
         z-index: 1030;
         width: 3.125rem;
-        height: 100vh
+        height: 100vh;
     }
 
         .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse {
             width: 3.125rem !important;
             margin-left: -1rem;
-            overflow: hidden
+            overflow: hidden;
         }
 
         .navbar-vertical-collapsed .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
@@ -173,48 +176,112 @@
                     padding-left: 12.5rem
                 }
 
-    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse, .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .nav.collapse.show, .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .nav-link .badge, .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .settings, .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .nav-link-text {
+
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover).r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover).r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .nav.collapse.show,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover).r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .nav-link .badge,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover).r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .settings,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover).r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .nav-link-text,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover).r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .dropdown-indicator:after,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover).r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl #navbar-footer {
+        display: block !important;
+    }
+
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl .nav.collapse.show,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl .nav-link .badge,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl .settings,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl .nav-link-text,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl .dropdown-indicator:after,
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl #navbar-footer {
         display: none
     }
 
-    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover) .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-divider {
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
+        padding-left: 0.5rem;
+    }
+
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-divider {
         max-width: 2rem
     }
 
-    .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl {
-        width: 15.625rem !important
+    .navbar-vertical-collapsed:not(.navbar-vertical-collapsed-hover):not(.r-menu-overlay-show) .consistent.navbar-vertical.navbar-expand-xl div.nav-link-icon {
+        display: flex !important;
+        background-color: var(--falcon-avatar-button-bg);
+        color: var(--falcon-avatar-button-color);
+        width: 2rem;
+        height: 2rem;
     }
 
-        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse {
-            width: 15.625rem !important
+    .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl,
+    .r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl
+    {
+        width: 13.8rem !important
+    }
+
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse,
+        .r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse {
+            width: 13.8rem !important
         }
 
-        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content {
             width: 14.625rem;
         }
 
-        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse {
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .navbar-collapse {
             -webkit-box-shadow: .625rem 0 .625rem -0.5625rem var(--falcon-navbar-vertical-collapsed-hover-shadow-color);
             box-shadow: .625rem 0 .625rem -0.5625rem var(--falcon-navbar-vertical-collapsed-hover-shadow-color)
         }
 
-        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .dropdown-indicator:after, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .nav-link .badge, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .nav-link-text, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .settings {
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .dropdown-indicator:after,
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .nav-link .badge,
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .nav-link-text,
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .settings,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .dropdown-indicator:after,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .nav-link .badge,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .nav-link-text,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .settings {
             opacity: 1;
             padding-right: 0
         }
 
-        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-label {
-            display: block
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-label,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-label,
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content:hover #navbar-footer,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl .navbar-vertical-content:hover #navbar-footer {
+            display: block !important;
         }
 
-        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-card, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted {
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-card,
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant,
+        .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl.navbar-card,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant,
+        .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted {
             width: 14.625rem
         }
 
-            .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-collapse, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-vertical-content, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-collapse, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-vertical-content, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-collapse, .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-vertical-content {
+            .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-collapse,
+            .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-vertical-content,
+            .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-collapse,
+            .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-vertical-content,
+            .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-collapse,
+            .navbar-vertical-collapsed-hover .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-vertical-content
+            .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-collapse,
+            .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl.navbar-card .navbar-vertical-content,
+            .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-collapse,
+            .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl.navbar-vibrant .navbar-vertical-content,
+            .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-collapse,
+            .navbar-vertical-collapsed.r-menu-overlay-show .consistent.navbar-vertical.navbar-expand-xl.navbar-inverted .navbar-vertical-content {
                 width: 14.625rem !important
             }
 }
+/* #endregion */
+
+/* #region 1.2 Menu Overlay-related changes */
+
 /* #endregion */
 
 /* ==========================================================================

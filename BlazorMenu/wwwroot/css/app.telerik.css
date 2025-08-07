@@ -330,7 +330,7 @@
     .k-input .k-input-inner,
     .k-picker .k-input-inner,
     .k-treeview li > span,
-    .k-listbox li > span,
+    .k-listbox .k-list,
     .k-popup > *:not([role="dialog"]),
     .k-popup .k-calendar,
     .k-popup .k-timeselector {
@@ -386,6 +386,11 @@ input:disabled {
 /* treeview */
 .k-treeview .k-treeview-leaf:hover,
 .k-treeview .k-treeview-leaf.k-hover,
+/* listbox */
+.k-listbox .k-list .k-list-item:hover,
+.k-listbox .k-list .k-list-optionlabel:hover,
+.k-listbox .k-list .k-list-item.k-hover,
+.k-listbox .k-list .k-hover.k-list-optionlabel,
 /* dropdown */
 .k-popup .k-list .k-list-item:hover,
 .k-popup .k-list .k-list-optionlabel:hover,

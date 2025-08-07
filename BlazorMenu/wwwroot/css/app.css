@@ -14,6 +14,7 @@
     --r-radiobutton-checked-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='25' fill='%235e6e82'/%3e%3c/svg%3e");
     /* [Telerik v7.1.0] update CSS fix */
     --kendo-color-on-app-surface: var(--falcon-body-color) !important;
+    --r-menu-overlay-content-icon-color: #aaaaaa !important;
 }
 
 .dark {
@@ -21,6 +22,7 @@
     /* stroke color based on --falcon-body-color */
     --r-checkbox-checked-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%239da9bb' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
     --r-radiobutton-checked-url: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3ccircle cx='50' cy='50' r='25' fill='%239da9bb'/%3e%3c/svg%3e");
+    --r-menu-overlay-content-icon-color: #505050 !important;
 }
 /* #endregion */
 
@@ -68,6 +70,7 @@ body {
 
 /* #region 1.4 Scrollbar */
 *::-webkit-scrollbar {
+    visibility: hidden;
     -webkit-appearance: none;
     width: 6px;
     height: 6px;
@@ -79,14 +82,37 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
+    visibility: hidden;
     border-radius: 3px;
     background-color: var(--falcon-scrollbar-bg);
 }
 
+*:hover::-webkit-scrollbar,
+*:hover::-webkit-scrollbar-thumb,
+*:focus::-webkit-scrollbar,
+*:focus::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
 /* not displaying scrollbar on page so it doesnt break layout */
+html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
     html::-webkit-scrollbar,
     body::-webkit-scrollbar {
         display: none;
+    }
+
+.scroll-hidden {
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+    .scroll-hidden::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
     }
 /* #endregion */
 
@@ -109,17 +135,17 @@ body {
 
 /* #region 2.1 Login Page Base Styling */
 .main {
-  background-image: url(../assets/img/bg-theme.png);
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-attachment: fixed;
+    background-image: url(../assets/img/bg-theme.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-attachment: fixed;
 }
 
 .dark .main {
-  background-image: url(../assets/img/bg-theme-dark.png);
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-attachment: fixed;
+    background-image: url(../assets/img/bg-theme-dark.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-attachment: fixed;
 }
 
 /* #endregion */
@@ -189,6 +215,7 @@ body {
 .xtabs[b-mlpxtvpz0w] {
     background-color: transparent !important;
 }
+
     .xtabs[b-mlpxtvpz0w] .xtabs-header {
         background-color: transparent !important;
         padding: 0 !important;
@@ -290,6 +317,7 @@ body {
 
 /* #region 5.1 Invisible Window */
 .r-window.r-invisible-window {
+    position: fixed !important;  /* always in the same position even when scrolled */
     background: none;
     background-color: transparent;
     border: none;
@@ -298,6 +326,8 @@ body {
     box-shadow: none;
     padding: 0;
     margin: 0;
+    max-height: 100vh;
+    max-width: 100vw;
 }
 /* #endregion */
 
@@ -305,6 +335,7 @@ body {
    6. Captcha
    ========================================================================== */
 
+/* #region 6.1 Captcha*/
 .divCaptcha {
     border-color: var(--falcon-input-border-color) !important;
     background-color: var(--falcon-input-bg) !important;
@@ -313,6 +344,87 @@ body {
     .divCaptcha button.refresh-button {
         color: var(--falcon-input-color) !important;
     }
+/* #endregion */
+
+/* ==========================================================================
+   7. Menu Overlay
+   ========================================================================== */
+
+/* #region 7.1 Menu Overlay Base Styling */
+.r-menu-overlay {
+    padding-bottom: var(--falcon-gutter-x, 1rem) !important;
+    padding-right: var(--falcon-gutter-x, 1rem) !important;
+}
+
+.r-menu-overlay-content {
+    background-color: var(--falcon-card-bg) !important;
+    border-color: var(--falcon-card-border-color) !important;
+    color: var(--falcon-card-color) !important;
+    -webkit-box-shadow: var(--falcon-box-shadow);
+    box-shadow: var(--falcon-box-shadow);
+    border-radius: 10px;
+}
+
+.r-menu-overlay-header {
+    border-color: var(--falcon-card-border-color) !important;
+}
+
+.r-menu-overlay-header-close .k-button.k-icon-button span.k-button-icon.k-svg-icon > svg {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.r-menu-overlay-content-icon {
+    color: var(--r-menu-overlay-content-icon-color);
+}
+
+.r-menu-overlay-content-item {
+    transition: box-shadow .2s ease-in-out;
+    background-color: var(--falcon-100) !important;
+    border-color: var(--falcon-300) !important;
+    gap: 1rem !important;
+}
+
+    .r-menu-overlay-content-item:focus,
+    .r-menu-overlay-content-item:focus-visible,
+    .r-menu-overlay-content-item:focus-within {
+        -webkit-box-shadow: var(--falcon-box-shadow-inset),0 0 0 .25rem rgba(44,123,229,.25);
+        box-shadow: var(--falcon-box-shadow-inset),0 0 0 .25rem rgba(44,123,229,.25)
+    }
+
+    .r-menu-overlay-content-item:hover {
+        -webkit-box-shadow: var(--falcon-box-shadow);
+        box-shadow: var(--falcon-box-shadow);
+    }
+
+.dark .r-menu-overlay-content-item {
+    background-color: var(--falcon-200) !important;
+    border-color: var(--falcon-400) !important;
+}
+
+    .dark .r-menu-overlay-content-item:hover {
+        -webkit-box-shadow: var(--falcon-box-shadow);
+        box-shadow: var(--falcon-box-shadow);
+    }
+
+.r-menu-overlay-breadcrumbs,
+.r-menu-overlay-content-text-title {
+    color: var(--falcon-600) !important;
+}
+
+.r-menu-overlay-content-text-subtitle {
+    color: var(--falcon-500) !important;
+}
+
+.dark .r-menu-overlay-breadcrumbs,
+.dark .r-menu-overlay-content-text-title {
+    color: var(--falcon-700) !important;
+}
+
+.dark .r-menu-overlay-content-text-subtitle {
+    color: var(--falcon-600) !important;
+}
+/* #endregion */
 
 /* ==========================================================================
 X. No Categories

@@ -60,9 +60,13 @@
         <a class="dismiss">🗙</a>
     </div>
     <script>
-        const script = document.createElement('script');
-        script.src = `_framework/blazor.webassembly.js?cb=${Date.now()}`;
-        document.head.appendChild(script);
+        const mainScript = document.createElement('script');
+        mainScript.src = `js/main.js?cb=${Date.now()}`;
+        document.head.appendChild(mainScript);
+
+        const blazorScript = document.createElement('script');
+        blazorScript.src = `_framework/blazor.webassembly.js?cb=${Date.now()}`;
+        document.head.appendChild(blazorScript);
     </script>
 
     <script type="text/javascript">
@@ -97,7 +101,6 @@
     <script src="vendors/fontawesome/all.min.js"></script>
     <script src="vendors/lodash/lodash.min.js"></script>
     <script src="js/theme.js"></script>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
