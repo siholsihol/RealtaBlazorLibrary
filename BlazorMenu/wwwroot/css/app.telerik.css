@@ -370,14 +370,36 @@
 .k-disabled .k-disabled,
 input[disabled],
 input:disabled,
-input.k-disabled {
+input.k-disabled,
+/* Target disabled groupbox inputs */
+.r_groupbox[disabled] input,
+.r_groupbox[disabled] .k-input .k-input-inner {
     background-color: var(--falcon-200) !important;
+    outline: none !important;
+    box-shadow: none !important;
+    opacity: 0.65 !important;
+    filter: grayscale(0.1) !important;
+    cursor: default !important;
+    pointer-events: none !important;
+}
+
+/* Target disabled groupbox input wrappers*/
+.r_groupbox[disabled] .k-input {
+    outline: none !important;
+    box-shadow: none !important;
+    opacity: 0.65 !important;
+    filter: grayscale(0.1) !important;
+    cursor: default !important;
+    pointer-events: none !important;
 }
 
 /* Inputs Only */
 input.k-disabled,
 input[disabled],
-input:disabled {
+input:disabled,
+/* Target disabled groupbox inputs */
+.r_groupbox[disabled] input,
+.r_groupbox[disabled] .k-input .k-input-inner {
     border-color: var(--falcon-input-border-color) !important;
 }
 /* #endregion */

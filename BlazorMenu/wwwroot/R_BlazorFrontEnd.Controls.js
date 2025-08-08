@@ -99,63 +99,39 @@ export function setElementEnabledState(elm, enabled) {
     }
 }
 
-export function setElementEnabledClass(elm, enabled) {
-    let element = getEnabledElement(elm);
-
-    if (element) return;
-    if (enabled) {
-        element.classList.remove('k-disabled');
-    }
-    else {
-        element.classList.add('k-disabled');
-    }
-}
-
 export function setElementTargetable(elm, enabled) {
-    if (elm) return;
+    if (!elm) return;
+
+    const currentTabIndex = elm.getAttribute('tabindex');
+    const oldTabIndexAttr = elm.getAttribute('data-old-tabindex');
+    const oldTabIndex = oldTabIndexAttr !== null ? oldTabIndexAttr : (enabled ? -1 : 0);
 
     if (enabled) {
-        // Restore old tabindex if it was saved
-        if (elm.hasAttribute('data-old-tabindex')) {
-            elm.setAttribute('tabindex', elm.getAttribute('data-old-tabindex'));
-            elm.removeAttribute('data-old-tabindex');
-        } else {
-            elm.removeAttribute('tabindex');
-        }
+        // Already enabled, do nothing
+        if (currentTabIndex != -1) return;
+
+        // Enable: swap values
+        elm.removeAttribute('tabindex');
+        elm.removeAttribute('data-old-tabindex');
+        elm.setAttribute('tabindex', oldTabIndex);
+        elm.setAttribute('data-old-tabindex', -1);
     } else {
-        // Save current tabindex if it's not already saved
-        if (elm.hasAttribute('tabindex') && elm.getAttribute('tabindex') != -1) {
-            elm.setAttribute('data-old-tabindex', elm.getAttribute('tabindex'));
-        }
+        // Already disabled, do nothing
+        if (currentTabIndex == -1) return;
 
-        elm.setAttribute('tabindex', '-1');
+        // Disable: swap values
+        elm.removeAttribute('tabindex');
+        elm.removeAttribute('data-old-tabindex');
+        elm.setAttribute('tabindex', -1);
+        elm.setAttribute('data-old-tabindex', currentTabIndex);
     }
-}
-
-export function getEnabledElement(elm) {
-    const tag = elm.tagName.toLowerCase();
-
-    let returnElement = elm;
-
-    if (tag === 'input' && elm.type !== 'radio' && elm.type !== 'checkbox') {
-        returnElement = elm.closest('.k-input');
-    } else if (tag === 'textarea' && elm.id && elm.id.startsWith('TextArea_')) {
-        returnElement = elm.closest('.k-input');
-    } else {
-        returnElement = elm;
-    }
-
-    return returnElement;
 }
 
 export function changeAllControlStatus(elementId, status) {
-    // Get DIV container to be disabled
-    //const container = document.querySelector(containerClass);
     const container = document.getElementById(elementId);
 
     if (!container) return;
-    // Check if helper class is there
-    //const isDisabled = container.classList.contains('disabled');
+
     setElementEnabledState(container, status)
 
     // Query all fields inside DIV.
@@ -166,16 +142,7 @@ export function changeAllControlStatus(elementId, status) {
     // Else, disabled field
     [...allFields].forEach(elm => {
         // check all parents, not just immediate parents
-        let parent = elm.closest('div[id*="GroupBox_"]');
-        let isFieldDisabled = elm.getAttribute('aria-disabled') === 'true' ? true : false;
-
-        if ([...elm.classList].some(cls => cls.startsWith('k-spinner'))) {
-            const spinInput = elm.closest('span.k-numerictextbox')?.querySelector('input[role="spinbutton"]');
-
-            if (spinInput) {
-                isFieldDisabled = spinInput.getAttribute('aria-disabled') === 'true';
-            }
-        }
+        let parent = elm.closest('div[id^="GroupBox_"]');
 
         let isDisabledByAncestor = false;
 
@@ -184,19 +151,14 @@ export function changeAllControlStatus(elementId, status) {
                 isDisabledByAncestor = true;
                 break;
             }
-            parent = parent.parentElement?.closest('div[id*="GroupBox_"]');
+            parent = parent.parentElement?.closest('div[id^="GroupBox_"]');
         }
 
-        const enabled = status && !isDisabledByAncestor && !isFieldDisabled;
-
         // Final status: only enabled if status == true and no parent disables it
-        setElementTargetable(elm, enabled);
-        setElementEnabledState(elm, enabled);
-        setElementEnabledClass(elm, enabled);
-    });
+        const enabled = status && !isDisabledByAncestor;
 
-    // Toggle helper class
-    //container.classList.toggle('disabled');
+        setElementTargetable(elm, enabled);
+    });
 }
 
 export function setAriaDisabled(elementId, enabled) {
