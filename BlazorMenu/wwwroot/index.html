@@ -39,14 +39,13 @@
 
 <body>
     <div id="app">
-        <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
-            <div class="k-loader-container k-loader-container-md k-loader-end container-size">
-                <div class="k-loader-container-overlay k-overlay-light"></div>
-                <div class="k-loader-container-inner">
-                    <div class="k-loader k-loader-pulsing-2 k-loader-lg k-loader-info">
-                        <div class="k-loader-canvas">
-                            <span class="k-loader-segment"></span>
-                            <span class="k-loader-segment"></span>
+        <div class="k-dialog-wrapper" style="z-index: 10001;">
+            <div class="k-overlay" tabindex="-1"></div>
+            <div class="k-window telerik-blazor k-centered r-window r-invisible-window" dir="ltr" style="z-index: 10001" aria-modal="true" role="dialog" tabindex="0">
+                <div class="k-window-content">
+                    <div class="fade show" style="display:block;" tabindex="-1">
+                        <div class="spinner-border" role="status" style="color: white;">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
                     </div>
                 </div>

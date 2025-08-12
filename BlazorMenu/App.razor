@@ -6,46 +6,60 @@
 @using R_BlazorFrontEnd.Tenant
 
 <R_ErrorHandler>
-<CascadingAuthenticationState>
-    @if (_environment.IsDevelopment)
-    {
-        <R_BasicRouter AppAssembly="@typeof(Program).Assembly"
-                       AdditionalAssemblies="@lazyLoadedAssemblies">
-            <Found Context="routeData">
-                <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-            </Found>
-            <NotFound>
-                <LayoutView Layout="@typeof(MainLayout)">
-                    <p>@(R_FrontUtility.R_GetMessage(typeof(BlazorMenuLocalizer), "_PageNotFound", pcResourceName: "BlazorMenuResources"))</p>
-                </LayoutView>
-            </NotFound>
-        </R_BasicRouter>
-    }
-    else
-    {
-        <R_TenantRouter AppAssembly="@typeof(Program).Assembly"
-                        AdditionalAssemblies="@lazyLoadedAssemblies">
-            <Found Context="routeData">
-                <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-            </Found>
-            <NotFound>
-                <LayoutView Layout="@typeof(MainLayout)">
-                    <p>@(R_FrontUtility.R_GetMessage(typeof(BlazorMenuLocalizer), "_PageNotFound", pcResourceName: "BlazorMenuResources"))</p>
-                </LayoutView>
-            </NotFound>
-            <NoTenant Context="message">
-                <LayoutView Layout="@typeof(NoTenantLayout)">
-                    <p>@message</p>
-                </LayoutView>
-            </NoTenant>
-            <ApiError Context="message">
-                <LayoutView Layout="@typeof(NoTenantLayout)">
-                    <p>@message</p>
-                </LayoutView>
-            </ApiError>
-        </R_TenantRouter>
-    }
-</CascadingAuthenticationState>
+    <CascadingAuthenticationState>
+        @if (_environment.IsDevelopment)
+        {
+            <R_BasicRouter AppAssembly="@typeof(Program).Assembly"
+                           AdditionalAssemblies="@lazyLoadedAssemblies">
+                <Found Context="routeData">
+                    <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+                </Found>
+                <NotFound>
+                    <LayoutView Layout="@typeof(ErrorLayout)">
+                        <_404 Message="" />
+                    </LayoutView>
+                </NotFound>
+            </R_BasicRouter>
+        }
+        else
+        {
+            <R_TenantRouter AppAssembly="@typeof(Program).Assembly"
+                            AdditionalAssemblies="@lazyLoadedAssemblies">
+                <Found Context="routeData">
+                    <MenuTabsRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+                </Found>
+                <NotFound>
+                    <LayoutView Layout="@typeof(ErrorLayout)">
+                        <_404 Message="" />
+                    </LayoutView>
+                </NotFound>
+                <NoTenant Context="message">
+                    <LayoutView Layout="@typeof(ErrorLayout)">
+                        <_404 Message="@message" />
+                    </LayoutView>
+                </NoTenant>
+                <ApiError Context="httpResponse">
+                    <LayoutView Layout="@typeof(ErrorLayout)">
+                        <_500 Message="@httpResponse.ReasonPhrase" />
+                    </LayoutView>
+                </ApiError>
+                <Navigating>
+                    <div class="k-dialog-wrapper" style="z-index: 10001;">
+                        <div class="k-overlay" tabindex="-1"></div>
+                        <div class="k-window telerik-blazor k-centered r-window r-invisible-window" dir="ltr" style="z-index: 10001" aria-modal="true" role="dialog" tabindex="0">
+                            <div class="k-window-content">
+                                <div class="fade show" style="display:block;" tabindex="-1">
+                                    <div class="spinner-border" role="status" style="color: white;">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Navigating>
+            </R_TenantRouter>
+        }
+    </CascadingAuthenticationState>
 </R_ErrorHandler>
 
 @code {
