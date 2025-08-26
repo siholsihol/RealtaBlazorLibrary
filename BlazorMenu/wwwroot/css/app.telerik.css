@@ -109,12 +109,9 @@
         background-color: var(--falcon-input-bg) !important;
     }
 
-        .k-editor .k-content p {
-            color: var(--falcon-800);
-        }
-
     .k-editor.k-disabled .k-content {
         background-color: var(--falcon-200) !important;
+        pointer-events: auto !important; /* scrollable on disabled content */
     }
 
     .k-editor .k-button-solid-base {

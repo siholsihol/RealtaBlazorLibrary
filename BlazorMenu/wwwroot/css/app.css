@@ -427,13 +427,37 @@ html, body {
 /* #endregion */
 
 /* ==========================================================================
-X. No Categories
-========================================================================== */
+   8. RTF Viewer
+   ========================================================================== */
 
-/* #region X.1 Navbar Vertical Icon Styling*/
+.r-rtf-viewer-action {
+    background-color: var(--falcon-input-bg) !important;
+    border-color: var(--falcon-input-border-color) !important;
+    border-radius: var(--kendo-border-radius-md) !important;
+}
+
+/* ==========================================================================
+   X. No Categories
+   ========================================================================== */
+
+/* #region X.1 Default Icon Styling*/
 .r-nav-custom-icon {
     width: 1em;
     height: 1em;
+}
+
+.r-button.r-button-icon {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important
+}
+
+.r-icon {
+    display: flex;
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: 0.2em 0.6em;
 }
 /* #endregion*/
 
