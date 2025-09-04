@@ -109,6 +109,10 @@
         background-color: var(--falcon-input-bg) !important;
     }
 
+        .k-editor .k-content * {
+            color: var(--falcon-input-color); /* default color if there's no "color" inline properties*/
+        }
+
     .k-editor.k-disabled .k-content {
         background-color: var(--falcon-200) !important;
         pointer-events: auto !important; /* scrollable on disabled content */
