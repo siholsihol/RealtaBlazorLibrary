@@ -15,6 +15,11 @@
         },
         "runtime": {
           "R_SecurityPolicyBack.dll": {}
+        },
+        "resources": {
+          "id/R_SecurityPolicyBack.resources.dll": {
+            "locale": "id"
+          }
         }
       },
       "BackExtension/1.0.0": {

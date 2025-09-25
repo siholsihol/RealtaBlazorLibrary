@@ -15,6 +15,11 @@
         },
         "runtime": {
           "R_SecurityTokenBack.dll": {}
+        },
+        "resources": {
+          "id/R_SecurityTokenBack.resources.dll": {
+            "locale": "id"
+          }
         }
       },
       "BackExtension/1.0.0": {

@@ -46,6 +46,11 @@
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
+        },
+        "resources": {
+          "id/BlazorMenuBack.resources.dll": {
+            "locale": "id"
+          }
         }
       },
       "BlazorMenuCommon/1.0.0": {
@@ -78,6 +83,11 @@
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
+        },
+        "resources": {
+          "id/R_SecurityPolicyBack.resources.dll": {
+            "locale": "id"
+          }
         }
       },
       "R_SecurityPolicyCommon/1.0.0": {
@@ -97,6 +107,11 @@
           "R_SecurityTokenBack.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        },
+        "resources": {
+          "id/R_SecurityTokenBack.resources.dll": {
+            "locale": "id"
           }
         }
       },
