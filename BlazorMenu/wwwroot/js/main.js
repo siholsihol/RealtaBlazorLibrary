@@ -327,8 +327,53 @@
             if (!plVisible && isVisible) {
                 html.classList.remove(visibleClassName);
             }
+        },
+    },
+
+    swapy: {
+        initSwapy: function (pcElementId) {
+            try
+            {
+                const container = document.getElementById(pcElementId);
+
+                if (container._swapyInstance) {
+                    disposeSwapy(pcElementId);
+                }
+
+                container._swapyInstance = Swapy.createSwapy(container, { swapMode: "drop", animation: "spring" });
+
+                container._swapyInstance.enable(true);
+            } catch (err) {
+            }
+        },
+
+        disposeSwapy: function (pcElementId) {
+            try {
+                const container = document.getElementById(pcElementId);
+
+                if (container && container._swapyInstance) {
+                    container._swapyInstance.destroy();
+                    container._swapyInstance = null;
+                }
+            } catch (err) {
+            }
+        },
+
+        getSwapyData: function (pcElementId) {
+            try {
+                const container = document.getElementById(pcElementId);
+
+                if (!container) return [];
+
+                const slotItemMap = container._swapyInstance.slotItemMap();
+
+                return slotItemMap.asArray;
+            } catch (err) {
+                return [];
+            }
         }
     },
+
 
     svg: {
         injectSvgToBody: function (svgContent) {
