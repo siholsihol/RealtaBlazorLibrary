@@ -169,9 +169,12 @@ export function setAriaDisabled(elementId, enabled) {
 export function addValidationMessage(inputWrapperId, iconId) {
     const container = document.getElementById(inputWrapperId);
     if (!container) return;
-    container.className = 'r-input-invalid';
+    container.classList.add('r-input-invalid');
 
-    const target = container.querySelector("span.k-input");
+    const icon = container.querySelector(`#${iconId}`);
+    if (icon) return;
+
+    const target = container.querySelector(".telerik-blazor.k-input, .telerik-blazor.k-picker");
 
     if (target) {
         const div = document.createElement('div');
@@ -182,10 +185,27 @@ export function addValidationMessage(inputWrapperId, iconId) {
     }
 }
 
+export function addValidationMessageToContainer(containerId, iconId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.classList.add('r-target-invalid');
+
+    const icon = container.querySelector(`#${iconId}`);
+    if (icon) return;
+
+    if (container) {
+        const div = document.createElement('div');
+        div.id = iconId;
+        div.className = 'r-icon-container';
+        div.innerHTML = '<div class="r-icon"><i class="fas fa-exclamation-circle text-danger"></i></div>';
+        container.appendChild(div, container.lastChild);
+    }
+}
+
 export function removeValidationMessage(inputWrapperId, iconId) {
     const container = document.getElementById(inputWrapperId);
     if (!container) return;
-    container.className = '';
+    container.classList.remove('r-input-invalid');
 
     const target = container.querySelector(`#${iconId}`);
 
@@ -194,6 +214,17 @@ export function removeValidationMessage(inputWrapperId, iconId) {
     }
 }
 
+export function removeValidationMessageFromContainer(containerId, iconId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.classList.remove('r-target-invalid');
+
+    const icon = container.querySelector(`#${iconId}`);
+
+    if (icon) {
+        container.removeChild(icon);
+    }
+}
 
 export function adjustCustomPagerVisibility(gridId) {
     const grid = document.getElementById(gridId);

@@ -280,14 +280,9 @@
 }
 /* #endregion */
 
-/* #region 1.2 Menu Overlay-related changes */
-
-/* #endregion */
-
 /* ==========================================================================
    2. Notification
    ========================================================================== */
-
 /* #region 2.1 Notification styling on Dark Mode */
 .dark .notification {
     --falcon-notification-bg: #232e3c;
@@ -335,3 +330,11 @@ ul.nav-tabs .nav-item .nav-link {
         height: 8px !important;
     }
 /* #endregion */
+
+/* ==========================================================================
+   4. Theme Toggle
+   ========================================================================== */
+.theme-control-toggle .theme-control-toggle-label {
+    width: 2rem !important;
+    height: 2rem !important;
+}

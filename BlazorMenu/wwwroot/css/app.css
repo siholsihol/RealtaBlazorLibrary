@@ -15,6 +15,7 @@
     /* [Telerik v7.1.0] update CSS fix */
     --kendo-color-on-app-surface: var(--falcon-body-color) !important;
     --r-menu-overlay-content-icon-color: #aaaaaa !important;
+    --r-default-border-radius: var(--kendo-border-radius-md) !important;
 }
 
 .dark {
@@ -485,8 +486,26 @@ html, body {
 .r-rtf-viewer-action {
     background-color: var(--falcon-input-bg) !important;
     border-color: var(--falcon-input-border-color) !important;
-    border-radius: var(--kendo-border-radius-md) !important;
+    border-radius: var(--r-default-border-radius) !important;
 }
+
+/* ==========================================================================
+   9. Dropzone
+   ========================================================================== */
+
+.r-dropzone-wrapper {
+    /* Colors */
+    --r-dropzone-border-color: var(--falcon-input-border-color);
+    --r-dropzone-border-color-hover: var(--falcon-btn-falcon-primary-active-color);
+    --r-dropzone-bg: var(--falcon-input-bg);
+    --r-dropzone-bg-hover: var(--falcon-200);
+    --r-dropzone-text-color: var(--falcon-input-color);
+    --r-dropzone-file-name-color: var(--falcon-900);
+    --r-dropzone-file-size-color: var(--falcon-600);
+    --r-dropzone-btn-danger: var(--falcon-btn-falcon-danger-color);
+    --r-dropzone-btn-danger-hover: var(--falcon-btn-falcon-danger-hover-color);
+}
+
 
 /* ==========================================================================
    X. No Categories
@@ -529,9 +548,20 @@ html, body {
 /* #endregion*/
 
 /* #region X.4 Validation Message (R_BlazorFrontEnd.Controls R_ValidationError) */
-.r-input-invalid span.k-input {
+.r-input-invalid {
     border-color: var(--falcon-danger) !important;
 }
+
+.r-target-invalid {
+    position: relative;
+}
+
+    .r-target-invalid .r-icon-container {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        height: 1.9rem !important;
+    }
 /* #endregion*/
 
 /* #region X.5 Preserved input styling in blazor menu component that originally use bootstrap: "form-control" class */

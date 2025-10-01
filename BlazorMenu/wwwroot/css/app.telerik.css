@@ -5,15 +5,15 @@
 
 /* #region 1.1 Button Base Styling */
 .k-button {
-    padding: 0.25rem .7rem !important;
+    padding: 0.25rem 0.7rem !important;
     font-size: var(--r-default-font-size) !important;
-    line-height: 1.2 !important;
+    line-height: 1.5 !important;
     font-family: var(--falcon-font-sans-serif) !important;
 }
 
     .k-button:disabled,
     .k-button.k-disabled {
-        opacity: .3 !important;
+        opacity: 0.3 !important;
         cursor: not-allowed !important;
     }
 
@@ -82,6 +82,12 @@
     box-shadow: 0 0 0 0.25rem rgba(var(--falcon-btn-falcon-default-active-background-rgb), 0.5) !important;
 }
 /* #endregion*/
+
+/* #region 1.3 Styling button in Grid */
+td .k-button {
+    line-height: 1.3 !important;
+}
+/* #endregion */
 
 /* ==========================================================================
    2. Editor
@@ -327,6 +333,7 @@
 }
 
     /* Input & Popup (Except dialog) */
+    li > input,
     span > input,
     .k-input .k-input-inner,
     .k-picker .k-input-inner,
@@ -365,6 +372,11 @@
 /* #endregion */
 
 /* #region 6.3 Disabled Base Style */
+/* Wrapper*/
+.k-disabled, .k-widget[disabled], .k-disabled {
+    opacity: 1 !important;
+}
+
 /* All Components */
 .k-disabled [disabled],
 .k-disabled :disabled,
@@ -372,6 +384,10 @@
 input[disabled],
 input:disabled,
 input.k-disabled,
+/* Target input inner that's not disabled for example in dropdown*/
+.k-picker[disabled] .k-input-inner,
+.k-picker:disabled .k-input-inner,
+.k-picker.k-disabled .k-input-inner,
 /* Target disabled groupbox inputs */
 .r_groupbox[disabled] input,
 .r_groupbox[disabled] .k-input .k-input-inner {
@@ -379,7 +395,6 @@ input.k-disabled,
     outline: none !important;
     box-shadow: none !important;
     opacity: 0.65 !important;
-    filter: grayscale(0.1) !important;
     cursor: default !important;
     pointer-events: none !important;
 }
@@ -389,7 +404,6 @@ input.k-disabled,
     outline: none !important;
     box-shadow: none !important;
     opacity: 0.65 !important;
-    filter: grayscale(0.1) !important;
     cursor: default !important;
     pointer-events: none !important;
 }
@@ -460,6 +474,55 @@ input:disabled,
 }
 /* #endregion */
 
+/* #region 6.7 ComboBox Multiselect */
+.k-multiselect .k-input-values {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, max-content);
+}
+
+    .k-multiselect .k-input-values > .k-chip-list {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        /* hide scrollbar */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE & Edge */
+        transition: max-width 0.2s ease;
+    }
+
+        .k-multiselect .k-input-values > .k-chip-list::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+    .k-multiselect .k-input-values > .k-input-inner {
+        min-width: 40px;
+        order: -1;
+        transition: min-width 0.2s ease;
+    }
+
+.k-multiselect.k-disabled .k-input-values > .k-chip-list {
+    max-width: 100%;
+}
+
+    .k-multiselect.k-disabled .k-input-values > .k-input-inner {
+        opacity: 0 !important;
+        min-width: 0 !important;
+        padding: 0.1rem 0 !important;
+    }
+
+.k-chip-list .k-chip {
+    background-color: var(--falcon-200);
+    border: 0;
+    color: var(--falcon-card-color);
+    font-size: 0.8rem;
+    padding: 0.15rem 0.3rem;
+    overflow: hidden;
+}
+/* #endregion */
+
 /* ==========================================================================
    7. Tooltip
    ========================================================================== */
@@ -493,12 +556,14 @@ input:disabled,
 .k-disabled:focus, .k-disabled.k-focus,
 [disabled]:focus, [disabled].k-focus,
 :disabled:focus, :disabled.k-focus {
+    -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
 
 .k-disabled:focus-within,
 [disabled]:focus-within,
 :disabled:focus-within {
+    -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
 /* #endregion */
