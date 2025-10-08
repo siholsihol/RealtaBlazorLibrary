@@ -5,8 +5,8 @@
 @using R_BlazorFrontEnd.Helpers
 @using R_BlazorFrontEnd.Tenant
 
-<R_ErrorHandler>
-    <CascadingAuthenticationState>
+<CascadingAuthenticationState>
+    <R_ErrorHandler>
         @if (_environment.IsDevelopment)
         {
             <R_BasicRouter AppAssembly="@typeof(Program).Assembly"
@@ -59,8 +59,8 @@
                 </Navigating>
             </R_TenantRouter>
         }
-    </CascadingAuthenticationState>
-</R_ErrorHandler>
+    </R_ErrorHandler>
+</CascadingAuthenticationState>
 
 @code {
     [Inject] private R_IEnvironment _environment { get; set; } = default!;
