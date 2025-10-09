@@ -394,7 +394,7 @@ input.k-disabled,
     background-color: var(--falcon-200) !important;
     outline: none !important;
     box-shadow: none !important;
-    opacity: 0.65 !important;
+    opacity: 0.90 !important;
     cursor: default !important;
     pointer-events: none !important;
 }
@@ -403,7 +403,7 @@ input.k-disabled,
 .r_groupbox[disabled] .k-input {
     outline: none !important;
     box-shadow: none !important;
-    opacity: 0.65 !important;
+    opacity: 0.90 !important;
     cursor: default !important;
     pointer-events: none !important;
 }
