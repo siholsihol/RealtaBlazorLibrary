@@ -1095,7 +1095,7 @@
         },
         "runtime": {
           "R_APIBackEnd.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         },
@@ -1120,7 +1120,7 @@
         },
         "runtime": {
           "R_APICommon.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1128,7 +1128,7 @@
       "R_APICommonDTO/1.0.0": {
         "runtime": {
           "R_APICommonDTO.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1136,7 +1136,7 @@
       "R_AuthorizationBack.Abstract/1.0.0": {
         "runtime": {
           "R_AuthorizationBack.Abstract.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1153,7 +1153,7 @@
         },
         "runtime": {
           "R_CommonFrontBackAPI.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1165,7 +1165,7 @@
         },
         "runtime": {
           "R_ContextBackEnd.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1173,7 +1173,7 @@
       "R_ContextEnumAndInterface/1.0.0": {
         "runtime": {
           "R_ContextEnumAndInterface.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1184,7 +1184,7 @@
         },
         "runtime": {
           "R_EmailEngineCommon.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1197,7 +1197,7 @@
         },
         "runtime": {
           "R_MultiTenantDb.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1205,7 +1205,7 @@
       "R_MultiTenantDb.Abstract/1.0.0": {
         "runtime": {
           "R_MultiTenantDb.Abstract.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1216,7 +1216,7 @@
         },
         "runtime": {
           "R_Security.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
