@@ -29,10 +29,7 @@
       "System.ComponentModel.Annotations/4.5.0": {},
       "BackExtension/1.0.0": {
         "runtime": {
-          "BackExtension.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BackExtension.dll": {}
         }
       },
       "BlazorMenuCommon/1.0.0": {
@@ -41,10 +38,7 @@
           "System.ComponentModel.Annotations": "4.5.0"
         },
         "runtime": {
-          "BlazorMenuCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BlazorMenuCommon.dll": {}
         }
       },
       "R_SecurityPolicyBack/1.0.0": {
@@ -53,10 +47,7 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyBack.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityPolicyBack.dll": {}
         },
         "resources": {
           "id/R_SecurityPolicyBack.resources.dll": {
@@ -66,10 +57,7 @@
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityPolicyCommon.dll": {}
         }
       },
       "R_APIBackEnd/1.0.0.0": {
@@ -112,17 +100,17 @@
           }
         }
       },
-      "R_CommonFrontBackAPI/1.0.0.0": {
+      "R_APICommonDTO/1.0.0.0": {
         "runtime": {
-          "R_CommonFrontBackAPI.dll": {
+          "R_APICommonDTO.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
-      "R_APICommonDTO/1.0.0.0": {
+      "R_CommonFrontBackAPI/1.0.0.0": {
         "runtime": {
-          "R_APICommonDTO.dll": {
+          "R_CommonFrontBackAPI.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -215,12 +203,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_CommonFrontBackAPI/1.0.0.0": {
+    "R_APICommonDTO/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "R_APICommonDTO/1.0.0.0": {
+    "R_CommonFrontBackAPI/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

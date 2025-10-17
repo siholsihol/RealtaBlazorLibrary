@@ -28,10 +28,7 @@
       "System.ComponentModel.Annotations/4.5.0": {},
       "BackExtension/1.0.0": {
         "runtime": {
-          "BackExtension.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BackExtension.dll": {}
         }
       },
       "BlazorMenuBack/1.0.0": {
@@ -42,10 +39,7 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "BlazorMenuBack.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BlazorMenuBack.dll": {}
         },
         "resources": {
           "id/BlazorMenuBack.resources.dll": {
@@ -59,18 +53,12 @@
           "System.ComponentModel.Annotations": "4.5.0"
         },
         "runtime": {
-          "BlazorMenuCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BlazorMenuCommon.dll": {}
         }
       },
       "R_BlazorCommon/1.0.0": {
         "runtime": {
-          "R_BlazorCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_BlazorCommon.dll": {}
         }
       },
       "R_SecurityPolicyBack/1.0.0": {
@@ -79,10 +67,7 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyBack.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityPolicyBack.dll": {}
         },
         "resources": {
           "id/R_SecurityPolicyBack.resources.dll": {
@@ -92,10 +77,7 @@
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityPolicyCommon.dll": {}
         }
       },
       "R_SecurityTokenBack/1.0.0": {
@@ -104,10 +86,7 @@
           "R_SecurityTokenCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityTokenBack.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityTokenBack.dll": {}
         },
         "resources": {
           "id/R_SecurityTokenBack.resources.dll": {
@@ -117,10 +96,7 @@
       },
       "R_SecurityTokenCommon/1.0.0": {
         "runtime": {
-          "R_SecurityTokenCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityTokenCommon.dll": {}
         }
       },
       "SAM01500Back/1.0.0": {
@@ -129,18 +105,12 @@
           "SAM01500Common": "1.0.0"
         },
         "runtime": {
-          "SAM01500Back.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "SAM01500Back.dll": {}
         }
       },
       "SAM01500Common/1.0.0": {
         "runtime": {
-          "SAM01500Common.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "SAM01500Common.dll": {}
         }
       },
       "R_APIBackEnd/1.0.0.0": {

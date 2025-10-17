@@ -42,10 +42,7 @@
           "System.ComponentModel.Annotations": "4.5.0"
         },
         "runtime": {
-          "BlazorMenuCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BlazorMenuCommon.dll": {}
         }
       },
       "R_BlazorFrontEnd/1.0.0": {
@@ -53,18 +50,12 @@
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "R_BlazorFrontEnd.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_BlazorFrontEnd.dll": {}
         }
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityPolicyCommon.dll": {}
         }
       },
       "R_SecurityPolicyModel/1.0.0": {
@@ -73,10 +64,7 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyModel.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityPolicyModel.dll": {}
         }
       },
       "R_APIClient/1.0.0.0": {
@@ -95,17 +83,17 @@
           }
         }
       },
-      "R_CommonFrontBackAPI/1.0.0.0": {
+      "R_ContextFrontEnd/1.0.0.0": {
         "runtime": {
-          "R_CommonFrontBackAPI.dll": {
+          "R_ContextFrontEnd.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
-      "R_ContextFrontEnd/1.0.0.0": {
+      "R_CommonFrontBackAPI/1.0.0.0": {
         "runtime": {
-          "R_ContextFrontEnd.dll": {
+          "R_CommonFrontBackAPI.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -179,12 +167,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "R_CommonFrontBackAPI/1.0.0.0": {
+    "R_ContextFrontEnd/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "R_ContextFrontEnd/1.0.0.0": {
+    "R_CommonFrontBackAPI/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

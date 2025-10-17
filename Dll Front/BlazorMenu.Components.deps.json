@@ -1389,10 +1389,7 @@
           "R_BlazorFrontEnd": "1.0.0"
         },
         "runtime": {
-          "BlazorClientHelper.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BlazorClientHelper.dll": {}
         }
       },
       "BlazorMenuCommon/1.0.0": {
@@ -1401,10 +1398,7 @@
           "System.ComponentModel.Annotations": "4.5.0"
         },
         "runtime": {
-          "BlazorMenuCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BlazorMenuCommon.dll": {}
         }
       },
       "BlazorMenuModel/1.0.0": {
@@ -1415,18 +1409,12 @@
           "System.ComponentModel.Annotations": "4.5.0"
         },
         "runtime": {
-          "BlazorMenuModel.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BlazorMenuModel.dll": {}
         }
       },
       "R_BlazorCommon/1.0.0": {
         "runtime": {
-          "R_BlazorCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_BlazorCommon.dll": {}
         }
       },
       "R_BlazorFrontEnd/1.0.0": {
@@ -1434,10 +1422,7 @@
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "R_BlazorFrontEnd.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_BlazorFrontEnd.dll": {}
         }
       },
       "R_BlazorFrontEnd.Controls/1.0.0": {
@@ -1452,10 +1437,7 @@
           "Telerik.UI.for.Blazor": "8.1.1"
         },
         "runtime": {
-          "R_BlazorFrontEnd.Controls.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_BlazorFrontEnd.Controls.dll": {}
         },
         "resources": {
           "id/R_BlazorFrontEnd.Controls.resources.dll": {
@@ -1472,10 +1454,7 @@
           "SkiaSharp.Views.Blazor": "2.88.9"
         },
         "runtime": {
-          "R_BlazorFrontEnd.Controls.Captcha.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_BlazorFrontEnd.Controls.Captcha.dll": {}
         }
       },
       "R_BlazorFrontEnd.Tenant/1.0.0": {
@@ -1489,18 +1468,12 @@
           "R_BlazorFrontEnd": "1.0.0"
         },
         "runtime": {
-          "R_BlazorFrontEnd.Tenant.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_BlazorFrontEnd.Tenant.dll": {}
         }
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityPolicyCommon.dll": {}
         }
       },
       "R_SecurityPolicyModel/1.0.0": {
@@ -1509,10 +1482,7 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyModel.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityPolicyModel.dll": {}
         }
       },
       "R_APICommonDTO/1.0.0.0": {
