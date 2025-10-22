@@ -17,13 +17,13 @@
           "Microsoft.AspNetCore.Components.WebAssembly": "6.0.36",
           "Microsoft.AspNetCore.SignalR.Client": "6.0.36",
           "Microsoft.Authentication.WebAssembly.Msal": "6.0.36",
+          "Newtonsoft.Json": "13.0.1",
           "R_BlazorCommon": "1.0.0",
           "R_BlazorFrontEnd": "1.0.0",
           "R_BlazorFrontEnd.Controls": "1.0.0",
           "R_BlazorFrontEnd.Controls.Captcha": "1.0.0",
           "R_BlazorFrontEnd.Tenant": "1.0.0",
           "R_SecurityPolicyModel": "1.0.0",
-          "System.Text.Json": "8.0.6",
           "Telerik.Documents.Flow.FormatProviders.Pdf": "2025.1.205",
           "Telerik.UI.for.Blazor": "8.1.1",
           "Toolbelt.Blazor.HttpClientInterceptor": "10.2.0",
@@ -278,7 +278,7 @@
       "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Extensions.AI.Abstractions/9.1.0-preview.1.25064.3": {
         "dependencies": {
-          "System.Text.Json": "8.0.6"
+          "System.Text.Json": "8.0.5"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.AI.Abstractions.dll": {
@@ -342,7 +342,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.1",
           "Microsoft.Extensions.Configuration.FileExtensions": "6.0.1",
           "Microsoft.Extensions.FileProviders.Abstractions": "6.0.1",
-          "System.Text.Json": "8.0.6"
+          "System.Text.Json": "8.0.5"
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.Extensions.Configuration.Json.dll": {
@@ -1132,7 +1132,7 @@
           }
         }
       },
-      "System.Text.Json/8.0.6": {
+      "System.Text.Json/8.0.5": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
           "System.Text.Encodings.Web": "8.0.0"
@@ -1140,7 +1140,7 @@
         "runtime": {
           "lib/net6.0/System.Text.Json.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.1825.31117"
+            "fileVersion": "8.0.1024.46610"
           }
         }
       },
@@ -1172,7 +1172,7 @@
           "System.Private.Uri": "4.3.2",
           "System.Runtime.Loader": "4.3.0",
           "System.Text.Encodings.Web": "8.0.0",
-          "System.Text.Json": "8.0.6",
+          "System.Text.Json": "8.0.5",
           "System.Text.RegularExpressions": "4.3.1"
         },
         "runtime": {
@@ -1419,7 +1419,7 @@
       },
       "R_BlazorFrontEnd/1.0.0": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.1"
+          "System.Text.Json": "8.0.5"
         },
         "runtime": {
           "R_BlazorFrontEnd.dll": {}
@@ -1432,7 +1432,6 @@
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.1",
           "Microsoft.Extensions.Configuration.Binder": "6.0.1",
           "Microsoft.Extensions.Http": "6.0.1",
-          "Newtonsoft.Json": "13.0.1",
           "R_BlazorFrontEnd": "1.0.0",
           "Telerik.UI.for.Blazor": "8.1.1"
         },
@@ -2347,12 +2346,12 @@
       "path": "system.text.encodings.web/8.0.0",
       "hashPath": "system.text.encodings.web.8.0.0.nupkg.sha512"
     },
-    "System.Text.Json/8.0.6": {
+    "System.Text.Json/8.0.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BvSpVBsVN9b+Y+wONbvJOHd1HjXQf33+XiC28ZMOwRsYb42mz3Q8YHnpTSwpwJLqYCMqM+0UUVC3V+pi25XfkQ==",
-      "path": "system.text.json/8.0.6",
-      "hashPath": "system.text.json.8.0.6.nupkg.sha512"
+      "sha512": "sha512-0f1B50Ss7rqxXiaBJyzUu9bWFOO2/zSlifZ/UNMdiIpDYe4cY4LQQicP4nirK1OS31I43rn062UIJ1Q9bpmHpg==",
+      "path": "system.text.json/8.0.5",
+      "hashPath": "system.text.json.8.0.5.nupkg.sha512"
     },
     "System.Text.RegularExpressions/4.3.1": {
       "type": "package",

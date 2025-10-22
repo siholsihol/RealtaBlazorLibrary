@@ -12,7 +12,6 @@
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.1",
           "Microsoft.Extensions.Configuration.Binder": "6.0.1",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
-          "Newtonsoft.Json": "13.0.1",
           "R_APICommonDTO": "1.0.0",
           "R_ContextEnumAndInterface": "1.0.0",
           "System.Text.Encoding.CodePages": "6.0.0"
@@ -64,14 +63,6 @@
           "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.3624.51421"
-          }
-        }
-      },
-      "Newtonsoft.Json/13.0.1": {
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.1.25517"
           }
         }
       },
@@ -175,13 +166,6 @@
       "sha512": "sha512-zyJfttJduuQbGEsd/TgerUEdgzHgUn/6oFgeaE04DKUMs7bbzckV7Ci1QZxf/VyQAlG41gR/GjecEScuYoHCUg==",
       "path": "microsoft.extensions.primitives/6.0.1",
       "hashPath": "microsoft.extensions.primitives.6.0.1.nupkg.sha512"
-    },
-    "Newtonsoft.Json/13.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
-      "path": "newtonsoft.json/13.0.1",
-      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",
