@@ -1424,6 +1424,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.1",
           "Microsoft.Extensions.Configuration.Binder": "6.0.1",
           "Microsoft.Extensions.Http": "6.0.1",
+          "R_BlazorCommon": "1.0.0",
           "R_BlazorFrontEnd": "1.0.0",
           "Telerik.UI.for.Blazor": "8.1.1"
         },
