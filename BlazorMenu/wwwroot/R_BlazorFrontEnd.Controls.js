@@ -12,6 +12,18 @@ export function selectText(tbId) {
     }
 }
 
+export function unselectText() {
+    const selection = window.getSelection();
+    if (selection) {
+        selection.removeAllRanges();
+    }
+
+    // Also clear active selection in inputs/textareas if any
+    if (document.activeElement && typeof document.activeElement.blur === "function") {
+        document.activeElement.blur();
+    }
+}
+
 export async function downloadFileFromStream(fileName, contentStreamReference) {
     try {
         const arrayBuffer = await contentStreamReference.arrayBuffer();

@@ -13,6 +13,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.1",
           "Microsoft.Extensions.Configuration.Binder": "6.0.1",
           "Microsoft.Extensions.Http": "6.0.1",
+          "R_BlazorCommon": "1.0.0",
           "R_BlazorFrontEnd": "1.0.0",
           "Telerik.UI.for.Blazor": "8.1.1",
           "R_APICommonDTO": "1.0.0.0"
@@ -958,6 +959,11 @@
           }
         }
       },
+      "R_BlazorCommon/1.0.0": {
+        "runtime": {
+          "R_BlazorCommon.dll": {}
+        }
+      },
       "R_BlazorFrontEnd/1.0.0": {
         "dependencies": {
           "System.Text.Json": "8.0.5"
@@ -1726,6 +1732,11 @@
       "sha512": "sha512-ICIaJYGk+3s1TcXrkCJR/IwZP//3szkfkM+OSgbI+Xz6s2h4LwmskN+nyy3aLvqfNGVwFN6l/a31srse5XykmQ==",
       "path": "telerik.zip/2025.1.205",
       "hashPath": "telerik.zip.2025.1.205.nupkg.sha512"
+    },
+    "R_BlazorCommon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "R_BlazorFrontEnd/1.0.0": {
       "type": "project",

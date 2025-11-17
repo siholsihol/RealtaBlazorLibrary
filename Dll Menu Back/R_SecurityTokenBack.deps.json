@@ -24,18 +24,12 @@
       },
       "BackExtension/1.0.0": {
         "runtime": {
-          "BackExtension.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BackExtension.dll": {}
         }
       },
       "R_SecurityTokenCommon/1.0.0": {
         "runtime": {
-          "R_SecurityTokenCommon.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "R_SecurityTokenCommon.dll": {}
         }
       },
       "R_APIBackEnd/1.0.0.0": {
