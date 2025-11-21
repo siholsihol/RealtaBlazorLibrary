@@ -6,7 +6,7 @@
 @using R_BlazorFrontEnd.Tenant
 
 <CascadingAuthenticationState>
-    <R_ErrorHandler>
+    <R_ErrorHandler FallbackErrorLayout="@typeof(FallbackError)">
         @if (_environment.IsDevelopment)
         {
             <R_BasicRouter AppAssembly="@typeof(Program).Assembly"
@@ -68,6 +68,6 @@
     private List<Assembly> lazyLoadedAssemblies = new()
     {
         typeof(BlazorMenu.Components.Pages.Content.Home).Assembly,
-        // typeof(SAM01200Front.SAM01200).Assembly,
+        // typeof(SAM01000Front.SAM01000).Assembly,
     };
 }

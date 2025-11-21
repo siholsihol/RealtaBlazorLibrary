@@ -318,7 +318,7 @@ html, body {
 
 /* #region 5.1 Invisible Window */
 .r-window.r-invisible-window {
-    position: fixed !important;  /* always in the same position even when scrolled */
+    position: fixed !important; /* always in the same position even when scrolled */
     background: none;
     background-color: transparent;
     border: none;
@@ -506,6 +506,56 @@ html, body {
     --r-dropzone-btn-danger-hover: var(--falcon-btn-falcon-danger-hover-color);
 }
 
+
+/* ==========================================================================
+   10. Background Color Override
+   ========================================================================== */
+
+/* Base is not used, each components has it's own base styling */
+/*.r-bg-base.r-bg-base.r-bg-base.r-bg-base {
+    background-color: var(--falcon-input-bg) !important;
+    color: var(--falcon-input-color) !important;
+}*/
+
+.r-bg-primary.r-bg-primary.r-bg-primary.r-bg-primary {
+    background-color: var(--falcon-primary) !important;
+    color: var(--falcon-gray-black) !important
+}
+
+.r-bg-secondary.r-bg-secondary.r-bg-secondary.r-bg-secondary {
+    background-color: var(--falcon-secondary) !important;
+    color: var(--falcon-gray-black) !important
+}
+
+.r-bg-info.r-bg-info.r-bg-info.r-bg-info {
+    background-color: var(--falcon-info) !important;
+    color: var(--falcon-gray-black) !important
+}
+
+.r-bg-success.r-bg-success.r-bg-success.r-bg-success {
+    background-color: var(--falcon-success) !important;
+    color: var(--falcon-gray-black) !important
+}
+
+.r-bg-warning.r-bg-warning.r-bg-warning.r-bg-warning {
+    background-color: var(--falcon-warning) !important;
+    color: var(--falcon-gray-black) !important
+}
+
+.r-bg-error.r-bg-error.r-bg-error.r-bg-error {
+    background-color: var(--falcon-danger) !important;
+    color: var(--falcon-gray-black) !important
+}
+
+.r-bg-dark.r-bg-dark.r-bg-dark.r-bg-dark {
+    background-color: var(--falcon-dark) !important;
+    color: var(--falcon-gray-white) !important
+}
+
+.r-bg-light.r-bg-light.r-bg-light.r-bg-light {
+    background-color: var(--falcon-light) !important;
+    color: var(--falcon-gray-black) !important
+}
 
 /* ==========================================================================
    X. No Categories

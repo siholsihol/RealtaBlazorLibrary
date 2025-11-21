@@ -243,7 +243,7 @@ td .k-button {
         color: var(--falcon-body-color) !important;
         background-color: transparent !important;
     }
-    /* #endregion */
+/* #endregion */
 
 /* #endregion */
 
@@ -280,7 +280,7 @@ td .k-button {
         .k-animation-container .k-window .k-window-titlebar .k-button.k-icon-button .k-button-icon {
             color: var(--falcon-headings-color);
         }
-    /* #endregion */
+/* #endregion */
 
 /* #endregion */
 
@@ -369,6 +369,11 @@ td .k-button {
         border-inline-start-width: 0px !important;
         border: none !important;
     }
+
+        .k-input .k-button:focus,
+        .k-picker .k-button:focus {
+            box-shadow: none !important;
+        }
 /* #endregion */
 
 /* #region 6.3 Disabled Base Style */
@@ -377,27 +382,28 @@ td .k-button {
     opacity: 1 !important;
 }
 
-/* All Components */
-.k-disabled [disabled],
-.k-disabled :disabled,
-.k-disabled .k-disabled,
-input[disabled],
-input:disabled,
-input.k-disabled,
-/* Target input inner that's not disabled for example in dropdown*/
-.k-picker[disabled] .k-input-inner,
-.k-picker:disabled .k-input-inner,
-.k-picker.k-disabled .k-input-inner,
-/* Target disabled groupbox inputs */
-.r_groupbox[disabled] input,
-.r_groupbox[disabled] .k-input .k-input-inner {
-    background-color: var(--falcon-200) !important;
-    outline: none !important;
-    box-shadow: none !important;
-    opacity: 0.90 !important;
-    cursor: default !important;
-    pointer-events: none !important;
-}
+    /* All Components */
+    .k-disabled [disabled],
+    .k-disabled :disabled,
+    .k-disabled .k-disabled,
+    input[disabled],
+    input:disabled,
+    input.k-disabled,
+    /* Target input inner that's not disabled for example in dropdown*/
+    .k-picker[disabled] .k-input-inner,
+    .k-picker:disabled .k-input-inner,
+    .k-picker.k-disabled .k-input-inner,
+    .k-listbox.k-disabled .k-list,
+    /* Target disabled groupbox inputs */
+    .r_groupbox[disabled] input,
+    .r_groupbox[disabled] .k-listbox .k-list {
+        background-color: var(--falcon-200) !important;
+        outline: none !important;
+        box-shadow: none !important;
+        opacity: 0.90 !important;
+        cursor: default !important;
+        pointer-events: none !important;
+    }
 
 /* Target disabled groupbox input wrappers*/
 .r_groupbox[disabled] .k-input {
@@ -408,15 +414,15 @@ input.k-disabled,
     pointer-events: none !important;
 }
 
-/* Inputs Only */
-input.k-disabled,
-input[disabled],
-input:disabled,
-/* Target disabled groupbox inputs */
-.r_groupbox[disabled] input,
-.r_groupbox[disabled] .k-input .k-input-inner {
-    border-color: var(--falcon-input-border-color) !important;
-}
+    /* Inputs Only */
+    input.k-disabled,
+    input[disabled],
+    input:disabled,
+    /* Target disabled groupbox inputs */
+    .r_groupbox[disabled] input,
+    .r_groupbox[disabled] .k-input .k-input-inner {
+        border-color: var(--falcon-input-border-color) !important;
+    }
 /* #endregion */
 
 /* #region 6.4 Hover Style */
@@ -507,11 +513,11 @@ input:disabled,
     max-width: 100%;
 }
 
-    .k-multiselect.k-disabled .k-input-values > .k-input-inner {
-        opacity: 0 !important;
-        min-width: 0 !important;
-        padding: 0.1rem 0 !important;
-    }
+.k-multiselect.k-disabled .k-input-values > .k-input-inner {
+    opacity: 0 !important;
+    min-width: 0 !important;
+    padding: 0.1rem 0 !important;
+}
 
 .k-chip-list .k-chip {
     background-color: var(--falcon-200);
@@ -543,6 +549,7 @@ input:disabled,
     background-color: var(--falcon-danger) !important;
     color: var(--falcon-white) !important;
 }
+
     #r-validation-message-tooltip.k-tooltip .k-callout {
         color: var(--falcon-danger) !important;
     }
