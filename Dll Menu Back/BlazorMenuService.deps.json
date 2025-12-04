@@ -13,7 +13,6 @@
           "R_BlazorCommon": "1.0.0",
           "R_SecurityTokenBack": "1.0.0",
           "R_SecurityTokenCommon": "1.0.0",
-          "SAM01500Back": "1.0.0",
           "R_APIBackEnd": "1.0.0.0",
           "R_APICommon": "1.0.0.0",
           "R_ApplicationBack": "1.0.0.0",
@@ -97,20 +96,6 @@
       "R_SecurityTokenCommon/1.0.0": {
         "runtime": {
           "R_SecurityTokenCommon.dll": {}
-        }
-      },
-      "SAM01500Back/1.0.0": {
-        "dependencies": {
-          "BackExtension": "1.0.0",
-          "SAM01500Common": "1.0.0"
-        },
-        "runtime": {
-          "SAM01500Back.dll": {}
-        }
-      },
-      "SAM01500Common/1.0.0": {
-        "runtime": {
-          "SAM01500Common.dll": {}
         }
       },
       "R_APIBackEnd/1.0.0.0": {
@@ -300,16 +285,6 @@
       "sha512": ""
     },
     "R_SecurityTokenCommon/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SAM01500Back/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SAM01500Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
