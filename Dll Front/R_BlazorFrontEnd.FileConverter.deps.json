@@ -10,17 +10,17 @@
       "R_BlazorFrontEnd.FileConverter/1.0.0": {
         "dependencies": {
           "R_BlazorFrontEnd": "1.0.0",
-          "Telerik.Documents.Flow.FormatProviders.Pdf": "2025.1.205"
+          "Telerik.Documents.Flow.FormatProviders.Pdf": "2025.2.520"
         },
         "runtime": {
           "R_BlazorFrontEnd.FileConverter.dll": {}
         }
       },
-      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+      "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
           }
         }
       },
@@ -45,12 +45,40 @@
           }
         }
       },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.NETCore.Targets/1.1.0": {},
+      "runtime.native.System/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
+        }
+      },
+      "runtime.native.System.IO.Compression/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
+        }
+      },
       "System.Buffers/4.5.1": {
         "runtime": {
           "lib/netstandard2.0/System.Buffers.dll": {
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.6.28619.1"
           }
+        }
+      },
+      "System.Collections/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Diagnostics.Debug/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
         }
       },
       "System.Formats.Asn1/9.0.0": {
@@ -65,10 +93,45 @@
           }
         }
       },
+      "System.Globalization/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.IO/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        }
+      },
+      "System.IO.Compression/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "System.Buffers": "4.5.1",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Handles": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0",
+          "runtime.native.System": "4.3.0",
+          "runtime.native.System.IO.Compression": "4.3.0"
+        }
+      },
       "System.Memory/4.5.5": {
         "dependencies": {
           "System.Buffers": "4.5.1",
-          "System.Numerics.Vectors": "4.5.0",
+          "System.Numerics.Vectors": "4.4.0",
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "runtime": {
@@ -78,12 +141,43 @@
           }
         }
       },
-      "System.Numerics.Vectors/4.5.0": {
+      "System.Numerics.Vectors/4.4.0": {
         "runtime": {
           "lib/netstandard2.0/System.Numerics.Vectors.dll": {
-            "assemblyVersion": "4.1.4.0",
-            "fileVersion": "4.6.26515.6"
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.6.25519.3"
           }
+        }
+      },
+      "System.Reflection/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.IO": "4.3.0",
+          "System.Reflection.Primitives": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Reflection.Primitives/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Resources.ResourceManager/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Globalization": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Runtime/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
@@ -92,6 +186,30 @@
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.52210"
           }
+        }
+      },
+      "System.Runtime.Extensions/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Runtime.Handles/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Runtime.InteropServices/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Primitives": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Handles": "4.3.0"
         }
       },
       "System.Security.Cryptography.Cng/5.0.0": {
@@ -116,7 +234,14 @@
           }
         }
       },
-      "System.Text.Encodings.Web/6.0.1": {
+      "System.Text.Encoding/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Text.Encodings.Web/8.0.0": {
         "dependencies": {
           "System.Buffers": "4.5.1",
           "System.Memory": "4.5.5",
@@ -124,26 +249,44 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Encodings.Web.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.3624.51421"
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
           }
         }
       },
-      "System.Text.Json/6.0.11": {
+      "System.Text.Json/8.0.6": {
         "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "Microsoft.Bcl.AsyncInterfaces": "8.0.0",
           "System.Buffers": "4.5.1",
           "System.Memory": "4.5.5",
-          "System.Numerics.Vectors": "4.5.0",
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
-          "System.Text.Encodings.Web": "6.0.1",
+          "System.Text.Encodings.Web": "8.0.0",
           "System.Threading.Tasks.Extensions": "4.5.4"
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Json.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.3624.51421"
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1825.31117"
           }
+        }
+      },
+      "System.Threading/4.3.0": {
+        "dependencies": {
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Threading.dll": {
+            "assemblyVersion": "4.0.12.0",
+            "fileVersion": "4.6.24705.1"
+          }
+        }
+      },
+      "System.Threading.Tasks/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
         }
       },
       "System.Threading.Tasks.Extensions/4.5.4": {
@@ -157,94 +300,83 @@
           }
         }
       },
-      "Telerik.Documents.Core/2025.1.205": {
+      "Telerik.Documents.Core/2025.2.520": {
         "dependencies": {
-          "Telerik.Licensing": "1.4.6",
-          "Telerik.Zip": "2025.1.205"
+          "System.IO.Compression": "4.3.0",
+          "Telerik.Licensing": "1.6.5"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Core.dll": {
-            "assemblyVersion": "2025.1.205.20",
-            "fileVersion": "2025.1.205.20"
+            "assemblyVersion": "2025.2.520.20",
+            "fileVersion": "2025.2.520.20"
           }
         }
       },
-      "Telerik.Documents.DrawingML/2025.1.205": {
+      "Telerik.Documents.DrawingML/2025.2.520": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
-          "Telerik.Documents.Core": "2025.1.205",
-          "Telerik.Licensing": "1.4.6"
+          "Telerik.Documents.Core": "2025.2.520",
+          "Telerik.Licensing": "1.6.5"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.DrawingML.dll": {
-            "assemblyVersion": "2025.1.205.20",
-            "fileVersion": "2025.1.205.20"
+            "assemblyVersion": "2025.2.520.20",
+            "fileVersion": "2025.2.520.20"
           }
         }
       },
-      "Telerik.Documents.Fixed/2025.1.205": {
+      "Telerik.Documents.Fixed/2025.2.520": {
         "dependencies": {
+          "System.IO.Compression": "4.3.0",
           "System.Security.Cryptography.Pkcs": "9.0.0",
-          "Telerik.Documents.Core": "2025.1.205",
-          "Telerik.Licensing": "1.4.6",
-          "Telerik.Zip": "2025.1.205"
+          "Telerik.Documents.Core": "2025.2.520",
+          "Telerik.Licensing": "1.6.5"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Fixed.dll": {
-            "assemblyVersion": "2025.1.205.20",
-            "fileVersion": "2025.1.205.20"
+            "assemblyVersion": "2025.2.520.20",
+            "fileVersion": "2025.2.520.20"
           }
         }
       },
-      "Telerik.Documents.Flow/2025.1.205": {
+      "Telerik.Documents.Flow/2025.2.520": {
         "dependencies": {
-          "Telerik.Documents.Core": "2025.1.205",
-          "Telerik.Documents.DrawingML": "2025.1.205",
-          "Telerik.Licensing": "1.4.6"
+          "Telerik.Documents.Core": "2025.2.520",
+          "Telerik.Documents.DrawingML": "2025.2.520",
+          "Telerik.Licensing": "1.6.5"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Flow.dll": {
-            "assemblyVersion": "2025.1.205.20",
-            "fileVersion": "2025.1.205.20"
+            "assemblyVersion": "2025.2.520.20",
+            "fileVersion": "2025.2.520.20"
           }
         }
       },
-      "Telerik.Documents.Flow.FormatProviders.Pdf/2025.1.205": {
+      "Telerik.Documents.Flow.FormatProviders.Pdf/2025.2.520": {
         "dependencies": {
-          "Telerik.Documents.Core": "2025.1.205",
-          "Telerik.Documents.Fixed": "2025.1.205",
-          "Telerik.Documents.Flow": "2025.1.205",
-          "Telerik.Licensing": "1.4.6"
+          "Telerik.Documents.Core": "2025.2.520",
+          "Telerik.Documents.Fixed": "2025.2.520",
+          "Telerik.Documents.Flow": "2025.2.520",
+          "Telerik.Licensing": "1.6.5"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Pdf.dll": {
-            "assemblyVersion": "2025.1.205.20",
-            "fileVersion": "2025.1.205.20"
+            "assemblyVersion": "2025.2.520.20",
+            "fileVersion": "2025.2.520.20"
           }
         }
       },
-      "Telerik.Licensing/1.4.6": {
+      "Telerik.Licensing/1.6.5": {
         "runtime": {
           "lib/netstandard2.0/Telerik.Licensing.Runtime.dll": {
-            "assemblyVersion": "1.4.6.0",
-            "fileVersion": "1.4.6.0"
-          }
-        }
-      },
-      "Telerik.Zip/2025.1.205": {
-        "dependencies": {
-          "Telerik.Licensing": "1.4.6"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Telerik.Zip.dll": {
-            "assemblyVersion": "2025.1.205.20",
-            "fileVersion": "2025.1.205.20"
+            "assemblyVersion": "1.6.5.0",
+            "fileVersion": "1.6.5.0"
           }
         }
       },
       "R_BlazorFrontEnd/1.0.0": {
         "dependencies": {
-          "System.Text.Json": "6.0.11"
+          "System.Text.Json": "8.0.6"
         },
         "runtime": {
           "R_BlazorFrontEnd.dll": {}
@@ -290,12 +422,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+    "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
-      "path": "microsoft.bcl.asyncinterfaces/6.0.0",
-      "hashPath": "microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512"
+      "sha512": "sha512-3WA9q9yVqJp222P3x1wYIGDAkpjAku0TMUaaQV22g6L67AI0LdOIrVS7Ht2vJfLHGSPVuqN94vIr15qn+HEkHw==",
+      "path": "microsoft.bcl.asyncinterfaces/8.0.0",
+      "hashPath": "microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512"
     },
     "Microsoft.Bcl.Cryptography/9.0.0": {
       "type": "package",
@@ -311,12 +443,54 @@
       "path": "microsoft.csharp/4.7.0",
       "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Targets/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
+      "path": "microsoft.netcore.targets/1.1.0",
+      "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "runtime.native.System/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-c/qWt2LieNZIj1jGnVNsE2Kl23Ya2aSTBuXMD6V7k9KWr6l16Tqdwq+hJScEpWER9753NWC8h96PaVNY5Ld7Jw==",
+      "path": "runtime.native.system/4.3.0",
+      "hashPath": "runtime.native.system.4.3.0.nupkg.sha512"
+    },
+    "runtime.native.System.IO.Compression/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==",
+      "path": "runtime.native.system.io.compression/4.3.0",
+      "hashPath": "runtime.native.system.io.compression.4.3.0.nupkg.sha512"
+    },
     "System.Buffers/4.5.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
       "path": "system.buffers/4.5.1",
       "hashPath": "system.buffers.4.5.1.nupkg.sha512"
+    },
+    "System.Collections/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
+      "path": "system.collections/4.3.0",
+      "hashPath": "system.collections.4.3.0.nupkg.sha512"
+    },
+    "System.Diagnostics.Debug/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZUhUOdqmaG5Jk3Xdb8xi5kIyQYAA4PnTNlHx1mu9ZY3qv4ELIdKbnL/akbGaKi2RnNUWaZsAs31rvzFdewTj2g==",
+      "path": "system.diagnostics.debug/4.3.0",
+      "hashPath": "system.diagnostics.debug.4.3.0.nupkg.sha512"
     },
     "System.Formats.Asn1/9.0.0": {
       "type": "package",
@@ -325,6 +499,27 @@
       "path": "system.formats.asn1/9.0.0",
       "hashPath": "system.formats.asn1.9.0.0.nupkg.sha512"
     },
+    "System.Globalization/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kYdVd2f2PAdFGblzFswE4hkNANJBKRmsfa2X5LG2AcWE1c7/4t0pYae1L8vfZ5xvE2nK/R9JprtToA61OSHWIg==",
+      "path": "system.globalization/4.3.0",
+      "hashPath": "system.globalization.4.3.0.nupkg.sha512"
+    },
+    "System.IO/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3qjaHvxQPDpSOYICjUoTsmoq5u6QJAFRUITgeT/4gqkF1bajbSmb1kwSxEA8AHlofqgcKJcM8udgieRNhaJ5Cg==",
+      "path": "system.io/4.3.0",
+      "hashPath": "system.io.4.3.0.nupkg.sha512"
+    },
+    "System.IO.Compression/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YHndyoiV90iu4iKG115ibkhrG+S3jBm8Ap9OwoUAzO5oPDAWcr0SFwQFm0HjM8WkEZWo0zvLTyLmbvTkW1bXgg==",
+      "path": "system.io.compression/4.3.0",
+      "hashPath": "system.io.compression.4.3.0.nupkg.sha512"
+    },
     "System.Memory/4.5.5": {
       "type": "package",
       "serviceable": true,
@@ -332,12 +527,40 @@
       "path": "system.memory/4.5.5",
       "hashPath": "system.memory.4.5.5.nupkg.sha512"
     },
-    "System.Numerics.Vectors/4.5.0": {
+    "System.Numerics.Vectors/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
-      "path": "system.numerics.vectors/4.5.0",
-      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+      "sha512": "sha512-UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
+      "path": "system.numerics.vectors/4.4.0",
+      "hashPath": "system.numerics.vectors.4.4.0.nupkg.sha512"
+    },
+    "System.Reflection/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ==",
+      "path": "system.reflection/4.3.0",
+      "hashPath": "system.reflection.4.3.0.nupkg.sha512"
+    },
+    "System.Reflection.Primitives/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5RXItQz5As4xN2/YUDxdpsEkMhvw3e6aNveFXUn4Hl/udNTCNhnKp8lT9fnc3MhvGKh1baak5CovpuQUXHAlIA==",
+      "path": "system.reflection.primitives/4.3.0",
+      "hashPath": "system.reflection.primitives.4.3.0.nupkg.sha512"
+    },
+    "System.Resources.ResourceManager/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/zrcPkkWdZmI4F92gL/TPumP98AVDu/Wxr3CSJGQQ+XN6wbRZcyfSKVoPo17ilb3iOr0cCRqJInGwNMolqhS8A==",
+      "path": "system.resources.resourcemanager/4.3.0",
+      "hashPath": "system.resources.resourcemanager.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+      "path": "system.runtime/4.3.0",
+      "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",
@@ -345,6 +568,27 @@
       "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    },
+    "System.Runtime.Extensions/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g==",
+      "path": "system.runtime.extensions/4.3.0",
+      "hashPath": "system.runtime.extensions.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime.Handles/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OKiSUN7DmTWeYb3l51A7EYaeNMnvxwE249YtZz7yooT4gOZhmTjIn48KgSsw2k2lYdLgTKNJw/ZIfSElwDRVgg==",
+      "path": "system.runtime.handles/4.3.0",
+      "hashPath": "system.runtime.handles.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime.InteropServices/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uv1ynXqiMK8mp1GM3jDqPCFN66eJ5w5XNomaK2XD+TuCroNTLFGeZ+WCmBMcBDyTFKou3P6cR6J/QsaqDp7fGQ==",
+      "path": "system.runtime.interopservices/4.3.0",
+      "hashPath": "system.runtime.interopservices.4.3.0.nupkg.sha512"
     },
     "System.Security.Cryptography.Cng/5.0.0": {
       "type": "package",
@@ -360,19 +604,40 @@
       "path": "system.security.cryptography.pkcs/9.0.0",
       "hashPath": "system.security.cryptography.pkcs.9.0.0.nupkg.sha512"
     },
-    "System.Text.Encodings.Web/6.0.1": {
+    "System.Text.Encoding/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-E5M5AE2OUTlCrf4omZvzzziUJO9CofBl+lXHaN5IKePPJvHqYFYYpaDPgCpR4VwaFbEebfnjOxxEBtPtsqAxpQ==",
-      "path": "system.text.encodings.web/6.0.1",
-      "hashPath": "system.text.encodings.web.6.0.1.nupkg.sha512"
+      "sha512": "sha512-BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
+      "path": "system.text.encoding/4.3.0",
+      "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
     },
-    "System.Text.Json/6.0.11": {
+    "System.Text.Encodings.Web/8.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xqC1HIbJMBFhrpYs76oYP+NAskNVjc6v73HqLal7ECRDPIp4oRU5pPavkD//vNactCn9DA2aaald/I5N+uZ5/g==",
-      "path": "system.text.json/6.0.11",
-      "hashPath": "system.text.json.6.0.11.nupkg.sha512"
+      "sha512": "sha512-yev/k9GHAEGx2Rg3/tU6MQh4HGBXJs70y7j1LaM1i/ER9po+6nnQ6RRqTJn1E7Xu0fbIFK80Nh5EoODxrbxwBQ==",
+      "path": "system.text.encodings.web/8.0.0",
+      "hashPath": "system.text.encodings.web.8.0.0.nupkg.sha512"
+    },
+    "System.Text.Json/8.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BvSpVBsVN9b+Y+wONbvJOHd1HjXQf33+XiC28ZMOwRsYb42mz3Q8YHnpTSwpwJLqYCMqM+0UUVC3V+pi25XfkQ==",
+      "path": "system.text.json/8.0.6",
+      "hashPath": "system.text.json.8.0.6.nupkg.sha512"
+    },
+    "System.Threading/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VkUS0kOBcUf3Wwm0TSbrevDDZ6BlM+b/HRiapRFWjM5O0NS0LviG0glKmFK+hhPDd1XFeSdU1GmlLhb2CoVpIw==",
+      "path": "system.threading/4.3.0",
+      "hashPath": "system.threading.4.3.0.nupkg.sha512"
+    },
+    "System.Threading.Tasks/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
+      "path": "system.threading.tasks/4.3.0",
+      "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
     "System.Threading.Tasks.Extensions/4.5.4": {
       "type": "package",
@@ -381,54 +646,47 @@
       "path": "system.threading.tasks.extensions/4.5.4",
       "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
     },
-    "Telerik.Documents.Core/2025.1.205": {
+    "Telerik.Documents.Core/2025.2.520": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sJtVnl0DPZOCY2H2yRm7J9kP9wACW1Dy897POO3MBoLK0eKYZ6K8ff3jEY3mhONsW+OC/ggkSldOMs/vEAmJzA==",
-      "path": "telerik.documents.core/2025.1.205",
-      "hashPath": "telerik.documents.core.2025.1.205.nupkg.sha512"
+      "sha512": "sha512-yN2NVptPiOuGOaunVb2WSPyDk7rKFQu3/hytj3gFdKaN8Yw8TdmbOXwVDFS/KFjv6NQ+nvwp3V3jG8GFCaBlNw==",
+      "path": "telerik.documents.core/2025.2.520",
+      "hashPath": "telerik.documents.core.2025.2.520.nupkg.sha512"
     },
-    "Telerik.Documents.DrawingML/2025.1.205": {
+    "Telerik.Documents.DrawingML/2025.2.520": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9ZeJ+tEQfyVOLjXBG/VJI8BEELhW/TnF4HCNp17bRNpi8QqkpALeJpuBL63uy+rx6GIiMSsa/YKd37u3UaoOQw==",
-      "path": "telerik.documents.drawingml/2025.1.205",
-      "hashPath": "telerik.documents.drawingml.2025.1.205.nupkg.sha512"
+      "sha512": "sha512-qPOopBY95fPg++eB9KNGrdY0vOUGT3ui5jUKBZsPMgjeo4BBT5zWG93e7Qum7i6LD65oGCGFiA3WAsSqD4gPqw==",
+      "path": "telerik.documents.drawingml/2025.2.520",
+      "hashPath": "telerik.documents.drawingml.2025.2.520.nupkg.sha512"
     },
-    "Telerik.Documents.Fixed/2025.1.205": {
+    "Telerik.Documents.Fixed/2025.2.520": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cPDpgzpSNHHFZ7IkMRpDeA5JpadSrhzpBN2diFW9Fch6+E+hTxOmykWtvxfxC6D/xeO0F3UJKvJo7evxCeW6JA==",
-      "path": "telerik.documents.fixed/2025.1.205",
-      "hashPath": "telerik.documents.fixed.2025.1.205.nupkg.sha512"
+      "sha512": "sha512-np51VVBDpdGRpoTXd9wtzxz57jBtzGx/PRhMEHwdMViTmICtRS0n9adafRK6GqFbrMRmRvITe30cbyeNSbZUGg==",
+      "path": "telerik.documents.fixed/2025.2.520",
+      "hashPath": "telerik.documents.fixed.2025.2.520.nupkg.sha512"
     },
-    "Telerik.Documents.Flow/2025.1.205": {
+    "Telerik.Documents.Flow/2025.2.520": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-n1V+QANJ/xb5z75Ma5huDn3zHmte6uMSULj9OU8v5NhwBasjyQcM+C64lG+1F69Dw6flwf0JkXHvqdjBpdIKxA==",
-      "path": "telerik.documents.flow/2025.1.205",
-      "hashPath": "telerik.documents.flow.2025.1.205.nupkg.sha512"
+      "sha512": "sha512-GIq4g648I0KZFMjiN92MBpQmslf++7NtlgO7Zn4uuH+rNK4a0OENmGRwS2e/qUUzvn7o1bEc+7kDoEgGN4GEVA==",
+      "path": "telerik.documents.flow/2025.2.520",
+      "hashPath": "telerik.documents.flow.2025.2.520.nupkg.sha512"
     },
-    "Telerik.Documents.Flow.FormatProviders.Pdf/2025.1.205": {
+    "Telerik.Documents.Flow.FormatProviders.Pdf/2025.2.520": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JbhV9DbJZ6stm3N04gQ00oo/PbQSOTD0fdgYrKgws8lzAilKaEds3oArWpMTxmgvMyOyk6NY4w7BLg2JFThnTg==",
-      "path": "telerik.documents.flow.formatproviders.pdf/2025.1.205",
-      "hashPath": "telerik.documents.flow.formatproviders.pdf.2025.1.205.nupkg.sha512"
+      "sha512": "sha512-41rdXGhUeeT4AXnL1AzX/Wq462owzO8wcRWJzGzms+YDwS8wfkZkuXciSNTeZHtu9FpW5+l73tyb7a5gjk6yuQ==",
+      "path": "telerik.documents.flow.formatproviders.pdf/2025.2.520",
+      "hashPath": "telerik.documents.flow.formatproviders.pdf.2025.2.520.nupkg.sha512"
     },
-    "Telerik.Licensing/1.4.6": {
+    "Telerik.Licensing/1.6.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZzG9aDe4ok4RCYxvoEROXwjcqM0Z5/SqPozBLJBQr5pGPtFl3gy2p0PF8aAVe+T0eqwWMT+AB+xizIy+VCrRYA==",
-      "path": "telerik.licensing/1.4.6",
-      "hashPath": "telerik.licensing.1.4.6.nupkg.sha512"
-    },
-    "Telerik.Zip/2025.1.205": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ICIaJYGk+3s1TcXrkCJR/IwZP//3szkfkM+OSgbI+Xz6s2h4LwmskN+nyy3aLvqfNGVwFN6l/a31srse5XykmQ==",
-      "path": "telerik.zip/2025.1.205",
-      "hashPath": "telerik.zip.2025.1.205.nupkg.sha512"
+      "sha512": "sha512-iCgLLH+MWFqufhk3fJi6/4TMFtjPA8/nR198O7z11lZrrefSlErS5NFBuPapNk7DlBcrWldQQBMLWEG32foTcQ==",
+      "path": "telerik.licensing/1.6.5",
+      "hashPath": "telerik.licensing.1.6.5.nupkg.sha512"
     },
     "R_BlazorFrontEnd/1.0.0": {
       "type": "project",
