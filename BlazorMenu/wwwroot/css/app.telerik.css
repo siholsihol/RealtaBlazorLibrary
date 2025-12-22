@@ -529,6 +529,18 @@ td .k-button {
 }
 /* #endregion */
 
+/* #region 6.8 Switch */
+.k-switch.k-switch-off .k-switch-thumb {
+    background-color: var(--kendo-color-primary);
+    border: none;
+}
+
+.k-switch.k-switch-on .k-switch-thumb {
+    background-color: var(--falcon-input-bg) !important;
+    border: none;
+}
+/* #endregion */
+
 /* ==========================================================================
    7. Tooltip
    ========================================================================== */
@@ -556,20 +568,56 @@ td .k-button {
 /* #endregion */
 
 /* ==========================================================================
+   8. Progress Bar
+   ========================================================================== */
+
+/* #region 8.1 Progress Bar Container Styling */
+.k-progressbar {
+    color: var(--falcon-btn-falcon-default-active-border) !important;
+    background-color: var(--falcon-btn-falcon-default-active-background) !important;
+}
+/* #endregion */
+
+/* ==========================================================================
+   9. Swithcr
+   ========================================================================== */
+
+/* #region 8.1 Progress Bar Container Styling */
+.k-progressbar {
+    color: var(--falcon-btn-falcon-default-active-border) !important;
+    background-color: var(--falcon-btn-falcon-default-active-background) !important;
+}
+
+    .k-progressbar .k-switch .k-switch-thumb.k-switch-off {
+        background-color: var(--kendo-color-primary);
+    }
+
+    .k-progressbar .k-switch .k-switch-thumb.k-switch-on {
+        background-color: var(--falcon-card-bg) !important;
+    }
+/* #endregion */
+
+/* ==========================================================================
    X. No Categories
    ========================================================================== */
 
 /* #region X.1 Remove focus styling if item is disabled */
 .k-disabled:focus, .k-disabled.k-focus,
 [disabled]:focus, [disabled].k-focus,
-:disabled:focus, :disabled.k-focus {
+:disabled:focus, :disabled.k-focus,
+.r-readonly:focus, .r-readonly.k-focus,
+[readonly]:focus, [readonly].k-focus,
+[aria-readonly="true"]:focus, [aria-readonly="true"].k-focus {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
 
 .k-disabled:focus-within,
 [disabled]:focus-within,
-:disabled:focus-within {
+:disabled:focus-within,
+.r-readonly:focus-within,
+[readonly]:focus-within,
+[aria-readonly="true"]:focus-within {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }

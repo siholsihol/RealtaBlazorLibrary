@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bimasakti 11</title>
     <base href="/" />
-    <!--<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />-->
+
     <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
 
-    <link href="css/theme.min.css" rel="stylesheet" />
+    <link href="css/theme.min.css" rel="stylesheet" media="print" onload="this.media='all'"/>
 
     <!--<link href="css/all.css" rel="stylesheet" />-->
-    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-bootstrap/all.css" rel="stylesheet" media="print" onload="this.media='all'"/>
 
     <link href="BlazorMenu.styles.css" rel="stylesheet" />
 
@@ -101,9 +101,9 @@
     <script src="vendors/anchorjs/anchor.min.js"></script>
     <script src="vendors/bootstrap/bootstrap.min.js"></script>
     <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="vendors/fontawesome/all.min.js" defer></script>
     <script src="vendors/lodash/lodash.min.js"></script>
-    <script src="js/theme.js"></script>
+    <script src="js/theme.js" defer></script>
 </body>
 
 </html>
