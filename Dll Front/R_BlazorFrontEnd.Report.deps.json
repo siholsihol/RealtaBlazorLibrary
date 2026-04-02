@@ -26,13 +26,12 @@
           }
         }
       },
-      "System.Text.Json/8.0.6": {},
       "R_BlazorFrontEnd/1.0.0": {
-        "dependencies": {
-          "System.Text.Json": "8.0.6"
-        },
         "runtime": {
-          "R_BlazorFrontEnd.dll": {}
+          "R_BlazorFrontEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIClient/1.0.0.0": {
@@ -97,13 +96,6 @@
       "sha512": "sha512-MrPSs3LgQPuvMFRoKfdmB4DztVsX6ASNek9XALz7hW4UmB8nVySlyuE2pDhZ47CICZqSHQvXet8w+sAiJDoY4A==",
       "path": "microsoft.jsinterop/8.0.21",
       "hashPath": "microsoft.jsinterop.8.0.21.nupkg.sha512"
-    },
-    "System.Text.Json/8.0.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-BvSpVBsVN9b+Y+wONbvJOHd1HjXQf33+XiC28ZMOwRsYb42mz3Q8YHnpTSwpwJLqYCMqM+0UUVC3V+pi25XfkQ==",
-      "path": "system.text.json/8.0.6",
-      "hashPath": "system.text.json.8.0.6.nupkg.sha512"
     },
     "R_BlazorFrontEnd/1.0.0": {
       "type": "project",

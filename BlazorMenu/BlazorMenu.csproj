@@ -61,6 +61,9 @@
     <Reference Include="R_BlazorFrontEnd.Excel">
       <HintPath>..\Dll Front\R_BlazorFrontEnd.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="R_BlazorFrontEnd.Observability">
+      <HintPath>..\Dll Front\R_BlazorFrontEnd.Observability.dll</HintPath>
+    </Reference>
     <Reference Include="R_BlazorFrontEnd.Report">
       <HintPath>..\Dll Front\R_BlazorFrontEnd.Report.dll</HintPath>
     </Reference>

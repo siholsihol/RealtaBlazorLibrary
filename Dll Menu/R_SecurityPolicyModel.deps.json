@@ -108,12 +108,18 @@
           "System.Text.Json": "8.0.6"
         },
         "runtime": {
-          "R_BlazorFrontEnd.dll": {}
+          "R_BlazorFrontEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {}
+          "R_SecurityPolicyCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIClient/1.0.0.0": {

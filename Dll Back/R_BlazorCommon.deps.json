@@ -8,8 +8,19 @@
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
       "R_BlazorCommon/1.0.0": {
+        "dependencies": {
+          "R_APICommonDTO": "1.0.0.0"
+        },
         "runtime": {
           "R_BlazorCommon.dll": {}
+        }
+      },
+      "R_APICommonDTO/1.0.0.0": {
+        "runtime": {
+          "R_APICommonDTO.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -17,6 +28,11 @@
   "libraries": {
     "R_BlazorCommon/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "R_APICommonDTO/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

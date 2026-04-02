@@ -119,7 +119,10 @@
           "System.ComponentModel.Annotations": "4.5.0"
         },
         "runtime": {
-          "BlazorMenuCommon.dll": {}
+          "BlazorMenuCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_BlazorFrontEnd/1.0.0": {
@@ -127,12 +130,18 @@
           "System.Text.Json": "8.0.6"
         },
         "runtime": {
-          "R_BlazorFrontEnd.dll": {}
+          "R_BlazorFrontEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {}
+          "R_SecurityPolicyCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyModel/1.0.0": {
@@ -141,7 +150,10 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyModel.dll": {}
+          "R_SecurityPolicyModel.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIClient/1.0.0.0": {

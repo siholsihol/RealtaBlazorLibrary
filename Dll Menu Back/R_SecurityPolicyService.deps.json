@@ -1,11 +1,11 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v6.0",
+    "name": ".NETCoreApp,Version=v9.0",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v6.0": {
+    ".NETCoreApp,Version=v9.0": {
       "R_SecurityPolicyService/1.0.0": {
         "dependencies": {
           "R_SecurityPolicyBack": "1.0.0",
@@ -25,7 +25,10 @@
       },
       "BackExtension/1.0.0": {
         "runtime": {
-          "BackExtension.dll": {}
+          "BackExtension.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyBack/1.0.0": {
@@ -34,7 +37,10 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyBack.dll": {}
+          "R_SecurityPolicyBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "resources": {
           "id/R_SecurityPolicyBack.resources.dll": {
@@ -44,7 +50,10 @@
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {}
+          "R_SecurityPolicyCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityTokenBack/1.0.0": {
@@ -53,7 +62,10 @@
           "R_SecurityTokenCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityTokenBack.dll": {}
+          "R_SecurityTokenBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "resources": {
           "id/R_SecurityTokenBack.resources.dll": {
@@ -63,7 +75,10 @@
       },
       "R_SecurityTokenCommon/1.0.0": {
         "runtime": {
-          "R_SecurityTokenCommon.dll": {}
+          "R_SecurityTokenCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIBackEnd/1.0.0.0": {

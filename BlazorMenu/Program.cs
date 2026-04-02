@@ -18,6 +18,7 @@ builder.R_RegisterBlazorServices(option =>
 {
     if (!builder.HostEnvironment.IsDevelopment())
         option.R_WithMultiTenant();
+    option.R_WithObservability();
 });
 
 builder.Services.R_AddBlazorMenuServices();

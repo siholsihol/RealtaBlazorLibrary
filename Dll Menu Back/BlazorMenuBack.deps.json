@@ -1,11 +1,11 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v6.0",
+    "name": ".NETCoreApp,Version=v9.0",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v6.0": {
+    ".NETCoreApp,Version=v9.0": {
       "BlazorMenuBack/1.0.0": {
         "dependencies": {
           "BackExtension": "1.0.0",
@@ -26,19 +26,23 @@
           }
         }
       },
-      "System.ComponentModel.Annotations/4.5.0": {},
       "BackExtension/1.0.0": {
         "runtime": {
-          "BackExtension.dll": {}
+          "BackExtension.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BlazorMenuCommon/1.0.0": {
         "dependencies": {
-          "R_SecurityPolicyCommon": "1.0.0",
-          "System.ComponentModel.Annotations": "4.5.0"
+          "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "BlazorMenuCommon.dll": {}
+          "BlazorMenuCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyBack/1.0.0": {
@@ -47,7 +51,10 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyBack.dll": {}
+          "R_SecurityPolicyBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "resources": {
           "id/R_SecurityPolicyBack.resources.dll": {
@@ -57,7 +64,10 @@
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {}
+          "R_SecurityPolicyCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIBackEnd/1.0.0.0": {
@@ -155,13 +165,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "System.ComponentModel.Annotations/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
-      "path": "system.componentmodel.annotations/4.5.0",
-      "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
     },
     "BackExtension/1.0.0": {
       "type": "project",

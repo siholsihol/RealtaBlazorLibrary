@@ -36,8 +36,7 @@
       },
       "Microsoft.AspNetCore.Components/8.0.21": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "8.0.21",
-          "Microsoft.AspNetCore.Components.Analyzers": "8.0.21"
+          "Microsoft.AspNetCore.Authorization": "8.0.21"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Components.dll": {
@@ -46,7 +45,6 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/8.0.21": {},
       "Microsoft.AspNetCore.Components.Authorization/8.0.21": {
         "dependencies": {
           "Microsoft.AspNetCore.Authorization": "8.0.21",
@@ -362,13 +360,12 @@
           }
         }
       },
-      "System.Text.Json/8.0.6": {},
       "R_BlazorFrontEnd/1.0.0": {
-        "dependencies": {
-          "System.Text.Json": "8.0.6"
-        },
         "runtime": {
-          "R_BlazorFrontEnd.dll": {}
+          "R_BlazorFrontEnd.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_ContextEnumAndInterface/1.0.0.0": {
@@ -424,13 +421,6 @@
       "sha512": "sha512-O1UE1JgTFQKz0easeZ9rMg8sdsMC3Qois3oc4NNubLP7S4v25C602mCvnLjv1pF6mgXWEeGLpRQYQAqKx3ZcqQ==",
       "path": "microsoft.aspnetcore.components/8.0.21",
       "hashPath": "microsoft.aspnetcore.components.8.0.21.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Components.Analyzers/8.0.21": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rYzZWBgSBCtJSsqZTrXtSUY+vhJTRCL4+5fLZayPrXQjphQUUOpIyDT1hp3b8q5ytWwP0lUMCZH7lSBQ8C5tTw==",
-      "path": "microsoft.aspnetcore.components.analyzers/8.0.21",
-      "hashPath": "microsoft.aspnetcore.components.analyzers.8.0.21.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Components.Authorization/8.0.21": {
       "type": "package",
@@ -620,13 +610,6 @@
       "sha512": "sha512-FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
       "path": "system.io.pipelines/8.0.0",
       "hashPath": "system.io.pipelines.8.0.0.nupkg.sha512"
-    },
-    "System.Text.Json/8.0.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-BvSpVBsVN9b+Y+wONbvJOHd1HjXQf33+XiC28ZMOwRsYb42mz3Q8YHnpTSwpwJLqYCMqM+0UUVC3V+pi25XfkQ==",
-      "path": "system.text.json/8.0.6",
-      "hashPath": "system.text.json.8.0.6.nupkg.sha512"
     },
     "R_BlazorFrontEnd/1.0.0": {
       "type": "project",

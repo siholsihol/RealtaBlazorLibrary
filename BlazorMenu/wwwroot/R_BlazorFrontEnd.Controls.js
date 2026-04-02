@@ -7,7 +7,8 @@ export function showPrompt(message) {
 
 export function selectText(tbId) {
     var tb = document.querySelector("#" + tbId);
-    if (tb.select) {
+
+    if (tb && tb.select) {
         tb.select();
     }
 }

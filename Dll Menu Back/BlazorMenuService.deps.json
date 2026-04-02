@@ -1,11 +1,11 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v6.0",
+    "name": ".NETCoreApp,Version=v9.0",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v6.0": {
+    ".NETCoreApp,Version=v9.0": {
       "BlazorMenuService/1.0.0": {
         "dependencies": {
           "BlazorMenuBack": "1.0.0",
@@ -24,10 +24,12 @@
           "BlazorMenuService.dll": {}
         }
       },
-      "System.ComponentModel.Annotations/4.5.0": {},
       "BackExtension/1.0.0": {
         "runtime": {
-          "BackExtension.dll": {}
+          "BackExtension.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BlazorMenuBack/1.0.0": {
@@ -38,7 +40,10 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "BlazorMenuBack.dll": {}
+          "BlazorMenuBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "resources": {
           "id/BlazorMenuBack.resources.dll": {
@@ -48,16 +53,21 @@
       },
       "BlazorMenuCommon/1.0.0": {
         "dependencies": {
-          "R_SecurityPolicyCommon": "1.0.0",
-          "System.ComponentModel.Annotations": "4.5.0"
+          "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "BlazorMenuCommon.dll": {}
+          "BlazorMenuCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_BlazorCommon/1.0.0": {
         "runtime": {
-          "R_BlazorCommon.dll": {}
+          "R_BlazorCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityPolicyBack/1.0.0": {
@@ -66,7 +76,10 @@
           "R_SecurityPolicyCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityPolicyBack.dll": {}
+          "R_SecurityPolicyBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "resources": {
           "id/R_SecurityPolicyBack.resources.dll": {
@@ -76,7 +89,10 @@
       },
       "R_SecurityPolicyCommon/1.0.0": {
         "runtime": {
-          "R_SecurityPolicyCommon.dll": {}
+          "R_SecurityPolicyCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_SecurityTokenBack/1.0.0": {
@@ -85,7 +101,10 @@
           "R_SecurityTokenCommon": "1.0.0"
         },
         "runtime": {
-          "R_SecurityTokenBack.dll": {}
+          "R_SecurityTokenBack.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "resources": {
           "id/R_SecurityTokenBack.resources.dll": {
@@ -95,7 +114,10 @@
       },
       "R_SecurityTokenCommon/1.0.0": {
         "runtime": {
-          "R_SecurityTokenCommon.dll": {}
+          "R_SecurityTokenCommon.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "R_APIBackEnd/1.0.0.0": {
@@ -241,13 +263,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "System.ComponentModel.Annotations/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
-      "path": "system.componentmodel.annotations/4.5.0",
-      "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
     },
     "BackExtension/1.0.0": {
       "type": "project",
